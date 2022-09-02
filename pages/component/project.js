@@ -1,5 +1,5 @@
 import styles from "/styles/project.module.scss";
-import { FaHome, FaGithubSquare } from "react-icons/fa";
+import { FaGithubSquare } from "react-icons/fa";
 import workData from "./workData";
 import Image from "next/image";
 
