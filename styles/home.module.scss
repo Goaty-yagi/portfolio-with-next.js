@@ -16,6 +16,12 @@
   .myInfo {
     flex-basis: 50%;
   }
+  .imgFlexBox {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .myImg {
     // flex-basis: 50%;
     position: relative;
@@ -24,7 +30,8 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    border: solid red;
+    border: 0.2rem solid lightgrey;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
     border-radius: 50vh;
   }
 }

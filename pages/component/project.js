@@ -18,13 +18,15 @@ export default function Project() {
     return (
       <div className={styles.card} key={index}>
         <h3 className={styles.projectTitle}>{ obj.title }</h3>
-        <Image 
-          src={obj.img} 
-          alt={obj.title} 
-          className={styles.img}
-          width="280px" 
-          height="150px">
-        </Image>
+        <div className={styles.imageWrapper}>
+          <Image 
+            src={obj.img} 
+            alt={obj.title} 
+            className={styles.img}
+            width="280px" 
+            height="150px">
+          </Image>
+        </div>
         <div className={styles.articleWrapper}>
           <article>
           { obj.description }
@@ -34,6 +36,7 @@ export default function Project() {
           "textAlign": "center"
         }}>
           <FaGithubSquare
+            className={styles.gitIcon}
           style={{
           "fontSize": "3rem",
           }}

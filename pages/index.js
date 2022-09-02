@@ -14,7 +14,7 @@ export default function Home() {
           <h2>Nobuhiro</h2>
           <h3>Entry-level Developer</h3>
         </div>
-        <div>
+        <div className={styles.imgFlexBox}>
           <div className={styles.myImg}>
           <Image
             src="/me.jpeg" 
