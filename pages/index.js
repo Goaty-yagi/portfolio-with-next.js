@@ -1,11 +1,17 @@
 import Image from "next/image"
+import { Suspense } from "react"
 import styles from "../styles/home.module.scss"
+import Fish from "./component/fish3d"
 import Work from "./component/project"
+
 
 export default function Home() {
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
   return (
     <div className={styles.pageProps}>
+      <Suspense>
+        <Fish/>
+      </Suspense>
       <div className={styles.box}>
         <div className={styles.test}>{introText}</div>
       </div>

@@ -2,6 +2,7 @@ import styles from "/styles/project.module.scss";
 import { FaGithubSquare } from "react-icons/fa";
 import workData from "./workData";
 import Image from "next/image";
+import { useRef } from "react";
 
 class WorkObj {
     constructor(img, title, description, url) {
@@ -12,8 +13,14 @@ class WorkObj {
     }
 }
 
+
 export default function Project() {
+  let refs = useRef(null)
   console.log(Array.isArray(workData),workData)
+  const iconClick = (e) => {
+    console.log("clicked",e)
+    window.open(obj.githubUrl)
+  }
   const markup = workData.projectData.map((obj, index) => {
     return (
       <div className={styles.card} key={index}>
@@ -32,20 +39,22 @@ export default function Project() {
           { obj.description }
           </article>
         </div>
-        <div style={{
-          "textAlign": "center"
-        }}>
+        <div  
+          style={{
+            "textAlign": "center"
+          }}
+        >
           <FaGithubSquare
             className={styles.gitIcon}
-          style={{
-          "fontSize": "3rem",
-          }}
-          onClick={() => window.open(obj.githubUrl)}/>
+            style={{
+            "fontSize": "3rem",
+            }}
+          onClick={(e) => iconClick(e)}/>
         </div>
       </div>
     )
   })
-  console.log(markup)
+  console.log(refs)
   return (
     <section>
       <h1>Project</h1>

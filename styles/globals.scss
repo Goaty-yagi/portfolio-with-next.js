@@ -19,10 +19,18 @@ body {
   align-items: center;
   flex-direction: column;
 }
-// a {
-//   color: inherit;
-//   text-decoration: none;
-// }
+.darkMain {
+  background-size: cover;
+  border: solid red;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: no-repeat $dark-background-color;
+  color: lightgray;
+}
 
 * {
   box-sizing: border-box;
