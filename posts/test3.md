@@ -1,9 +1,8 @@
 ---
-title: 'test post'
+title: 'test post3'
 date: 'June 24 2022'
-excerpt: 'this is the excerpt'
+excerpt: 'this is the excerpt3'
 cover_image: '/images/posts/img1.png'
-tags: ['Javascript','Python']
 ---
 ## Heading Two
 

@@ -1,0 +1,34 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .post {
+        display: flex;
+        flex-direction: column;
+        height: 330px;
+        border: solid gray;
+        border-radius: 0.5rem;
+        margin: 0 0.2rem;
+        background: rgba(255,255,255,0.6);
+        .image {
+            position: relative;
+            height: 100px;
+            margin: 0.2rem 0;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .dateWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            div{
+                font-size: 0.9rem;
+                background: lightgray;
+                border-radius: 0.2rem;
+                padding: 0 0.2rem;
+                color: black;
+            }
+        }
+    }
+
+}

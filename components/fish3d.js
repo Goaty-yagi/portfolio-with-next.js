@@ -1,4 +1,4 @@
-import styles from "/styles/footer.module.scss";
+import styles from "/styles/components/footer.module.scss";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model from "./model";

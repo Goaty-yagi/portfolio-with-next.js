@@ -4,24 +4,12 @@ import matter from "gray-matter"
 
 import Image from "next/image"
 import { Suspense } from "react"
-import styles from "../styles/home.module.scss"
-import Fish from "../component/fish3d"
-import Work from "../component/project"
-import Post from "../component/post"
+import styles from "../styles/components/home.module.scss"
+import Fish from "../components/fish3d"
+import Work from "../components/project"
+import Post from "../components/post"
 
 export default function Home({posts}) {
-  // function PostComponent() {
-  //   return (
-  //     <section>
-  //       <h1>Post</h1>
-  //         {posts.map((post, index) => {
-  //           return ( 
-  //             <Post post={post} key={index}/>
-  //           )
-  //         })}
-  //     </section>
-  //   )
-  // }
    
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
   return (
