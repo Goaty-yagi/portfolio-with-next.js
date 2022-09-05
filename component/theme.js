@@ -17,14 +17,16 @@ export default function Theme() {
     setData(icon);
   };
   return (
-    <div
-      onClick={(e) => {
-        e.preventDefault();
-        themeHandler();
-      }}
-      className={themeClicked ? styles.themeDark : styles.theme}
-    >
-      {theme}
+    <div className={styles.themeWapper}>
+      <div
+        onClick={(e) => {
+          e.preventDefault();
+          themeHandler();
+        }}
+        className={themeClicked ? styles.themeDark : styles.theme}
+      >
+        {theme}
+      </div>
     </div>
   );
 }

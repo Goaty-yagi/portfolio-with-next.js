@@ -1,3 +1,6 @@
+@import "animation.module.scss";
+
+
 .nav {
     position: relative;
     display: flex;
@@ -29,9 +32,11 @@
         background: lightgray;
         // border: solid gray;
     }
-    .theme {
+    .themeWapper {
         position: absolute;
         right: 0;
+    }
+    .theme {
         background: rgb(255, 235, 197);
         border-radius: 0.2rem;
         padding: 0.4rem;
@@ -40,14 +45,13 @@
         align-items: center;
         font-size: 1.5rem;
         transition: .5s;
+        animation: fadeOutVir .5s reverse;
     }
     .theme:hover {
         background: orange;
         color: rgb(240, 240, 240);
     }
     .themeDark {
-        position: absolute;
-        right: 0;
         background: rgb(197, 204, 255);
         color: black;
         border-radius: 0.2rem;
@@ -57,6 +61,7 @@
         align-items: center;
         font-size: 1.5rem;
         transition: .5s;
+        animation: fadeOutVir .5s reverse;
     }
     .themeDark:hover {
         background: purple;
