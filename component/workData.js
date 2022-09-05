@@ -1,4 +1,5 @@
-
+// Data for project comp.
+ 
  const projectData = [
     {
         "img": "/neko-japanese.png",

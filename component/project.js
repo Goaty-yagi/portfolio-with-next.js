@@ -15,10 +15,7 @@ class WorkObj {
 
 
 export default function Project() {
-  let refs = useRef(null)
-  console.log(Array.isArray(workData),workData)
   const iconClick = (e) => {
-    console.log("clicked",e)
     window.open(obj.githubUrl)
   }
   const markup = workData.projectData.map((obj, index) => {
@@ -54,7 +51,6 @@ export default function Project() {
       </div>
     )
   })
-  console.log(refs)
   return (
     <section>
       <h1>Project</h1>

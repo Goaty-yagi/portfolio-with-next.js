@@ -17,7 +17,7 @@ export default function GitHub() {
         return res.json();
       }).then(function (info) {
         setData(info);
-        console.log(info)
+        
       });
   }, []); // Call it once on initial render (never again)
 

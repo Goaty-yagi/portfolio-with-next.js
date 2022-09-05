@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { GiFishbone } from "react-icons/Gi";
 import { AiOutlineLinkedin } from "react-icons/Ai";
 import { ImBlog } from "react-icons/im";
 
@@ -13,7 +13,9 @@ export default function Header() {
   return (
     <header>
       <nav className={styles.nav}>
-        <div className={styles.logo}>LOGO</div>
+        <div className={styles.logo}>
+          <GiFishbone/><span>NOBUHIRO</span>
+        </div>
         <div>
           <a className={styles.navMenu}>
             <FaHome className={styles.menuLogo}/>
