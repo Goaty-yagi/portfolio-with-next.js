@@ -14,7 +14,9 @@ export default function Header() {
     <header>
       <nav className={styles.nav}>
         <div className={styles.logo}>
-          <GiFishbone/><span>NOBUHIRO</span>
+          <Link href="/">
+            <a><GiFishbone/><span>NOBUHIRO</span></a>
+          </Link>
         </div>
         <div>
           <a className={styles.navMenu}>

@@ -17,18 +17,17 @@
             justify-content: center;
             
         }
-        .dateWrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            div{
-                font-size: 0.9rem;
-                background: lightgray;
-                border-radius: 0.2rem;
-                padding: 0 0.2rem;
-                color: black;
-            }
-        }
     }
-
+}
+.dateWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    div{
+        font-size: 0.9rem;
+        background: lightgray;
+        border-radius: 0.2rem;
+        padding: 0 0.2rem;
+        color: black;
+    }
 }

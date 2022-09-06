@@ -8,6 +8,18 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #000000;
+  cursor: default;
+  
+}
+a:active {
+  color: #000000;
+}
+a:focus {
+  outline: none;
+}
 .main {
   background: no-repeat $background-color;
   background-size: cover;
@@ -18,6 +30,12 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  a {
+    text-decoration: none;
+    color: #000000;
+    cursor: default;
+    
+  }
 }
 .darkMain {
   background-size: cover;
@@ -30,6 +48,12 @@ body {
   flex-direction: column;
   background: no-repeat $dark-background-color;
   color: lightgray;
+  a {
+    text-decoration: none;
+    color: lightgray;
+    cursor: default;
+    
+  }
 }
 
 * {

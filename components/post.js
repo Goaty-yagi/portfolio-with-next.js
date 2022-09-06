@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/components/post.module.scss";
-import Button from "./button";
 import btn from "../styles/components/button.module.scss";
 
-console.log(Button);
 export default function Post({ posts }) {
   const bunText = "Read More >";
-  const arrow = ">";
+  console.log(posts)
   return (
     <section>
       <h1>Post</h1>
@@ -30,7 +28,7 @@ export default function Post({ posts }) {
                 <div>Posted on {post.frontmatter.date}</div>
               </div>
               <div className={btn.btnContainer}>
-                <Link href={post.slug}>
+                <Link href={"posts/" + post.slug}>
                   <div className={btn.btn}>{bunText}</div>
                 </Link>
               </div>
@@ -38,6 +36,6 @@ export default function Post({ posts }) {
           );
         })}
       </div>
-    </section>
+    </section> 
   );
 }

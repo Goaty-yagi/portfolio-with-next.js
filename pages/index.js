@@ -62,14 +62,11 @@ export async function getStaticProps() {
       ), "utf-8")
     
     const {data:frontmatter} = matter(markdownWithMeta)
-
-    console.log(matter(markdownWithMeta))
     return {
       slug,
       frontmatter
     }
   })
-  console.log(posts)
   return {
     props: {
       posts
