@@ -14,6 +14,7 @@
 .introContainer {
   display: flex;
   align-items: center;
+  margin: 0.5rem 0;
   .myInfo {
     flex-basis: 50%;
   }
@@ -35,4 +36,8 @@
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
     border-radius: 50vh;
   }
+}
+.historyWrapper {
+  margin: 2rem 0;
+  text-align: center;
 }

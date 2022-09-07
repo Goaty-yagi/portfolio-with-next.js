@@ -31,7 +31,6 @@
     }
     .navMenu {
         padding: 0.2rem 0.5rem;
-        height: 20px;
         position: relative;
         border-right: 0.2rem solid darkorange;
         transition: .5s;
@@ -48,7 +47,9 @@
     }
     .navMenu:hover {
         background: lightgray;
-        // border: solid gray;
+    }
+    .navMenu:hover .darkHover {
+        color: black;       
     }
     .themeWapper {
         position: absolute;

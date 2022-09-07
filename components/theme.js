@@ -16,7 +16,6 @@ export default function Theme() {
     transform: "translateY(-30px)",
     pointerEvents: "none"
   }
-
   const themeHandler = () => {
     const className = themeClicked ? ".darkMain": ".main"
     const main = document.querySelector(className)

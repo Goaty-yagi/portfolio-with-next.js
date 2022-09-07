@@ -9,7 +9,7 @@ import Link from "next/link";
 import Theme from "./theme";
 
 export default function Header() {
-
+  
   return (
     <header>
       <nav className={styles.nav}>
@@ -18,22 +18,33 @@ export default function Header() {
             <a><div className={styles.boneIcon}><GiFishbone/></div><span>NOBUHIRO</span></a>
           </Link>
         </div>
-        <div>
+        <div 
+          style={{
+            display:"flex"
+          }}
+        >
           {/* <a className={styles.navMenu}>
             <FaHome className={styles.menuLogo}/>
             HOME
           </a> */}
-          <a className={styles.navMenu}>
-            <FaGithubAlt className={styles.menuLogo}/>
-            SOURCE
-          </a>
-          <a className={styles.navMenu}>
-            <AiOutlineLinkedin className={styles.menuLogo}/>
-            LINKED_IN
-          </a>
-          <a className={styles.navMenu}>
-            <ImBlog className={styles.menuLogo}/>
-            POST</a>
+          <div className={styles.navMenu}>
+            <div className={styles.darkHover}>
+              <FaGithubAlt className={styles.menuLogo}/>
+              SOURCE
+            </div>
+          </div>
+          <div className={styles.navMenu}>
+            <div className={styles.darkHover}>
+              <AiOutlineLinkedin className={styles.menuLogo}/>
+              LINKED_IN
+            </div>
+          </div>
+          <div className={styles.navMenu}>
+           <div className={styles.darkHover}>
+              <ImBlog className={styles.menuLogo}/>
+              POST
+            </div>
+          </div>
         </div>
         <Theme/>
       </nav>

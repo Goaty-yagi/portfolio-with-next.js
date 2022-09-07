@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/components/post.module.scss";
+import globalStyles from "/styles/components/global_components/text.module.scss";
 import btn from "../styles/components/button.module.scss";
 
 export default function Post({ posts }) {
@@ -8,7 +9,7 @@ export default function Post({ posts }) {
   console.log(posts)
   return (
     <section>
-      <h1>Post</h1>
+      <h1 className={globalStyles.sectionH1}>Post</h1>
       <div className={styles.gridContainer}>
         {posts.map((post, index) => {
           return (

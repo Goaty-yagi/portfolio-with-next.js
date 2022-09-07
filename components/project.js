@@ -1,4 +1,5 @@
 import styles from "/styles/components/project.module.scss";
+import globalStyles from "/styles/components/global_components/text.module.scss";
 import { FaGithubSquare } from "react-icons/fa";
 import workData from "./workData";
 import Image from "next/image";
@@ -33,16 +34,9 @@ export default function Project() {
         <div className={styles.articleWrapper}>
           <article>{obj.description}</article>
         </div>
-        <div
-          style={{
-            textAlign: "center",
-          }}
-        >
+        <div className={styles.iconWrapper}>
           <FaGithubSquare
             className={styles.gitIcon}
-            style={{
-              fontSize: "3rem",
-            }}
             onClick={() => iconClick(obj)}
           />
         </div>
@@ -51,7 +45,7 @@ export default function Project() {
   });
   return (
     <section>
-      <h1>Project</h1>
+      <h1 className={globalStyles.sectionH1}>Project</h1>
       <div className={styles.cardWrapper}>{markup}</div>
     </section>
   );

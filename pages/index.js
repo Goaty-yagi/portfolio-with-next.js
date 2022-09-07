@@ -37,7 +37,7 @@ export default function Home({posts}) {
           </div>
         </div>
       </div>
-      <div>
+      <div className={styles.historyWrapper}>
         something...
       </div>
       <Work/>
