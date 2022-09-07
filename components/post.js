@@ -13,20 +13,25 @@ export default function Post({ posts }) {
       <div className={styles.gridContainer}>
         {posts.map((post, index) => {
           return (
+
             <div className={styles.post} key={index}>
               <div className={styles.image}>
                 <Image
-                  layout="fill"
-                  // height={"200px"}
-                  // width={"600px"}
+                  // layout="fill"
+                  height={"150px"}
+                  width={"280px"}
                   objectFit="contain"
                   src={post.frontmatter.cover_image}
                 />
               </div>
-              <h3>{post.frontmatter.title}</h3>
-              <p>{post.frontmatter.excerpt}</p>
               <div className={styles.dateWrapper}>
                 <div>Posted on {post.frontmatter.date}</div>
+              </div>
+              <div className={styles.title}>
+                {post.frontmatter.title}
+              </div>
+              <div className={styles.excerptWrapper}>
+                <p>{post.frontmatter.excerpt}</p>
               </div>
               <div className={btn.btnContainer}>
                 <Link href={"posts/" + post.slug}>

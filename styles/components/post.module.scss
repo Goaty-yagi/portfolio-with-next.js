@@ -1,28 +1,40 @@
 .gridContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     .post {
+        position: relative;
         display: flex;
         flex-direction: column;
-        height: 330px;
+        height: 350px;
         border: solid gray;
         border-radius: 0.5rem;
-        margin: 0 0.2rem;
+        margin: 0.5rem 0.2rem;
         background: rgba(255,255,255,0.6);
         .image {
             position: relative;
-            height: 100px;
+            height: 150px;
             margin: 0.2rem 0;
             display: flex;
             justify-content: center;
             
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-left: 0.2rem;
+        }
+        .excerptWrapper{
+            padding: 0 0.4rem;
+            height: 100px;
+            overflow-y: scroll;
         }
     }
 }
 .dateWrapper {
     width: 100%;
     display: flex;
-    justify-content: center;
+    margin-left: 0.2rem;
+    margin-bottom: 1rem;
     div{
         font-size: 0.9rem;
         background: lightgray;
