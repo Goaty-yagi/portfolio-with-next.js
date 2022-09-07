@@ -5,58 +5,54 @@ import Image from "next/image";
 import { useRef } from "react";
 
 class WorkObj {
-    constructor(img, title, description, url) {
-        this.img = img
-        this.title = title
-        this.description = description
-        this.url = url
-    }
+  constructor(img, title, description, url) {
+    this.img = img;
+    this.title = title;
+    this.description = description;
+    this.url = url;
+  }
 }
 
-
 export default function Project() {
-  const iconClick = (e) => {
-    window.open(obj.githubUrl)
-  }
+  const iconClick = (obj) => {
+    window.open(obj.githubUrl);
+  };
   const markup = workData.projectData.map((obj, index) => {
     return (
       <div className={styles.card} key={index}>
-        <h3 className={styles.projectTitle}>{ obj.title }</h3>
+        <h3 className={styles.projectTitle}>{obj.title}</h3>
         <div className={styles.imageWrapper}>
-          <Image 
-            src={obj.img} 
-            alt={obj.title} 
+          <Image
+            src={obj.img}
+            alt={obj.title}
             className={styles.img}
-            width="280px" 
-            height="150px">
-          </Image>
+            width="280px"
+            height="150px"
+          ></Image>
         </div>
         <div className={styles.articleWrapper}>
-          <article>
-          { obj.description }
-          </article>
+          <article>{obj.description}</article>
         </div>
-        <div  
+        <div
           style={{
-            "textAlign": "center"
+            textAlign: "center",
           }}
         >
           <FaGithubSquare
             className={styles.gitIcon}
             style={{
-            "fontSize": "3rem",
+              fontSize: "3rem",
             }}
-          onClick={(e) => iconClick(e)}/>
+            onClick={() => iconClick(obj)}
+          />
         </div>
       </div>
-    )
-  })
+    );
+  });
   return (
     <section>
       <h1>Project</h1>
-      <div className={styles.cardWrapper}>
-        {markup}
-      </div>
+      <div className={styles.cardWrapper}>{markup}</div>
     </section>
   );
 }

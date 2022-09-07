@@ -19,3 +19,18 @@
     border: solid rgb(146, 243, 247);
     background: rgb(230, 255, 248);
 }
+.btnOrange {
+    color: black;
+    text-align: center;
+    display: inline;
+    border: solid rgb(226, 182, 81);
+    background: rgb(246, 234, 209);
+    border-radius: 50vh;
+    padding: 0.2rem 0.8rem;
+    margin: 1rem;
+    transition: .5s;
+}
+.btnOrange:hover {
+    border: solid rgb(243, 176, 19);
+    background: rgb(220, 247, 247);
+}

@@ -29,7 +29,7 @@ export default function Post({ posts }) {
               </div>
               <div className={btn.btnContainer}>
                 <Link href={"posts/" + post.slug}>
-                  <div className={btn.btn}>{bunText}</div>
+                  <div className={btn.btnOrange}>{bunText}</div>
                 </Link>
               </div>
             </div>

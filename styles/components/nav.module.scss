@@ -11,6 +11,21 @@
     margin-top: 2rem;
     .logo {
         margin-right: 1rem;
+        a{
+            display: flex;
+            span {
+                transition: .5s;
+            }
+        }
+    }
+    .logo:hover .boneIcon {
+        transform: rotate(90deg);
+        transition: .5s;
+    }
+    .boneIcon {
+        margin-right: 0.2rem;
+        font-size: 1.2rem;
+        transition: .5s;
     }
     .navMenu {
         padding: 0.2rem 0.5rem;
@@ -45,12 +60,18 @@
         align-items: center;
         font-size: 1.5rem;
         transition: .5s;
-        animation: fadeOutVir .5s reverse;
+        // animation: fadeOutVir .5s reverse;
     }
     .theme:hover {
         background: orange;
         color: rgb(240, 240, 240);
     }
+    // .theme:active {
+    //     animation: fadeOutVir .5s forwards;
+    // }
+    // .themeLight {
+    //     background: rgb(255, 235, 197);
+    // }
     .themeDark {
         background: rgb(197, 204, 255);
         color: black;
@@ -61,12 +82,15 @@
         align-items: center;
         font-size: 1.5rem;
         transition: .5s;
-        animation: fadeOutVir .5s reverse;
+        // animation: fadeOutVir .5s reverse;
     }
     .themeDark:hover {
         background: purple;
         color: rgb(240, 240, 240);
     }
+    // .themeDark:active {
+    //     animation: fadeOutVir .5s forwards;
+    // }
 }
 
 

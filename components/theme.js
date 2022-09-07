@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FiSun, FiMoon } from "react-icons/fi";
-
 let themeClicked = false;
 
 export default function Theme() {
-  let markup = <FiSun />;
-  const [theme, setData] = useState(markup);
+  const [theme, setData] = useState();
+  const show ={
+    position: "absolute",
+    opacity:100,
+    transform: "translateY(0px)"
+  }
+  const hide = {
+    position: "absolute",
+    opacity:0,
+    transform: "translateY(-30px)",
+    pointerEvents: "none"
+  }
 
   const themeHandler = () => {
     const className = themeClicked ? ".darkMain": ".main"
@@ -17,16 +26,21 @@ export default function Theme() {
     setData(icon);
   };
   return (
-    <div className={styles.themeWapper}>
-      <div
-        onClick={(e) => {
-          e.preventDefault();
-          themeHandler();
-        }}
-        className={themeClicked ? styles.themeDark : styles.theme}
-      >
-        {theme}
-      </div>
+    <div className={styles.themeWapper}
+      onClick={(e) => {
+        e.preventDefault();
+        themeHandler();
+      }}>
+        <div 
+          className={styles.themeDark}
+          style={themeClicked ? show : hide}>
+          <FiMoon/>
+        </div>
+        <div 
+          className={styles.theme}
+          style={themeClicked ? hide : show}>
+          <FiSun/>
+        </div>
     </div>
   );
 }

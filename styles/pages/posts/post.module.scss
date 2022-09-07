@@ -1,8 +1,11 @@
+@import "styles/components/animation.module.scss";
+
 .postWrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
+    animation: fadeOutVir 1s reverse;
 }
 .title {
     text-align: center;

@@ -15,14 +15,14 @@ export default function Header() {
       <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link href="/">
-            <a><GiFishbone/><span>NOBUHIRO</span></a>
+            <a><div className={styles.boneIcon}><GiFishbone/></div><span>NOBUHIRO</span></a>
           </Link>
         </div>
         <div>
-          <a className={styles.navMenu}>
+          {/* <a className={styles.navMenu}>
             <FaHome className={styles.menuLogo}/>
             HOME
-          </a>
+          </a> */}
           <a className={styles.navMenu}>
             <FaGithubAlt className={styles.menuLogo}/>
             SOURCE
