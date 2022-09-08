@@ -5,7 +5,8 @@
         "img": "/neko-japanese.png",
         "title": "Neko-Japanese",
         "description": "This is my first project built with Vue-CLI and Django",
-        "githubUrl": "https://github.com/Goaty-yagi/quiz_project" 
+        "githubUrl": "https://github.com/Goaty-yagi/quiz_project",
+        "postUrl": "https://neko-japanese.herokuapp.com/"
     },
     {
         "img": "/quiz-ranking-dojo.png",
@@ -16,7 +17,8 @@
         so I chose to build it in this way. I believe that this knowledge definitely help my future-self,
         when I learn new frameworks or libraries.
         `,
-        "githubUrl": "https://github.com/Goaty-yagi/GA_SPA_Final_Project"
+        "githubUrl": "https://github.com/Goaty-yagi/GA_SPA_Final_Project",
+        "postUrl": "https://quiz-ranking-dojo.herokuapp.com/"
     }
 ]
 export default{

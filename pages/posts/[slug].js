@@ -17,10 +17,7 @@ export default function PostPage({
 }) {
   const goBack = "< GoBack";
   return (
-    <div>
-      {/* <Link href="/">
-        <div className={styles.btn}>{goBack}</div>
-      </Link> */}
+    // <div>
       <div className={pagePostStyles.postWrapper}>
         <h1 className={pagePostStyles.title}>{title}</h1>
         <div className={pagePostStyles.dateWrapper}>
@@ -46,7 +43,7 @@ export default function PostPage({
           <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 

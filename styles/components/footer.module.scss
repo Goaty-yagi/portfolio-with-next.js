@@ -11,3 +11,14 @@
     bottom: 0;
     color: lightgray;
 }
+.linkedinIcon {
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+}
+.icon {
+    transition: .5s;
+}
+.icon:hover {
+    color: aquamarine;
+}
