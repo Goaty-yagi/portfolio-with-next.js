@@ -33,8 +33,15 @@ export default function PostPage({
             )
           })}
         </div>
-        <div className={pagePostStyles.imgWrapper}></div>
-        <Image src={cover_image} alt="image" layout="fill" objectFit="contain" />
+        <div className={pagePostStyles.imgWrapper}>
+          <Image 
+            src={cover_image} 
+            alt="image" 
+            width={"600px"}
+            height={"300px"}
+            // layout="fill" 
+             />
+        </div>
         <div className="post-body">
           <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
         </div>
