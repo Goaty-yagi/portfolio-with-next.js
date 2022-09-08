@@ -4,6 +4,8 @@ import styles from "../styles/components/post.module.scss";
 import globalStyles from "/styles/components/global_components/text.module.scss";
 import btn from "../styles/components/button.module.scss";
 
+
+
 export default function Post({ posts }) {
   const bunText = "Read More >";
   console.log(posts)
@@ -24,8 +26,10 @@ export default function Post({ posts }) {
                   src={post.frontmatter.cover_image}
                 />
               </div>
-              <div className={styles.dateWrapper}>
-                <div>Posted on {post.frontmatter.date}</div>
+              <div className={styles.dateContainer}>
+                <div className={styles.dateWrapper}>
+                  <div>Posted on {post.frontmatter.date}</div>
+                </div>
               </div>
               <div className={styles.title}>
                 {post.frontmatter.title}

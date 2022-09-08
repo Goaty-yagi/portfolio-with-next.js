@@ -37,18 +37,22 @@ export default function Header() {
               SOURCE
             </div>
           </div>
-          <div className={styles.navMenu}>
-            <div className={styles.darkHover}>
-              <GiVintageRobot className={styles.menuLogo}/>
-              PROJECTS
+          <Link href="/project">
+            <div className={styles.navMenu}>
+              <div className={styles.darkHover}>
+                <GiVintageRobot className={styles.menuLogo}/>
+                PROJECTS
+              </div>
             </div>
-          </div>
-          <div className={styles.navMenu}>
-           <div className={styles.darkHover}>
-              <ImBlog className={styles.menuLogo}/>
-              POST
+          </Link>
+          <Link href={"/post"}>
+            <div className={styles.navMenu}>
+              <div className={styles.darkHover}>
+                  <ImBlog className={styles.menuLogo}/>
+                  POST
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         <Theme/>
       </nav>

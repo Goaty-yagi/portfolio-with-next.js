@@ -5,10 +5,9 @@ import {marked} from "marked";
 import Link from "next/link";
 import Image from "next/image";
 
-import styles from "/styles/components/button.module.scss";
+
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
-import { arraySlice } from "three/src/animation/AnimationUtils";
 
 export default function PostPage({
   frontmatter: { title, tags, date, cover_image },
@@ -20,15 +19,17 @@ export default function PostPage({
     // <div>
       <div className={pagePostStyles.postWrapper}>
         <h1 className={pagePostStyles.title}>{title}</h1>
-        <div className={pagePostStyles.dateWrapper}>
-          Posted on {date}
+        <div className={postStyles.dateWrapper}>
+          <div>Posted on {date}</div>
         </div>
-        <div className={pagePostStyles.tagWrapper}>
-          {tags.map((tag, index) => {
-            return (
-                <div key={index}>{tag}</div>
-            )
-          })}
+        <div className={pagePostStyles.tagContainer}>
+          <div className={pagePostStyles.tagWrapper}>
+            {tags.map((tag, index) => {
+              return (
+                  <div key={index}>{tag}</div>
+              )
+            })}
+          </div>
         </div>
         <div className={pagePostStyles.imgWrapper}>
           <Image 

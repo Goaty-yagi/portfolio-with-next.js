@@ -8,9 +8,10 @@ import styles from "../styles/components/home.module.scss"
 import Fish from "../components/fish3d"
 import Work from "../components/project"
 import Post from "../components/post"
+import { sortByDate } from "../utils"
+
 
 export default function Home({posts}) {
-   
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
   return (
     <div className={styles.pageProps}>
@@ -69,7 +70,7 @@ export async function getStaticProps() {
   })
   return {
     props: {
-      posts
+      posts: posts.sort(sortByDate)
     }
   }
 }
