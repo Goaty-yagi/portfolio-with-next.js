@@ -9,12 +9,39 @@ import styles from "../styles/pages/post.module.scss";
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
 import Link from "next/link";
+import { useState } from "react";
+
+
+const currentType = 'filterByTag'
+function filterByTag(tag, posts) {
+  return posts.filter(post => {
+    if(post.frontmatter.tags.includes(tag)) {
+      return post
+    }
+  })
+}
 
 export default function PostPage({ posts }) {
-  console.log("PRO", posts);
+  // const [currentType, setData] = useState('filterByTag')
+  const tagSet = setArrayFromTags()
+  console.log(tagSet)
+
+  function setArrayFromTags() {
+    const set = new Set()
+    for(let i = 0; i < posts.length; i ++) {
+      posts[i].frontmatter.tags.forEach(tag => {
+        set.add(tag)
+      })
+    }
+    return Array.from(set)
+  }
+  
   return (
     <div className={styles.postWrapper}>
       <h1 className={styles.mainTitle}>POST</h1>
+      <div>
+
+      </div>
       {posts.map((post, index) => {
         return (
           <div className={styles.eachPost} key={index}>
@@ -76,6 +103,13 @@ export async function getStaticProps() {
       frontmatter,
     };
   });
+  if(currentType === "filterByTag") {
+    return {
+      props: {
+        posts: filterByTag("Javascript", posts).sort(sortByDate),
+      },
+    };
+  }
   return {
     props: {
       posts: posts.sort(sortByDate),

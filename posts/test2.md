@@ -3,7 +3,7 @@ title: 'Python Book Review'
 date: 'March 7, 2021'
 excerpt: 'In this review, we will be looking at the new Python book from Oriley'
 cover_image: '/images/posts/python.png'
-tags: ['Javascript','Python']
+tags: ['Javascript']
 ---
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat
 haec praepes [partes epulae](http://cui.com/), in egisse de. Caecisque ter
