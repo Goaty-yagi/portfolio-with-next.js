@@ -18,6 +18,15 @@
         transform: rotate(90deg)
     }
 }
+
+@keyframes rotate180 {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(180deg)
+    }
+}
 :export {
     fadeOutVir : fadeOutVir;
     rotate : rotate;

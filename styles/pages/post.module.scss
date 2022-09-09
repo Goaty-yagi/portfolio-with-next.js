@@ -51,3 +51,39 @@
     padding: 0.3rem;
     height: 50px;
 }
+
+//selector
+
+.selectContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.selectBox {
+    position: absolute;
+    background: rgba(255,255,255,0.6);
+    border-radius: 0.3rem;
+    border: solid navy;
+    width: 130px;
+    .defaOption{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        .defaTag {
+            margin: 0.3rem;
+        }
+        .iconWrapper {
+            border-left: solid navy;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.2rem;
+            .arrowDefa{
+                animation: rotate180 0.5s reverse;
+                // transition: .5s;
+            }
+            .arrowUp {
+                animation: rotate180 0.5s forwards;
+            }
+        }
+    }
+}

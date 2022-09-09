@@ -9,8 +9,9 @@ import styles from "../styles/pages/post.module.scss";
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
 import Link from "next/link";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { BsCaretDownFill } from "react-icons/Bs"
+import { FaHome, FaGithubAlt } from "react-icons/fa";
 
 const currentType = 'filterByTag'
 function filterByTag(tag, posts) {
@@ -22,10 +23,14 @@ function filterByTag(tag, posts) {
 }
 
 export default function PostPage({ posts }) {
-  // const [currentType, setData] = useState('filterByTag')
-  const tagSet = setArrayFromTags()
-  console.log(tagSet)
+  const [pullDown, setData] = useState(false)
+  const [currentTag, setTag] = useState('Select Tag')
+  const [allPosts, setPost] = useState(posts)
 
+  function postHandler(tag) {
+    setPost(filterByTag(tag, posts).sort(sortByDate))
+    console.log("All",currentTag,allPosts)
+  }
   function setArrayFromTags() {
     const set = new Set()
     for(let i = 0; i < posts.length; i ++) {
@@ -35,14 +40,57 @@ export default function PostPage({ posts }) {
     }
     return Array.from(set)
   }
-  
+  function pullDownHandler() {
+    setData(!pullDown)
+  }
+  function clickedOption(tag) {
+    setTag(tag)
+    postHandler(tag)
+    pullDownHandler()
+  }
+  function Options() {
+    if(pullDown) {
+      const tags = setArrayFromTags()
+      return (
+        <div>
+          {tags.map((tag, index) => {
+            return(
+              <div key={index}
+                onClick={() => clickedOption(tag)}>
+              {tag}
+            </div>
+            )
+          })}
+        </div>
+      )
+    } else {
+      return ''
+    }
+    
+  }
+  function Selector() {
+    return(
+      <div className={styles.selectBox}>
+        <div
+          onClick={pullDownHandler} 
+          className={styles.defaOption}>
+          <div className={styles.defaTag}>{ currentTag }</div>
+          <div className={styles.iconWrapper}>
+            <BsCaretDownFill
+              className={!pullDown ? styles.arrowDefa : styles.arrowUp}/>
+          </div>
+        </div>
+        <Options/>
+      </div>
+    )
+  }
   return (
     <div className={styles.postWrapper}>
       <h1 className={styles.mainTitle}>POST</h1>
-      <div>
-
+      <div className={styles.selectContainer}>
+        <Selector/>
       </div>
-      {posts.map((post, index) => {
+      {allPosts.map((post, index) => {
         return (
           <div className={styles.eachPost} key={index}>
             <div className={styles.titleOnTop}>{post.frontmatter.title}</div>
@@ -103,13 +151,6 @@ export async function getStaticProps() {
       frontmatter,
     };
   });
-  if(currentType === "filterByTag") {
-    return {
-      props: {
-        posts: filterByTag("Javascript", posts).sort(sortByDate),
-      },
-    };
-  }
   return {
     props: {
       posts: posts.sort(sortByDate),
