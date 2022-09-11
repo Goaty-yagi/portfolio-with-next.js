@@ -42,7 +42,7 @@ export default function Home({posts}) {
         something...
       </div>
       <Work/>
-      <Post posts={posts} />
+      <Post posts={posts.slice(0,2)} />
     </div>
     
   )

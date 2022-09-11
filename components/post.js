@@ -46,6 +46,14 @@ export default function Post({ posts }) {
           );
         })}
       </div>
+      <div 
+          className={btn.btnContainer}>
+            <Link href={"/post"}>
+                <button className={btn.btn}>
+                    More Posts >
+                </button>
+            </Link>
+        </div>
     </section> 
   );
 }

@@ -4,14 +4,15 @@
     justify-content: center;
 }
 .btn {
-    color: black;
+    color: rgb(0, 58, 53);
     text-align: center;
     display: inline;
     border: solid rgb(85, 217, 222);
     background: rgb(178, 224, 212);
-    border-radius: 50vh;
-    padding: 0.2rem 0.8rem;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1rem;
     margin: 1rem;
+    font-weight: bold;
     transition: .5s;
 }
 .btn:hover {

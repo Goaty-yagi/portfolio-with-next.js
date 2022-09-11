@@ -1,7 +1,7 @@
 
-$background-color : linear-gradient(to bottom, #6cd8e8, #000000);
+$background-color : linear-gradient(to bottom, #6cd8e8, #003236);
 $dark-background-color: linear-gradient(to bottom, #232323 80%, #6cd8e8,);
 :export {
-    background-color : background-color;
-    dark-background-color : dark-background-color
+    backgroundColor : background-color;
+    darkBackgroundColor : dark-background-color
 }

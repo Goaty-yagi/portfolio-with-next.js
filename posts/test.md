@@ -3,7 +3,7 @@ title: 'test post'
 date: 'June 24 2022'
 excerpt: 'this is the excerpt'
 cover_image: '/images/posts/img1.png'
-alt: ''
+alt: 'image'
 tags: ['Javascript','Python']
 ---
 ## Heading Two

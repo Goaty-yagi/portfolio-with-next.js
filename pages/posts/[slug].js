@@ -31,8 +31,7 @@ export default function PostPage({
     if (!lang) {
       return `<pre><code>${code}</code></pre>`;
     }
-
-    var langClass = "language-" + lang;
+    const langClass = "language-" + lang;
     return `<pre class="${langClass}"><code class="${langClass}">${code}</code></pre>`;
   };
 
@@ -72,7 +71,7 @@ export default function PostPage({
       </div>
       {isMounted ? (
         <div className="post-body">
-          <a dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
+          <a className="post-body" dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
         </div>
       ) : null}
     </div>

@@ -10,6 +10,12 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+pre code {
+  display: inline-block;
+  width: 600px;
+  overflow-x: auto;
+}
+
 a {
   text-decoration: none;
   color: #000000;
