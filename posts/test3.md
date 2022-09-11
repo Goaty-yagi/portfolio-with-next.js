@@ -5,9 +5,21 @@ excerpt: 'this is the excerpt3'
 cover_image: '/images/posts/img1.png'
 tags: ['Javascript','Python']
 ---
-## Heading Two
+`React + marked + prism.js
 
--item 1
--item 2
+**Code Sample:**
+```javascript
+import marked from "marked";
+import prismjs from "prismjs";
 
-hello world
+marked.setOptions({
+  renderer,
+  highlight: function(code, lang) {
+    try {
+      return prismjs.highlight(code, prismjs.languages[lang], lang);
+    } catch {
+      return code;
+    }
+  }
+});
+```

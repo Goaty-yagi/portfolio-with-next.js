@@ -5,9 +5,39 @@ import {marked} from "marked";
 import Link from "next/link";
 import Image from "next/image";
 
-
+import hljs from "highlight.js";
+import prismjs from "prismjs";
+import "prismjs/themes/prism-tomorrow.css";
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
+import React, { useEffect, useState } from "react";  
+import ReactMarkdown from 'react-markdown'
+
+console.log(ReactMarkdown)
+const MARKDOWN_TEXT = `React + marked + prism.js
+
+**Code Sample:**
+\`\`\`javascript
+import marked from "marked";
+import prismjs from "prismjs";
+
+marked.setOptions({
+  renderer,
+  highlight: function(code, lang) {
+    try {
+      return prismjs.highlight(code, prismjs.languages[lang], lang);
+    } catch {
+      return code;
+    }
+  }
+});
+\`\`\`
+`;
+
+
+
+
+
 
 export default function PostPage({
   frontmatter: { title, tags, date, cover_image },
@@ -15,6 +45,33 @@ export default function PostPage({
   content,
 }) {
   const goBack = "< GoBack";
+  const [isMounted, setMount] = useState(false)
+
+  useEffect( () => {
+    setMount(true)
+  },[]) 
+  const renderer = new marked.Renderer();
+  renderer.code = function(code, lang, escaped) {
+    code = this.options.highlight(code, lang);
+    if (!lang) {
+      return `<pre><code>${code}</code></pre>`;
+    }
+
+    var langClass = "language-" + lang;
+    return `<pre class="${langClass}"><code class="${langClass}">${code}</code></pre>`;
+  };
+
+  marked.setOptions({
+    renderer,
+    highlight: function(code, lang) {
+      try {
+        return prismjs.highlight(code, prismjs.languages[lang], lang);
+      } catch {
+        return code;
+      }
+    }
+  });
+
   return (
     // <div>
       <div className={pagePostStyles.postWrapper}>
@@ -40,13 +97,22 @@ export default function PostPage({
             // layout="fill" 
              />
         </div>
-        <div className="post-body">
-          <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
-        </div>
+        { isMounted ? (
+          <div className="post-body">
+            <a dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
+            <Text/>
+          </div>
+        ) : null}
       </div>
     // </div>
   );
 }
+class Text extends React.Component {
+  render() {
+    return <div dangerouslySetInnerHTML={{ __html: marked(MARKDOWN_TEXT) }} />;
+  }
+}
+
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("posts"));

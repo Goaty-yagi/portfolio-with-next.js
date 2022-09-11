@@ -2,7 +2,7 @@
 
 .postWrapper {
     width: 600px;
-    animation: fadeOutVir 1s reverse;
+    // animation: fadeOutVir 1s reverse;
 }
 .mainTitle {
     text-align: center;
@@ -11,6 +11,7 @@
 }
 .eachPost {
     margin-top: 1.3rem;
+    animation: fadeOutVir 1s reverse;
 }
 .titleOnTop {
     font-size: 1.5rem;
@@ -53,17 +54,26 @@
 }
 
 //selector
-
 .selectContainer {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
+
+.selectBoxWrapper {
+    position: relative;
+    width: 130px;
+    // display: flex;
+    // justify-content: flex-end;
+
+}
+
 .selectBox {
     position: absolute;
     background: rgba(255,255,255,0.6);
     border-radius: 0.3rem;
     border: solid navy;
+    height: 30px;
     width: 130px;
     .defaOption{
         display: grid;
@@ -85,5 +95,27 @@
                 animation: rotate180 0.5s forwards;
             }
         }
+    }
+}
+.optionContainer {
+    position: absolute;
+    top: 30px;
+    width: 130px;
+    // height: 0px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.6);
+    border-radius: 0.3rem;
+    border: solid gray;
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    transition: 1s;
+    .eachOption {
+        
+        padding: 0.5rem;
+        transition: .5s;
+    }
+    .eachOption:hover {
+        background: lightgray;
     }
 }

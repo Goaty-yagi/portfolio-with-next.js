@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 import Image from "next/image";
 
+
 import styles from "../styles/pages/post.module.scss";
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
@@ -12,6 +13,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsCaretDownFill } from "react-icons/Bs"
 import { FaHome, FaGithubAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const currentType = 'filterByTag'
 function filterByTag(tag, posts) {
@@ -52,16 +54,18 @@ export default function PostPage({ posts }) {
     if(pullDown) {
       const tags = setArrayFromTags()
       return (
-        <div>
+        <ul className={styles.optionContainer}>
           {tags.map((tag, index) => {
             return(
-              <div key={index}
+              <li 
+                key={index}
+                className={styles.eachOption}
                 onClick={() => clickedOption(tag)}>
-              {tag}
-            </div>
+              <div className={styles.tag}>{tag}</div>
+            </li>
             )
           })}
-        </div>
+        </ul>
       )
     } else {
       return ''
@@ -70,14 +74,16 @@ export default function PostPage({ posts }) {
   }
   function Selector() {
     return(
-      <div className={styles.selectBox}>
-        <div
-          onClick={pullDownHandler} 
-          className={styles.defaOption}>
-          <div className={styles.defaTag}>{ currentTag }</div>
-          <div className={styles.iconWrapper}>
-            <BsCaretDownFill
-              className={!pullDown ? styles.arrowDefa : styles.arrowUp}/>
+      <div className={styles.selectBoxWrapper}>
+        <div className={styles.selectBox}>
+          <div
+            onClick={pullDownHandler} 
+            className={styles.defaOption}>
+            <div className={styles.defaTag}>{ currentTag }</div>
+            <div className={styles.iconWrapper}>
+              <BsCaretDownFill
+                className={!pullDown ? styles.arrowDefa : styles.arrowUp}/>
+            </div>
           </div>
         </div>
         <Options/>
