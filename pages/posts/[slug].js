@@ -5,15 +5,17 @@ import {marked} from "marked";
 import Link from "next/link";
 import Image from "next/image";
 
-import hljs from "highlight.js";
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/components/prism-python.min";
+import "prismjs/components/prism-bash.min";
+// import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
+
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
-import React, { useEffect, useState } from "react";  
-import ReactMarkdown from 'react-markdown'
+import { useEffect, useState } from "react";  
 
-console.log(ReactMarkdown)
+
 const MARKDOWN_TEXT = `React + marked + prism.js
 
 **Code Sample:**
@@ -44,7 +46,6 @@ export default function PostPage({
   slug,
   content,
 }) {
-  const goBack = "< GoBack";
   const [isMounted, setMount] = useState(false)
 
   useEffect( () => {
@@ -100,18 +101,13 @@ export default function PostPage({
         { isMounted ? (
           <div className="post-body">
             <a dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
-            <Text/>
           </div>
         ) : null}
       </div>
     // </div>
   );
 }
-class Text extends React.Component {
-  render() {
-    return <div dangerouslySetInnerHTML={{ __html: marked(MARKDOWN_TEXT) }} />;
-  }
-}
+
 
 
 export async function getStaticPaths() {

@@ -11,7 +11,7 @@ tags: ['Javascript','Python']
 -item 2
 
 hello world
-```python
+```bash
 print(abs)
 b = 1 + 4
 for i in b
