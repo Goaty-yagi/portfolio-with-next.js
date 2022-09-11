@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import {marked} from "marked";
+import { marked } from "marked";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,46 +13,20 @@ import "prismjs/components/prism-bash.min";
 
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
-import { useEffect, useState } from "react";  
-
-
-const MARKDOWN_TEXT = `React + marked + prism.js
-
-**Code Sample:**
-\`\`\`javascript
-import marked from "marked";
-import prismjs from "prismjs";
-
-marked.setOptions({
-  renderer,
-  highlight: function(code, lang) {
-    try {
-      return prismjs.highlight(code, prismjs.languages[lang], lang);
-    } catch {
-      return code;
-    }
-  }
-});
-\`\`\`
-`;
-
-
-
-
-
+import { useEffect, useState } from "react";
 
 export default function PostPage({
-  frontmatter: { title, tags, date, cover_image },
+  frontmatter: { title, tags, date, cover_image, alt },
   slug,
   content,
 }) {
-  const [isMounted, setMount] = useState(false)
+  const [isMounted, setMount] = useState(false);
 
-  useEffect( () => {
-    setMount(true)
-  },[]) 
+  useEffect(() => {
+    setMount(true);
+  }, []);
   const renderer = new marked.Renderer();
-  renderer.code = function(code, lang, escaped) {
+  renderer.code = function (code, lang, escaped) {
     code = this.options.highlight(code, lang);
     if (!lang) {
       return `<pre><code>${code}</code></pre>`;
@@ -64,51 +38,47 @@ export default function PostPage({
 
   marked.setOptions({
     renderer,
-    highlight: function(code, lang) {
+    highlight: function (code, lang) {
       try {
         return prismjs.highlight(code, prismjs.languages[lang], lang);
       } catch {
         return code;
       }
-    }
+    },
   });
 
   return (
     // <div>
-      <div className={pagePostStyles.postWrapper}>
-        <h1 className={pagePostStyles.title}>{title}</h1>
-        <div className={postStyles.dateWrapper}>
-          <div>Posted on {date}</div>
-        </div>
-        <div className={pagePostStyles.tagContainer}>
-          <div className={pagePostStyles.tagWrapper}>
-            {tags.map((tag, index) => {
-              return (
-                  <div key={index}>{tag}</div>
-              )
-            })}
-          </div>
-        </div>
-        <div className={pagePostStyles.imgWrapper}>
-          <Image 
-            src={cover_image} 
-            alt="image" 
-            width={"600px"}
-            height={"300px"}
-            // layout="fill" 
-             />
-        </div>
-        { isMounted ? (
-          <div className="post-body">
-            <a dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
-          </div>
-        ) : null}
+    <div className={pagePostStyles.postWrapper}>
+      <h1 className={pagePostStyles.title}>{title}</h1>
+      <div className={postStyles.dateWrapper}>
+        <div>Posted on {date}</div>
       </div>
+      <div className={pagePostStyles.tagContainer}>
+        <div className={pagePostStyles.tagWrapper}>
+          {tags.map((tag, index) => {
+            return <div key={index}>{tag}</div>;
+          })}
+        </div>
+      </div>
+      <div className={pagePostStyles.imgWrapper}>
+        <Image
+          src={cover_image}
+          alt={alt}
+          width={"600px"}
+          height={"300px"}
+          // layout="fill"
+        />
+      </div>
+      {isMounted ? (
+        <div className="post-body">
+          <a dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
+        </div>
+      ) : null}
+    </div>
     // </div>
   );
 }
-
-
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("posts"));
