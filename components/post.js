@@ -9,6 +9,19 @@ import btn from "../styles/components/button.module.scss";
 export default function Post({ posts }) {
   const bunText = "Read More >";
   console.log(posts)
+  function Button() {
+    const text = " More Posts >"
+    return (
+      <div 
+          className={btn.btnContainer}>
+            <Link href={"/post"}>
+                <button className={btn.btn}>
+                   {text}
+                </button>
+            </Link>
+        </div>
+    )
+  }
   return (
     <section>
       <h1 className={globalStyles.sectionH1}>Post</h1>
@@ -46,14 +59,7 @@ export default function Post({ posts }) {
           );
         })}
       </div>
-      <div 
-          className={btn.btnContainer}>
-            <Link href={"/post"}>
-                <button className={btn.btn}>
-                    More Posts >
-                </button>
-            </Link>
-        </div>
+      <Button/>
     </section> 
   );
 }
