@@ -102,14 +102,15 @@ export default function PostPage({ posts }) {
             <div className={styles.titleOnTop}>{post.frontmatter.title}</div>
             <Link href={"posts/" + post.slug}>
               <div className={styles.post}>
-                <Image
-                  className={styles.image}
-                  // layout="fill"
-                  height={"150px"}
-                  width={"280px"}
-                  // objectFit="contain"
-                  src={post.frontmatter.cover_image}
-                />
+                <div className={styles.imageWrapper}>
+                  <Image
+                    className={styles.image}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="50% 0"
+                    src={post.frontmatter.cover_image}
+                  />
+                </div>
                 <div className={styles.postFrontmatter}>
                   <div className={styles.titleIn}>{post.frontmatter.title}</div>
                   <div className={styles.dateWrapper}>

@@ -29,6 +29,11 @@
 .post:hover {
     border: solid orange;
 }
+.imageWrapper{
+    position: relative;
+    height: 150px;
+    width: 250px;
+}
 .image {
     flex-basis: 40%;
 }
@@ -39,6 +44,9 @@
 .titleIn {
     font-weight: bold;
     margin-bottom: 0.4rem;
+    overflow-x: scroll;
+    height: 1rem;
+
 }
 .dateWrapper {
     margin: 0.5rem 0;
@@ -118,5 +126,33 @@
     }
     .eachOption:hover {
         background: lightgray;
+    }
+}
+
+@media (max-width:650px) {
+    .postWrapper {
+        width: auto;
+        margin: 0 0.5rem;
+    }
+
+}
+@media (max-width:500px) {
+    .postWrapper {
+        width: auto;
+        margin: 0 0.5rem;
+    }
+    .imageWrapper{
+        position: relative;
+        height: 100px;
+        width: 150px;
+    }
+    .postFrontmatter {
+        padding: 0;
+    }
+    .titleIn {
+        display: none;
+    }
+    .excerptWrapper {
+        height: 2rem;
     }
 }
