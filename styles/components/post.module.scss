@@ -13,7 +13,7 @@
         .image {
             position: relative;
             height: 150px;
-            margin: 0.2rem 0;
+        
             display: flex;
             justify-content: center;
             
@@ -43,5 +43,33 @@
         padding: 0 0.2rem;
         color: black;
         box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    }
+}
+
+@media (max-width:650px) {
+    .gridContainer {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .post {
+        width: 90%;
+        .image {
+            // position: relative;
+            height: 500px !important;
+            // margin: 0.2rem 0;
+            
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-left: 0.2rem;
+        }
+        .excerptWrapper{
+            padding: 0 0.4rem;
+            height: 100px;
+            overflow-y: scroll;
+        }
     }
 }

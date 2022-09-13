@@ -32,10 +32,9 @@ export default function Post({ posts }) {
             <div className={styles.post} key={index}>
               <div className={styles.image}>
                 <Image
-                  // layout="fill"
-                  height={"150px"}
-                  width={"280px"}
-                  objectFit="contain"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="50% 50%"
                   src={post.frontmatter.cover_image}
                 />
               </div>

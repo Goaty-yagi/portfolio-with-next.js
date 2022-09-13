@@ -1,5 +1,5 @@
 ---
-title: "[NEXT.js] syntax highlight with Marked and Prism.js"
+title: "[NEXT.js] Syntax highlight with Marked and Prism.js"
 date: "September 11 2022"
 excerpt: "How to set up Prism and Marked to highlight markdown code"
 cover_image: "/images/posts/next.png"
