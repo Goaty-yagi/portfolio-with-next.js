@@ -30,9 +30,12 @@ export default function Project() {
           <Image
             src={obj.img}
             alt={obj.title}
-            className={styles.img}
-            width="280px"
-            height="150px"
+            // className={styles.img}
+             layout="fill"
+             objectFit="cover"
+             objectPosition="50% 0"
+            // width="280px"
+            // height="150px"
           ></Image>
         </div>
         <div className={styles.articleWrapper}>

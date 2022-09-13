@@ -68,6 +68,14 @@ a:focus {
   box-sizing: border-box;
 }
 
+@media(max-width: 650px){
+  pre code {
+    display: inline-block;
+    width: auto;
+    overflow-x: auto;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -41,3 +41,15 @@
   margin: 2rem 0;
   text-align: center;
 }
+@media (max-width:650px) {
+  .pageProps {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+  }
+  .box{
+    display: block;
+    width: auto;
+    padding: auto;
+  }
+}

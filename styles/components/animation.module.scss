@@ -27,7 +27,26 @@
         transform: rotate(180deg)
     }
 }
+
+@keyframes slideInForBurger {
+    0% {
+        transform: translateX(-200px)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+@keyframes backForBurger {
+    0% {
+        transform: translateX(inherit)
+    }
+    100% {
+        transform: translateX(200px)
+    }
+}
 :export {
     fadeOutVir : fadeOutVir;
     rotate : rotate;
+    slideInForBurger : slideInForBurger;
+    backForBurger : backForBurger;
 }

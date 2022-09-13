@@ -34,7 +34,7 @@
         font-size: 1.2rem;
         transition: .5s;
     }
-    .navMenyContainer {
+    .navMenuContainer {
         display: flex;
     }
     .hamburger {
@@ -130,14 +130,35 @@
         background: black;
         color: white;
         pointer-events: auto !important;
-        transition: .5s !important;
+        transition: .5s;
+    }
+    .open {
+        color: red;
+        animation: slideInForBurger 0.5s reverse forwards;
+    }
+    .close {
+        animation: slideInForBurger 0.5s forwards;
+        color: blue;
     }
     .hamburger:hover {
         cursor: pointer;
         background: rgb(66, 66, 66);
     }
-    .navMenyContainer {
-        display: none !important;
+    .navMenuContainer {
+        position: absolute;
+        right: -200px;
+        top: 25px;
+        border: solid gray;
+        padding: 0.5rem;
+        border-radius: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        .navMenu {
+            border: none;
+            margin-bottom: 0.2rem;
+        }
+
     }
     .themeWapper {
         height: 40px;
