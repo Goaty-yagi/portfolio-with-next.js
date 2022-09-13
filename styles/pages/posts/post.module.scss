@@ -39,3 +39,10 @@
 .post-body {
     
 }
+
+@media (max-width:650px) {
+    .postWrapper {
+        width: auto;
+        padding: 0.5rem;
+    }   
+}
