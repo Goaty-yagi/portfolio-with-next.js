@@ -133,12 +133,10 @@
         transition: .5s;
     }
     .open {
-        color: red;
         animation: slideInForBurger 0.5s reverse forwards;
     }
     .close {
         animation: slideInForBurger 0.5s forwards;
-        color: blue;
     }
     .hamburger:hover {
         cursor: pointer;
@@ -149,11 +147,13 @@
         right: -200px;
         top: 25px;
         border: solid gray;
+        background: white;
         padding: 0.5rem;
         border-radius: 0.2rem;
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        z-index: 1;
         .navMenu {
             border: none;
             margin-bottom: 0.2rem;

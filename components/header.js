@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 import Link from "next/link";
 import Theme from "./theme";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
@@ -21,8 +22,24 @@ export default function Header() {
   function isOpnehandler() {
     console.log("clicked");
     setIsOpen(!isOpen);
-    setMenuClass(!isOpen ? openBuger : closeBurger);
+    setMenuClass(!isOpen ? openBuger : '');
   }
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url, { shallow }) => {
+      setIsOpen(false)
+      setMenuClass();
+      console.log(isOpen,menuClass)
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
   function HamburgerMenu() {
     // let burgerVariants;
     // let innerHeight;
@@ -36,16 +53,16 @@ export default function Header() {
     //     visible: {},
     //   };
     // } else {
-    //   burgerVariants = {
-    //     hidden: {
-    //       x: isOpen ? 200 : 0,
-    //       opacity: isOpen ? 0 : 1,
-    //     },
-    //     visible: {
-    //       x: isOpen ? 0 : 200,
-    //       opacity: isOpen ? 1 : 0,
-    //     },
-    //   };
+      // const burgerVariants = {
+      //   hidden: {
+      //     x: isOpen ? 200 : 0,
+      //     opacity: isOpen ? 0 : 1,
+      //   },
+      //   visible: {
+      //     x: isOpen ? 0 : 200,
+      //     opacity: isOpen ? 1 : 0,
+      //   },
+      // };
     // }
     return (
       <div
@@ -97,7 +114,9 @@ export default function Header() {
           <div onClick={isOpnehandler} className={styles.hamburger}>
             <GiHamburgerMenu />
           </div>
-          <HamburgerMenu />
+          <div>
+            <HamburgerMenu />
+          </div>
           <Theme />
         </div>
       </nav>
