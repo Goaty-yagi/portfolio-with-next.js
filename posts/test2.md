@@ -25,12 +25,12 @@ Ille fida formosus, et addunt viscera perdidit ad pondere quia tellus
 consequitur et quoque scinditque in. Ratis laborum instabat quaedam partem
 Phoebus, manus _partibus poenas_. Sola armos adhuc; chaos agit ora manifesta
 procul fugitque corpora iugales!
-```python
+<!-- ```python
 var ethics_font_drive = cycleSystemProgram + deprecatedTransferIp.ide(3) /
         rgb + nybbleBaseband;
 permalinkCertificateMacintosh(ergonomicsIsdnDns);
 boot = bridgeDaemonActive;
-```
+``` -->
 ## O contra diu
 
 Descendit _auras cum misi_ contactu tenax lacus, **quaerensque invitum

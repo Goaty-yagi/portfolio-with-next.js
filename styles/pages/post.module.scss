@@ -2,7 +2,6 @@
 
 .postWrapper {
     width: 600px;
-    // animation: fadeOutVir 1s reverse;
 }
 .mainTitle {
     text-align: center;
@@ -11,7 +10,6 @@
 }
 .eachPost {
     margin-top: 1.3rem;
-    animation: fadeOutVir 1s reverse;
 }
 .titleOnTop {
     font-size: 1.5rem;
@@ -84,6 +82,7 @@
     border: solid navy;
     height: 30px;
     width: 130px;
+    color: black;
     .defaOption{
         display: grid;
         grid-template-columns: 3fr 1fr;
@@ -115,6 +114,7 @@
     background: rgba(255,255,255);
     border-radius: 0.3rem;
     border: solid gray;
+    color: black;
     list-style-type:none;
     padding: 0;
     margin: 0;

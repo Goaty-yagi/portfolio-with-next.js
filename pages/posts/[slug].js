@@ -70,9 +70,7 @@ export default function PostPage({
         />
       </div>
       {isMounted ? (
-        <div className="post-body">
-          <a className="post-body" dangerouslySetInnerHTML={{ __html: marked(content) }}></a>
-        </div>
+          <div className="post-body" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
       ) : null}
     </div>
     // </div>

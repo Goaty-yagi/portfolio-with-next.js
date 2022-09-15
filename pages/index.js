@@ -15,9 +15,9 @@ export default function Home({posts}) {
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
   return (
     <div className={styles.pageProps}>
-      <Suspense>
+      {/* <Suspense>
         <Fish/>
-      </Suspense>
+      </Suspense> */}
       <div className={styles.box}>
         <div className={styles.test}>{introText}</div>
       </div>

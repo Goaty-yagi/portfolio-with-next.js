@@ -8,12 +8,14 @@ tags: ["NextJs", "Image"]
 ---
 
 This is the Image Component and Image Optimization.
+<br>
 
 ## Dependency
 ```javascript
 "marked": "^4.1.0",
 "next": "12.2.5",
 ```
+<br>
 
 ## How to use?
 ```javascript
@@ -33,11 +35,14 @@ import Image from "next/image";
 The <Image /> component requires 
 src URL,   width and height or layout=fill
 
+<br>
 
 ## What is width and height for?
 
 These two are size for the image, but it doesn’t care about the ratio.
 so the image size will be magnified or scaled down vertically or horizontally, while braking the ratio if the ratio of width and height  in the component not the same as the image. 
+
+<br>
 
 ## What is layout=“fill”?
 ```javascript
@@ -53,7 +58,9 @@ so the image size will be magnified or scaled down vertically or horizontally, w
 </div>
 ```
 
-layout=“fill” will make the image expands till the width and height. This might brake the ratio as the same as above.
+layout=“fill” will make the image expands till the parent width and height. This might brake the ratio as the same as above.
+
+<br>
 
 ## How to keep the ratio?
 ```javascript
@@ -65,11 +72,13 @@ layout=“fill” will make the image expands till the width and height. This mi
  ></Image>
 ```
 
-Generally there are two ways. first, set width and height which are the exactly the same as the image ratio. But this is time consuming. Better idea is use objectFit = content or cover. 
-Content makes the image size change to the set size until the image width or height meet while keeping the ratio. In result, blank space might be applied.
+Generally there are two ways. first, set width and height which ratio is the exactly the same as the image ratio. But this is is not optimal for dynamic image size. Better idea is use objectFit = content or cover. 
+Content makes the image size change to the prop size until the image width or height meet while keeping the ratio. In result, blank space might be applied.
 Cover makes the image size change to the set size until both the image width and height meet. In result, the image size scale up or down toward the center and some part might be stick out.
 
-## Use objectPosition to control the movement.
+<br>
+
+## Use objectPosition to control the stick out.
 ```javascript
 <Image
    src={obj.img}
@@ -81,7 +90,7 @@ Cover makes the image size change to the set size until both the image width and
 
 ```
 
-The objectPosition attribute handles the movement of scale up or down. default value is 
+The objectPosition attribute handles the stick out. Default value is 
 ```javascript
    objectPosition="50% 50%"
 ```

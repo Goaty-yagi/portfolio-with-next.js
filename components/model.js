@@ -12,7 +12,7 @@ export default function Model() {
   });
   const fbx = useLoader(FBXLoader, "/sheep.fbx");
   return (
-    <mesh position={[0, -1, 0]} ref={meshRef}>
+    <mesh receiveShadow position={[0, -1, 0]} ref={meshRef}>
       <primitive object={fbx} />
     </mesh>
   );

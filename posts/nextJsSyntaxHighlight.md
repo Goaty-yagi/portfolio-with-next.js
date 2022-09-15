@@ -18,6 +18,7 @@ This is how to set up Prism and Marked to highlight markdown code.
     "react": "18.2.0",
     "react-dom": "18.2.0",
 ```
+<br>
 
 ## Import prism and marked in posts/[slug].js.
 
@@ -25,6 +26,7 @@ This is how to set up Prism and Marked to highlight markdown code.
 import { marked } from "marked";
 import prismjs from "prismjs";
 ```
+<br>
 
 ## Set up marked renderer.
 
@@ -39,6 +41,8 @@ renderer.code = function (code, lang, escaped) {
   return `<pre class="${langClass}"><code class="${langClass}">${code}</code></pre>`;
 };
 ```
+
+<br>
 
 ## Set options to marked with prism.
 
@@ -55,6 +59,8 @@ marked.setOptions({
 });
 ```
 
+<br>
+
 ## Set markdown content with marked.
 
 ```javascript
@@ -64,6 +70,7 @@ return (
   </div>
 );
 ```
+<br>
 
 ## Set theme.
 
