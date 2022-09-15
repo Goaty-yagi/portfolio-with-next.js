@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
-import { GiFishbone, GiVintageRobot, GiHamburgerMenu } from "react-icons/Gi";
+import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/Gi";
 // import { AiOutlineLinkedin } from "react-icons/Ai";
 import { ImBlog } from "react-icons/im";
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Theme from "./theme";
 import { useRouter } from "next/router";
+
 
 export default function Header() {
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
@@ -104,7 +105,7 @@ export default function Header() {
           <Link href="/">
             <a>
               <div className={styles.boneIcon}>
-                <GiFishbone />
+                <GiPlantSeed />
               </div>
               <span>NOBUHIRO</span>
             </a>
