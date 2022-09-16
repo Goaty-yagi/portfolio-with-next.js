@@ -1,0 +1,11 @@
+.canvas {
+    width: 600%;
+    height: 300px;
+}
+
+@media(max-width:650px) {
+    .canvas {
+        width: auto;
+        height: 200px;
+    }
+} 

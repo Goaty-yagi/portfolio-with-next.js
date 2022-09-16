@@ -1,4 +1,4 @@
-import styles from "/styles/components/footer.module.scss";
+import styles from "/styles/components/canvas.module.scss";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { MeshReflectorMaterial, OrbitControls } from "@react-three/drei";
 import Model from "./model";
@@ -6,15 +6,12 @@ import { useRef } from "react";
 
 export default function Fish() {
   return (
-    <div>
+    <div className={styles.canvas}>
       <Canvas
-        style={{
-          height: "300px",          
-        }}
         shadows
         camera={{
           // fov: 200,
-          zoom: 7,
+          zoom: 8,
           // near: 0.1,
           // far: 800,
           position: [10, -5, -10],
