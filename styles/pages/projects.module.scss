@@ -1,0 +1,13 @@
+.projectWrapper {
+    width: 600px;
+}
+.mainTitle {
+    text-align: center;
+    text-decoration:underline;
+}
+
+@media(max-width: 650px) {
+    .projectWrapper {
+        width: auto;
+    }
+}

@@ -7,7 +7,7 @@ import btn from "../styles/components/button.module.scss";
 
 
 export default function Post({ posts }) {
-  const bunText = "Read More >";
+  const btnText = "Read More >";
   console.log(posts)
   function Button() {
     const text = " More Posts >"
@@ -51,7 +51,7 @@ export default function Post({ posts }) {
               </div>
               <div className={btn.btnContainer}>
                 <Link href={"posts/" + post.slug} scroll={false}>
-                  <div className={btn.btnOrange}>{bunText}</div>
+                  <div className={btn.btnOrange}>{btnText}</div>
                 </Link>
               </div>
             </div>
