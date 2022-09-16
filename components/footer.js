@@ -1,5 +1,4 @@
 import styles from "/styles/components/footer.module.scss";
-import Link from "next/link";
 import { BsLinkedin } from "react-icons/Bs";
 
 export default function Footer() {

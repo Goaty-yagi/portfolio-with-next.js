@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
 import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/Gi";
-// import { AiOutlineLinkedin } from "react-icons/Ai";
 import { ImBlog } from "react-icons/im";
 import { motion } from "framer-motion";
 
@@ -75,7 +74,7 @@ export default function Header() {
             SOURCE
           </div>
         </div>
-        <Link href="/project">
+        <Link href="/project" scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <GiVintageRobot className={styles.menuLogo} />
@@ -83,7 +82,7 @@ export default function Header() {
             </div>
           </div>
         </Link>
-        <Link href={"/post"}>
+        <Link href={"/post"} scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <ImBlog className={styles.menuLogo} />
@@ -102,7 +101,7 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href="/" scroll={false}>
             <a>
               <div className={styles.boneIcon}>
                 <GiPlantSeed />
