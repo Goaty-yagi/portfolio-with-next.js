@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
-import Fish from "./fish3d";
+import Fish from "./fish";
 import Footer from "./footer";
 import Header from "./header";
 
