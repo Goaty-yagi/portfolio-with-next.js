@@ -18,6 +18,7 @@ export default function Layout({ children, router }) {
       </Suspense>
       <AnimatePresence
         exitBeforeEnter
+        mode='wait'
         initial={true}
         onExitComplete={() => {
           if (typeof window !== "undefined") {
