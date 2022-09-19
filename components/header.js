@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
-import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/gi";
+import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/Gi";
 import { ImBlog } from "react-icons/im";
 import { motion } from "framer-motion";
 
@@ -23,24 +23,21 @@ export default function Header() {
     setIsOpen(!isOpen);
     setMenuClass(!isOpen ? openBuger : '');
   }
+  const router = useRouter()
   useEffect(() => {
-    return setIsOpen(false)
-  })
-  // const router = useRouter()
-  // useEffect(() => {
-  //   const handleRouteChange = (url, { shallow }) => {
-  //     setIsOpen(false)
-  //     setMenuClass('');
-  //   }
+    const handleRouteChange = (url, { shallow }) => {
+      setIsOpen(false)
+      setMenuClass('');
+    }
 
-  //   router.events.on('routeChangeStart', handleRouteChange)
+    router.events.on('routeChangeStart', handleRouteChange)
 
-  //   // If the component is unmounted, unsubscribe
-  //   // from the event with the `off` method:
-  //   return () => {
-  //     router.events.off('routeChangeStart', handleRouteChange)
-  //   }
-  // }, [])
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
   function HamburgerMenu() {
     // let burgerVariants;
     // let innerHeight;
@@ -75,14 +72,14 @@ export default function Header() {
             SOURCE
           </div>
         </div>
-        {/* <Link href="/project" scroll={false}>
+        <Link href="/project" scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <GiVintageRobot className={styles.menuLogo} />
               PROJECTS
             </div>
           </div>
-        </Link> */}
+        </Link>
         <Link href={"/post"} scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
