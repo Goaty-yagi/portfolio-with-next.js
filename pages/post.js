@@ -11,7 +11,7 @@ import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BsCaretDownFill } from "react-icons/Bs"
+import { BsCaretDownFill } from "react-icons/bs"
 import { FaHome, FaGithubAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 

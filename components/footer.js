@@ -1,5 +1,5 @@
 import styles from "/styles/components/footer.module.scss";
-import { BsLinkedin } from "react-icons/Bs";
+import { BsLinkedin } from "react-icons/bs";
 
 export default function Footer() {
   const copyLight = "© 2022 Nobuhiro. All Rights Reserved."

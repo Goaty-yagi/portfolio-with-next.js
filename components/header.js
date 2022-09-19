@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
-import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/Gi";
+import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 import { motion } from "framer-motion";
 
