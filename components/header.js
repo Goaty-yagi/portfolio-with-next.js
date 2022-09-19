@@ -23,6 +23,9 @@ export default function Header() {
     setIsOpen(!isOpen);
     setMenuClass(!isOpen ? openBuger : '');
   }
+  useEffect(() => {
+    return setIsOpen(false)
+  })
   // const router = useRouter()
   // useEffect(() => {
   //   const handleRouteChange = (url, { shallow }) => {
