@@ -108,6 +108,7 @@ export default function PostPage({ posts }) {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="50% 0"
+                    alt={post.frontmatter.alt}
                     src={post.frontmatter.cover_image}
                   />
                 </div>

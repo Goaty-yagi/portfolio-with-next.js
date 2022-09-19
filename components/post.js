@@ -35,6 +35,7 @@ export default function Post({ posts }) {
                   layout="fill"
                   objectFit="cover"
                   objectPosition="50% 50%"
+                  alt={post.frontmatter.alt}
                   src={post.frontmatter.cover_image}
                 />
               </div>

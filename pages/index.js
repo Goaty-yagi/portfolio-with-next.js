@@ -22,7 +22,7 @@ export default function Home({posts}) {
       </div>
       <div className={styles.introContainer}>
         <div className={styles.myInfo}>
-          <h2>Nobuhiro</h2>
+          <h2 >Nobuhiro</h2>
           <h3>Developer</h3>
         </div>
         <div className={styles.imgFlexBox}>
