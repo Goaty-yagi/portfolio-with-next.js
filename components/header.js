@@ -37,7 +37,7 @@ export default function Header() {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [])
+  })
   function HamburgerMenu() {
     // let burgerVariants;
     // let innerHeight;
