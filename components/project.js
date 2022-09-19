@@ -23,42 +23,42 @@ export default function Project({ hideTitle }) {
   const postClick = (obj) => {
     window.open(obj.postUrl);
   };
-  // const markup = workData.projectData.map((obj, index) => {
-  //   return (
-  //     <div className={styles.card} key={index}>
-  //       {/* <Link href={"projects/" + obj.title} scroll={false} key={index}> */}
+  const markup = workData.projectData.map((obj, index) => {
+    return (
+      <div className={styles.card} key={index}>
+        {/* <Link href={"projects/" + obj.title} scroll={false} key={index}> */}
 
-  //       <h3 className={styles.projectTitle}>{obj.title}</h3>
-  //       <div className={styles.imageWrapper}>
-  //         <Image
-  //           src={obj.img}
-  //           alt={obj.alt}
-  //           // className={styles.img}
-  //           layout="fill"
-  //           objectFit="cover"
-  //           objectPosition="50% 0"
-  //           // width="280px"
-  //           // height="150px"
-  //         ></Image>
-  //       </div>
-  //       <div className={styles.articleWrapper}>
-  //         <article>{obj.description}</article>
-  //       </div>
-  //       <div className={styles.iconWrapper}>
-  //         <FaGithubSquare
-  //           className={styles.gitIcon}
-  //           onClick={() => gitClick(obj)}
-  //         />
-  //         <BiRocket className={styles.gitIcon} onClick={() => postClick(obj)} />
-  //       </div>
-  //       {/* </Link> */}
-  //     </div>
-  //   );
-  // });
+        <h3 className={styles.projectTitle}>{obj.title}</h3>
+        <div className={styles.imageWrapper}>
+          <Image
+            src={obj.img}
+            alt={obj.alt}
+            // className={styles.img}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="50% 0"
+            // width="280px"
+            // height="150px"
+          ></Image>
+        </div>
+        <div className={styles.articleWrapper}>
+          <article>{obj.description}</article>
+        </div>
+        <div className={styles.iconWrapper}>
+          <FaGithubSquare
+            className={styles.gitIcon}
+            onClick={() => gitClick(obj)}
+          />
+          <BiRocket className={styles.gitIcon} onClick={() => postClick(obj)} />
+        </div>
+        {/* </Link> */}
+      </div>
+    );
+  });
   return (
     <section>
       {!hideTitle && <h1 className={globalStyles.sectionH1}>Project</h1>}
-      {/* <div className={styles.cardWrapper}>{markup}</div> */}
+      <div className={styles.cardWrapper}>{markup}</div>
     </section>
   );
 }
