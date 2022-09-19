@@ -72,14 +72,14 @@ export default function Header() {
             SOURCE
           </div>
         </div>
-        <Link href="/project" scroll={false}>
+        {/* <Link href="/project" scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <GiVintageRobot className={styles.menuLogo} />
               PROJECTS
             </div>
           </div>
-        </Link>
+        </Link> */}
         <Link href={"/post"} scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
