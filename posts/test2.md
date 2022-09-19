@@ -1,10 +1,10 @@
 ---
-title: 'Python Book Review'
+title: 'Python Book Review(Test post)'
 date: 'March 7, 2021'
 excerpt: 'In this review, we will be looking at the new Python book from Oriley'
 cover_image: '/images/posts/python.png'
 alt: 'image'
-tags: ['Javascript']
+tags: ['python']
 ---
 Lorem markdownum fine incustoditam unda factura versum occuluere Aeneas, iuvat
 haec praepes [partes epulae](http://cui.com/), in egisse de. Caecisque ter

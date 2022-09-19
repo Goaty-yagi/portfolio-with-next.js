@@ -11,6 +11,7 @@ import { sortByDate } from "../utils"
 
 export default function Home({posts}) {
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
+  const selfIntro = "Newly trained web developer seeking an entry-level or internship position where I can earn professional experience in programming and offer my skills in coding and program design."
   return (
     <div className={styles.pageProps}>
       {/* <Suspense>
@@ -22,7 +23,7 @@ export default function Home({posts}) {
       <div className={styles.introContainer}>
         <div className={styles.myInfo}>
           <h2>Nobuhiro</h2>
-          <h3>Entry-level Developer</h3>
+          <h3>Developer</h3>
         </div>
         <div className={styles.imgFlexBox}>
           <div className={styles.myImg}>
@@ -36,8 +37,8 @@ export default function Home({posts}) {
           </div>
         </div>
       </div>
-      <div className={styles.historyWrapper}>
-        something...
+      <div className={styles.selfWrapper}>
+        <p className={styles.self}>{ selfIntro }</p>
       </div>
       <Work/>
       <Post posts={posts.slice(0,2)} />

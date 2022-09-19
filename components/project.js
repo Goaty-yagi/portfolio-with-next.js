@@ -25,35 +25,37 @@ export default function Project({hideTitle}) {
   };
   const markup = workData.projectData.map((obj, index) => {
     return (
-      <Link href={"projects/" + obj.title} scroll={false} key={index}>
-        <div className={styles.card}>
-          <h3 className={styles.projectTitle}>{obj.title}</h3>
-          <div className={styles.imageWrapper}>
-            <Image
-              src={obj.img}
-              alt={obj.alt}
-              // className={styles.img}
-              layout="fill"
-              objectFit="cover"
-              objectPosition="50% 0"
-              // width="280px"
-              // height="150px"
-            ></Image>
+      <>
+        {/* <Link href={"projects/" + obj.title} scroll={false} key={index}> */}
+          <div className={styles.card} key={index}>
+            <h3 className={styles.projectTitle}>{obj.title}</h3>
+            <div className={styles.imageWrapper}>
+              <Image
+                src={obj.img}
+                alt={obj.alt}
+                // className={styles.img}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="50% 0"
+                // width="280px"
+                // height="150px"
+              ></Image>
+            </div>
+            <div className={styles.articleWrapper}>
+              <article>{obj.description}</article>
+            </div>
+            <div className={styles.iconWrapper}>
+              <FaGithubSquare
+                className={styles.gitIcon}
+                onClick={() => gitClick(obj)}
+              />
+              <BiRocket
+                className={styles.gitIcon}
+                onClick={() => postClick(obj)}/>
+            </div>
           </div>
-          <div className={styles.articleWrapper}>
-            <article>{obj.description}</article>
-          </div>
-          <div className={styles.iconWrapper}>
-            <FaGithubSquare
-              className={styles.gitIcon}
-              onClick={() => gitClick(obj)}
-            />
-            <BiRocket
-              className={styles.gitIcon}
-              onClick={() => postClick(obj)}/>
-          </div>
-        </div>
-      </Link>
+        {/* </Link> */}
+      </>
     );
   });
   return (
