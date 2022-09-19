@@ -20,26 +20,24 @@ export default function Header() {
     window.open(sourceUrl);
   };
   function isOpnehandler() {
-    console.log("clicked");
     setIsOpen(!isOpen);
     setMenuClass(!isOpen ? openBuger : '');
   }
-  const router = useRouter()
-  useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
-      setIsOpen(false)
-      setMenuClass();
-      console.log(isOpen,menuClass)
-    }
+  // const router = useRouter()
+  // useEffect(() => {
+  //   const handleRouteChange = (url, { shallow }) => {
+  //     setIsOpen(false)
+  //     setMenuClass('');
+  //   }
 
-    router.events.on('routeChangeStart', handleRouteChange)
+  //   router.events.on('routeChangeStart', handleRouteChange)
 
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [])
+  //   // If the component is unmounted, unsubscribe
+  //   // from the event with the `off` method:
+  //   return () => {
+  //     router.events.off('routeChangeStart', handleRouteChange)
+  //   }
+  // }, [])
   function HamburgerMenu() {
     // let burgerVariants;
     // let innerHeight;
@@ -74,14 +72,14 @@ export default function Header() {
             SOURCE
           </div>
         </div>
-        {/* <Link href="/project" scroll={false}>
+        <Link href="/project" scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <GiVintageRobot className={styles.menuLogo} />
               PROJECTS
             </div>
           </div>
-        </Link> */}
+        </Link>
         <Link href={"/post"} scroll={false}>
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
@@ -93,10 +91,6 @@ export default function Header() {
       </div>
     );
   }
-  function HamburgerMenuContainer() {
-
-  }
-  // className={`${styles.hamburger} ${isOpen} ? ${styles.open}: ${styles.close}`}
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
