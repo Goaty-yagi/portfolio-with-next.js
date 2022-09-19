@@ -1,7 +1,7 @@
 import styles from "/styles/components/project.module.scss";
 import globalStyles from "/styles/components/global_components/text.module.scss";
 import { FaGithubSquare } from "react-icons/fa";
-import { BiRocket } from "react-icons/Bi"
+import { BiRocket } from "react-icons/bi"
 // import workData from "./workData";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
