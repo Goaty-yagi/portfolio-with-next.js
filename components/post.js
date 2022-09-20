@@ -14,7 +14,7 @@ export default function Post({ posts }) {
     return (
       <div 
           className={btn.btnContainer}>
-            <Link href={"/post"} scroll={false}>
+            <Link href={"/post"} >
                 <button className={btn.btn}>
                    {text}
                 </button>

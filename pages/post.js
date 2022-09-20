@@ -100,7 +100,7 @@ export default function PostPage({ posts }) {
         return (
           <div className={styles.eachPost} key={index}>
             <div className={styles.titleOnTop}>{post.frontmatter.title}</div>
-            <Link href={"posts/" + post.slug} scroll={false}>
+            <Link href={"posts/" + post.slug} >
               <div className={styles.post}>
                 <div className={styles.imageWrapper}>
                   <Image

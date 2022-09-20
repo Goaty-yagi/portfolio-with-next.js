@@ -80,7 +80,7 @@ export default function Header() {
             </div>
           </div>
         </Link> */}
-        <Link href={"/post"} scroll={false}>
+        <Link href={"/post"} >
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <ImBlog className={styles.menuLogo} />
@@ -95,7 +95,7 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.logo}>
-          <Link href="/" scroll={false}>
+          <Link href="/" >
             <a>
               <div className={styles.boneIcon}>
                 <GiPlantSeed />

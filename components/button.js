@@ -6,7 +6,7 @@ export default function Button({text, url}) {
         <div style={{
             color:"red"
         }} className={styles.btnContainer}>
-            <Link href={url} scroll={false}>
+            <Link href={url}>
                 <button className={styles.btn}>
                     {text}
                 </button>
