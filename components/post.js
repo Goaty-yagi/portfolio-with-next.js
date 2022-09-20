@@ -50,7 +50,7 @@ export default function Post({ posts }) {
                 <p>{post.frontmatter.excerpt}</p>
               </div>
               <div className={btn.btnContainer}>
-                <Link href={"posts/" + post.slug} scroll={false}>
+                <Link href={"posts/" + post.slug}>
                   <div className={btn.btnOrange}>{btnText}</div>
                 </Link>
               </div>
