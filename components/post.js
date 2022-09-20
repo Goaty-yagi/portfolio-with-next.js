@@ -8,7 +8,6 @@ import btn from "../styles/components/button.module.scss";
 
 export default function Post({ posts }) {
   const btnText = "Read More >";
-  console.log(posts)
   function Button() {
     const text = " More Posts >"
     return (
