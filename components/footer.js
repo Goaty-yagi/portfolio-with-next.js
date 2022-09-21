@@ -1,5 +1,14 @@
 import styles from "/styles/components/footer.module.scss";
 import { BsLinkedin } from "react-icons/bs";
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Text,
+  Button
+} from "@chakra-ui/react";
+
 
 export default function Footer() {
   const copyLight = "© 2022 Nobuhiro. All Rights Reserved."
@@ -8,16 +17,21 @@ export default function Footer() {
     window.open(url)
   }
   return (
-    <footer className={styles.footer}>
-      {/* <BsLinkedin/> */}
-      <div className={styles.footerContainer}>
-        <div className={styles.linkedinIcon}>
-          <BsLinkedin
-            className={styles.icon}
-            onClick={goToLinkedin}/>
-        </div>
+    <Flex position={"relative"} w="100%" h="200px" justifyContent={"center"} mt="1rem">
+      <Box position={"absolute"} bottom="0" color={"lightgray"}>
+        <Center>
+          <Box 
+            as={BsLinkedin} 
+            onClick={goToLinkedin} 
+            fontSize="2rem" 
+            textAlign={"center"}
+            mb="0.5rem"
+            transition={".5s"}
+            _hover={{ color: "aquamarine" }}
+            />
+        </Center>
         <h4>{copyLight}</h4>
-      </div>
-    </footer>
+      </Box>
+    </Flex>
   );
 }

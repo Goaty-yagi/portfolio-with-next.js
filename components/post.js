@@ -6,11 +6,8 @@ import btn from "../styles/components/button.module.scss";
 import {
   Box,
   Center,
-  extendTheme,
   Flex,
-  Grid,
   Heading,
-  HStack,
   Text,
   Button
 } from "@chakra-ui/react";
