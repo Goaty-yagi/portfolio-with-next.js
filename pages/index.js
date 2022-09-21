@@ -2,18 +2,18 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-// import Image from "next/image"
+import Image from "next/image"
 import styles from "../styles/components/home.module.scss"
 import Work from "../components/project"
 import Post from "../components/post"
 import { sortByDate } from "../utils"
-import { Box, Flex, Image } from '@chakra-ui/react'
+
 
 export default function Home({posts}) {
   const introText = "Hi, I'm Nobuhiro based in Melbourne."
   const selfIntro = "Newly trained web developer seeking an entry-level or internship position where I can earn professional experience in programming and offer my skills in coding and program design."
   return (
-    <Box bg="tomato" w="600px">
+    <div className={styles.pageProps}>
       {/* <Suspense>
         <Fish/>
       </Suspense> */}
@@ -25,8 +25,8 @@ export default function Home({posts}) {
           <h2 >Nobuhiro</h2>
           <h3>Developer</h3>
         </div>
-        <Flex flexBasis={"50%"} justifyContent="center">
-          <Box width={"600px"} w="100px" h="100px">
+        <div className={styles.imgFlexBox}>
+          <div className={styles.myImg}>
           <Image
             src="/me.jpeg" 
             alt="me"
@@ -34,15 +34,15 @@ export default function Home({posts}) {
             objectFit="contain"
           >
           </Image>
-          </Box>
-        </Flex>
+          </div>
+        </div>
       </div>
       <div className={styles.selfWrapper}>
         <p className={styles.self}>{ selfIntro }</p>
       </div>
       <Work/>
       <Post posts={posts.slice(0,2)} />
-    </Box>
+    </div>
     
   )
 }
