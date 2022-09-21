@@ -5,7 +5,6 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 import Image from "next/image";
 
-
 import styles from "../styles/pages/post.module.scss";
 import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
@@ -14,6 +13,16 @@ import { useEffect, useState } from "react";
 import { BsCaretDownFill } from "react-icons/bs"
 import { FaHome, FaGithubAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Text,
+  Button
+} from "@chakra-ui/react";
+
 
 const currentType = 'filterByTag'
 function filterByTag(tag, posts) {
@@ -91,17 +100,19 @@ export default function PostPage({ posts }) {
     )
   }
   return (
-    <div className={styles.postWrapper}>
-      <h1 className={styles.mainTitle}>POST</h1>
+    <>
+      <Center>
+        <Text as="b" fontSize="3xl" textDecoration={"underline"} textAlign={"center"}>POST</Text>
+      </Center>
       <div className={styles.selectContainer}>
         <Selector/>
       </div>
       {allPosts.map((post, index) => {
         return (
-          <div className={styles.eachPost} key={index}>
-            <div className={styles.titleOnTop}>{post.frontmatter.title}</div>
+          <Box mt="1.3rem" key={index}>
+            <Text as="b" fontSize={"1.5rem"} ml="0.5rem">{ post.frontmatter.title }</Text>
             <Link href={"posts/" + post.slug} >
-              <div className={styles.post}>
+              <Flex className={styles.post}>
                 <div className={styles.imageWrapper}>
                   <Image
                     className={styles.image}
@@ -130,12 +141,12 @@ export default function PostPage({ posts }) {
                     {post.frontmatter.excerpt}
                   </div>
                 </div>
-              </div>
+              </Flex>
             </Link>
-          </div>
+          </Box>
         );
       })}
-    </div>
+    </>
   );
 }
 

@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 import Fish from "./fish";
@@ -35,7 +36,9 @@ export default function Layout({ children, router }) {
           transition={{ duration: 0.4, type: "easeInOut" }}
           style={{ position: "relative" }}
         >
-          {children}
+          <Box maxW="600px">
+            {children}
+          </Box>
         </motion.div>
       </AnimatePresence>
       <Footer />
