@@ -9,7 +9,6 @@ import Link from "next/link";
 import {
   Box,
   Center,
-  extendTheme,
   Flex,
   Heading,
   HStack,
@@ -24,15 +23,7 @@ export default function Project({ hideTitle }) {
     window.open(obj.postUrl);
   };
   const [workData, setData] = useState();
-  const breakpoints = {
-    sm: "320px",
-    md: "650px",
-    lg: "960px",
-    xl: "1200px",
-    "2xl": "1536px",
-  };
   
-  const theme = extendTheme({ breakpoints });
   useEffect(() => {
     setData([
       {
@@ -65,7 +56,6 @@ export default function Project({ hideTitle }) {
       return (
         <Box
           flexBasis={{base:"auto", md: "50%"}}
-          w="100%"
           minH="450px"
           p="0.4rem"
           m="0.5rem"
@@ -125,12 +115,11 @@ export default function Project({ hideTitle }) {
   return (
     <Box as="section">
       {!hideTitle && (
-        <Heading as="h1" size={"lg"} textDecoration="underline">
+        <Heading as="h1" size={"lg"} textAlign={{base:"center", md:"left"}} textDecoration="underline">
           Project
         </Heading>
       )}
       <Box display={{ base: "block", md: "flex" }}>{markup}</Box>
-      {/* <Box display={["block","flex", "flex", "flex"]}>{markup}</Box> */}
     </Box>
   );
 }
