@@ -16,7 +16,7 @@ export default function Layout({ children, router }) {
       <Suspense>
         <Fish />
       </Suspense>
-      {/* <AnimatePresence
+      <AnimatePresence
         exitBeforeEnter
         mode='wait'
         initial={true}
@@ -34,10 +34,10 @@ export default function Layout({ children, router }) {
           variants={variants}
           transition={{ duration: 0.4, type: "easeInOut" }}
           style={{ position: "relative" }}
-        > */}
+        >
           {children}
-        {/* </motion.div>
-      </AnimatePresence> */}
+        </motion.div>
+      </AnimatePresence>
       <Footer />
     </>
   );
