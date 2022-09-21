@@ -16,14 +16,14 @@ const theme = extendTheme({ colors })
 
 function MyApp({ Component, pageProps, router }) {
   return (
-    // <ChakraProvider theme={theme}>
-      // <CSSReset />
+    <ChakraProvider theme={theme}>
+      <CSSReset />
       <div className={"darkMain"}>
         <Layout router={router}>
             <Component {...pageProps} />
         </Layout>      
       </div>
-    // </ChakraProvider>
+    </ChakraProvider>
   );
 }
 
