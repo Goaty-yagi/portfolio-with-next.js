@@ -112,35 +112,52 @@ export default function PostPage({ posts }) {
           <Box mt="1.3rem" key={index}>
             <Text as="b" fontSize={"1.5rem"} ml="0.5rem">{ post.frontmatter.title }</Text>
             <Link href={"posts/" + post.slug} >
-              <Flex className={styles.post}>
-                <div className={styles.imageWrapper}>
+              <Flex 
+                border="solid gray"
+                bg="rgba(255,255,255,0.6)"
+                boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
+                transition=".5s"
+                _hover={{border:"solid orange"}}
+              >
+                <Box flexBasis={"40%"} position={"relative"} h="150px" w="250px">
                   <Image
-                    className={styles.image}
                     layout="fill"
                     objectFit="cover"
                     objectPosition="50% 0"
                     alt={post.frontmatter.alt}
                     src={post.frontmatter.cover_image}
                   />
-                </div>
-                <div className={styles.postFrontmatter}>
-                  <div className={styles.titleIn}>{post.frontmatter.title}</div>
-                  <div className={styles.dateWrapper}>
-                    <div className={postStyles.dateWrapper}>
-                      <div>Posted on {post.frontmatter.date}</div>
-                    </div>
-                  </div>
-                  <div className={styles.tagWrapper}>
-                    <div className={pagePostStyles.tagWrapper}>
+                </Box>
+                <Box flexBasis={"60%"} p="0.5rem">
+                  {/* <Text as="b" mb="0.4rem" h="1rem"	>{post.frontmatter.title}</Text> */}
+                  <Box m="0.5rem 0">
+                    <Box
+                      display={"inline-block"}
+                      fontSize="0.9rem" 
+                      bg="lightgray" 
+                      borderRadius={"0.2rem"} 
+                      p="0 0.5rem" 
+                      color={"black"}
+                      boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
+                    >
+                      Posted on {post.frontmatter.date}
+                    </Box>
+                  </Box>
+                  <Box m="0.3rem 0">
+                    <Flex width={"100%"}>
                       {post.frontmatter.tags.map((tag, index) => {
-                        return <div key={index}>{tag}</div>;
+                        return <Box as="b" border={"solid orange"} borderRadius="full" bg="navy" color={"white"} p="0.1rem 0.6rem" key={index}>{tag}</Box>;
                       })}
-                    </div>
-                  </div>
-                  <div className={styles.excerptWrapper}>
+                    </Flex>
+                  </Box>
+                  <Box 
+                    h="50px" 
+                    p="0.3rem" 
+                    boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
+                    overflowY="scroll">
                     {post.frontmatter.excerpt}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </Flex>
             </Link>
           </Box>
