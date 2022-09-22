@@ -10,8 +10,9 @@ import postStyles from "/styles/components/post.module.scss";
 import pagePostStyles from "/styles/pages/posts/post.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BsCaretDownFill } from "react-icons/bs"
+import { BsCaretDownFill } from "react-icons/bs";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 import {
@@ -20,124 +21,127 @@ import {
   Flex,
   Heading,
   Text,
-  Button
+  Tag,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 
 
-const currentType = 'filterByTag'
 function filterByTag(tag, posts) {
-  return posts.filter(post => {
-    if(post.frontmatter.tags.includes(tag)) {
-      return post
+  return posts.filter((post) => {
+    if (post.frontmatter.tags.includes(tag)) {
+      return post;
     }
-  })
+  });
 }
 
 export default function PostPage({ posts }) {
-  const [pullDown, setData] = useState(false)
-  const [currentTag, setTag] = useState('Select Tag')
-  const [allPosts, setPost] = useState(posts)
+  const [currentTag, setTag] = useState("Search Tag");
+  const [allPosts, setPost] = useState(posts);
 
   function postHandler(tag) {
-    setPost(filterByTag(tag, posts).sort(sortByDate))
-    console.log("All",currentTag,allPosts)
+    setPost(filterByTag(tag, posts).sort(sortByDate));
   }
   function setArrayFromTags() {
-    const set = new Set()
-    for(let i = 0; i < posts.length; i ++) {
-      posts[i].frontmatter.tags.forEach(tag => {
-        set.add(tag)
-      })
+    const set = new Set();
+    for (let i = 0; i < posts.length; i++) {
+      posts[i].frontmatter.tags.forEach((tag) => {
+        set.add(tag);
+      });
     }
-    return Array.from(set)
-  }
-  function pullDownHandler() {
-    setData(!pullDown)
+    return Array.from(set);
   }
   function clickedOption(tag) {
-    setTag(tag)
-    postHandler(tag)
-    pullDownHandler()
-  }
-  function Options() {
-    if(pullDown) {
-      const tags = setArrayFromTags()
-      return (
-        <ul className={styles.optionContainer}>
-          {tags.map((tag, index) => {
-            return(
-              <li 
-                key={index}
-                className={styles.eachOption}
-                onClick={() => clickedOption(tag)}>
-              <div className={styles.tag}>{tag}</div>
-            </li>
-            )
-          })}
-        </ul>
-      )
-    } else {
-      return ''
-    }
-    
+    setTag(tag);
+    postHandler(tag);
   }
   function Selector() {
-    return(
-      <div className={styles.selectBoxWrapper}>
-        <div className={styles.selectBox}>
-          <div
-            onClick={pullDownHandler} 
-            className={styles.defaOption}>
-            <div className={styles.defaTag}>{ currentTag }</div>
-            <div className={styles.iconWrapper}>
-              <BsCaretDownFill
-                className={!pullDown ? styles.arrowDefa : styles.arrowUp}/>
-            </div>
-          </div>
-        </div>
-        <Options/>
-      </div>
-    )
+    const tags = setArrayFromTags();
+    return (
+      <Menu>
+        <MenuButton 
+          as={Button} 
+          color="black" 
+          size={{base:"xs", md:"sm"}} 
+          mr="0.5rem"
+          border={"solid navy"} 
+          rightIcon={<FiChevronDown/>}>
+          { currentTag } 
+        </MenuButton>
+        <MenuList>
+           {tags.map((tag, index) => {
+            return (
+              <MenuItem
+                color={"black"}
+                key={index}
+                onClick={() => clickedOption(tag)}
+              >
+                <Heading fontSize={"sm"}>{tag}</Heading>
+              </MenuItem>
+            );
+          })}
+        
+        </MenuList>
+      </Menu>
+    );
   }
   return (
     <>
       <Center>
-        <Text as="b" fontSize="3xl" textDecoration={"underline"} textAlign={"center"}>POST</Text>
+        <Heading
+          as="b"
+          fontSize="3xl"
+          textDecoration={"underline"}
+          textAlign={"center"}
+        >
+          POST
+        </Heading>
       </Center>
       <div className={styles.selectContainer}>
-        <Selector/>
+        <Selector />
       </div>
       {allPosts.map((post, index) => {
         return (
-          <Box mt="1.3rem" key={index}>
-            <Text as="b" fontSize={"1.5rem"} ml="0.5rem">{ post.frontmatter.title }</Text>
-            <Link href={"posts/" + post.slug} >
-              <Flex 
+          <Box w={{base:"auto", md:"600px"}} mt="1.3rem" m={{base:"0 0.5rem"}} key={index}>
+            <Text as="b" fontSize={{base:"1.2rem", md:"1.5rem"}} ml="0.5rem">
+              {post.frontmatter.title}
+            </Text>
+            <Link href={"posts/" + post.slug}>
+              <Flex
                 border="solid gray"
                 bg="rgba(255,255,255,0.6)"
                 boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
                 transition=".5s"
-                _hover={{border:"solid orange"}}
+                _hover={{ border: "solid orange" }}
               >
-                <Box flexBasis={"40%"} position={"relative"} h="150px" w="250px">
+                <Box
+                  flexBasis={"40%"}
+                  position={"relative"}
+                  h={{base:"110px", md:"150px"}}
+                  w={{base:"150px", md:"250px"}}
+                >
                   <Image
                     layout="fill"
                     objectFit="cover"
-                    objectPosition="50% 0"
+                    objectPosition="50% 50%"
                     alt={post.frontmatter.alt}
                     src={post.frontmatter.cover_image}
                   />
                 </Box>
-                <Box flexBasis={"60%"} p="0.5rem">
+                <Box flexBasis={"60%"} p={{base:"0.2rem", md:"0.5rem"}}>
                   {/* <Text as="b" mb="0.4rem" h="1rem"	>{post.frontmatter.title}</Text> */}
                   <Box m="0.5rem 0">
                     <Box
                       display={"inline-block"}
-                      fontSize="0.9rem" 
-                      bg="lightgray" 
-                      borderRadius={"0.2rem"} 
-                      p="0 0.5rem" 
+                      fontSize="0.9rem"
+                      bg="lightgray"
+                      borderRadius={"0.2rem"}
+                      p="0 0.2rem"
                       color={"black"}
+                      h="1.3rem"
                       boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
                     >
                       Posted on {post.frontmatter.date}
@@ -146,15 +150,27 @@ export default function PostPage({ posts }) {
                   <Box m="0.3rem 0">
                     <Flex width={"100%"}>
                       {post.frontmatter.tags.map((tag, index) => {
-                        return <Box as="b" border={"solid orange"} borderRadius="full" bg="navy" color={"white"} p="0.1rem 0.6rem" key={index}>{tag}</Box>;
+                        return (
+                          <Tag
+                            border={"solid orange"}
+                            borderRadius="full"
+                            bg="navy"
+                            color={"white"}
+                            p="0.1rem 0.6rem"
+                            key={index}
+                          >
+                            {tag}
+                          </Tag>
+                        );
                       })}
                     </Flex>
                   </Box>
-                  <Box 
-                    h="50px" 
-                    p="0.3rem" 
+                  <Box
+                    h={{base:"2rem", md:"50px" }}
+                    p="0.3rem"
                     boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
-                    overflowY="scroll">
+                    overflowY="scroll"
+                  >
                     {post.frontmatter.excerpt}
                   </Box>
                 </Box>
