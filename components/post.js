@@ -24,7 +24,7 @@ export default function Post({ posts }) {
           return (
             <Flex 
               flexBasis={{base:"auto", md:"50%"}} 
-              h="350px" 
+              minHeight="400px" 
               position="relative" 
               borderRadius={"0 0 0.5rem 0.5rem"}
               bg="rgba(255,255,255,0.6)"
@@ -68,7 +68,10 @@ export default function Post({ posts }) {
                   m="0.5rem"
                   color={"black"}
                   borderRadius="full"
-                  borderColor='orange.300'>
+                  bg="orange.50"
+                  borderColor='orange.200'
+                  _hover={{borderColor:"orange"}}
+                  >
                     <Link href={"posts/" + post.slug } scroll={false}>
                       <Text> { btnText } </Text>
                     </Link>
@@ -87,7 +90,8 @@ export default function Post({ posts }) {
           width='120px'
           border='2px'
           m="0.5rem"
-          borderColor='green.300'>
+          borderColor='green.300'
+          _hover={{bg:"green.50"}}>
             <Link href={"post/"} scroll={false}>
               <Text>{ morePosts }</Text>
             </Link>

@@ -36,7 +36,7 @@ export default function Layout({ children, router }) {
           transition={{ duration: 0.4, type: "easeInOut" }}
           style={{ position: "relative" }}
         >
-          <Box maxW="600px">
+          <Box maxW="600px" minH="50vh">
             {children}
           </Box>
         </motion.div>

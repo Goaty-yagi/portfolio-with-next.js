@@ -30,7 +30,7 @@ export default function Footer() {
             _hover={{ color: "aquamarine" }}
             />
         </Center>
-        <h4>{copyLight}</h4>
+        <Heading as="h4" size="sm" mb="1rem">{copyLight}</Heading>
       </Box>
     </Flex>
   );
