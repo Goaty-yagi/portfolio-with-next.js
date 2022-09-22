@@ -72,114 +72,144 @@
         right: 0;
         bottom: 30px;
     }
-    .theme {
-        background: rgb(255, 235, 197);
-        border-radius: 0.2rem;
-        padding: 0.4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-        transition: .5s;
-    }
-    .theme:hover {
-        background: orange;
-        color: rgb(240, 240, 240);
-    }
+    // .theme {
+    //     background: rgb(255, 235, 197);
+    //     border-radius: 0.2rem;
+    //     padding: 0.4rem;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-size: 1.5rem;
+    //     transition: .5s;
+    // }
+    // .theme:hover {
+    //     background: orange;
+    //     color: rgb(240, 240, 240);
+    // }
    
-    .themeDark {
-        background: rgb(197, 204, 255);
-        color: black;
-        border-radius: 0.2rem;
-        padding: 0.4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-        transition: .5s;
-    }
-    .themeDark:hover {
-        background: purple;
-        color: rgb(240, 240, 240);
-    }
+    // .themeDark {
+    //     background: rgb(197, 204, 255);
+    //     color: black;
+    //     border-radius: 0.2rem;
+    //     padding: 0.4rem;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-size: 1.5rem;
+    //     transition: .5s;
+    // }
+    // .themeDark:hover {
+    //     background: purple;
+    //     color: rgb(240, 240, 240);
+    // }
+}
+.theme {
+    background: rgb(255, 235, 197);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+.theme:hover {
+    background: orange;
+    color: rgb(240, 240, 240);
 }
 
-@media(max-width: 750px){
-    .nav {
-        width: 100%;
-        position: relative;
-    }
-    .logo {
-        position: absolute;
-        left: 15px;
-        font-size: 1.1rem;
-    }
-    .mobileWrapper {
-        display: flex;
-        position: relative;
-        width: 100%;
-    }
-    .hamburger {
-        border: solid rgb(60, 60, 60);
-        border-radius: 0.2rem;
-        padding: 0.4rem;
-        font-size: 1.3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 1 !important;
-        right: 0;
-        bottom: -22px;
-        background: black;
-        color: white;
-        pointer-events: auto !important;
-        transition: .5s;
-    }
-    .open {
-        animation: slideInForBurger 0.5s reverse forwards;
-    }
-    .close {
-        animation: slideInForBurger 0.5s forwards;
-    }
-    .hamburger:hover {
-        cursor: pointer;
-        background: rgb(66, 66, 66);
-    }
-    .navMenuContainer {
-        position: absolute;
-        right: -200px;
-        top: 25px;
-        border: solid gray;
-        background: white;
-        padding: 0.5rem;
-        border-radius: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 1;
-        .navMenu {
-            border: none;
-            margin-bottom: 0.2rem;
-        }
+.themeDark {
+    background: rgb(197, 204, 255);
+    color: black;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+.themeDark:hover {
+    background: purple;
+    color: rgb(240, 240, 240);
+}
 
-    }
-    .navMenu {
-        color: black;
-    }
-    .navMenu:hover {
-        background: lightgray;
-    }
-    .navMenu:hover .darkHover {
-        color: gray;       
-    }
-    .themeWapper {
-        height: 40px;
-        width: 40px;
-        top: -15px;
-        right: 40px !important;
+// @media(max-width: 750px){
+//     .nav {
+//         width: 100%;
+//         position: relative;
+//     }
+//     .logo {
+//         position: absolute;
+//         left: 15px;
+//         font-size: 1.1rem;
+//     }
+//     .mobileWrapper {
+//         display: flex;
+//         position: relative;
+//         width: 100%;
+//     }
+//     .hamburger {
+//         border: solid rgb(60, 60, 60);
+//         border-radius: 0.2rem;
+//         padding: 0.4rem;
+//         font-size: 1.3rem;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         opacity: 1 !important;
+//         right: 0;
+//         bottom: -22px;
+//         background: black;
+//         color: white;
+//         pointer-events: auto !important;
+//         transition: .5s;
+//     }
+//     .open {
+//         animation: slideInForBurger 0.5s reverse forwards;
+//     }
+//     .close {
+//         animation: slideInForBurger 0.5s forwards;
+//     }
+//     .hamburger:hover {
+//         cursor: pointer;
+//         background: rgb(66, 66, 66);
+//     }
+//     .navMenuContainer {
+//         position: absolute;
+//         right: -200px;
+//         top: 25px;
+//         border: solid gray;
+//         background: white;
+//         padding: 0.5rem;
+//         border-radius: 0.2rem;
+//         display: flex;
+//         flex-direction: column;
+//         overflow: hidden;
+//         z-index: 1;
+//         .navMenu {
+//             border: none;
+//             margin-bottom: 0.2rem;
+//         }
+
+//     }
+//     .navMenu {
+//         color: black;
+//     }
+//     .navMenu:hover {
+//         background: lightgray;
+//     }
+//     .navMenu:hover .darkHover {
+//         color: gray;       
+//     }
+//     .themeWapper {
+//         height: 40px;
+//         width: 40px;
+//         top: -15px;
+//         right: 40px !important;
         
-    } 
-}
+//     } 
+// }
 
 
 :export {

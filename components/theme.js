@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { Box } from "@chakra-ui/react";
 let themeClicked = true;
 
 export default function Theme() {
@@ -25,8 +26,11 @@ export default function Theme() {
     setData(icon);
   };
   return (
-    <div
-      className={styles.themeWapper}
+    <Box
+      position="absolute"
+      right="85px"
+      top="0"
+      // className={styles.themeWapper}
       onClick={(e) => {
         e.preventDefault();
         themeHandler();
@@ -38,6 +42,6 @@ export default function Theme() {
       <div className={styles.theme} style={themeClicked ? hide : show}>
         <FiSun />
       </div>
-    </div>
+    </Box>
   );
 }

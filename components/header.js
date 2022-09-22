@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
 import { FaHome, FaGithubAlt } from "react-icons/fa";
-import { GiFishbone, GiPlantSeed, GiVintageRobot, GiHamburgerMenu } from "react-icons/gi";
+import {
+  GiFishbone,
+  GiPlantSeed,
+  GiVintageRobot,
+  GiHamburgerMenu,
+} from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 import { motion } from "framer-motion";
 
@@ -9,6 +14,23 @@ import Link from "next/link";
 import Theme from "./theme";
 import { useRouter } from "next/router";
 
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Text,
+  Tag,
+  Button,
+  Container,
+  Show,
+  Hide,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from "@chakra-ui/react";
 
 export default function Header() {
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
@@ -21,65 +43,49 @@ export default function Header() {
   };
   function isOpnehandler() {
     setIsOpen(!isOpen);
-    setMenuClass(!isOpen ? openBuger : '');
+    setMenuClass(!isOpen ? openBuger : "");
   }
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {
-      setIsOpen(false)
-      setMenuClass('');
-    }
+      setIsOpen(false);
+      setMenuClass("");
+    };
 
-    router.events.on('routeChangeStart', handleRouteChange)
+    router.events.on("routeChangeStart", handleRouteChange);
 
     // If the component is unmounted, unsubscribe
     // from the event with the `off` method:
     return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  })
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  });
   function HamburgerMenu() {
-    // let burgerVariants;
-    // let innerHeight;
-    // if (typeof window !== "undefined") {
-    //   innerHeight = window.innerWidth;
-    // }
-    // console.log(innerHeight);
-    // if (innerHeight > 750) {
-    //   burgerVariants = {
-    //     hidden: {},
-    //     visible: {},
-    //   };
-    // } else {
-      // const burgerVariants = {
-      //   hidden: {
-      //     x: isOpen ? 200 : 0,
-      //     opacity: isOpen ? 0 : 1,
-      //   },
-      //   visible: {
-      //     x: isOpen ? 0 : 200,
-      //     opacity: isOpen ? 1 : 0,
-      //   },
-      // };
-    // }
     return (
-      <div
-        className={`${styles.navMenuContainer} ${menuClass}`}
-      >
-        <div className={styles.navMenu} onClick={goToSource}>
+      <Show breakpoint="(max-width: 750px)" >
+        <Menu >
+          <MenuButton
+            position={"absolute"} 
+            right="0"
+            top="0"
+            as={IconButton}
+            aria-label="Options"
+            icon={<GiHamburgerMenu />}
+            variant="outline"
+          ></MenuButton>
+          <MenuList>
+            <MenuItem icon={<FaGithubAlt />} onClick={goToSource}>
+              SOURCE
+            </MenuItem>
+            <Link href={"/post"}>
+              <MenuItem icon={<ImBlog />}>POST</MenuItem>
+            </Link>
+            {/* <div className={styles.navMenu} onClick={goToSource}>
           <div className={styles.darkHover}>
             <FaGithubAlt className={styles.menuLogo} />
             SOURCE
           </div>
         </div>
-        {/* <Link href="/project" scroll={false}>
-          <div className={styles.navMenu}>
-            <div className={styles.darkHover}>
-              <GiVintageRobot className={styles.menuLogo} />
-              PROJECTS
-            </div>
-          </div>
-        </Link> */}
         <Link href={"/post"} >
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
@@ -87,33 +93,94 @@ export default function Header() {
               POST
             </div>
           </div>
-        </Link>
-      </div>
+        </Link> */}
+          </MenuList>
+        </Menu>
+      </Show>
+    );
+  }
+  function NavBar() {
+    return (
+      <Show breakpoint="(min-width: 751px)">
+        <Flex >
+          <Box
+            p="0.2rem 0.5rem"
+            position={"relative"}
+            borderRight="0.2rem solid darkorange;"
+            transition={".5s"}
+            onClick={goToSource}
+          >
+            <Center>
+              <Box
+                as={FaGithubAlt}
+                position="relative"
+                mr="0.2rem"
+                display={"inline-block"}
+              />
+              SOURCE
+            </Center>
+          </Box>
+          <Link href={"/post"}>
+            <Box
+              p="0.2rem 0.5rem"
+              position={"relative"}
+              borderRight="0.2rem solid darkorange;"
+              transition={".5s"}
+            >
+              <Center>
+                <Box
+                  as={ImBlog}
+                  position="relative"
+                  mr="0.2rem"
+                  display={"inline-block"}
+                />
+                POST
+              </Center>
+            </Box>
+          </Link>
+        </Flex>
+      </Show>
     );
   }
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
-        <div className={styles.logo}>
-          <Link href="/" >
-            <a>
-              <div className={styles.boneIcon}>
-                <GiPlantSeed />
-              </div>
-              <span>NOBUHIRO</span>
-            </a>
+    <Flex as="header" w="100%" justifyContent={"center"}>
+      <Flex
+        as="nav"
+        w={{base:"100vw",md:"650px"}}
+        justifyContent={{base:"flex-start", lg:"center"}}
+        alignItems="center"
+        position={"relative"}
+        h="30px"
+        m="1rem"
+        mt="2rem"
+      >
+        <Box
+          as="logo"
+          flexBasis={"20%"}
+          fontFamily={"Times New Roman', Times, serif"}
+          mr="1rem"
+          h="20px"
+        >
+          <Link href="/">
+            <Flex 
+              fontSize={{base:"1.1rem", lg:"1rem"}}>
+              <Box
+                as={GiPlantSeed}
+                mr="0.2rem"
+                fontSize={"1.2rem"}
+                transition=".5s"
+                _hover={{ transform: "rotate(-70deg)", transition: ".5s" }}
+              ></Box>
+              NOBUHIRO
+            </Flex>
           </Link>
-        </div>
-        <div className={styles.mobileWrapper}>
-          <div onClick={isOpnehandler} className={styles.hamburger}>
-            <GiHamburgerMenu />
-          </div>
-          <div>
-            <HamburgerMenu />
-          </div>
-          <Theme />
-        </div>
-      </nav>
-    </header>
+        </Box>
+        <NavBar />
+        
+        <HamburgerMenu />
+        <Theme />
+        
+      </Flex>
+    </Flex>
   );
 }

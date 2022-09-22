@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 const breakpoints = {
   sm: "480px",
   md: "650px",
-  lg: "960px",
+  lg: "750px",
   xl: "1200px",
   "2xl": "1536px",
 };
