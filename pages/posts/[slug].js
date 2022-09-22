@@ -8,10 +8,8 @@ import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python.min";
 import "prismjs/components/prism-bash.min";
-// import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
-import postStyles from "/styles/components/post.module.scss";
-import pagePostStyles from "/styles/pages/posts/post.module.scss";
+import { Box, Flex, Heading, Tag } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 export default function PostPage({
@@ -47,31 +45,56 @@ export default function PostPage({
 
   return (
     // <div>
-    <div className={pagePostStyles.postWrapper}>
-      <h1 className={pagePostStyles.title}>{title}</h1>
-      <div className={postStyles.dateWrapper}>
-        <div>Posted on {date}</div>
-      </div>
-      <div className={pagePostStyles.tagContainer}>
-        <div className={pagePostStyles.tagWrapper}>
+    <Flex
+      position={"relative"}
+      flexDirection="column"
+      p={{ base: "0.5rem", md: "0" }}
+    >
+      <Heading size="lg" textAlign={"center"}>
+        {title}
+      </Heading>
+      <Box m="0.2rem 0.5rem">
+        <Flex mt="1rem" w="100%">
+          <Box
+            fontSize="0.9rem"
+            bg="lightgray"
+            borderRadius={"0.2rem"}
+            p="0 0.2rem"
+            color={"black"}
+            boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
+          >
+            Posted on {date}
+          </Box>
+        </Flex>
+      </Box>
+      <Box m="1rem 0">
+        <Flex width={"100%"}>
           {tags.map((tag, index) => {
-            return <div key={index}>{tag}</div>;
+            return (
+              <Tag
+                border={"solid orange"}
+                borderRadius="full"
+                bg="navy"
+                color={"white"}
+                p="0.1rem 0.6rem"
+                key={index}
+              >
+                {tag}
+              </Tag>
+            );
           })}
-        </div>
-      </div>
-      <div className={pagePostStyles.imgWrapper}>
-        <Image
-          src={cover_image}
-          alt={alt}
-          width={"600px"}
-          height={"300px"}
-          // layout="fill"
-        />
-      </div>
+        </Flex>
+      </Box>
+      <Box m="1.5rem 0">
+        <Image src={cover_image} alt={alt} width={"600px"} height={"300px"} />
+      </Box>
       {isMounted ? (
-          <div className="post-body" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+        <Box
+          w="100%"
+          dangerouslySetInnerHTML={{ __html: marked(content) }}
+        ></Box>
       ) : null}
-    </div>
+    </Flex>
     // </div>
   );
 }
