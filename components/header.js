@@ -31,6 +31,8 @@ import {
   MenuItem,
   IconButton,
 } from "@chakra-ui/react";
+import styled from "@emotion/styled";
+
 
 export default function Header() {
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
@@ -60,6 +62,21 @@ export default function Header() {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   });
+  const LogoBox = styled.span`
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    line-height: 20px;
+    padding: 10px;
+    > svg {
+      transition: 200ms ease;
+    }
+    &:hover > svg {
+      transform: rotate(50deg);
+    }  
+  `
   function HamburgerMenu() {
     return (
       <Show breakpoint="(max-width: 750px)" >
@@ -164,17 +181,18 @@ export default function Header() {
           <Link href="/">
             <Flex 
               fontSize={{base:"1.1rem", lg:"1rem"}}>
-              <Box
-                as={GiPlantSeed}
-                mr="0.2rem"
-                fontSize={"1.2rem"}
-                transition=".5s"
-                _hover={{ transform: "rotate(-70deg)", transition: ".5s" }}
-              ></Box>
-              <Text
-              fontFamily='logo'>
-                NOBUHIRO
-              </Text>
+              <LogoBox>
+                <Box
+                  as={GiPlantSeed}
+                  mr="0.2rem"
+                  fontSize={"1.2rem"}
+                  transition=".5s"
+                ></Box>
+                <Text
+                  fontFamily='logo'>
+                  NOBUHIRO
+                </Text>
+              </LogoBox>
             </Flex>
           </Link>
         </Box>
