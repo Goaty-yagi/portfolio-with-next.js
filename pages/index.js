@@ -13,7 +13,7 @@ import { BsHeartFill } from "react-icons/bs";
 export default function Home({ posts }) {
   const introText = "Hi, I'm Nobuhiro based in Melbourne.";
   const selfIntro =
-    "Newly trained web developer seeking an entry-level or internship position where I can earn professional experience in programming and offer my skills in coding and program design.";
+    "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";
   return (
     <Box maxW="600px" p="0.3rem">
       <Box

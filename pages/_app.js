@@ -3,6 +3,8 @@ import { ChakraProvider, CSSReset } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 // A fancy anchor tag that supports pre-fetching
 import Layout from "../components/layout";
+import Fonts from "../components/fonts";
+
 
 const breakpoints = {
   sm: "480px",
@@ -12,11 +14,14 @@ const breakpoints = {
   "2xl": "1536px",
 };
 
-const theme = extendTheme({ breakpoints });
+const theme = extendTheme({ breakpoints,fonts: {
+  logo: `'Times New Roman', Times, sans-serif`,   
+}, });
 
 function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
+      <Fonts/>
       <CSSReset />
       <div className={"darkMain"}>
         <Layout router={router}>

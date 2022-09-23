@@ -171,7 +171,10 @@ export default function Header() {
                 transition=".5s"
                 _hover={{ transform: "rotate(-70deg)", transition: ".5s" }}
               ></Box>
-              NOBUHIRO
+              <Text
+              fontFamily='logo'>
+                NOBUHIRO
+              </Text>
             </Flex>
           </Link>
         </Box>
