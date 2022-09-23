@@ -75,11 +75,12 @@ export default function PostPage({ posts }) {
            {tags.map((tag, index) => {
             return (
               <MenuItem
+
                 color={"black"}
                 key={index}
                 onClick={() => clickedOption(tag)}
               >
-                <Heading fontSize={"sm"}>{tag}</Heading>
+                <Text as="b"  fontSize={"sm"}>{tag}</Text>
               </MenuItem>
             );
           })}

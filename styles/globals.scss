@@ -9,6 +9,59 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+h1 {
+  display: block !important;
+  font-size: 2em !important;
+  -webkit-margin-before: 0.67em !important;
+  -webkit-margin-after: 0.67em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
+h2 {
+  display: block !important;
+  font-size: 1.5em !important;
+  -webkit-margin-before: 0.83em !important;
+  -webkit-margin-after: 0.83em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
+h3 {
+  display: block !important;
+  font-size: 1.17em !important;
+  -webkit-margin-before: 1em !important;
+  -webkit-margin-after: 1em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
+h4 {
+  display: block !important;
+  -webkit-margin-before: 1.33em !important;
+  -webkit-margin-after: 1.33em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
+h5 {
+  display: block !important;
+  font-size: 0.83em !important;
+  -webkit-margin-before: 1.67em !important;
+  -webkit-margin-after: 1.67em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
+h6 {
+  display: block !important;
+  font-size: 0.67em !important;
+  -webkit-margin-before: 2.33em !important;
+  -webkit-margin-after: 2.33em !important;
+  -webkit-margin-start: 0px !important;
+  -webkit-margin-end: 0px !important;
+  font-weight: bold !important;
+}
 pre code {
   // display: inline-block;
   width: 600px;

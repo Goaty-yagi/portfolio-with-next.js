@@ -1,5 +1,5 @@
 import styles from "../styles/globals.scss";
-import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+import { ChakraProvider, color, CSSReset } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 // A fancy anchor tag that supports pre-fetching
 import Layout from "../components/layout";
@@ -16,7 +16,8 @@ const breakpoints = {
 
 const theme = extendTheme({ breakpoints,fonts: {
   logo: `'Times New Roman', Times, sans-serif`,   
-}, });
+}, 
+});
 
 function MyApp({ Component, pageProps, router }) {
   return (
