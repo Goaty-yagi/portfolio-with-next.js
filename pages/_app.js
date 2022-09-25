@@ -3,7 +3,6 @@ import { ChakraProvider, color, CSSReset } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 // A fancy anchor tag that supports pre-fetching
 import Layout from "../components/layout";
-import Fonts from "../components/fonts";
 
 
 const breakpoints = {
@@ -22,7 +21,6 @@ const theme = extendTheme({ breakpoints,fonts: {
 function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
-      <Fonts/>
       <CSSReset />
       <div className={"darkMain"}>
         <Layout router={router}>

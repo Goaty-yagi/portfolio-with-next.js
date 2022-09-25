@@ -57,7 +57,7 @@ export default function Home({ posts }) {
       </Flex>
       <Box m="2rem 0" p="0 1rem">
         <Center>
-          <Text className={styles.self}>{selfIntro}</Text>
+          <Text w="90%">{selfIntro}</Text>
         </Center>
       </Box>
       <Work />

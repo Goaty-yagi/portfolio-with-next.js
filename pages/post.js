@@ -101,16 +101,16 @@ export default function PostPage({ posts }) {
           POST
         </Heading>
       </Center>
-      <div className={styles.selectContainer}>
+      <Flex justifyContent={"flex-end"} mb="3rem" mt="1rem">
         <Selector />
-      </div>
+      </Flex>
       {allPosts.map((post, index) => {
         return (
           <Box w={{base:"auto", md:"600px"}} mt="1.3rem" m={{base:"0 0.5rem"}} key={index}>
             <Text as="b" fontSize={{base:"1.2rem", md:"1.5rem"}} ml="0.5rem">
               {post.frontmatter.title}
             </Text>
-            <Link href={"posts/" + post.slug}>
+            <Link href={"posts/" + post.slug} scroll={false}>
               <Flex
                 border="solid gray"
                 bg="rgba(255,255,255,0.6)"

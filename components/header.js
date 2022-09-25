@@ -94,7 +94,7 @@ export default function Header() {
             <MenuItem icon={<FaGithubAlt />} onClick={goToSource}>
               SOURCE
             </MenuItem>
-            <Link href={"/post"}>
+            <Link href={"/post"} scroll={false}>
               <MenuItem icon={<ImBlog />}>POST</MenuItem>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>
@@ -137,7 +137,7 @@ export default function Header() {
               SOURCE
             </Center>
           </Box>
-          <Link href={"/post"}>
+          <Link href={"/post"} scroll={false}>
             <Box
               p="0.2rem 0.5rem"
               position={"relative"}
@@ -178,7 +178,7 @@ export default function Header() {
           mr="1rem"
           h="20px"
         >
-          <Link href="/">
+          <Link href="/" scroll={false}>
             <Flex 
               fontSize={{base:"1.1rem", lg:"1rem"}}>
               <LogoBox>

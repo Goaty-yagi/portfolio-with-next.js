@@ -24,6 +24,7 @@ export default function PostPage({
   }, []);
   const renderer = new marked.Renderer();
   renderer.code = function (code, lang, escaped) {
+    
     code = this.options.highlight(code, lang);
     if (!lang) {
       return `<pre><code>${code}</code></pre>`;
