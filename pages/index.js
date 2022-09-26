@@ -7,15 +7,20 @@ import styles from "../styles/components/home.module.scss";
 import Work from "../components/project";
 import Post from "../components/post";
 import { sortByDate } from "../utils";
-import { Box, Center, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Image, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { BsHeartFill } from "react-icons/bs";
 
+
+
 export default function Home({ posts }) {
+  const {colorMode, toggleColorMode} = useColorMode()
+
+console.log('color',colorMode)
   const introText = "Hi, I'm Nobuhiro based in Melbourne.";
   const selfIntro =
     "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";
   return (
-    <Box maxW="600px" p="0.3rem">
+    <Box maxW="600px" p="0.3rem" >
       <Box
         bg="rgba(0,0,0,0.8)"
         w="100%"

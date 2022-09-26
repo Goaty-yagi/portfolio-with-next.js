@@ -64,7 +64,6 @@ export default function PostPage({ posts }) {
       <Menu>
         <MenuButton 
           as={Button} 
-          color="black" 
           size={{base:"xs", md:"sm"}} 
           mr="0.5rem"
           border={"solid navy"} 
@@ -75,8 +74,6 @@ export default function PostPage({ posts }) {
            {tags.map((tag, index) => {
             return (
               <MenuItem
-
-                color={"black"}
                 key={index}
                 onClick={() => clickedOption(tag)}
               >
