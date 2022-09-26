@@ -27,10 +27,10 @@ export default function PostPage({
     
     code = this.options.highlight(code, lang);
     if (!lang) {
-      return `<pre><code>${code}</code></pre>`;
+      return `<Box><pre><code>${code}</code></pre></Box>`;
     }
     const langClass = "language-" + lang;
-    return `<pre class="${langClass}"><code class="${langClass}">${code}</code></pre>`;
+    return `<Box><pre class="${langClass}"><code class="${langClass}">${code}</code></pre></Box>`;
   };
 
   marked.setOptions({
