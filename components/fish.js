@@ -1,8 +1,7 @@
 import styles from "/styles/components/canvas.module.scss";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { MeshReflectorMaterial, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import Model from "./model";
-import { useRef } from "react";
 
 export default function Fish() {
   return (

@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
-import styles from "/styles/components/nav.module.scss";
+import { useEffect } from "react";
 import { FaGithubAlt } from "react-icons/fa";
-import {
-  GiPlantSeed,
-  GiHamburgerMenu,
-} from "react-icons/gi";
+import { GiPlantSeed, GiHamburgerMenu } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 
 import Link from "next/link";
@@ -22,30 +18,19 @@ import {
   MenuList,
   MenuItem,
   IconButton,
-  useColorMode,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
-
 export default function Header() {
-  const { colorMode } = useColorMode()
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
-  const [isOpen, setIsOpen] = useState(false);
-  const openBuger = styles.open;
-  const closeBurger = styles.close;
-  const [menuClass, setMenuClass] = useState();
   const goToSource = () => {
     window.open(sourceUrl);
   };
-  function isOpnehandler() {
-    setIsOpen(!isOpen);
-    setMenuClass(!isOpen ? openBuger : "");
-  }
+  
   const router = useRouter();
+  
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {
-      setIsOpen(false);
-      setMenuClass("");
     };
 
     router.events.on("routeChangeStart", handleRouteChange);
@@ -69,14 +54,14 @@ export default function Header() {
     }
     &:hover > svg {
       transform: rotate(50deg);
-    }  
-  `
+    }
+  `;
   function HamburgerMenu() {
     return (
-      <Show breakpoint="(max-width: 750px)" >
-        <Menu >
+      <Show breakpoint="(max-width: 750px)">
+        <Menu>
           <MenuButton
-            position={"absolute"} 
+            position={"absolute"}
             right="0"
             top="0"
             as={IconButton}
@@ -88,8 +73,17 @@ export default function Header() {
             <MenuItem icon={<FaGithubAlt />} onClick={goToSource}>
               SOURCE
             </MenuItem>
-            <Link href={"/post"} scroll={false}>
-              <MenuItem icon={<ImBlog />}>POST</MenuItem>
+            <Link
+              href={router.pathname === "/post" ? {} : "/post"}
+              scroll={false}
+            >
+              <a
+                onClick={(event) =>
+                  router.pathname === "/post" ? event.preventDefault() : null
+                }
+              >
+                <MenuItem icon={<ImBlog />}>POST</MenuItem>
+              </a>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>
           <div className={styles.darkHover}>
@@ -113,7 +107,7 @@ export default function Header() {
   function NavBar() {
     return (
       <Show breakpoint="(min-width: 751px)">
-        <Flex >
+        <Flex>
           <Box
             p="0.2rem 0.5rem"
             position={"relative"}
@@ -121,7 +115,7 @@ export default function Header() {
             transition={".5s"}
             _hover={{
               bg: "lightgray",
-              color: "black"
+              color: "black",
             }}
             onClick={goToSource}
           >
@@ -135,27 +129,36 @@ export default function Header() {
               SOURCE
             </Center>
           </Box>
-          <Link href={"/post"} scroll={false}>
-            <Box
-              p="0.2rem 0.5rem"
-              position={"relative"}
-              borderRight="0.2rem solid darkorange;"
-              transition={".5s"}
-              _hover={{
-                bg: "lightgray",
-                color: "black"
-              }}
+          <Link
+            href={router.pathname === "/post" ? {} : "/post"}
+            scroll={false}
+          >
+            <a
+              onClick={(event) =>
+                router.pathname === "/post" ? event.preventDefault() : null
+              }
             >
-              <Center>
-                <Box
-                  as={ImBlog}
-                  position="relative"
-                  mr="0.2rem"
-                  display={"inline-block"}
-                />
-                POST
-              </Center>
-            </Box>
+              <Box
+                p="0.2rem 0.5rem"
+                position={"relative"}
+                borderRight="0.2rem solid darkorange;"
+                transition={".5s"}
+                _hover={{
+                  bg: "lightgray",
+                  color: "black",
+                }}
+              >
+                <Center>
+                  <Box
+                    as={ImBlog}
+                    position="relative"
+                    mr="0.2rem"
+                    display={"inline-block"}
+                  />
+                  POST
+                </Center>
+              </Box>
+            </a>
           </Link>
         </Flex>
       </Show>
@@ -165,8 +168,8 @@ export default function Header() {
     <Flex as="header" w="100%" justifyContent={"center"}>
       <Flex
         as="nav"
-        w={{base:"100vw",md:"650px"}}
-        justifyContent={{base:"flex-start", lg:"center"}}
+        w={{ base: "100vw", md: "650px" }}
+        justifyContent={{ base: "flex-start", lg: "center" }}
         alignItems="center"
         position={"relative"}
         h="30px"
@@ -180,29 +183,29 @@ export default function Header() {
           mr="1rem"
           h="20px"
         >
-          <Link href="/" scroll={false}>
-            <Flex 
-              fontSize={{base:"1.1rem", lg:"1rem"}}>
-              <LogoBox>
-                <Box
-                  as={GiPlantSeed}
-                  mr="0.2rem"
-                  fontSize={"1.2rem"}
-                  transition=".5s"
-                ></Box>
-                <Text
-                  fontFamily='logo'>
-                  NOBUHIRO
-                </Text>
-              </LogoBox>
-            </Flex>
+          <Link href={router.pathname === "/" ? {} : "/"} scroll={false}>
+            <a
+              onClick={(event) =>
+                router.pathname === "/" ? event.preventDefault() : null
+              }
+            >
+              <Flex fontSize={{ base: "1.1rem", lg: "1rem" }}>
+                <LogoBox>
+                  <Box
+                    as={GiPlantSeed}
+                    mr="0.2rem"
+                    fontSize={"1.2rem"}
+                    transition=".5s"
+                  ></Box>
+                  <Text fontFamily="logo">NOBUHIRO</Text>
+                </LogoBox>
+              </Flex>
+            </a>
           </Link>
         </Box>
         <NavBar />
-        
         <HamburgerMenu />
         <Theme />
-        
       </Flex>
     </Flex>
   );

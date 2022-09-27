@@ -3,7 +3,6 @@ import { BiRocket } from "react-icons/bi";
 // import workData from "./workData";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import {
   Box,
   Center,
