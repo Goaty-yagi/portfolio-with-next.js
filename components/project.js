@@ -90,7 +90,7 @@ export default function Project({ hideTitle }) {
             />
             <Box
               as={BiRocket}
-              onClick={() => gitClick(obj)}
+              onClick={() => postClick(obj)}
               size={"2.5rem"}
               m="0 0.4rem"
               transition={".5s"}
