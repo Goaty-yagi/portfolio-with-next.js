@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "/styles/components/nav.module.scss";
-import { FaHome, FaGithubAlt } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
 import {
-  GiFishbone,
   GiPlantSeed,
-  GiVintageRobot,
   GiHamburgerMenu,
 } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
-import { motion } from "framer-motion";
 
 import Link from "next/link";
 import Theme from "./theme";
@@ -26,7 +23,6 @@ import {
   MenuItem,
   IconButton,
   useColorMode,
-  color,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 

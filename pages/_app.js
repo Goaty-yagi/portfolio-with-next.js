@@ -1,5 +1,5 @@
 import styles from "../styles/globals.scss";
-import { Box, ChakraProvider,CSSReset} from "@chakra-ui/react";
+import { ChakraProvider,CSSReset} from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 // A fancy anchor tag that supports pre-fetching
 import Layout from "../components/layout";
@@ -24,9 +24,9 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
       <CSSReset />
-        <Layout router={router}>
-          <Component {...pageProps} />
-        </Layout>
+      <Layout router={router}>
+        <Component {...pageProps} />
+      </Layout>
     </ChakraProvider>
   );
 }

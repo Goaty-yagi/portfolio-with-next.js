@@ -1,8 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/post.module.scss";
-import globalStyles from "/styles/components/global_components/text.module.scss";
-import btn from "../styles/components/button.module.scss";
 import {
   Box,
   Center,

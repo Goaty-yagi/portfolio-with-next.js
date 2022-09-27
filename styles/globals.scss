@@ -82,51 +82,7 @@ mdContainer {
   padding: 0.5rem;
 }
 
-a {
-  text-decoration: none;
-  color: #000000;
-  cursor: default;
-  
-}
-a:active {
-  color: #000000;
-}
-a:focus {
-  outline: none;
-}
-.main {
-  background: no-repeat $background-color;
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  a {
-    text-decoration: none;
-    color: #000000;
-    cursor: default;
-    
-  }
-}
-.darkMain {
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background: no-repeat $dark-background-color;
-  color: lightgray;
-  a {
-    text-decoration: none;
-    color: lightgray;
-    cursor: default;
-    
-  }
-}
+
 
 * {
   box-sizing: border-box;

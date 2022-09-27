@@ -1,12 +1,9 @@
-import styles from "/styles/components/footer.module.scss";
 import { BsLinkedin } from "react-icons/bs";
 import {
   Box,
   Center,
   Flex,
   Heading,
-  Text,
-  Button
 } from "@chakra-ui/react";
 
 

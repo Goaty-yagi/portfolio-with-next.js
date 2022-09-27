@@ -5,15 +5,9 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 import Image from "next/image";
 
-import styles from "../styles/pages/post.module.scss";
-import postStyles from "/styles/components/post.module.scss";
-import pagePostStyles from "/styles/pages/posts/post.module.scss";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { BsCaretDownFill } from "react-icons/bs";
-import { FaHome, FaGithubAlt } from "react-icons/fa";
+import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
-import { motion } from "framer-motion";
 
 import {
   Box,
@@ -130,7 +124,6 @@ export default function PostPage({ posts }) {
                   />
                 </Box>
                 <Box flexBasis={"60%"} p={{base:"0.2rem", md:"0.5rem"}}>
-                  {/* <Text as="b" mb="0.4rem" h="1rem"	>{post.frontmatter.title}</Text> */}
                   <Box m="0.5rem 0">
                     <Box
                       display={"inline-block"}

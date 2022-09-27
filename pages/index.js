@@ -1,21 +1,15 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-// import Image from "next/image"
-import styles from "../styles/components/home.module.scss";
 import Work from "../components/project";
 import Post from "../components/post";
 import { sortByDate } from "../utils";
-import { Box, Center, Flex, Heading, Image, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { BsHeartFill } from "react-icons/bs";
+import { Box, Center, Flex, Heading, Image, Text, useColorMode } from "@chakra-ui/react";
 
 
 
 export default function Home({ posts }) {
-  const {colorMode, toggleColorMode} = useColorMode()
-
-console.log('color',colorMode)
+  const { colorMode } = useColorMode()
   const introText = "Hi, I'm Nobuhiro based in Melbourne.";
   const selfIntro =
     "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";

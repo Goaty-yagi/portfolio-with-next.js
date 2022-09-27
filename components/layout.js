@@ -1,4 +1,4 @@
-import { Box, Flex, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex,useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 import Fish from "./fish";

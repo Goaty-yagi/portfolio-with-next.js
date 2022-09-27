@@ -1,17 +1,13 @@
-import styles from "/styles/components/project.module.scss";
-import globalStyles from "/styles/components/global_components/text.module.scss";
 import { FaGithubSquare } from "react-icons/fa";
 import { BiRocket } from "react-icons/bi";
 // import workData from "./workData";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Box,
   Center,
-  Flex,
   Heading,
-  HStack,
   Text,
 } from "@chakra-ui/react";
 
@@ -62,8 +58,6 @@ export default function Project({ hideTitle }) {
           boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
           key={index}
         >
-          {/* <Link href={"projects/" + obj.title} scroll={false} key={index}> */}
-
           <Heading as="h3" size={"md"} p="0.5rem 0">
             <Center>{obj.title}</Center>
           </Heading>
@@ -77,12 +71,9 @@ export default function Project({ hideTitle }) {
             <Image
               src={obj.img}
               alt={obj.alt}
-              // className={styles.img}
               layout="fill"
               objectFit="cover"
               objectPosition="50% 0"
-              // width="280px"
-              // height="150px"
             ></Image>
           </Box>
           <Box h="150px" overflowY={"scroll"} mt="1rem">
@@ -106,7 +97,6 @@ export default function Project({ hideTitle }) {
               _hover={{ color: "gray" }}
             />
           </Center>
-          {/* </Link> */}
         </Box>
       );
     });
