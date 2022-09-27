@@ -18,23 +18,21 @@ import {
   Box,
   Center,
   Flex,
-  Heading,
   Text,
-  Tag,
-  Button,
-  Container,
   Show,
-  Hide,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   IconButton,
+  useColorMode,
+  color,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
 
 export default function Header() {
+  const { colorMode } = useColorMode()
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
   const [isOpen, setIsOpen] = useState(false);
   const openBuger = styles.open;
@@ -125,6 +123,10 @@ export default function Header() {
             position={"relative"}
             borderRight="0.2rem solid darkorange;"
             transition={".5s"}
+            _hover={{
+              bg: "lightgray",
+              color: "black"
+            }}
             onClick={goToSource}
           >
             <Center>
@@ -143,6 +145,10 @@ export default function Header() {
               position={"relative"}
               borderRight="0.2rem solid darkorange;"
               transition={".5s"}
+              _hover={{
+                bg: "lightgray",
+                color: "black"
+              }}
             >
               <Center>
                 <Box

@@ -10,24 +10,6 @@ export default function Theme() {
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue("rgb(255, 235, 197)","purple.500")
   const hover = useColorModeValue({bg:"orange", color:"white"}, {bg:"purple"})
-  // const ToggleColorMode = () => {
-  //   const { colorMode, toggleColorMode } = useColorMode();
-  //   return (
-  //     <Button
-  //       onClick={() => toggleColorMode()}
-  //       pos="absolute"
-  //       top="0"
-  //       right="0"
-  //       m="1rem"
-  //     >
-  //       {colorMode === "dark" ? (
-  //         <FiSun color="orange.200" />
-  //       ) : (
-  //         <FiMoon color="blue.700" />
-  //       )}
-  //     </Button>
-  //   );
-  // };'
   const [theme, setData] = useState();
   const show = {
     position: "absolute",
@@ -63,7 +45,7 @@ export default function Theme() {
     >
       <Box
         borderRadius={"0.4rem"}
-        p="0.5rem"
+        p="0.47rem"
         fontSize={"1.5rem"}
         transition=".5s"
         bg={bg}

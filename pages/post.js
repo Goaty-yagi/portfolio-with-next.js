@@ -103,7 +103,7 @@ export default function PostPage({ posts }) {
       </Flex>
       {allPosts.map((post, index) => {
         return (
-          <Box w={{base:"auto", md:"600px"}} mt="1.3rem" m={{base:"0 0.5rem"}} key={index}>
+          <Box w={{base:"auto", md:"600px"}} m={{base:"0.5rem"}} key={index}>
             <Text as="b" fontSize={{base:"1.2rem", md:"1.5rem"}} ml="0.5rem">
               {post.frontmatter.title}
             </Text>
