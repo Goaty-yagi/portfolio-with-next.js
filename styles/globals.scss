@@ -70,6 +70,17 @@ pre code {
 pre {
   width: 600px;
 }
+blockquote{
+  padding: 0.5rem 1rem;
+  border-left: 0.5rem solid lightgray !important;
+}
+mdContainer {
+  display: block;
+  color: rgb(85, 85, 85);
+  background: rgb(217, 217, 217);
+  border-left: 1rem solid gray;
+  padding: 0.5rem;
+}
 
 a {
   text-decoration: none;
