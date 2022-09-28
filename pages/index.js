@@ -56,7 +56,7 @@ export default function Home({ posts }) {
       </Flex>
       <Box m="2rem 0" p="0 1rem">
         <Center>
-          <Text w="90%">{selfIntro}</Text>
+          <Text p="0.5rem" boxShadow={"lg"} w="90%">{selfIntro}</Text>
         </Center>
       </Box>
       <Work />

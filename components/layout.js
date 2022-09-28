@@ -13,7 +13,7 @@ export default function Layout({ children, router }) {
 
   const bg = useColorModeValue("linear-gradient(to bottom, #6cd8e8, #001517)", "linear-gradient(to bottom, #232323 80%, #6cd8e8)")
   return (
-    <Flex bg={bg} w="vw" flexDirection={"column"} alignItems="center">
+    <Flex bg={bg} w="100vw" flexDirection={"column"} alignItems="center">
       <Header />
       <Suspense>
         <Fish />

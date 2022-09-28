@@ -1,11 +1,12 @@
-import styles from "/styles/components/canvas.module.scss";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model from "./model";
-
+import { Box } from "@chakra-ui/react";
 export default function Fish() {
   return (
-    <div className={styles.canvas}>
+    <Box
+      w={{base:"100%", md:"600px"}}
+      h={{base:"200px", md:"300px"}}>
       <Canvas
         shadows
         camera={{
@@ -28,6 +29,6 @@ export default function Fish() {
         />
         <Model castShadow />
       </Canvas>
-    </div>
+    </Box>
   );
 }

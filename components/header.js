@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { FaGithubAlt } from "react-icons/fa";
-import { GiPlantSeed, GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 
 import Link from "next/link";
 import Theme from "./theme";
 import { useRouter } from "next/router";
-
 import {
   Box,
   Center,
   Flex,
-  Text,
   Show,
   Menu,
   MenuButton,
@@ -19,7 +17,7 @@ import {
   MenuItem,
   IconButton,
 } from "@chakra-ui/react";
-import styled from "@emotion/styled";
+import Logo from "./logo";
 
 export default function Header() {
   const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
@@ -41,21 +39,6 @@ export default function Header() {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   });
-  const LogoBox = styled.span`
-    font-weight: bold;
-    font-size: 18px;
-    display: inline-flex;
-    align-items: center;
-    height: 30px;
-    line-height: 20px;
-    padding: 10px;
-    > svg {
-      transition: 200ms ease;
-    }
-    &:hover > svg {
-      transform: rotate(50deg);
-    }
-  `;
   function HamburgerMenu() {
     return (
       <Show breakpoint="(max-width: 750px)">
@@ -176,33 +159,7 @@ export default function Header() {
         m="1rem"
         mt="2rem"
       >
-        <Box
-          as="logo"
-          flexBasis={"20%"}
-          fontFamily={"Times New Roman', Times, serif"}
-          mr="1rem"
-          h="20px"
-        >
-          <Link href={router.pathname === "/" ? {} : "/"} scroll={false}>
-            <a
-              onClick={(event) =>
-                router.pathname === "/" ? event.preventDefault() : null
-              }
-            >
-              <Flex fontSize={{ base: "1.1rem", lg: "1rem" }}>
-                <LogoBox>
-                  <Box
-                    as={GiPlantSeed}
-                    mr="0.2rem"
-                    fontSize={"1.2rem"}
-                    transition=".5s"
-                  ></Box>
-                  <Text fontFamily="logo">NOBUHIRO</Text>
-                </LogoBox>
-              </Flex>
-            </a>
-          </Link>
-        </Box>
+        <Logo />
         <NavBar />
         <HamburgerMenu />
         <Theme />
