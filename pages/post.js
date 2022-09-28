@@ -8,7 +8,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
-
 import {
   Box,
   Center,
@@ -22,6 +21,7 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 
 function filterByTag(tag, posts) {
@@ -97,7 +97,15 @@ export default function PostPage({ posts }) {
       </Flex>
       {allPosts.map((post, index) => {
         return (
-          <Box w={{base:"auto", md:"600px"}} m={{base:"0.5rem"}} key={index}>
+          <motion.div
+          layout
+          key={index}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          // exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Box w={{base:"auto", md:"600px"}} m={{base:"0.5rem"}} >
             <Text as="b" fontSize={{base:"1.2rem", md:"1.5rem"}} ml="0.5rem">
               {post.frontmatter.title}
             </Text>
@@ -168,6 +176,7 @@ export default function PostPage({ posts }) {
               </Flex>
             </Link>
           </Box>
+          </motion.div>
         );
       })}
     </>
