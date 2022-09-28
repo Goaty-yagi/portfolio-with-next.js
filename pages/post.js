@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { BsPencilSquare } from "react-icons/bs";
+
 import {
   Box,
   Center,
@@ -133,18 +135,20 @@ export default function PostPage({ posts }) {
                 </Box>
                 <Box flexBasis={"60%"} p={{base:"0.2rem", md:"0.5rem"}}>
                   <Box m="0.5rem 0">
-                    <Box
-                      display={"inline-block"}
-                      fontSize="0.9rem"
+                    <Flex
+                      alignItems={"center"}
+                      font="sm"
                       bg="lightgray"
                       borderRadius={"0.2rem"}
                       p="0 0.2rem"
                       color={"black"}
                       h="1.3rem"
+                      w="100%"
                       boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
                     >
-                      Posted on {post.frontmatter.date}
-                    </Box>
+                      <Box as={BsPencilSquare} m="0 0.5rem"/>
+                      {post.frontmatter.date}
+                    </Flex>
                   </Box>
                   <Box m="0.3rem 0">
                     <Flex width={"100%"}>
