@@ -2,7 +2,7 @@
 title: "[Framer-Motion] transition doesn't work with Chakra components"
 date: "October 10 2022"
 excerpt: "How to deal with Chakra components with transition"
-cover_image: "/images/posts/next.png"
+cover_image: "/images/posts/framer-motion.png"
 alt: "image"
 tags: ["Chakra", "Framer-Motion"]
 ---
