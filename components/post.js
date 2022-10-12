@@ -54,7 +54,7 @@ export default function Post({ posts }) {
                   </Box>
                 </Flex>
               </Box>
-              <Text overflow={"scroll"} fontSize="1.2rem" fontWeight={"bold"} ml="0.2rem">
+              <Text overflow={"scroll"} fontSize="1.2rem"  fontWeight={"bold"} ml="0.2rem">
                 {post.frontmatter.title}
               </Text>
               <Box p="0 0.4rem" h="100px" mt="0.5rem" overflowY={"scroll"}>
@@ -63,6 +63,8 @@ export default function Post({ posts }) {
               <Center>
               <Link href={"posts/" + post.slug} scroll={false}>
                 <Button
+                  position={"absolute"}
+                  bottom="0"
                   size="md"
                   height="30px"
                   width="150px"
