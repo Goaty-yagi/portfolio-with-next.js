@@ -14,7 +14,7 @@ export default function Home({ posts }) {
   const selfIntro =
     "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";
   return (
-    <Box maxW="600px" p="0.3rem" >
+    <Box maxW="750px" p="0.3rem" >
       <Box
         bg="rgba(0,0,0,0.8)"
         w="100%"

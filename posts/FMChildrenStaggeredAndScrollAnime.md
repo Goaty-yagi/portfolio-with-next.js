@@ -76,7 +76,7 @@ viewport prop accept two key value pairs, one is "once" with true or false value
 
 # :How to implement staggered animation?
 
-There are two requirement To do so. Below is a whole code. I will describe what are required later. 
+There are two requirement to do so. Below is a whole code. I will describe what are required later. 
 
 ```javascript
 import { motion } from "framer-motion";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { FaGithubAlt } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiVintageRobot } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 
 import Link from "next/link";
@@ -66,6 +66,18 @@ export default function Header() {
                 }
               >
                 <MenuItem icon={<ImBlog />}>POST</MenuItem>
+              </a>
+            </Link>
+            <Link
+              href={router.pathname === "/project" ? {} : "/project"}
+              scroll={false}
+            >
+              <a
+                onClick={(event) =>
+                  router.pathname === "/project" ? event.preventDefault() : null
+                }
+              >
+                <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
               </a>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>
@@ -139,6 +151,37 @@ export default function Header() {
                     display={"inline-block"}
                   />
                   POST
+                </Center>
+              </Box>
+            </a>
+          </Link>
+          <Link
+            href={router.pathname === "/project" ? {} : "/project"}
+            scroll={false}
+          >
+            <a
+              onClick={(event) =>
+                router.pathname === "/project" ? event.preventDefault() : null
+              }
+            >
+              <Box
+                p="0.2rem 0.5rem"
+                position={"relative"}
+                borderRight="0.2rem solid darkorange;"
+                transition={".5s"}
+                _hover={{
+                  bg: "lightgray",
+                  color: "black",
+                }}
+              >
+                <Center>
+                  <Box
+                    as={GiVintageRobot}
+                    position="relative"
+                    mr="0.2rem"
+                    display={"inline-block"}
+                  />
+                  PROJECT
                 </Center>
               </Box>
             </a>

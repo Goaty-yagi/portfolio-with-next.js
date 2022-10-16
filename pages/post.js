@@ -73,7 +73,7 @@ export default function PostPage({ posts }) {
                 key={index}
                 onClick={() => clickedOption(tag)}
               >
-                <Text as="b"  fontSize={"sm"}>{tag}</Text>
+                <Text as="p"  fontSize={"sm"}>{tag}</Text>
               </MenuItem>
             );
           })}
@@ -94,7 +94,7 @@ export default function PostPage({ posts }) {
           POST
         </Heading>
       </Center>
-      <Flex justifyContent={"flex-end"} mb="3rem" mt="1rem">
+      <Flex w="100%" justifyContent={"flex-end"} mb="3rem" mt="1rem">
         <Selector />
       </Flex>
       {allPosts.map((post, index) => {
@@ -104,7 +104,6 @@ export default function PostPage({ posts }) {
           key={index}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          // exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
           <Box w={{base:"auto", md:"600px"}} m={{base:"0.5rem"}} >
