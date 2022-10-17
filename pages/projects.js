@@ -2,11 +2,14 @@ import { Box, Center, Text, Flex, Heading, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+
 import Projects, { workDataArray } from "../components/project";
+
 export default function Project() {
   console.log(workDataArray);
   return (
     <Box w="100%">
+     
       <Center>
         <Heading
           as="b"
@@ -29,6 +32,7 @@ export default function Project() {
             <Box
               mt="2rem"
               minH="300px"
+              border={"solid transparent"}
               borderBottom={"solid gray"}
               m="0 0.5rem"
               p={"1rem"}
@@ -48,7 +52,7 @@ export default function Project() {
                   whileHover={{
                     scale: 1.05,
                   }}
-                  whileTap={{ scale: 0.99 }}
+                  // whileTap={{ scale: 0.99 }}
                   boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
                   position={"relative"}
                   borderRadius="50vh"
@@ -61,7 +65,7 @@ export default function Project() {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="50% 0%"
-                    src={each.img}
+                    src={each.img[0]}
                     alt={each.alt}
                   />
                 </Box>

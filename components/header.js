@@ -57,27 +57,27 @@ export default function Header() {
               SOURCE
             </MenuItem>
             <Link
-              href={router.pathname === "/post" ? {} : "/post"}
+              href={router.pathname === "/posts" ? {} : "/posts"}
               scroll={false}
             >
               <a
                 onClick={(event) =>
-                  router.pathname === "/post" ? event.preventDefault() : null
+                  router.pathname === "/posts" ? event.preventDefault() : null
                 }
               >
                 <MenuItem icon={<ImBlog />}>POST</MenuItem>
               </a>
             </Link>
             <Link
-              href={router.pathname === "/project" ? {} : "/project"}
+              href={router.pathname === "/projects" ? {} : "/projects"}
               scroll={false}
             >
               <a
                 onClick={(event) =>
-                  router.pathname === "/project" ? event.preventDefault() : null
+                  router.pathname === "/projects" ? event.preventDefault() : null
                 }
               >
-                <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
+                <MenuItem icon={<GiVintageRobot />}>PROJECTs</MenuItem>
               </a>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>
@@ -86,11 +86,11 @@ export default function Header() {
             SOURCE
           </div>
         </div>
-        <Link href={"/post"} >
+        <Link href={"/posts"} >
           <div className={styles.navMenu}>
             <div className={styles.darkHover}>
               <ImBlog className={styles.menuLogo} />
-              POST
+              posts
             </div>
           </div>
         </Link> */}
@@ -125,12 +125,12 @@ export default function Header() {
             </Center>
           </Box>
           <Link
-            href={router.pathname === "/post" ? {} : "/post"}
+            href={router.pathname === "/posts" ? {} : "/posts"}
             scroll={false}
           >
             <a
               onClick={(event) =>
-                router.pathname === "/post" ? event.preventDefault() : null
+                router.pathname === "/posts" ? event.preventDefault() : null
               }
             >
               <Box
@@ -156,12 +156,12 @@ export default function Header() {
             </a>
           </Link>
           <Link
-            href={router.pathname === "/project" ? {} : "/project"}
+            href={router.pathname === "/projects" ? {} : "/projects"}
             scroll={false}
           >
             <a
               onClick={(event) =>
-                router.pathname === "/project" ? event.preventDefault() : null
+                router.pathname === "/projects" ? event.preventDefault() : null
               }
             >
               <Box

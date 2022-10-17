@@ -85,7 +85,7 @@ export default function Post({ posts }) {
         })}
       </Box>
       <Center>
-        <Link href={"post/"} scroll={false}>
+        <Link href={"posts/"} scroll={false}>
           <Button
             bg="rgb(178, 224, 212)"
             color="rgb(0, 58, 53)"

@@ -12,9 +12,11 @@ import {
 
 export const workDataArray = [
   {
-    img: "/neko-japanese.png",
+    img: ["/images/projects/nekoJapanese/neko-japanese.png","/images/projects/nekoJapanese/neko-japanese1.png","/images/projects/nekoJapanese/neko-japanese2.png","/images/projects/nekoJapanese/neko-japanese3.png"],
     alt: "image",
     title: "Neko-Japanese",
+    platform:"webApp",
+    stack:["vue-cli", "django", "firebase"],
     description:
       "This is my first project built with Vue-CLI and Django, might be published as a product.",
     productDescription:
@@ -23,9 +25,11 @@ export const workDataArray = [
     postUrl: "https://neko-japanese.herokuapp.com/",
   },
   {
-    img: "/quiz-ranking-dojo.png",
+    img: ["/images/projects/quizRankingDojo/quiz-ranking-dojo.png"],
     alt: "image",
     title: "Quiz-Ranking-Dojo",
+    platform:"webApp",
+    stack:["javascript", "firebase", "css"],
     description: `This is my final project in General Assembly development course.
       I built SPA from scratch to understand how SPA works, I believe that this experience definitely help my future-self
       when I learn new frameworks or libraries.
@@ -72,7 +76,7 @@ export default function Project({ hideTitle }) {
             boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
           >
             <Image
-              src={obj.img}
+              src={obj.img[0]}
               alt={obj.alt}
               layout="fill"
               objectFit="cover"
