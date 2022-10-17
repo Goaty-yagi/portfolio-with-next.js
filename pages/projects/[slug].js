@@ -1,14 +1,7 @@
 import { useRouter } from "next/router";
 import { workDataArray } from "../../components/project";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import {
-  Tag,
-  TagLabel,
-  TagLeftIcon,
-  TagRightIcon,
-  TagCloseButton,
-  VStack,
-} from "@chakra-ui/react";
+import { UnorderedList, ListItem } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import BreadcrumbCompo from "../../components/breadcrumb";
 import Image from "next/image";
@@ -16,59 +9,66 @@ import Image from "next/image";
 export default function ProjectPage() {
   const router = useRouter();
   const { slug } = router.query;
-  // const [workData, setData] = useState()
+  const [workData, setData] = useState()
   const path = {
     type: "projects",
     name: router.query.slug,
   };
-  const tabs = ["platform", "stack"];
-  const workData = workDataArray.find((each) => each.title === slug);
-  // useEffect(() => {
+  const tabs = ["project-type", "stack", "post-url"];
+  // const workData = workDataArray.find((each) => each.title === slug);
+  const goToSource = (src) => {
+    window.open(src);
+  };
+  useEffect(() => {
+      setData(workDataArray.find((each) => each.title === slug))
 
-  //     setData(workDataArray.find((each) => each.title === slug))
-  //     console.log("EFFECT",workData)
-  //     return workData
-
-  // },[]);
+  },[]);
   return (
     <>
-      <Flex flexDirection={"column"}>
+      <Flex p={{base:"0 0.5rem", lg:"0"}} flexDirection={"column"}>
         {workData && (
           <>
             <BreadcrumbCompo path={path}></BreadcrumbCompo>
             <Heading>{workData.title}</Heading>
-            <Text>{workData.description}</Text>
+            <Text>{workData.productDescription}</Text>
 
             <Flex mt="1rem" flexDirection={"column"}>
               {tabs.map((each, index) => (
-                <Flex key={index} mt="0.5rem">
-                  <Box
-                    bg="rgba(251, 192, 147,0.7)"
-                    color="#FF8C32"
-                    fontWeight={"bold"}
-                    display={"inline"}
-                    p="0 0.3rem"
-                    textShadow={"0.5px 0.5px black"}
-                    borderRadius={"0.2rem"}
-                  >
-                    {each.toUpperCase()}
-                  </Box>
-                  <Text ml="0.5rem">
-                    {Array.isArray(workData[each])
-                      ? workData[each].join(", ").toUpperCase()
-                      : workData[each]}
-                  </Text>
-                </Flex>
+                <>
+                  <Flex key={index} mt="0.5rem">
+                    <Box
+                      bg="rgba(251, 192, 147,0.7)"
+                      color="#FF8C32"
+                      fontWeight={"bold"}
+                      display={"inline"}
+                      p="0 0.3rem"
+                      textShadow={"0.5px 0.5px black"}
+                      borderRadius={"0.2rem"}
+                    >
+                      {each.toUpperCase()}
+                    </Box>
+                    <Text ml="0.5rem" transition={'.3s'} _hover={{bg:each==="post-url" ? "rgba(200,200,200,.7)" : ""}} onClick={each==="post-url"?() => {goToSource(workData[each])}:()=>{}}>
+                      {Array.isArray(workData[each])
+                        ? workData[each].join(", ").toUpperCase()
+                        : workData[each]}
+                    </Text>
+                  </Flex>
+                </>
               ))}
+              <UnorderedList mt="1rem" ml="2rem">
+                {workData.features.map((each,index) => (
+                  <Box as={ListItem} key={index}>{each}</Box>
+                ))}
+              </UnorderedList>
             </Flex>
             <Flex mt="2rem" flexDirection={"column"}>
               {workData.img.map((each, index) => (
                 <Box
-                  key={index}
+                  key={index} 
                   mt="1.5rem"
                   position={"relative"}
                   w="100%"
-                  h="350px"
+                  h={{base:"200px", sm:"280px", md:"300px", lg:"350px"}}
                 >
                   <Box
                     as={Image}

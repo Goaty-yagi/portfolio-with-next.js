@@ -77,7 +77,7 @@ export default function Header() {
                   router.pathname === "/projects" ? event.preventDefault() : null
                 }
               >
-                <MenuItem icon={<GiVintageRobot />}>PROJECTs</MenuItem>
+                <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
               </a>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>

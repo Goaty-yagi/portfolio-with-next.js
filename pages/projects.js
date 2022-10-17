@@ -56,8 +56,8 @@ export default function Project() {
                   boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
                   position={"relative"}
                   borderRadius="50vh"
-                  w={{ base: "100%", sm: "350px" }}
-                  h={{ base: "50%", sm: "350px" }}
+                  w={{ base: "100%", sm: "450px" }}
+                  h={{ base: "50%", sm: "300px" }}
                 >
                   <Box
                     as={Image}
