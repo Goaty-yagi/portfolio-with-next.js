@@ -1,7 +1,7 @@
 import { Box, Flex,useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
-import Fish from "./fish";
+import Goaty from "./threeObj";
 import Footer from "./footer";
 import Header from "./header";
 export default function Layout({ children, router }) {
@@ -16,7 +16,7 @@ export default function Layout({ children, router }) {
     <Flex bg={bg} w="100vw" flexDirection={"column"} alignItems="center">
       <Header />
       <Suspense>
-        <Fish />
+        <Goaty />
       </Suspense>
       <AnimatePresence
         exitBeforeEnter

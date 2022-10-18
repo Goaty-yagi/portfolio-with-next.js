@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model from "./model";
 import { Box } from "@chakra-ui/react";
+
 export default function Fish() {
   return (
     <Box
