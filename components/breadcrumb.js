@@ -12,15 +12,16 @@ import { FiChevronRight } from "react-icons/fi";
 export default function BreadcrumbCompo({ path }) {
   const router = useRouter();
   const [pathType, setType] = useState() 
+  const slug = router.query.slug
   const config = {
     typeOfHierarchy: {
       projects: {
-        headings: ["home", "project", router.query.slug],
-        paths: ["", "projects", router.query.slug],
+        headings: ["home", "project", slug],
+        paths: ["", "projects", slug],
       },
       posts: {
-        headings: ["home", "project", router.query.slug],
-        paths: ["", "posts", router.query.slug],
+        headings: ["home", "project", slug],
+        paths: ["", "posts", slug],
       },
     },
   };
@@ -35,11 +36,11 @@ export default function BreadcrumbCompo({ path }) {
           pathType.headings.map((each, index) => {
             return (
               <BreadcrumbItem key={index}>
-                <Link scroll={false} href={pathType.paths[index]===router.query.slug?"#":`/${pathType.paths[index]}`}>
+                <Link scroll={false} href={pathType.paths[index]===slug?"#":`/${pathType.paths[index]}`}>
                   <Text
                     _hover={{textDecoration:"underline"}}
-                    color={each===router.query.slug?"orange":''}
-                    fontWeight={each===router.query.slug?"bold":''}
+                    color={each===slug?"orange":''}
+                    fontWeight={each===slug?"bold":''}
                     >
                     {each.toUpperCase()}
                   </Text>

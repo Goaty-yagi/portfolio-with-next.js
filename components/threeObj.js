@@ -3,7 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import Model from "./model";
 import { Box } from "@chakra-ui/react";
 
-export default function Fish() {
+export default function Goaty() {
   return (
     <Box
       w={{base:"100%", md:"600px"}}

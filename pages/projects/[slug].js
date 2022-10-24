@@ -1,27 +1,24 @@
+import fs from "fs";
+import path from "path";
+
 import { useRouter } from "next/router";
-import { workDataArray } from "../../components/project";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import BreadcrumbCompo from "../../components/breadcrumb";
 import Image from "next/image";
 
-export default function ProjectPage() {
+export default function ProjectPage({work}) {
+  
   const router = useRouter();
-  const { slug } = router.query;
-  const [workData, setData] = useState();
+  const workData = work
   const path = {
     type: "projects",
     name: router.query.slug,
   };
   const tabs = ["project-type", "stack", "post-url"];
-  // const workData = workDataArray.find((each) => each.title === slug);
   const goToSource = (src) => {
     window.open(src);
   };
-  useEffect(() => {
-    setData(workDataArray.find((each) => each.title === slug));
-  }, []);
   return (
     <>
       <Flex p={{ base: "0 0.5rem", lg: "0" }} flexDirection={"column"}>
@@ -98,4 +95,34 @@ export default function ProjectPage() {
       </Flex>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const filePath = path.join(process.cwd(), 'json');
+  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
+  const a = JSON.parse(data)
+  console.log("DATA", typeof a,a)
+  const paths = a.workdata.map((filename) => ({
+    params: {
+      slug: filename.title,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  console.log("SLUG", slug)
+  const filePath = path.join(process.cwd(), 'json');
+  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
+  const projectsdata = JSON.parse(data)
+  
+  return {
+    props: {
+      work:projectsdata.workdata.find((each) => each.title === slug)
+    }
+  }
 }

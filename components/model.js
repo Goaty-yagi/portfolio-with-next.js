@@ -12,7 +12,6 @@ export default function Model() {
       
       setRotation(rotation > 0.2 ? rotation -= 0.1:rotation -= 0.01)
       if(rotation < 0.01) {
-        console.log("minus")
         clearInterval(intervalid)
         setRotation(0.01)
       }
@@ -27,8 +26,10 @@ export default function Model() {
   });
   const fbx = useLoader(FBXLoader, "/sheep.fbx");
   return (
+    <>
     <mesh receiveShadow position={[0, -1, 0]} ref={meshRef}>
       <primitive object={fbx} />
     </mesh>
+    </>
   );
 }

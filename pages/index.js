@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import Work from "../components/project";
 import Post from "../components/post";
+// import useSWR from 'swr';
 import { sortByDate } from "../utils";
 import {
   Box,
@@ -14,10 +15,25 @@ import {
   useColorMode,
   HStack,
   Tag,
+  useColorModeValue,
+  Button
 } from "@chakra-ui/react";
+import React, { useState } from "react";
 
-export default function Home({ posts }) {
-  const { colorMode } = useColorMode();
+export const Context = React.createContext()
+
+export default function Home({ posts, projects }) {
+  console.log(projects)
+  // const dispatch = useDispatch()
+  // dispatch(setWorkdata(projects))
+  // const fetcher = (url) => fetch(url).then((res) => res.json());
+  // const { data, error } = useSWR('/api/staticdata', fetcher);
+  // const dispatch = useDispatch();
+  // if(data) {
+  //   dispatch(setWorkdata(data))
+  // }
+  // const count = useSelector(selectCount);
+  const colorScheme = useColorModeValue("pink","teal")
   const skills = [
     "next.js",
     "react.js",
@@ -50,6 +66,8 @@ export default function Home({ posts }) {
       >
         <Center>
           <Text>{introText}</Text>
+          {/* {count}
+          <Button onClick={() => dispatch(incrementAsync())}/> */}
         </Center>
       </Box>
       <Flex alignItems="center" m="3">
@@ -91,19 +109,23 @@ export default function Home({ posts }) {
         </Heading>
         <Box textAlign={"center"} spacing={4} display="block" >
           {skills.map((skill) => (
-            <Tag key={skill} variant="solid" m="0.3rem" colorScheme="teal">
+            <Tag key={skill} variant="solid" m="0.3rem" colorScheme={colorScheme}>
               {skill.toUpperCase()}
             </Tag>
           ))}
         </Box>
       </Flex>
-      <Work />
+      <Context.Provider value={projects}>
+        <Work />
+      </Context.Provider>
       <Post posts={posts.slice(0, 2)} />
     </Box>
   );
 }
-
 export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'json');
+  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
+  const objectData = JSON.parse(data)
   // Get files from the posts dir
   const files = fs.readdirSync(path.join("posts"));
 
@@ -125,6 +147,7 @@ export async function getStaticProps() {
   });
   return {
     props: {
+      projects: objectData,
       posts: posts.sort(sortByDate),
     },
   };

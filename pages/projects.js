@@ -2,11 +2,14 @@ import { Box, Center, Text, Flex, Heading, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 
 import Projects, { workDataArray } from "../components/project";
 
-export default function Project() {
-  console.log(workDataArray);
+export default function Project({ projectsdata }) {
+  console.log("CHECKK",projectsdata)
+  const data = projectsdata.workdata
   return (
     <Box w="100%">
      
@@ -26,7 +29,7 @@ export default function Project() {
         mb="3rem"
         mt="1rem"
       ></Flex>
-      {workDataArray.map((each, index) => {
+      {data.map((each, index) => {
         return (
           <Link href={"projects/" + each.title} scroll={false} key={index}>
             <Box
@@ -55,7 +58,6 @@ export default function Project() {
                   // whileTap={{ scale: 0.99 }}
                   boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
                   position={"relative"}
-                  borderRadius="50vh"
                   w={{ base: "100%", sm: "450px" }}
                   h={{ base: "50%", sm: "300px" }}
                 >
@@ -78,4 +80,15 @@ export default function Project() {
       })}
     </Box>
   );
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'json');
+  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
+  const projectsdata = JSON.parse(data)
+  return {
+    props: {
+      projectsdata
+    }
+  }
 }

@@ -2,58 +2,60 @@ import { FaGithubSquare } from "react-icons/fa";
 import { BiRocket } from "react-icons/bi";
 // import workData from "./workData";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-export const workDataArray = [
-  {
-    img: [
-      "/images/projects/nekoJapanese/neko-japanese.png",
-      "/images/projects/nekoJapanese/neko-japanese1.png",
-      "/images/projects/nekoJapanese/neko-japanese2.png",
-      "/images/projects/nekoJapanese/neko-japanese3.png",
-    ],
-    alt: "image",
-    title: "Neko-Japanese",
-    "project-type": "WebApp",
-    stack: ["vue-cli", "django", "firebase"],
-    features: [
-      "Evaluate japanese skills.",
-      "Check strength and weakness.",
-      "Study japanese according to levels.",
-      "Contribute and support for Japanese learners.",
-      "Be supported your learning.",
-    ],
-    description:
-      "This is my first project built with Vue-CLI and Django, might be published as a product.",
-    productDescription:
-      "Neko Japanese is a platform where learn Japanese, test and evaluate japanese knowledge, access viewable weakness and strong point in each component, community to discuss Japanese topics. Currently, this is for portfolio purpose, but might be published as a product.",
-    githubUrl: "https://github.com/Goaty-yagi/quiz_project",
-    "post-url": "https://neko-japanese.herokuapp.com/",
-  },
-  {
-    img: ["/images/projects/quizRankingDojo/quiz-ranking-dojo.png"],
-    alt: "image",
-    title: "Quiz-Ranking-Dojo",
-    "project-type": "webApp",
-    stack: ["javascript", "firebase", "css"],
-    features: [
-      "Learn tech terms",
-      "Study tech terms",
-      "Compete other users in the Ranking",
-    ],
-    description: `This is my final project in General Assembly development course.
-      I built SPA from scratch to understand how SPA works, I believe that this experience definitely help my future-self
-      when I learn new frameworks or libraries.
-      `,
-    productDescription:
-      "Quiz-Ranking-Dojo is where to defeat other players and even yourself. Test your knowledge and get high score. You require to answer within 10 second each question, if you fail, it will be end  then the num of correct will be your score. This is for portfolio purpose, not a product.",
-    githubUrl: "https://github.com/Goaty-yagi/GA_SPA_Final_Project",
-    "post-url": "https://quiz-ranking-dojo.herokuapp.com/",
-  },
-];
-
+import { Context } from "../pages";
+// export const workDataArray = [
+//   {
+//     img: [
+//       "/images/projects/nekoJapanese/neko-japanese.png",
+//       "/images/projects/nekoJapanese/neko-japanese1.png",
+//       "/images/projects/nekoJapanese/neko-japanese2.png",
+//       "/images/projects/nekoJapanese/neko-japanese3.png",
+//     ],
+//     alt: "image",
+//     title: "Neko-Japanese",
+//     "project-type": "WebApp",
+//     stack: ["vue-cli", "django", "firebase"],
+//     features: [
+//       "Evaluate japanese skills.",
+//       "Check strength and weakness.",
+//       "Study japanese according to levels.",
+//       "Contribute and support for Japanese learners.",
+//       "Be supported your learning.",
+//     ],
+//     description:
+//       "This is my first project built with Vue-CLI and Django, might be published as a product.",
+//     productDescription:
+//       "Neko Japanese is a platform where learn Japanese, test and evaluate japanese knowledge, access viewable weakness and strong point in each component, community to discuss Japanese topics. Currently, this is for portfolio purpose, but might be published as a product.",
+//     githubUrl: "https://github.com/Goaty-yagi/quiz_project",
+//     "post-url": "https://neko-japanese.herokuapp.com/",
+//   },
+//   {
+//     img: ["/images/projects/quizRankingDojo/quiz-ranking-dojo.png"],
+//     alt: "image",
+//     title: "Quiz-Ranking-Dojo",
+//     "project-type": "webApp",
+//     stack: ["javascript", "firebase", "css"],
+//     features: [
+//       "Learn tech terms",
+//       "Study tech terms",
+//       "Compete other users in the Ranking",
+//     ],
+//     description: `This is my final project in General Assembly development course.
+//       I built SPA from scratch to understand how SPA works, I believe that this experience definitely help my future-self
+//       when I learn new frameworks or libraries.
+//       `,
+//     productDescription:
+//       "Quiz-Ranking-Dojo is where to defeat other players and even yourself. Test your knowledge and get high score. You require to answer within 10 second each question, if you fail, it will be end  then the num of correct will be your score. This is for portfolio purpose, not a product.",
+//     githubUrl: "https://github.com/Goaty-yagi/GA_SPA_Final_Project",
+//     "post-url": "https://quiz-ranking-dojo.herokuapp.com/",
+//   },
+// ];
 export default function Project({ hideTitle }) {
+  const projectContext = useContext(Context)
+  
   const gitClick = (obj) => {
     window.open(obj.githubUrl);
   };
@@ -63,7 +65,7 @@ export default function Project({ hideTitle }) {
   const [workData, setData] = useState();
 
   useEffect(() => {
-    setData(workDataArray);
+    setData(projectContext.workdata);
   }, []);
   let markup;
   if (workData) {
