@@ -1,16 +1,23 @@
 import { Box, Flex, Spinner, useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
-import Goaty from "./threeObj";
+// import Goaty from "./threeObj";
 import Footer from "./footer";
 import Header from "./header";
+import dynamic from 'next/dynamic'
+import Loader from "./threeDComponents/loader";
+import Goaty from "./threeObj";
 export default function Layout({ children, router }) {
   const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: -0, y: 20 },
   };
-
+  // const ThreeDObj = dynamic(() => import("./threeObj"), {
+  //   // ssr: false,
+  //   // suspense:true,
+  //   loading: () => <Loader />
+  // })
   const bg = useColorModeValue(
     "linear-gradient(to bottom, #6cd8e8, #001517)",
     "linear-gradient(to bottom, #232323 80%, #6cd8e8)"
@@ -28,9 +35,8 @@ export default function Layout({ children, router }) {
           w={{ base: "100%", md: "600px" }}
           h={{ base: "200px", md: "300px" }}
         >
-      <Suspense>
+      <Suspense fallback={<Loader/>}>
           <Goaty />
-
       </Suspense>
       </Box>
       <AnimatePresence

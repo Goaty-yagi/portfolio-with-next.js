@@ -23,7 +23,7 @@ const theme = extendTheme({ breakpoints,fonts: {
 function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
-      <CSSReset />
+      {/* <CSSReset /> */}
       <Layout router={router}>
         <Component {...pageProps} />
       </Layout>

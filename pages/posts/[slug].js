@@ -55,6 +55,8 @@ export default function PostPage({
     <Flex
       position={"relative"}
       flexDirection="column"
+      h="100%"
+      w="100%"
       p={{ base: "0.5rem", md: "0" }}
     >
       <Heading size="lg" textAlign={"center"}>
@@ -92,7 +94,7 @@ export default function PostPage({
           })}
         </Flex>
       </Box>
-      <Box m="1.5rem 0">
+      <Box m="1.5rem 0" w="100%"  h="100%">
         <CustomImage props={imageProps}/>
       </Box>
       {isMounted ? (
