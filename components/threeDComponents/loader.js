@@ -5,11 +5,11 @@ export const ThreeSpinner = () => (
   <CircularProgress
     // size="xl"
     isIndeterminate
-    // position="absolute"
-    // left="50%"
-    // top="50%"
-    // ml="calc(0px - var(--spinner-size) / 2)"
-    // mt="calc(0px - var(--spinner-size))"
+    position="absolute"
+    left="50%"
+    top="50%"
+    ml="calc(0px - var(--spinner-size) / 2)"
+    mt="calc(0px - var(--spinner-size))"
   />
 )
 
