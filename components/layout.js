@@ -1,4 +1,4 @@
-import { Box, Flex,Spinner,useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Spinner, useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 import Goaty from "./threeObj";
@@ -10,17 +10,32 @@ export default function Layout({ children, router }) {
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: -0, y: 20 },
   };
-  
-  const bg = useColorModeValue("linear-gradient(to bottom, #6cd8e8, #001517)", "linear-gradient(to bottom, #232323 80%, #6cd8e8)")
+
+  const bg = useColorModeValue(
+    "linear-gradient(to bottom, #6cd8e8, #001517)",
+    "linear-gradient(to bottom, #232323 80%, #6cd8e8)"
+  );
   return (
-    <Flex bg={bg} minW="100vw" minH="100vh" flexDirection={"column"} alignItems="center">
+    <Flex
+      bg={bg}
+      minW="100vw"
+      minH="100vh"
+      flexDirection={"column"}
+      alignItems="center"
+    >
       <Header />
+      <Box
+          w={{ base: "100%", md: "600px" }}
+          h={{ base: "200px", md: "300px" }}
+        >
       <Suspense>
-        <Goaty />
+          <Goaty />
+
       </Suspense>
+      </Box>
       <AnimatePresence
         exitBeforeEnter
-        mode='wait'
+        mode="wait"
         initial={true}
         onExitComplete={() => {
           if (typeof window !== "undefined") {

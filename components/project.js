@@ -6,9 +6,20 @@ import { useContext, useEffect, useState } from "react";
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { Context } from "../pages";
+import CustomImage from "./customImage";
 
 export default function Project({ hideTitle }) {
   const projectContext = useContext(Context)
+  const imageProps = (obj) => {
+    return {
+      src:obj.img[0],
+      alt:obj.alt,
+      layout:"fill",
+      objectFit:"cover",
+      objectPosition:"50% 0",
+
+    } 
+  }
   
   const gitClick = (obj) => {
     window.open(obj.githubUrl);
@@ -46,13 +57,14 @@ export default function Project({ hideTitle }) {
               overflow={"hidden"}
               boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
             >
-              <Image
+              <CustomImage props={imageProps(obj)}/>
+              {/* <Image
                 src={obj.img[0]}
                 alt={obj.alt}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="50% 0"
-              ></Image>
+              ></Image> */}
             </Box>
             <Box h="150px" overflowY={"scroll"} mt="1rem">
               <Text>{obj.description}</Text>

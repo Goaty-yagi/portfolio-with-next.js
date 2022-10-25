@@ -10,30 +10,27 @@ import {
   Center,
   Flex,
   Heading,
-  Image,
   Text,
   useColorMode,
   HStack,
   Tag,
   useColorModeValue,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import CustomImage from "../components/customImage";
+import Image from "next/image";
 
-export const Context = React.createContext()
+export const Context = React.createContext();
 
 export default function Home({ posts, projects }) {
-  console.log(projects)
-  // const dispatch = useDispatch()
-  // dispatch(setWorkdata(projects))
-  // const fetcher = (url) => fetch(url).then((res) => res.json());
-  // const { data, error } = useSWR('/api/staticdata', fetcher);
-  // const dispatch = useDispatch();
-  // if(data) {
-  //   dispatch(setWorkdata(data))
-  // }
-  // const count = useSelector(selectCount);
-  const colorScheme = useColorModeValue("pink","teal")
+  const imageProps = {
+    src: "/me.jpeg",
+    alt: "me",
+    layout: "fill",
+    objectFit: "contain",
+  };
+  const colorScheme = useColorModeValue("pink", "teal");
   const skills = [
     "next.js",
     "react.js",
@@ -66,8 +63,6 @@ export default function Home({ posts, projects }) {
       >
         <Center>
           <Text>{introText}</Text>
-          {/* {count}
-          <Button onClick={() => dispatch(incrementAsync())}/> */}
         </Center>
       </Box>
       <Flex alignItems="center" m="3">
@@ -86,13 +81,15 @@ export default function Home({ posts, projects }) {
             border="solid lightgray"
             borderRadius="50vh"
             overflow="hidden"
+            position={"relative"}
           >
-            <Image
+            <CustomImage props={imageProps}/>
+            {/* <Image
               src="/me.jpeg"
               alt="me"
               layout="fill"
               objectFit="contain"
-            ></Image>
+            ></Image> */}
           </Box>
         </Flex>
       </Flex>
@@ -107,9 +104,14 @@ export default function Home({ posts, projects }) {
         <Heading as="h3" size="md">
           Skills
         </Heading>
-        <Box textAlign={"center"} spacing={4} display="block" >
+        <Box textAlign={"center"} spacing={4} display="block">
           {skills.map((skill) => (
-            <Tag key={skill} variant="solid" m="0.3rem" colorScheme={colorScheme}>
+            <Tag
+              key={skill}
+              variant="solid"
+              m="0.3rem"
+              colorScheme={colorScheme}
+            >
               {skill.toUpperCase()}
             </Tag>
           ))}
@@ -123,9 +125,9 @@ export default function Home({ posts, projects }) {
   );
 }
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'json');
-  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
-  const objectData = JSON.parse(data)
+  const filePath = path.join(process.cwd(), "json");
+  const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
+  const objectData = JSON.parse(data);
   // Get files from the posts dir
   const files = fs.readdirSync(path.join("posts"));
 

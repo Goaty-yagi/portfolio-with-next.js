@@ -5,9 +5,6 @@ import { Box } from "@chakra-ui/react";
 
 export default function Goaty() {
   return (
-    <Box
-      w={{base:"100%", md:"600px"}}
-      h={{base:"200px", md:"300px"}}>
       <Canvas
         shadows
         camera={{
@@ -30,6 +27,6 @@ export default function Goaty() {
         />
         <Model castShadow />
       </Canvas>
-    </Box>
+    
   );
 }
