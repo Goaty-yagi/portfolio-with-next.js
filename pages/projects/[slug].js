@@ -6,6 +6,7 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 import BreadcrumbCompo from "../../components/breadcrumb";
 import Image from "next/image";
+import CustomImage from "../../components/customImage";
 
 export default function ProjectPage({work}) {
   
@@ -15,6 +16,15 @@ export default function ProjectPage({work}) {
     type: "projects",
     name: router.query.slug,
   };
+  const imageProps = (obj) => {
+    return {
+      src:obj,
+      alt:"image",
+      layout:"fill",
+      objectFit:"cover",
+      objectPosition:"50% 50%",
+    } 
+  }
   const tabs = ["project-type", "stack", "post-url"];
   const goToSource = (src) => {
     window.open(src);
@@ -80,12 +90,10 @@ export default function ProjectPage({work}) {
                   h={{ base: "200px", sm: "280px", md: "300px", lg: "350px" }}
                 >
                   <Box
-                    as={Image}
+                    as={CustomImage}
                     borderRadius={"0.5rem"}
                     src={each}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="50% 50%"
+                    props={imageProps(each)}
                   />
                 </Box>
               ))}

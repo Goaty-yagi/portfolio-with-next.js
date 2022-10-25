@@ -1,10 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Box, Center, Flex, Heading, Text, Button } from "@chakra-ui/react";
+import CustomImage from "./customImage";
 
 export default function Post({ posts }) {
   const btnText = "Read More >";
   const morePosts = "More Posts >";
+  const imageProps = (obj) => {
+    return {
+      src:obj.cover_image,
+      alt:obj.alt,
+      layout:"fill",
+      objectFit:"cover",
+      objectPosition:"50% 50%",
+    } 
+  }
   return (
     <Box as="section" mt="2rem">
       <Heading
@@ -32,13 +41,7 @@ export default function Post({ posts }) {
                 position={"relative"}
                 h={{ base: "200px", sm: "250px", md: "150px" }}
               >
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="50% 50%"
-                  alt={post.frontmatter.alt}
-                  src={post.frontmatter.cover_image}
-                />
+                <CustomImage props={imageProps(post.frontmatter)}/>
               </Box>
               <Box m="0.2rem 0.5rem">
                 <Flex p="0 0.4rem" w="100%">

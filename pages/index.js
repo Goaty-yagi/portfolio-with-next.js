@@ -19,7 +19,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import CustomImage from "../components/customImage";
-import Image from "next/image";
 
 export const Context = React.createContext();
 
@@ -83,13 +82,7 @@ export default function Home({ posts, projects }) {
             overflow="hidden"
             position={"relative"}
           >
-            <CustomImage props={imageProps}/>
-            {/* <Image
-              src="/me.jpeg"
-              alt="me"
-              layout="fill"
-              objectFit="contain"
-            ></Image> */}
+            <CustomImage props={imageProps} />
           </Box>
         </Flex>
       </Flex>

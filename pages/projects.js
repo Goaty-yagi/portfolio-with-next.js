@@ -6,9 +6,18 @@ import fs from "fs";
 import path from "path";
 
 import Projects, { workDataArray } from "../components/project";
+import CustomImage from "../components/customImage";
 
 export default function Project({ projectsdata }) {
-  console.log("CHECKK",projectsdata)
+  const imageProps = (obj) => {
+    return {
+      src:obj.img[0],
+      alt:obj.alt,
+      layout:"fill",
+      objectFit:"cover",
+      objectPosition:"50% 0",
+    } 
+  }
   const data = projectsdata.workdata
   return (
     <Box w="100%">
@@ -62,13 +71,9 @@ export default function Project({ projectsdata }) {
                   h={{ base: "50%", sm: "300px" }}
                 >
                   <Box
-                    as={Image}
+                    as={CustomImage}
                     borderRadius="0.5rem"
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="50% 0%"
-                    src={each.img[0]}
-                    alt={each.alt}
+                    props={imageProps(each)}
                   />
                 </Box>
                 <Heading>{each.title}</Heading>

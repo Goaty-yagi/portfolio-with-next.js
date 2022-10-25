@@ -11,6 +11,7 @@ import "prismjs/components/prism-bash.min";
 
 import { Box, Flex, Heading, Tag } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import CustomImage from "../../components/customImage";
 
 export default function PostPage({
   frontmatter: { title, tags, date, cover_image, alt },
@@ -18,13 +19,18 @@ export default function PostPage({
   content,
 }) {
   const [isMounted, setMount] = useState(false);
+  const imageProps = {
+    src: cover_image,
+    alt: alt,
+    width: "600px",
+    height: "300px",
+  };
 
   useEffect(() => {
     setMount(true);
   }, []);
   const renderer = new marked.Renderer();
   renderer.code = function (code, lang, escaped) {
-    
     code = this.options.highlight(code, lang);
     if (!lang) {
       return `<pre><code>${code}</code></pre>`;
@@ -87,13 +93,13 @@ export default function PostPage({
         </Flex>
       </Box>
       <Box m="1.5rem 0">
-        <Image src={cover_image} alt={alt} width={"600px"} height={"300px"} />
+        <CustomImage props={imageProps}/>
       </Box>
       {isMounted ? (
         <Box
           w="100%"
           dangerouslySetInnerHTML={{ __html: marked(content) }}
-        ></Box>
+        />
       ) : null}
     </Flex>
     // </div>

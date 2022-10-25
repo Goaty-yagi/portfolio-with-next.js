@@ -17,7 +17,6 @@ export default function Project({ hideTitle }) {
       layout:"fill",
       objectFit:"cover",
       objectPosition:"50% 0",
-
     } 
   }
   
@@ -58,13 +57,6 @@ export default function Project({ hideTitle }) {
               boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
             >
               <CustomImage props={imageProps(obj)}/>
-              {/* <Image
-                src={obj.img[0]}
-                alt={obj.alt}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="50% 0"
-              ></Image> */}
             </Box>
             <Box h="150px" overflowY={"scroll"} mt="1rem">
               <Text>{obj.description}</Text>
