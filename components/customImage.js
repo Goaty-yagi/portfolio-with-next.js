@@ -17,7 +17,7 @@ export default function CustomImage({ props }) {
     setIsLoaded(true);
   }
   return (
-    <Flex h="100%" justifyContent={"center"} alignItems="center">
+    <Flex h="100%" w="100%" justifyContent={"center"} alignItems="center">
      
         <Image
         {...props}
