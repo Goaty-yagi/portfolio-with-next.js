@@ -17,6 +17,7 @@ import {
   useColorModeValue,
   Button,
 } from "@chakra-ui/react";
+import {Skeleton } from "@chakra-ui/react";
 import React, { useState } from "react";
 import CustomImage from "../components/customImage";
 

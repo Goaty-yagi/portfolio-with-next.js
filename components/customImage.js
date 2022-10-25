@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from "@chakra-ui/react";
+import { Flex, Skeleton, Progress } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
 export default function CustomImage({ props }) {
@@ -24,7 +24,7 @@ export default function CustomImage({ props }) {
           onLoadingComplete={() => onLoading()}
         />
         {!isLoaded&&(
-          <Skeleton/>
+          <Skeleton height="100%" w="100%"/>
         )}
     </Flex>
   );

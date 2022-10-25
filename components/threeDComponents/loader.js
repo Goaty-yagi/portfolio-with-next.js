@@ -1,9 +1,10 @@
 import { forwardRef } from 'react'
-import { Box, Spinner } from '@chakra-ui/react'
+import { Box, Spinner, CircularProgress } from '@chakra-ui/react'
 
 export const ThreeSpinner = () => (
-  <Spinner
+  <CircularProgress
     size="xl"
+    isIndeterminate
     position="absolute"
     left="50%"
     top="50%"
