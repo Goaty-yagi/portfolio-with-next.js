@@ -2,10 +2,7 @@
   "workdata":[
     {
       "img": [
-        "/images/projects/sampleWebsite/sample-web1.png",
-        "/images/projects/sampleWebsite/sample-web2.png",
-        "/images/projects/sampleWebsite/sample-web3.png",
-        "/images/projects/sampleWebsite/sample-web4.png"
+        "/images/projects/quizRankingDojo/quiz-ranking-dojo.png"
       ],
       "alt": "image",
       "title": "Sample-Website",
