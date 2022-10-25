@@ -9,6 +9,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
+
+
 export default function BreadcrumbCompo({ path }) {
   const router = useRouter();
   const [pathType, setType] = useState() 

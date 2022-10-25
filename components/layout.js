@@ -16,10 +16,7 @@ export default function Layout({ children, router }) {
     <Flex bg={bg} minW="100vw" minH="100vh" flexDirection={"column"} alignItems="center">
       <Header />
       <Suspense>
-      {Goaty?<Goaty />:
-      <Spinner/> 
-  }
-        {/* <Goaty /> */}
+        <Goaty />
       </Suspense>
       <AnimatePresence
         exitBeforeEnter
