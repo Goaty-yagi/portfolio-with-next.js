@@ -33,5 +33,5 @@ const Loader = () => {
     </ThreeContainer>
   )
 }
-Loader.displayName = 'Loader';
+Loader.displayName = 'loader';
 export default Loader
