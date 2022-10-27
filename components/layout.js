@@ -4,7 +4,6 @@ import { Suspense } from "react";
 // import Goaty from "./threeObj";
 import Footer from "./footer";
 import Header from "./header";
-import dynamic from 'next/dynamic'
 import Loader from "./threeDComponents/loader";
 import Goaty from "./threeObj";
 export default function Layout({ children, router }) {

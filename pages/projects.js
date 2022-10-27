@@ -7,21 +7,24 @@ import path from "path";
 
 import Projects, { workDataArray } from "../components/project";
 import CustomImage from "../components/customImage";
+import Head from "next/head";
 
 export default function Project({ projectsdata }) {
   const imageProps = (obj) => {
     return {
-      src:obj.img[0],
-      alt:obj.alt,
-      layout:"fill",
-      objectFit:"cover",
-      objectPosition:"50% 0",
-    } 
-  }
-  const data = projectsdata.workdata
+      src: obj.img[0],
+      alt: obj.alt,
+      layout: "fill",
+      objectFit: "cover",
+      objectPosition: "50% 0",
+    };
+  };
+  const data = projectsdata.workdata;
   return (
     <Box w="100%">
-     
+      <Head>
+        <title>Nobuhiro - Projects</title>
+      </Head>
       <Center>
         <Heading
           as="b"
@@ -50,7 +53,6 @@ export default function Project({ projectsdata }) {
               p={"1rem"}
               transition=".5s"
               _hover={{ border: "solid orange" }}
-
             >
               <Flex
                 w="100%"
@@ -88,12 +90,12 @@ export default function Project({ projectsdata }) {
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'json');
-  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
-  const projectsdata = JSON.parse(data)
+  const filePath = path.join(process.cwd(), "json");
+  const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
+  const projectsdata = JSON.parse(data);
   return {
     props: {
-      projectsdata
-    }
-  }
+      projectsdata,
+    },
+  };
 }

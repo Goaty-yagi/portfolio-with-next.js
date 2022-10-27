@@ -12,6 +12,7 @@ import "prismjs/components/prism-bash.min";
 import { Box, Flex, Heading, Tag } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import CustomImage from "../../components/customImage";
+import Head from "next/head";
 
 export default function PostPage({
   frontmatter: { title, tags, date, cover_image, alt },
@@ -51,7 +52,10 @@ export default function PostPage({
   });
 
   return (
-    // <div>
+    <>
+    <Head>
+      <title>{`Nobuhiro - Posts - ${title}`}</title>
+    </Head>
     <Flex
       position={"relative"}
       flexDirection="column"
@@ -104,7 +108,7 @@ export default function PostPage({
         />
       ) : null}
     </Flex>
-    // </div>
+    </>
   );
 }
 

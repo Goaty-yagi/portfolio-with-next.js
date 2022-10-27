@@ -5,32 +5,34 @@ import { useRouter } from "next/router";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 import BreadcrumbCompo from "../../components/breadcrumb";
-import Image from "next/image";
 import CustomImage from "../../components/customImage";
+import Head from "next/head";
 
-export default function ProjectPage({work}) {
-  
+export default function ProjectPage({ work }) {
   const router = useRouter();
-  const workData = work
+  const workData = work;
   const path = {
     type: "projects",
     name: router.query.slug,
   };
   const imageProps = (obj) => {
     return {
-      src:obj,
-      alt:"image",
-      layout:"fill",
-      objectFit:"cover",
-      objectPosition:"50% 50%",
-    } 
-  }
+      src: obj,
+      alt: "image",
+      layout: "fill",
+      objectFit: "cover",
+      objectPosition: "50% 50%",
+    };
+  };
   const tabs = ["project-type", "stack", "post-url"];
   const goToSource = (src) => {
     window.open(src);
   };
   return (
     <>
+      <Head>
+        <title>{`Nobuhiro - Projects - ${workData.title}`}</title>
+      </Head>
       <Flex p={{ base: "0 0.5rem", lg: "0" }} flexDirection={"column"}>
         {workData && (
           <>
@@ -106,10 +108,10 @@ export default function ProjectPage({work}) {
 }
 
 export async function getStaticPaths() {
-  const filePath = path.join(process.cwd(), 'json');
-  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
-  const a = JSON.parse(data)
-  console.log("DATA", typeof a,a)
+  const filePath = path.join(process.cwd(), "json");
+  const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
+  const a = JSON.parse(data);
+  console.log("DATA", typeof a, a);
   const paths = a.workdata.map((filename) => ({
     params: {
       slug: filename.title,
@@ -123,14 +125,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log("SLUG", slug)
-  const filePath = path.join(process.cwd(), 'json');
-  const data = fs.readFileSync(filePath + '/workdata.json', 'utf8');
-  const projectsdata = JSON.parse(data)
-  
+  console.log("SLUG", slug);
+  const filePath = path.join(process.cwd(), "json");
+  const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
+  const projectsdata = JSON.parse(data);
+
   return {
     props: {
-      work:projectsdata.workdata.find((each) => each.title === slug)
-    }
-  }
+      work: projectsdata.workdata.find((each) => each.title === slug),
+    },
+  };
 }
