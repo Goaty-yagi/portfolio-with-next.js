@@ -1,19 +1,20 @@
 import Link from "next/link";
 import { Box, Center, Flex, Heading, Text, Button } from "@chakra-ui/react";
 import CustomImage from "./customImage";
+import CustomLink from "./customLink";
 
 export default function Post({ posts }) {
   const btnText = "Read More >";
   const morePosts = "More Posts >";
   const imageProps = (obj) => {
     return {
-      src:obj.cover_image,
-      alt:obj.alt,
-      layout:"fill",
-      objectFit:"cover",
-      objectPosition:"50% 50%",
-    } 
-  }
+      src: obj.cover_image,
+      alt: obj.alt,
+      layout: "fill",
+      objectFit: "cover",
+      objectPosition: "50% 50%",
+    };
+  };
   return (
     <Box as="section" mt="2rem">
       <Heading
@@ -41,7 +42,7 @@ export default function Post({ posts }) {
                 position={"relative"}
                 h={{ base: "200px", sm: "250px", md: "150px" }}
               >
-                <CustomImage props={imageProps(post.frontmatter)}/>
+                <CustomImage props={imageProps(post.frontmatter)} />
               </Box>
               <Box m="0.2rem 0.5rem">
                 <Flex p="0 0.4rem" w="100%">
@@ -57,31 +58,38 @@ export default function Post({ posts }) {
                   </Box>
                 </Flex>
               </Box>
-              <Text overflow={"scroll"} fontSize="1.2rem"  fontWeight={"bold"} ml="0.2rem">
+              <Text
+                overflow={"scroll"}
+                fontSize="1.2rem"
+                fontWeight={"bold"}
+                ml="0.2rem"
+              >
                 {post.frontmatter.title}
               </Text>
               <Box p="0 0.4rem" h="100px" mt="0.5rem" overflowY={"scroll"}>
                 <Text>{post.frontmatter.excerpt}</Text>
               </Box>
               <Center>
-              <Link href={"posts/" + post.slug} scroll={false}>
-                <Button
-                  position={"absolute"}
-                  bottom="0"
-                  size="md"
-                  height="30px"
-                  width="150px"
-                  border="2px"
-                  m="0.5rem"
-                  color={"black"}
-                  borderRadius="full"
-                  bg="orange.50"
-                  borderColor="orange.200"
-                  _hover={{ borderColor: "orange" }}
-                >
-                  <Text> {btnText} </Text>
-                </Button>
-              </Link>
+                <CustomLink path={"posts/" + post.slug}>
+                  <Button
+                    position={"absolute"}
+                    bottom="0"
+                    left="50%"
+                    transform="translateX(-50%)"
+                    size="md"
+                    height="30px"
+                    width="150px"
+                    border="2px"
+                    m="0.5rem"
+                    color={"black"}
+                    borderRadius="full"
+                    bg="orange.50"
+                    borderColor="orange.200"
+                    _hover={{ borderColor: "orange" }}
+                  >
+                    <Text as="a"> {btnText} </Text>
+                  </Button>
+                </CustomLink>
               </Center>
             </Flex>
           );
