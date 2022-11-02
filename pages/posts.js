@@ -90,9 +90,9 @@ export default function PostPage({ posts }) {
   }
   return (
     <>
-    <Head>
+    {/* <Head>
       <title>Nobuhiro - Posts</title>
-    </Head>
+    </Head> */}
       <Center>
         <Heading
           as="b"

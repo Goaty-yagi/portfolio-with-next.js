@@ -17,10 +17,8 @@ import {
   useColorModeValue,
   Button,
 } from "@chakra-ui/react";
-import {Skeleton } from "@chakra-ui/react";
 import React, { useState } from "react";
 import CustomImage from "../components/customImage";
-import Head from 'next/head';
 
 export const Context = React.createContext();
 
@@ -53,9 +51,7 @@ export default function Home({ posts, projects }) {
     "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";
   return (
     <Box maxW="750px" p="0.3rem">
-      <Head>
-        <title>Nobuhiro - Portfolio</title>
-      </Head>
+      
       <Box
         bg="rgba(0,0,0,0.8)"
         w="100%"

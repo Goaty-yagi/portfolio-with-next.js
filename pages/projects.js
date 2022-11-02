@@ -22,9 +22,9 @@ export default function Project({ projectsdata }) {
   const data = projectsdata.workdata;
   return (
     <Box w="100%">
-      <Head>
+      {/* <Head>
         <title>Nobuhiro - Projects</title>
-      </Head>
+      </Head> */}
       <Center>
         <Heading
           as="b"

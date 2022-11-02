@@ -30,9 +30,9 @@ export default function ProjectPage({ work }) {
   };
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{`Nobuhiro - Projects - ${workData.title}`}</title>
-      </Head>
+      </Head> */}
       <Flex p={{ base: "0 0.5rem", lg: "0" }} flexDirection={"column"}>
         {workData && (
           <>
