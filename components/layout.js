@@ -8,21 +8,44 @@ import Header from "./header";
 import Loader from "./threeDComponents/loader";
 import Goaty from "./threeObj";
 
-export default function Layout({ children, router }) {
+export default function Layout({ children, router, pageProps }) {
   const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: -0, y: 20 },
   };
+  const headInfo = {
+    auther: "Nobuhiro Funahashi",
+    baseTitle:"Nobuhiro-Portfolio"
+  }
+  const pageList = ["work", "frontmatter"]
+  const [description, setDescription] = useState("")
   const [url, setUrl] = useState("");
   const [path, setPath] = useState("");
+
   useEffect(() => {
     if (window !== "undefined") {
       setUrl(document.URL);
-      console.log(router.state.asPath,router.state.asPath.split("/"))
       setPath(router.state.asPath==="/" ? "" : splitPath(router.state.asPath))
+      setDescription(filterDescription())
     }
   }, [router.state]);
+
+  const filterDescription = () => {
+    // filter pageProps to get data for description for Head
+    const filteredItem = pageList.find(p => 
+      p in pageProps === true
+    )
+    switch(filteredItem) {
+      case "work":
+        return pageProps.work.productDescription;
+      case "frontmatter":
+        console.log(pageProps)
+        return pageProps.frontmatter.title;
+      default:
+        return "unko";
+    }
+  }
 
   const initialLetterToApperCase = (string) => {
     return string.replace(/\b[a-z]/g, char => char.toUpperCase());
@@ -36,7 +59,7 @@ export default function Layout({ children, router }) {
       } 
     }).join(separator)
   }
-  
+
   // const ThreeDObj = dynamic(() => import("./threeObj"), {
   //   // ssr: false,
   //   // suspense:true,
@@ -57,7 +80,7 @@ export default function Layout({ children, router }) {
       <Head>
         <title>{`Nobuhiro-Portfolio${path}`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Nobuhiro - Portfolio" />
+        <meta name="description" content={description} />
         <meta property="og:site_name" content="Nobuhiro - Portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
@@ -75,7 +98,7 @@ export default function Layout({ children, router }) {
           h={{ base: "200px", md: "300px" }}
         >
       <Suspense fallback={<Loader/>}>
-          <Goaty />
+        <Goaty />
       </Suspense>
       </Box>
       <AnimatePresence
