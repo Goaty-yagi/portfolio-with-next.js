@@ -1,7 +1,5 @@
 import { FaGithubSquare } from "react-icons/fa";
 import { BiRocket } from "react-icons/bi";
-// import workData from "./workData";
-import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";

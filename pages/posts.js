@@ -5,7 +5,6 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 
 import Link from "next/link";
-import Head from 'next/head';
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { BsPencilSquare } from "react-icons/bs";

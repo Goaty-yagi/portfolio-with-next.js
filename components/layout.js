@@ -6,7 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 import Footer from "./footer";
 import Header from "./header";
 import Loader from "./threeDComponents/loader";
-import Goaty from "./threeObj";
+import Goaty from "./threeDComponents/threeObj";
 
 export default function Layout({ children, router, pageProps }) {
   const variants = {
@@ -81,16 +81,16 @@ export default function Layout({ children, router, pageProps }) {
         <title>{`Nobuhiro-Portfolio${path}`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
-        <meta property="og:site_name" content="Nobuhiro - Portfolio" />
+        <meta property="og:site_name" content={headInfo.baseTitle} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <meta property="og:image" content="/map.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="nobuhiro" />
-        <meta name="author" content="Nobuhiro Funahashi" />
+        <meta name="twitter:site" content={headInfo.baseTitle} />
+        <meta name="author" content={headInfo.auther} />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <meta property="og:site_name" content="Nobuhiro - Portfolio" />
-        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={headInfo.baseTitle}/>
+        <link rel="apple-touch-icon" href="/favicon.ico" sizes="180x180"/>
       </Head>
       <Header />
       <Box
