@@ -90,7 +90,7 @@ export default function PostPage({ posts }) {
   return (
     <>
     {/* <Head>
-      <title>Nobuhiro - Posts</title>
+      <title>Bing - Posts</title>
     </Head> */}
       <Center>
         <Heading

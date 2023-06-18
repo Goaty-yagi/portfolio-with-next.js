@@ -23,7 +23,7 @@ export default function Post({ posts }) {
         size={"lg"}
         textDecoration="underline"
       >
-        Post
+        Blog Posts
       </Heading>
       <Box display={{ base: "block", md: "flex" }}>
         {posts.map((post, index) => {

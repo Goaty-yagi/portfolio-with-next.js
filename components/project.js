@@ -15,9 +15,9 @@ export default function Project({ hideTitle }) {
       layout:"fill",
       objectFit:"cover",
       objectPosition:"50% 0",
-    } 
+    }
   }
-  
+
   const gitClick = (obj) => {
     window.open(obj.githubUrl);
   };
@@ -98,12 +98,12 @@ export default function Project({ hideTitle }) {
           textAlign={{ base: "center", md: "left" }}
           textDecoration="underline"
         >
-          Project
+          Projects
         </Heading>
       )}
       <Box display={{ base: "block", md: "flex" }}>{markup}</Box>
       <Center>
-        <Link 
+        <Link
           href={"projects/"} scroll={false}>
           <Button
             bg="rgb(178, 224, 212)"

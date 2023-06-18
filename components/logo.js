@@ -49,7 +49,7 @@ export default function Logo() {
                     fontSize={"1.2rem"}
                     transition=".5s"
                   ></Box>
-                  <Text fontFamily="logo">NOBUHIRO</Text>
+                  <Text fontFamily="logo">Bing</Text>
                 </LogoBox>
               </Flex>
             </a>

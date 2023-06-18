@@ -12,7 +12,7 @@ const NotFound = () => {
   return (
     <Container>
       {/* <Head>
-        <title>Nobuhiro - 404</title>
+        <title>Bing - 404</title>
       </Head> */}
       <Heading as="h1">Not found</Heading>
       <Text>The page you&apos;re looking for was not found.</Text>

@@ -24,34 +24,23 @@ export const Context = React.createContext();
 
 export default function Home({ posts, projects }) {
   const imageProps = {
-    src: "/me.jpeg",
+    src: "/Bing Li.png",
     alt: "me",
     layout: "fill",
     objectFit: "contain",
   };
   const colorScheme = useColorModeValue("pink", "teal");
   const skills = [
-    "next.js",
-    "react.js",
-    "chakra-ui",
-    "framer-motion",
-    "three.js",
-    "vue-cli",
-    "django",
-    "git",
-    "aws-practitioner",
-    "firebase-authentication",
-    "python",
-    "javascript",
-    "html",
-    "css",
+    "AWS Certified SysOps Administrator – Associate",
+    "AWS Certified Developer - Associate",
+    "Amazon Web Services Solutions Architect Associate",
   ];
-  const introText = "Hi, I'm Nobuhiro based in Melbourne.";
+  const introText = "Welcome to my personal space where I ramble about Tech and more.";
   const selfIntro =
-    "Newly trained full stack developer with an interest in cloud engineering seeking an entry-level or internship position. Check out my personal projects and articles down below: ";
+    "I'm an SRE by profession and a cat mom outside of work.";
   return (
     <Box maxW="750px" p="0.3rem">
-      
+
       <Box
         bg="rgba(0,0,0,0.8)"
         w="100%"
@@ -68,7 +57,7 @@ export default function Home({ posts, projects }) {
       <Flex alignItems="center" m="3">
         <Flex flexDirection="column" flexBasis="50%">
           <Heading as="h2" size="lg">
-            Nobuhiro
+            Bing
           </Heading>
           <Heading as="h3" size="md">
             Developer
@@ -96,7 +85,7 @@ export default function Home({ posts, projects }) {
       </Box>
       <Flex ml="1rem" flexDirection={"column"}>
         <Heading as="h3" size="md">
-          Skills
+          Certifications:
         </Heading>
         <Box textAlign={"center"} spacing={4} display="block">
           {skills.map((skill) => (

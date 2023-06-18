@@ -23,7 +23,7 @@ export default function Project({ projectsdata }) {
   return (
     <Box w="100%">
       {/* <Head>
-        <title>Nobuhiro - Projects</title>
+        <title>Bing - Projects</title>
       </Head> */}
       <Center>
         <Heading
@@ -32,7 +32,7 @@ export default function Project({ projectsdata }) {
           textDecoration={"underline"}
           textAlign={"center"}
         >
-          PROJECT
+          PROJECTS
         </Heading>
       </Center>
       <Flex

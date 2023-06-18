@@ -20,13 +20,13 @@ import {
 import Logo from "./logo";
 
 export default function Header() {
-  const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
+  const sourceUrl = "https://github.com/Bing-Violet";
   const goToSource = () => {
     window.open(sourceUrl);
   };
-  
+
   const router = useRouter();
-  
+
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {
     };
@@ -54,7 +54,7 @@ export default function Header() {
           ></MenuButton>
           <MenuList>
             <MenuItem icon={<FaGithubAlt />} onClick={goToSource}>
-              SOURCE
+              Github
             </MenuItem>
             <Link
               href={router.pathname === "/posts" ? {} : "/posts"}
@@ -65,7 +65,7 @@ export default function Header() {
                   router.pathname === "/posts" ? event.preventDefault() : null
                 }
               >
-                <MenuItem icon={<ImBlog />}>POST</MenuItem>
+                <MenuItem icon={<ImBlog />}>BLOG POSTS</MenuItem>
               </a>
             </Link>
             <Link
@@ -77,7 +77,7 @@ export default function Header() {
                   router.pathname === "/projects" ? event.preventDefault() : null
                 }
               >
-                <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
+                <MenuItem icon={<GiVintageRobot />}>PROJECTS</MenuItem>
               </a>
             </Link>
             {/* <div className={styles.navMenu} onClick={goToSource}>
@@ -121,7 +121,7 @@ export default function Header() {
                 mr="0.2rem"
                 display={"inline-block"}
               />
-              SOURCE
+              GITHUB
             </Center>
           </Box>
           <Link
@@ -150,7 +150,7 @@ export default function Header() {
                     mr="0.2rem"
                     display={"inline-block"}
                   />
-                  POST
+                  BLOG POSTS
                 </Center>
               </Box>
             </a>
@@ -181,7 +181,7 @@ export default function Header() {
                     mr="0.2rem"
                     display={"inline-block"}
                   />
-                  PROJECT
+                  PROJECTS
                 </Center>
               </Box>
             </a>

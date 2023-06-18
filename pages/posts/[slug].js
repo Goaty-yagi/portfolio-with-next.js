@@ -54,7 +54,7 @@ export default function PostPage({
   return (
     <>
     {/* <Head>
-      <title>{`Nobuhiro - Posts - ${title}`}</title>
+      <title>{`Bing - Posts - ${title}`}</title>
     </Head> */}
     <Flex
       position={"relative"}

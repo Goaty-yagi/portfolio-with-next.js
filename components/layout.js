@@ -15,8 +15,8 @@ export default function Layout({ children, router, pageProps }) {
     exit: { opacity: 0, x: -0, y: 20 },
   };
   const headInfo = {
-    auther: "Nobuhiro Funahashi",
-    baseTitle:"Nobuhiro-Portfolio"
+    author: "Nobuhiro Funahashi",
+    baseTitle:"Bing-Portfolio"
   }
   const pageList = ["work", "frontmatter"]
   const [description, setDescription] = useState("")
@@ -33,7 +33,7 @@ export default function Layout({ children, router, pageProps }) {
 
   const filterDescription = () => {
     // filter pageProps to get data for description for Head
-    const filteredItem = pageList.find(p => 
+    const filteredItem = pageList.find(p =>
       p in pageProps === true
     )
     switch(filteredItem) {
@@ -50,13 +50,13 @@ export default function Layout({ children, router, pageProps }) {
   const initialLetterToApperCase = (string) => {
     return string.replace(/\b[a-z]/g, char => char.toUpperCase());
   }
-  
+
   const splitPath = (path) => {
     const separator = "-"
     return  path.split("/").map((p, index , array) => {
       if(index!==0) {
         return initialLetterToApperCase(p)
-      } 
+      }
     }).join(separator)
   }
 
@@ -78,7 +78,7 @@ export default function Layout({ children, router, pageProps }) {
       alignItems="center"
     >
       <Head>
-        <title>{`Nobuhiro-Portfolio${path}`}</title>
+        <title>{`Bing-Portfolio${path}`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
         <meta property="og:site_name" content={headInfo.baseTitle} />

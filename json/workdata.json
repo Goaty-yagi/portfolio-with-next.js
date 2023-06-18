@@ -2,73 +2,22 @@
   "workdata":[
     {
       "img": [
-        "/images/projects/sampleWebsite/sample-web1.png",
-        "/images/projects/sampleWebsite/sample-web2.png",
-        "/images/projects/sampleWebsite/sample-web3.png",
-        "/images/projects/sampleWebsite/sample-web4.png"
+        "/images/projects/sample_project/Bing Li_bird.png","/images/projects/sample_project/Thankyou-Cake.png"
       ],
       "alt": "image",
-      "title": "Sample-Website",
-      "project-type": "webApp",
-      "stack": [
-        "next.js",
-        "chakra-ui",
-        "framer-motion"
-      ],
-      "features": [
-        "simple static information website",
-        "customer form for enquiry"
-      ],
-      "description": "This web app is built as a product for companies which need simple information website, implemented with simple animations to get user attentions.",
-      "productDescription": "Sample-Website is a simple one page site designed for showing information purpose, such as one time event.",
-      "githubUrl": "",
-      "post-url": "https://sample-website-p3liie9lt-goaty-yagi.vercel.app/"
-    },
-    {
-      "img": [
-        "/images/projects/nekoJapanese/neko-japanese.png","/images/projects/nekoJapanese/neko-japanese1.png","/images/projects/nekoJapanese/neko-japanese2.png","/images/projects/nekoJapanese/neko-japanese3.png"
-      ],
-      "alt": "image",
-      "title": "Neko-Japanese",
+      "title": "Sample Image",
       "project-type": "WebApp",
       "stack": [
-        "vue-cli",
-        "django",
-        "firebase"
+        "django"
       ],
       "features": [
-        "Evaluate japanese skills.",
-        "Check strength and weakness.",
-        "Study japanese according to levels.",
-        "Contribute and support for Japanese learners.",
-        "Be supported your learning."
+        "Test ABC",
+        "Test 123"
       ],
-      "description": "This is my first project built with Vue-CLI and Django, might be published as a product.",
-      "productDescription": "Neko Japanese is a platform where learn Japanese, test and evaluate japanese knowledge, access viewable weakness and strong point in each component, community to discuss Japanese topics. Currently, this is for portfolio purpose, but might be published as a product.",
-      "githubUrl": "https://github.com/Goaty-yagi/quiz_project",
-      "post-url": "https://neko-japanese.herokuapp.com/"
-    },
-
-    {
-      "img": [
-        "/images/projects/quizRankingDojo/quiz-ranking-dojo.png"
-      ],
-      "alt": "image",
-      "title": "Quiz-Ranking-Dojo",
-      "project-type": "webApp",
-      "stack": [
-        "javascript",
-        "firebase",
-        "css"
-      ],
-      "features": [
-        "Learn tech terms",
-        "Study tech terms",
-        "Compete other users in the Ranking"
-      ],
-      "description": "This is my final project in General Assembly development course. I built SPA from scratch to understand how SPA works, I believe that this experience definitely help my future-self when I learn new frameworks or libraries.",
-      "productDescription": "Quiz-Ranking-Dojo is where to defeat other players and even yourself. Test your knowledge and get high score. You require to answer within 10 second each question, if you fail, it will be end  then the num of correct will be your score. This is for portfolio purpose, not a product.","githubUrl": "https: //github.com/Goaty-yagi/GA_SPA_Final_Project",
-      "post-url": "https://quiz-ranking-dojo.herokuapp.com/"
+      "description": "This is a sample project",
+      "productDescription": "It's useless now",
+      "githubUrl": "",
+      "post-url": ""
     }
   ]
 }
