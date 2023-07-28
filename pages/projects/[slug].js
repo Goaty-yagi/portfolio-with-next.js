@@ -6,7 +6,6 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 import BreadcrumbCompo from "../../components/breadcrumb";
 import CustomImage from "../../components/customImage";
-import Head from "next/head";
 
 export default function ProjectPage({ work }) {
   const router = useRouter();
@@ -30,9 +29,6 @@ export default function ProjectPage({ work }) {
   };
   return (
     <>
-      {/* <Head>
-        <title>{`Nobuhiro - Projects - ${workData.title}`}</title>
-      </Head> */}
       <Flex p={{ base: "0 0.5rem", lg: "0" }} flexDirection={"column"}>
         {workData && (
           <>
@@ -57,6 +53,7 @@ export default function ProjectPage({ work }) {
                   <Text
                     ml="0.5rem"
                     transition={".3s"}
+                    cursor={each === "post-url" ? "pointer" : ""}
                     _hover={{
                       bg: each === "post-url" ? "rgba(200,200,200,.7)" : "",
                     }}
@@ -111,7 +108,6 @@ export async function getStaticPaths() {
   const filePath = path.join(process.cwd(), "json");
   const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
   const a = JSON.parse(data);
-  console.log("DATA", typeof a, a);
   const paths = a.workdata.map((filename) => ({
     params: {
       slug: filename.title,
@@ -125,7 +121,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log("SLUG", slug);
   const filePath = path.join(process.cwd(), "json");
   const data = fs.readFileSync(filePath + "/workdata.json", "utf8");
   const projectsdata = JSON.parse(data);

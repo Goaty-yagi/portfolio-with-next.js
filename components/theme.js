@@ -13,6 +13,7 @@ export default function Theme() {
       position="absolute"
       right="45px"
       top="0"
+      cursor={'pointer'}
       onClick={(e) => {
         e.preventDefault();
         toggleColorMode();
@@ -20,7 +21,7 @@ export default function Theme() {
     >
       <AnimatePresence exitBeforeEnter initial={false}>
         <motion.div
-          key={useColorModeValue('light', 'dark')} // animation doesn't work without key. why??
+          key={useColorModeValue('light', 'dark')}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}

@@ -70,7 +70,7 @@ export default function Post({ posts }) {
                 <Text>{post.frontmatter.excerpt}</Text>
               </Box>
               <Center>
-                <CustomLink path={"posts/" + post.slug}>
+                <CustomLink href={"posts/" + post.slug}>
                   <Button
                     position={"absolute"}
                     bottom="0"

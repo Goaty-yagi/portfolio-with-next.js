@@ -1,8 +1,6 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -37,7 +35,7 @@ export default function BreadcrumbCompo({ path }) {
         {pathType &&
           pathType.headings.map((each, index) => {
             return (
-              <BreadcrumbItem key={index}>
+              <BreadcrumbItem key={index} cursor={'pointer'}>
                 <Link scroll={false} href={pathType.paths[index]===slug?"#":`/${pathType.paths[index]}`}>
                   <Text
                     _hover={{textDecoration:"underline"}}

@@ -2,7 +2,6 @@ import { Box, Flex, Spinner, useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import { Suspense, useEffect, useState } from "react";
-// import Goaty from "./threeObj";
 import Footer from "./footer";
 import Header from "./header";
 import Loader from "./threeDComponents/loader";
@@ -40,7 +39,6 @@ export default function Layout({ children, router, pageProps }) {
       case "work":
         return pageProps.work.productDescription;
       case "frontmatter":
-        console.log(pageProps)
         return pageProps.frontmatter.title;
       default:
         return "unko";
@@ -60,11 +58,6 @@ export default function Layout({ children, router, pageProps }) {
     }).join(separator)
   }
 
-  // const ThreeDObj = dynamic(() => import("./threeObj"), {
-  //   // ssr: false,
-  //   // suspense:true,
-  //   loading: () => <Loader />
-  // })
   const bg = useColorModeValue(
     "linear-gradient(to bottom, #6cd8e8, #001517)",
     "linear-gradient(to bottom, #232323 80%, #6cd8e8)"
@@ -96,6 +89,7 @@ export default function Layout({ children, router, pageProps }) {
       <Box
           w={{ base: "100%", md: "600px" }}
           h={{ base: "200px", md: "300px" }}
+          cursor={'grab'}
         >
       <Suspense fallback={<Loader/>}>
         <Goaty />

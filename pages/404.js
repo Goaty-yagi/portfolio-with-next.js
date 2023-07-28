@@ -7,13 +7,9 @@ import {
   Divider,
   Button
 } from '@chakra-ui/react'
-import Head from 'next/head'
 const NotFound = () => {
   return (
     <Container>
-      {/* <Head>
-        <title>Nobuhiro - 404</title>
-      </Head> */}
       <Heading as="h1">Not found</Heading>
       <Text>The page you&apos;re looking for was not found.</Text>
       <Divider my={6} />

@@ -53,9 +53,6 @@ export default function PostPage({
 
   return (
     <>
-    {/* <Head>
-      <title>{`Nobuhiro - Posts - ${title}`}</title>
-    </Head> */}
     <Flex
       position={"relative"}
       flexDirection="column"

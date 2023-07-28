@@ -80,20 +80,6 @@ export default function Header() {
                 <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
               </a>
             </Link>
-            {/* <div className={styles.navMenu} onClick={goToSource}>
-          <div className={styles.darkHover}>
-            <FaGithubAlt className={styles.menuLogo} />
-            SOURCE
-          </div>
-        </div>
-        <Link href={"/posts"} >
-          <div className={styles.navMenu}>
-            <div className={styles.darkHover}>
-              <ImBlog className={styles.menuLogo} />
-              posts
-            </div>
-          </div>
-        </Link> */}
           </MenuList>
         </Menu>
       </Show>
@@ -114,7 +100,7 @@ export default function Header() {
             }}
             onClick={goToSource}
           >
-            <Center>
+            <Center cursor={'pointer'}>
               <Box
                 as={FaGithubAlt}
                 position="relative"

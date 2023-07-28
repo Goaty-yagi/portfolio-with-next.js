@@ -4,7 +4,6 @@ import matter from "gray-matter";
 
 import { sortByDate } from "../utils";
 
-import Link from "next/link";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { BsPencilSquare } from "react-icons/bs";
@@ -23,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import CustomImage from "../components/customImage";
+import CustomLink from "../components/customLink";
 
 function filterByTag(tag, posts) {
   return posts.filter((post) => {
@@ -89,9 +89,6 @@ export default function PostPage({ posts }) {
   }
   return (
     <>
-    {/* <Head>
-      <title>Nobuhiro - Posts</title>
-    </Head> */}
       <Center>
         <Heading
           as="b"
@@ -114,7 +111,7 @@ export default function PostPage({ posts }) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.2 }}
           >
-            <Box w={{ base: "auto", md: "600px" }} m={{ base: "0.5rem" }}>
+            <Box cursor={'pointer'} w={{ base: "auto", md: "600px" }} m={{ base: "0.5rem" }}>
               <Text
                 as="b"
                 fontSize={{ base: "1.2rem", md: "1.5rem" }}
@@ -122,7 +119,7 @@ export default function PostPage({ posts }) {
               >
                 {post.frontmatter.title}
               </Text>
-              <Link href={"posts/" + post.slug} scroll={false}>
+              <CustomLink href={"posts/" + post.slug} scroll={false}>
                 <Flex
                   border="solid gray"
                   bg="rgba(255,255,255,0.6)"
@@ -183,7 +180,7 @@ export default function PostPage({ posts }) {
                     </Box>
                   </Box>
                 </Flex>
-              </Link>
+              </CustomLink>
             </Box>
           </motion.div>
         );

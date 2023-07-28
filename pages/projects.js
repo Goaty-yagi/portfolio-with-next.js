@@ -1,13 +1,10 @@
-import { Box, Center, Text, Flex, Heading, Button } from "@chakra-ui/react";
+import { Box, Center, Text, Flex, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import fs from "fs";
 import path from "path";
 
-import Projects, { workDataArray } from "../components/project";
 import CustomImage from "../components/customImage";
-import Head from "next/head";
+import CustomLink from "../components/customLink";
 
 export default function Project({ projectsdata }) {
   const imageProps = (obj) => {
@@ -22,9 +19,6 @@ export default function Project({ projectsdata }) {
   const data = projectsdata.workdata;
   return (
     <Box w="100%">
-      {/* <Head>
-        <title>Nobuhiro - Projects</title>
-      </Head> */}
       <Center>
         <Heading
           as="b"
@@ -43,7 +37,7 @@ export default function Project({ projectsdata }) {
       ></Flex>
       {data.map((each, index) => {
         return (
-          <Link href={"projects/" + each.title} scroll={false} key={index}>
+          <CustomLink href={"projects/" + each.title} scroll={false} key={index}>
             <Box
               mt="2rem"
               minH="300px"
@@ -52,6 +46,7 @@ export default function Project({ projectsdata }) {
               m="0 0.5rem"
               p={"1rem"}
               transition=".5s"
+              cursor={'pointer'}
               _hover={{ border: "solid orange" }}
             >
               <Flex
@@ -66,7 +61,6 @@ export default function Project({ projectsdata }) {
                   whileHover={{
                     scale: 1.05,
                   }}
-                  // whileTap={{ scale: 0.99 }}
                   boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
                   position={"relative"}
                   w={{ base: "100%", sm: "450px" }}
@@ -82,7 +76,7 @@ export default function Project({ projectsdata }) {
                 <Text nimh="100%">{each.description}</Text>
               </Flex>
             </Box>
-          </Link>
+          </CustomLink>
         );
       })}
     </Box>

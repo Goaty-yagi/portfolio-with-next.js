@@ -35,6 +35,7 @@ export default function Project({ hideTitle }) {
       return (
         <Link href={`/projects/${obj.title}`} key={index} scroll={false}>
           <Box
+          cursor={'pointer'}
             flexBasis={{ base: "auto", md: "50%" }}
             minH="450px"
             p="0.4rem"

@@ -24,6 +24,7 @@ export default function Footer() {
             textAlign={"center"}
             mb="0.5rem"
             transition={".5s"}
+            cursor={'pointer'}
             _hover={{ color: "aquamarine" }}
             />
         </Center>

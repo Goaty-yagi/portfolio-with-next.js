@@ -1,19 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model from "./model";
-import { Box } from "@chakra-ui/react";
 
 export default function Goaty() {
   return (
       <Canvas
         shadows
         camera={{
-          // fov: 200,
           zoom: 8,
-          // near: 0.1,
-          // far: 800,
           position: [10, -5, -10],
-          // aspect: 960 / 540,
         }}
       >
         <OrbitControls enableZoom={true} />

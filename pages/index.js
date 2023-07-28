@@ -3,7 +3,6 @@ import path from "path";
 import matter from "gray-matter";
 import Work from "../components/project";
 import Post from "../components/post";
-// import useSWR from 'swr';
 import { sortByDate } from "../utils";
 import {
   Box,
@@ -11,13 +10,10 @@ import {
   Flex,
   Heading,
   Text,
-  useColorMode,
-  HStack,
   Tag,
   useColorModeValue,
-  Button,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import CustomImage from "../components/customImage";
 
 export const Context = React.createContext();
@@ -39,9 +35,11 @@ export default function Home({ posts, projects }) {
     "vue-cli",
     "django",
     "git",
+    "apache",
     "aws-practitioner",
     "firebase-authentication",
     "python",
+    "typescript",
     "javascript",
     "html",
     "css",
