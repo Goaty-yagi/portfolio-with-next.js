@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { FaGithubAlt } from "react-icons/fa";
 import { GiHamburgerMenu, GiVintageRobot } from "react-icons/gi";
 import { ImBlog } from "react-icons/im";
 
@@ -20,10 +19,6 @@ import {
 import Logo from "./logo";
 
 export default function Header() {
-  const sourceUrl = "https://github.com/Goaty-yagi/portfolio-with-next.js";
-  const goToSource = () => {
-    window.open(sourceUrl);
-  };
   
   const router = useRouter();
   
@@ -39,6 +34,19 @@ export default function Header() {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   });
+
+  const configs = [
+    {
+      name:'POST',
+      path:"/posts",
+      icon:ImBlog
+    },
+    {
+      name:'PROJECT',
+      path:"/projects",
+      icon:GiVintageRobot
+    }
+  ]
   function HamburgerMenu() {
     return (
       <Show breakpoint="(max-width: 750px)">
@@ -53,33 +61,21 @@ export default function Header() {
             variant="outline"
           ></MenuButton>
           <MenuList>
-            <MenuItem icon={<FaGithubAlt />} onClick={goToSource}>
-              SOURCE
-            </MenuItem>
-            <Link
-              href={router.pathname === "/posts" ? {} : "/posts"}
+            {configs.map((e, index) => (
+              <Link
+              key={index}
+              href={router.pathname === e.path ? {} : e.path}
               scroll={false}
             >
               <a
                 onClick={(event) =>
-                  router.pathname === "/posts" ? event.preventDefault() : null
+                  router.pathname === e.path ? event.preventDefault() : null
                 }
               >
-                <MenuItem icon={<ImBlog />}>POST</MenuItem>
+                <MenuItem icon={<e.icon />}>{e.name}</MenuItem>
               </a>
             </Link>
-            <Link
-              href={router.pathname === "/projects" ? {} : "/projects"}
-              scroll={false}
-            >
-              <a
-                onClick={(event) =>
-                  router.pathname === "/projects" ? event.preventDefault() : null
-                }
-              >
-                <MenuItem icon={<GiVintageRobot />}>PROJECT</MenuItem>
-              </a>
-            </Link>
+            ))}
           </MenuList>
         </Menu>
       </Show>
@@ -89,34 +85,15 @@ export default function Header() {
     return (
       <Show breakpoint="(min-width: 751px)">
         <Flex>
-          <Box
-            p="0.2rem 0.5rem"
-            position={"relative"}
-            borderRight="0.2rem solid darkorange;"
-            transition={".5s"}
-            _hover={{
-              bg: "lightgray",
-              color: "black",
-            }}
-            onClick={goToSource}
-          >
-            <Center cursor={'pointer'}>
-              <Box
-                as={FaGithubAlt}
-                position="relative"
-                mr="0.2rem"
-                display={"inline-block"}
-              />
-              SOURCE
-            </Center>
-          </Box>
-          <Link
-            href={router.pathname === "/posts" ? {} : "/posts"}
+          {configs.map((e, index) => (
+            <Link
+            key={index}
+            href={router.pathname === e.path ? {} : e.path}
             scroll={false}
           >
             <a
               onClick={(event) =>
-                router.pathname === "/posts" ? event.preventDefault() : null
+                router.pathname === e.path ? event.preventDefault() : null
               }
             >
               <Box
@@ -131,47 +108,17 @@ export default function Header() {
               >
                 <Center>
                   <Box
-                    as={ImBlog}
+                    as={e.icon}
                     position="relative"
                     mr="0.2rem"
                     display={"inline-block"}
                   />
-                  POST
+                  {e.name}
                 </Center>
               </Box>
             </a>
-          </Link>
-          <Link
-            href={router.pathname === "/projects" ? {} : "/projects"}
-            scroll={false}
-          >
-            <a
-              onClick={(event) =>
-                router.pathname === "/projects" ? event.preventDefault() : null
-              }
-            >
-              <Box
-                p="0.2rem 0.5rem"
-                position={"relative"}
-                borderRight="0.2rem solid darkorange;"
-                transition={".5s"}
-                _hover={{
-                  bg: "lightgray",
-                  color: "black",
-                }}
-              >
-                <Center>
-                  <Box
-                    as={GiVintageRobot}
-                    position="relative"
-                    mr="0.2rem"
-                    display={"inline-block"}
-                  />
-                  PROJECT
-                </Center>
-              </Box>
-            </a>
-          </Link>
+          </Link>            
+          ))}
         </Flex>
       </Show>
     );

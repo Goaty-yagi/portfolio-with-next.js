@@ -1,4 +1,5 @@
 import { BsLinkedin } from "react-icons/bs";
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 import {
   Box,
   Center,
@@ -9,25 +10,41 @@ import {
 
 export default function Footer() {
   const copyLight = "© 2022 Nobuhiro. All Rights Reserved."
-  const goToLinkedin = () => {
-    const url = "https://www.linkedin.com/in/nobuhiro-funahashi-1b725322b/"
-    window.open(url)
+  const openWindow = (url) => {
+    
+      window.open(url)
+    
   }
+  const configs = [
+    {
+      name:'linked_in',
+      icon:FaLinkedin,
+      url:"https://www.linkedin.com/in/nobuhiro-funahashi-1b725322b/"
+    },
+    {
+      name:'github',
+      icon:FaGithubSquare,
+      url:"https://github.com/Goaty-yagi/portfolio-with-next.js"
+    }
+  ]
   return (
     <Flex position={"relative"} w="100%" h="200px" justifyContent={"center"} mt="1rem">
       <Box position={"absolute"} bottom="0" color={"lightgray"}>
-        <Center>
-          <Box 
-            as={BsLinkedin} 
-            onClick={goToLinkedin} 
-            fontSize="2rem" 
+        <Flex gap={2} justifyContent={'center'}>
+          {configs.map((e, index) => (
+            <Box 
+            key={index}
+            as={e.icon} 
+            onClick={() => openWindow(e.url)} 
+            fontSize="2.5rem" 
             textAlign={"center"}
             mb="0.5rem"
             transition={".5s"}
             cursor={'pointer'}
             _hover={{ color: "aquamarine" }}
             />
-        </Center>
+          ))}
+        </Flex>
         <Heading as="h4" size="sm" mb="1rem">{copyLight}</Heading>
       </Box>
     </Flex>
