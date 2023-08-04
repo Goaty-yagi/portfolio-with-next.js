@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { GiHamburgerMenu, GiVintageRobot } from "react-icons/gi";
-import { ImBlog } from "react-icons/im";
+import { ImBlog, ImSvg } from "react-icons/im";
 
 import Link from "next/link";
 import Theme from "./theme";
@@ -45,6 +45,11 @@ export default function Header() {
       name:'PROJECT',
       path:"/projects",
       icon:GiVintageRobot
+    },
+    {
+      name:'SVG',
+      path:"/svg",
+      icon:ImSvg
     }
   ]
   function HamburgerMenu() {

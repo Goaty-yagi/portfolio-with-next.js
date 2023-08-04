@@ -1,6 +1,7 @@
 :root {
   --l-container-text-c: rgb(85, 85, 85);
   --l-container-border-c: gray;
+  --angle:360deg
 }
 
 
@@ -101,6 +102,48 @@ img:hover {
   box-sizing: border-box;
 }
 
+.spin {
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(var(--angle));
+  }
+}
+
+.path{
+  animation: path 1s infinite;
+}
+@keyframes path {
+  0% {  stroke-dashoffset:56;  }
+  100% { stroke-dashoffset:0; }
+}
+
+.ball {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  // offset-path: path('M20,20 C20,100 200,0 200,100');
+  offset-path: path("M12.7692 6.70483C9.53846 2.01902 4 3.90245 4 8.68256C4 13.4627 13.2308 20 13.2308 20C13.2308 20 22 13.2003 22 8.68256C22 4.16479 16.9231 2.01903 13.6923 6.70483L13.2308 7.0791L12.7692 6.70483Z");
+  offset-distance: 0%;
+
+  // animation: along-path 1s infinite;
+}
+
+
+@keyframes along-path {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
 @media(max-width: 650px){
   pre code {
     // display: inline-block;
