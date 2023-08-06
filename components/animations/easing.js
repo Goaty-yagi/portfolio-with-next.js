@@ -1,55 +1,70 @@
-import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { Box, Flex, Button, Text, Center } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { Box, Button, Center } from "@chakra-ui/react";
 import { useAnimation } from "../../hooks/use-animation";
 import AbstractSvg from "./abstractSvg";
 import AbstractTab from "../customTabs/abstractTab";
 
-
 export default function Easing() {
   // const refs = useRef(null);
   const configs = [
-    "linear",
-    "ease",
-    "ease-in",
-    "ease-out",
-    "ease-in-out",
-    "cubic-bezier(0.42, 0.0, 0.58, 1.0)",
-    "linear(0,0.9,0.95,1)",
-    "linear(0,0.9,1)",
-    "steps(5, jump-none)",
-    "steps(5, start)",
-    "steps(5, end)"
+    {
+      name: "linear",
+      types: ["General", "Linear"],
+    },
+    {
+      name: "ease",
+      types: ["General", "Cubic-bezier"],
+    },
+    {
+      name: "ease-in",
+      types: ["General", "Cubic-bezier"],
+    },
+    {
+      name: "ease-out",
+      types: ["General", "Cubic-bezier"],
+    },
+    {
+      name: "ease-in-out",
+      types: ["General", "Cubic-bezier"],
+    },
+    {
+      name: "cubic-bezier(0.42, 0.0, 0.58, 1.0)",
+      types: ["Cubic-bezier"],
+    },
+    {
+      name: "linear(0,0.9,0.95,1)",
+      types: ["Linear"],
+    },
+    {
+      name: "linear(0,0.9,1)",
+      types: ["Linear"],
+    },
+    {
+      name: "steps(5, jump-none)",
+      types: ["Steps"],
+    },
+    {
+      name: "steps(5, start)",
+      types: ["Steps"],
+    },
+    {
+      name: "steps(5, end)",
+      types: ["Steps"],
+    },
   ];
-  const tabs = ['General','Linear', 'cubic-bezier', 'steps']
+  const tabs = ["General", "Linear", "Cubic-bezier", "Steps"];
+  const [currentTab, setCurrentTab] = useState("General");
   const clicks = [];
   function animationStart() {
     clicks.forEach((f) => {
       f();
     });
   }
-  // function animationHandler() {
-  //   refs.current.animate(
-  //       [{ transform: 'translateX(0%)' }, { transform: 'translateX(100%)' }],
-  //       {
-  //         // sync options
-  //         duration: 1000,
-  //         fill:"forwards"
-  //         // iterations: ''
-  //       }
-  //   );
-  // }
   function Each({ val }) {
-    const {
-      refs,
-      optionConfigure,
-      animationHandler,
-    } = useAnimation();
+    const { refs, optionConfigure, animationHandler } = useAnimation();
     useEffect(() => {
-      console.log("OP", optionConfigure);
       optionConfigure("easing", "easing", val);
     }, []);
-    // console.log(clicks, Array.isArray(clicks))
     clicks.push(animationHandler);
     return (
       <>
@@ -73,13 +88,13 @@ export default function Easing() {
             Start
           </Button>
         </Center>
-        <Center mt={'2rem'}>
-        <AbstractTab tabs={tabs} color='#62a6ab'/>
+        <Center mt={"2rem"}>
+          <AbstractTab tabs={tabs} set={setCurrentTab} color="#62a6ab" />
         </Center>
         <Box mt={"3rem"}>
           {configs.map((e, index) => (
             <Box key={index}>
-              <Each val={e} />
+              {e.types.includes(currentTab) && <Each val={e.name} />}
             </Box>
           ))}
         </Box>

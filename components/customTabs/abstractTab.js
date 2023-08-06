@@ -1,18 +1,20 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useRef, useState, useEffect } from "react";
 
-export default function AbstractTab({ tabs, color, hover }) {
+export default function AbstractTab({ tabs, set, color }) {
   const wrapperRefs = useRef(null)
   const animeRefs = useRef(null)
   const [transition, setTransition] = useState('')
+
   useEffect(() => {
     const tag = document.querySelectorAll(".tag");
     setAttributes({
       ...attributes,
       width: tag[0].offsetWidth,
-      height: tag[0].offsetHeight,
+      height: tag[0].offsetHeight +'px',
     });
   }, []);
+
   function ratioCul(e) {
     const wapperPos = wrapperRefs.current.getBoundingClientRect()
     const wrapperWidth = wapperPos.width
@@ -25,6 +27,7 @@ export default function AbstractTab({ tabs, color, hover }) {
     return {left:ratioL * -1 * 100,
     top:ratioT * -1 * 100}
   }
+
   const [attributes, setAttributes] = useState({
     height: 0,
     width: 0,
@@ -45,13 +48,15 @@ export default function AbstractTab({ tabs, color, hover }) {
     zIndex: 1,
     cursor: "pointer",
     transition:'background .3s',
+    fontSize:{base:'0.8rem', md:'1rem'},
     _hover:{background:'#5f5f5f5c'},
   };
+
   const animeStyle = () => {
     return {
       position: "absolute",
       w: width + "px",
-      h: height,
+      h: height + "px",
       m: "0.5rem",
       top:relativeTop,
       left: relativeLeft + '%',
@@ -60,11 +65,13 @@ export default function AbstractTab({ tabs, color, hover }) {
       transition: transition,
     };
   };
+
   function click(e, index) {
     if(!transition) {
       setTransition("all .5s")
     }
     if (currentIndex !== index) {
+      set(e.target.innerText)
       setAttributes(() => {
         return {
           ...attributes,
@@ -77,6 +84,7 @@ export default function AbstractTab({ tabs, color, hover }) {
       });
     }
   }
+
   return (
     <>
       <Flex ref={wrapperRefs} flexWrap={'wrap'} position={"relative"}>

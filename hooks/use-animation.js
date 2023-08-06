@@ -17,7 +17,7 @@ const optionTypes = {
 function useAnimation() {
 
   const [options, setOptions] = useState({
-    type: "unko",
+    type: "",
     delay: "",
     easing: "",
     direction: "",
@@ -39,7 +39,7 @@ function useAnimation() {
     switch (type) {
       case optionTypes.EASING:
         element.animate(
-          [{ transform: "translateX(0%)" }, { transform: "translateX(100%)" }],
+          [{ left:0 }, { left: "85%" }],
           {
             easing:easing,
             duration: 1000,

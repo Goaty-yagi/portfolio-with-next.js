@@ -1,17 +1,32 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import { useEffect } from "react";
 
-export default function AbstractSvg({refs}) {
+export default function AbstractSvg({ refs }) {
+  useEffect(() => {
+
+    if (window.matchMedia( "(min-width: 650px)" ).matches) {
+      refs.current.style.width = "70px";
+      refs.current.style.height = "70px";
+    } else {
+      refs.current.style.width = "50px";
+      refs.current.style.height = "50px";
+    }
+  },[])
+
   return (
     <>
-    <Box w={'600px'}>
-      <div
-        ref={refs}
-        style={{
-          display: "flex",
-          width: "90%",
-        }}
-      >
-        <div style={{ width: "70px", height: "70px" }}>
+      <Flex position={"relative"} w={"100%"} h={"50px"} mt={"0.5rem"}>
+        <div
+          ref={refs}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "70px",
+            height: "70px",
+            marginTop:'-1rem'
+          }}
+        >
           <svg viewBox="0 0 1024 1024">
             <path
               d="M766.976 508.736c80.576 0 152.448 32.128 199.232 82.176"
@@ -51,8 +66,7 @@ export default function AbstractSvg({refs}) {
             />
           </svg>
         </div>
-      </div>
-      </Box>
+      </Flex>
     </>
   );
 }
