@@ -1,7 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useEffect } from "react";
 
-export default function AbstractSvg({ refs }) {
+export default function AbstractSvg({ refs , color }) {
   useEffect(() => {
 
     if (window.matchMedia( "(min-width: 650px)" ).matches) {
@@ -34,7 +34,7 @@ export default function AbstractSvg({ refs }) {
             />
             <path
               d="M64.704 684.992c10.816 19.2 32.064 32.192 56.576 32.192h784.64c35.84 0 64.832-27.648 64.832-61.76v-17.408h-36.608a15.744 15.744 0 0 1-16.064-15.296V550.912a277.568 277.568 0 0 0-150.144-44.16h1.6l-55.04-0.256c-53.632-115.2-157.504-210.752-294.208-210.752-136.512 0-251.008 89.728-282.176 210.688h-16.832c-35.456 0-56.128 27.392-56.128 61.184"
-              fill="#E8447A"
+              fill={color?color:"#E8447A"}
             />
             <path
               d="M64.704 654.464h13.76a39.168 39.168 0 0 0 40.064-38.272v-17.6c0-21.12-17.92-38.208-40.064-38.208h-13.376"

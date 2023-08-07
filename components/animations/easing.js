@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import { Box, Button, Center } from "@chakra-ui/react";
 import { useAnimation } from "../../hooks/use-animation";
 import AbstractSvg from "./abstractSvg";
-import AbstractTab from "../customTabs/abstractTab";
+import EasingTab from "../customTabs/easingTab";
+import { monthColors } from "../../styles/colors";
+import SlideAnimatioWrapper from "../customWrappers/slideAnimationWrapper";
 
-export default function Easing() {
+function Easing() {
   // const refs = useRef(null);
   const configs = [
     {
@@ -70,7 +72,7 @@ export default function Easing() {
       <>
         <Box>
           <Button onClick={animationHandler}>{val}</Button>
-          <AbstractSvg refs={refs} />
+          <AbstractSvg refs={refs} color={monthColors[(Math.floor(Math.random() * monthColors.length))]} />
         </Box>
       </>
     );
@@ -89,16 +91,19 @@ export default function Easing() {
           </Button>
         </Center>
         <Center mt={"2rem"}>
-          <AbstractTab tabs={tabs} set={setCurrentTab} color="#62a6ab" />
+          <EasingTab set={setCurrentTab} />
         </Center>
         <Box mt={"3rem"}>
+          <SlideAnimatioWrapper id={currentTab}>
           {configs.map((e, index) => (
             <Box key={index}>
               {e.types.includes(currentTab) && <Each val={e.name} />}
             </Box>
           ))}
+          </SlideAnimatioWrapper>
         </Box>
       </Box>
     </>
   );
 }
+export default memo(Easing);
