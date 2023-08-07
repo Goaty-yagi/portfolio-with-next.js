@@ -28,12 +28,9 @@ function useAnimation() {
 
   const { type, delay, easing, direction, fill, iterations, refs } = options;
   function optionConfigure(type, key, val) {
-    console.log("CONFIG",type, key, val)
     setOptions({ ...options, type: type, [key]: val });
   }
   function animationHandler() {
-    // console.log("CLICK", totalLength, pathRefs);
-    // const length = pathRefs.current.getTotalLength();
     const element = refs.current;
     
     switch (type) {
@@ -59,6 +56,18 @@ function useAnimation() {
             fill: "forwards",
             direction:direction,
             iterations: 3
+          }
+        );
+        break
+        break
+        case optionTypes.FILL:
+          console.log("DIRECTION", type)
+        element.animate(
+          [{ left:0 }, { left: "85%" }],
+          {
+            easing:'linear',
+            duration: 1000,
+            fill: fill,
           }
         );
         break

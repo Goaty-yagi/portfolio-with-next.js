@@ -2,20 +2,40 @@ import EachSvg from "./eachSvg";
 import SlideAnimatioWrapper from "../../customWrappers/slideAnimationWrapper";
 import { Box, Center, Button } from "@chakra-ui/react";
 
-
-export default function DefaultLayout({ type, configs, currentTab,setCurrentTab,funArray, animationStart, CustomTab}) {
-
-    function checkAttribute(e) {
-        if(typeof e.types !== 'undefined') {
-            return e.types.includes(currentTab)
-        } else {
-            return true
-        }
+export default function DefaultLayout({
+  text,
+  additionalText,
+  type,
+  configs,
+  currentTab,
+  setCurrentTab,
+  funArray,
+  animationStart,
+  CustomTab,
+}) {
+  function checkAttribute(e) {
+    if (typeof e.types !== "undefined") {
+      return e.types.includes(currentTab);
+    } else {
+      return true;
     }
+  }
   return (
     <>
       <Box w="100%">
-        <Center>
+        <Center flexDirection={"column"}>
+          <Box
+            border={"solid gray"}
+            borderRadius={"10px"}
+            fontWeight={"bold"}
+            w={"100%"}
+            minH={"20px"}
+            mb={"1rem"}
+            p={"1rem"}
+          >
+            {text}
+            <Box color={"red"}>{additionalText}</Box>
+          </Box>
           <Button
             textAlign={"center"}
             colorScheme="teal"
@@ -25,16 +45,16 @@ export default function DefaultLayout({ type, configs, currentTab,setCurrentTab,
             Start
           </Button>
         </Center>
-        <Center mt={"2rem"}>
-            {CustomTab&&(
-                <CustomTab set={setCurrentTab} />
-            )}
+        <Center mt={"1rem"}>
+          {CustomTab && <CustomTab set={setCurrentTab} />}
         </Center>
         <Box mt={"3rem"}>
           <SlideAnimatioWrapper id={currentTab}>
             {configs.map((e, index) => (
               <Box key={index}>
-                {checkAttribute(e) && <EachSvg type={type} val={e.name} funArray={funArray} />}
+                {checkAttribute(e) && (
+                  <EachSvg type={type} val={e.name} funArray={funArray} />
+                )}
               </Box>
             ))}
           </SlideAnimatioWrapper>

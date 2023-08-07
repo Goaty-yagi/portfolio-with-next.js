@@ -2,7 +2,7 @@ import AnimeTab from "../components/customTabs/animeTab";
 import { useState, useMemo } from "react";
 import { Box, Heading, Center } from "@chakra-ui/react";
 import { optionTypes } from "../hooks/use-animation";
-import { Easing, Direction } from "../components/animations";
+import { Easing, Direction, Fill } from "../components/animations";
 
 export default function Animatios() {
   const {
@@ -29,13 +29,17 @@ export default function Animatios() {
         return <Easing />;
       case DIRECTION:
         return <Direction />;
+      case FILL:
+        return <Fill />;
     }
   }
   return (
     <>
       <Box maxW={"800px"}>
         <Center>
-          <Heading as='h1' size='2xl'>EffectTiming</Heading>
+          <Heading as="h1" size="2xl">
+            EffectTiming
+          </Heading>
         </Center>
         <AnimeTab set={setLowerCase} />
         {tabHandler()}
