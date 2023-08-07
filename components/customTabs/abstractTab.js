@@ -70,6 +70,7 @@ export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) 
       setTransition("all .5s");
     }
     if (currentIndex !== index) {
+      console.log("CLICK",e.innerText)
       set(e.innerText);
       setAttributes(() => {
         return {

@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, forwardRef } from "react";
 
 const optionTypes = {
+  EASING: "easing",
   DEYAL: "delay",
   DIRECTION: "direction",
   DURATION: "duration",
-  EASING: "easing",
   ENDDELAY: "endDelay",
   FILL: "fill",
   ITERATIONSTART: "iterationStart",
