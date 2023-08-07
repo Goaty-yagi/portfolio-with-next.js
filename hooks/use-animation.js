@@ -20,7 +20,7 @@ function useAnimation() {
     type: "",
     delay: "",
     easing: "",
-    direction: "",
+    direction: "normal",
     fill: "",
     iterations: "",
     refs: useRef(null),
@@ -28,16 +28,17 @@ function useAnimation() {
 
   const { type, delay, easing, direction, fill, iterations, refs } = options;
   function optionConfigure(type, key, val) {
+    console.log("CONFIG",type, key, val)
     setOptions({ ...options, type: type, [key]: val });
   }
   function animationHandler() {
     // console.log("CLICK", totalLength, pathRefs);
     // const length = pathRefs.current.getTotalLength();
-    console.log(type, easing)
-    console.log(refs.current)
     const element = refs.current;
+    
     switch (type) {
       case optionTypes.EASING:
+        console.log("EASING", type)
         element.animate(
           [{ left:0 }, { left: "85%" }],
           {
@@ -47,6 +48,20 @@ function useAnimation() {
             // iterations: ''
           }
         );
+        break
+        case optionTypes.DIRECTION:
+          console.log("DIRECTION", type)
+        element.animate(
+          [{ left:0 }, { left: "85%" }],
+          {
+            easing:'linear',
+            duration: 1000,
+            fill: "forwards",
+            direction:direction,
+            iterations: 3
+          }
+        );
+        break
     }
     // refs.current.animate(
     //   [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],

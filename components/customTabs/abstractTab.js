@@ -1,5 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useRef, useState, useEffect } from "react";
+import firstUpperCase from "../../lib/firstUpperCase";
 
 export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) {
   const wrapperRefs = useRef(null);
@@ -96,7 +97,7 @@ export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) 
             {...defaultTabStyle}
             {...tabStyle}
           >
-            {e}
+            {firstUpperCase(e)}
           </Box>
         ))}
         <Box ref={animeRefs} {...defaultAnimeStyle()} {...animeStyle} />

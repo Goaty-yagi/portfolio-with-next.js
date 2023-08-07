@@ -1,13 +1,8 @@
-import { useEffect, useState, memo } from "react";
-import { Box, Button, Center } from "@chakra-ui/react";
-import { useAnimation } from "../../hooks/use-animation";
-import AbstractSvg from "./abstractSvg";
+import { useState, memo } from "react";
 import EasingTab from "../customTabs/easingTab";
-import { monthColors } from "../../styles/colors";
-import SlideAnimatioWrapper from "../customWrappers/slideAnimationWrapper";
+import DefaultLayout from "./commons/defaultLayout";
 
 function Easing() {
-  // const refs = useRef(null);
   const configs = [
     {
       name: "linear",
@@ -53,56 +48,31 @@ function Easing() {
       name: "steps(5, end)",
       types: ["Steps"],
     },
+    {
+      name: "steps(6, jump-none)",
+      types: ["Steps"],
+    },
   ];
   const tabs = ["General", "Linear", "Cubic-bezier", "Steps"];
   const [currentTab, setCurrentTab] = useState("General");
   const clicks = [];
   function animationStart() {
+    console.log("clicked", clicks)
     clicks.forEach((f) => {
       f();
     });
   }
-  function Each({ val }) {
-    const { refs, optionConfigure, animationHandler } = useAnimation();
-    useEffect(() => {
-      optionConfigure("easing", "easing", val);
-    }, []);
-    clicks.push(animationHandler);
-    return (
-      <>
-        <Box>
-          <Button onClick={animationHandler}>{val}</Button>
-          <AbstractSvg refs={refs} color={monthColors[(Math.floor(Math.random() * monthColors.length))]} />
-        </Box>
-      </>
-    );
-  }
   return (
     <>
-      <Box w="100%">
-        <Center>
-          <Button
-            textAlign={"center"}
-            colorScheme="teal"
-            variant="solid"
-            onClick={animationStart}
-          >
-            Start
-          </Button>
-        </Center>
-        <Center mt={"2rem"}>
-          <EasingTab set={setCurrentTab} />
-        </Center>
-        <Box mt={"3rem"}>
-          <SlideAnimatioWrapper id={currentTab}>
-          {configs.map((e, index) => (
-            <Box key={index}>
-              {e.types.includes(currentTab) && <Each val={e.name} />}
-            </Box>
-          ))}
-          </SlideAnimatioWrapper>
-        </Box>
-      </Box>
+      <DefaultLayout
+        type="easing"
+        configs={configs}
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        funArray={clicks}
+        animationStart={animationStart}
+        CustomTab={EasingTab}
+      />
     </>
   );
 }

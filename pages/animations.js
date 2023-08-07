@@ -1,8 +1,8 @@
-import Easing from "../components/animations/easing";
 import AnimeTab from "../components/customTabs/animeTab";
 import { useState, useMemo } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading, Center } from "@chakra-ui/react";
 import { optionTypes } from "../hooks/use-animation";
+import { Easing, Direction } from "../components/animations";
 
 export default function Animatios() {
   const {
@@ -27,12 +27,16 @@ export default function Animatios() {
     switch (currentTab) {
       case EASING:
         return <Easing />;
-        break;
+      case DIRECTION:
+        return <Direction />;
     }
   }
   return (
     <>
       <Box maxW={"800px"}>
+        <Center>
+          <Heading as='h1' size='2xl'>EffectTiming</Heading>
+        </Center>
         <AnimeTab set={setLowerCase} />
         {tabHandler()}
       </Box>
