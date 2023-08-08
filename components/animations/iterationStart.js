@@ -23,7 +23,7 @@ function IterationStart() {
   const text = `Describes at what point in the iteration the animation should start. 0.5 would indicate starting halfway through the first iteration for example, and with this value set, an animation with 2 iterations would end halfway through a third iteration. Defaults to 0.0.`
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+        f.fun();
     });
   }
 

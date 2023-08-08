@@ -24,7 +24,7 @@ function Direction() {
   function animationStart() {
     console.log("clicked_DI", clicks)
     clicks.forEach((f) => {
-      f();
+      f.fun();
     });
   }
 

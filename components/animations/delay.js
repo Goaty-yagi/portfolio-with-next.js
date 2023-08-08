@@ -22,7 +22,7 @@ function Delay() {
   const text = `The number of milliseconds to delay the start of the animation. Defaults to 0.`
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+        f.fun();
     });
   }
 

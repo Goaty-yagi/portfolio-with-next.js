@@ -23,7 +23,7 @@ function Iterations() {
   const text = `The number of times the animation should repeat. Defaults to 1, and can also take a value of Infinity to make it repeat for as long as the element exists.`
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+        f.fun();
     });
   }
 

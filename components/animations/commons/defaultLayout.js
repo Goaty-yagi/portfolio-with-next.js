@@ -1,7 +1,7 @@
 import EachSvg from "./eachSvg";
 import SlideAnimatioWrapper from "../../customWrappers/slideAnimationWrapper";
 import { Box, Center, Button } from "@chakra-ui/react";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, memo } from "react";
 import { AnimeContext } from "../../../pages/animations";
 
 export default function DefaultLayout({
@@ -15,10 +15,10 @@ export default function DefaultLayout({
   animationStart,
   CustomTab,
 }) {
-  const contexts = useContext(AnimeContext)
+  const contexts = useContext(AnimeContext);
   useEffect(() => {
-    funArray.length = 0
-  },[contexts])
+    funArray.length = 0;
+  }, [contexts]);
   function checkAttribute(e) {
     if (typeof e.types !== "undefined") {
       return e.types.includes(currentTab);

@@ -24,7 +24,8 @@ function useAnimation() {
     direction: "normal",
     fill: "",
     iterations: 1,
-    iterationStart:0.0,
+    iterationStart: 0.0,
+    composite:'',
     refs: useRef(null),
   });
 
@@ -38,6 +39,7 @@ function useAnimation() {
     fill,
     iterations,
     iterationStart,
+    composite,
     refs,
   } = options;
   function optionConfigure(type, key, val) {
@@ -115,12 +117,19 @@ function useAnimation() {
           );
         };
         break;
-        case optionTypes.ITERATIONSTART:
+      case optionTypes.ITERATIONSTART:
         element.animate(baseAnimation, {
           easing: "linear",
           duration: 1000,
           fill: "forwards",
           iterationStart: iterationStart,
+        });
+        break;
+        case optionTypes.COMPOSITE:
+        element.animate([{ transform: "scale(1)"}, { transform: "scale(2)" },{ transform: "scale(1)", }], {
+          easing: "linear",
+          duration: 1000,
+          composite:composite
         });
         break;
     }

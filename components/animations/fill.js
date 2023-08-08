@@ -24,7 +24,7 @@ function Fill() {
   const additionalText = <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode">This example is easier to understand</a>
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+      f.fun();
     });
   }
 

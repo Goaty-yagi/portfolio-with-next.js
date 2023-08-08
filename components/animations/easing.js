@@ -60,7 +60,7 @@ function Easing() {
   const text = `The rate of the animation's change over time. Accepts the pre-defined values "linear", "ease", "ease-in", "ease-out", and "ease-in-out", or a custom "cubic-bezier" value like "cubic-bezier(0.42, 0, 0.58, 1)". Defaults to "linear".`
   function animationStart() {
     clicks.forEach((f) => {
-        f();
+        f.fun();
     });
   }
   return (

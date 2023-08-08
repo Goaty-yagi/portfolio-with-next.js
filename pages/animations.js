@@ -12,6 +12,7 @@ import {
   Delay,
   EndDelay,
   IterationStart,
+  Composite,
 } from "../components/animations";
 
 export const AnimeContext = createContext(null);
@@ -52,6 +53,8 @@ export default function Animatios() {
         return <EndDelay />;
       case ITERATIONSTART:
         return <IterationStart />;
+      case COMPOSITE:
+        return <Composite />;
     }
   }
   return (

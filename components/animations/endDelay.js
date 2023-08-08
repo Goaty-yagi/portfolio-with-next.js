@@ -22,7 +22,7 @@ function EndDelay() {
   const text = `The number of milliseconds to delay after the end of an animation. This is primarily of use when sequencing animations based on the end time of another animation. Defaults to 0.`
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+        f.fun();
     });
   }
 
