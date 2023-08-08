@@ -2,6 +2,7 @@ import AnimeTab from "../components/customTabs/animeTab";
 import { useState, useMemo } from "react";
 import { Box, Heading, Center } from "@chakra-ui/react";
 import { optionTypes } from "../hooks/use-animation";
+import { createContext } from "react";
 import {
   Easing,
   Direction,
@@ -9,8 +10,10 @@ import {
   Duration,
   Iterations,
   Delay,
-  EndDelay
+  EndDelay,
 } from "../components/animations";
+
+export const AnimeContext = createContext(null);
 
 export default function Animatios() {
   const {
@@ -26,16 +29,14 @@ export default function Animatios() {
     ITERATIONCOMPOSITE,
     PSEUDOELEMENT,
   } = optionTypes;
-  const [currentTab, setCurrentTab] = useState("easing");
+  const [currentOption, setCurrentOption] = useState("easing");
   function set(val) {
-    
-    setCurrentTab(optionTypes[val]);
+    setCurrentOption(optionTypes[val]);
   }
   function tabHandler() {
-    console.log("CURRENT", currentTab)
-    switch (currentTab) {
+    switch (currentOption) {
       case EASING:
-        return <Easing />;
+        return <Easing/>;
       case DIRECTION:
         return <Direction />;
       case FILL:
@@ -59,7 +60,9 @@ export default function Animatios() {
           </Heading>
         </Center>
         <AnimeTab set={set} />
-        {tabHandler()}
+        <AnimeContext.Provider value={currentOption}>
+          {tabHandler()}
+        </AnimeContext.Provider>
       </Box>
     </>
   );

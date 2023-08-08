@@ -1,8 +1,9 @@
-import { useState, memo } from "react";
+import { useState ,memo } from "react";
 import EasingTab from "../customTabs/easingTab";
 import DefaultLayout from "./commons/defaultLayout";
 
 function Easing() {
+  const optionType= "easing"
   const configs = [
     {
       name: "linear",
@@ -59,13 +60,13 @@ function Easing() {
   const text = `The rate of the animation's change over time. Accepts the pre-defined values "linear", "ease", "ease-in", "ease-out", and "ease-in-out", or a custom "cubic-bezier" value like "cubic-bezier(0.42, 0, 0.58, 1)". Defaults to "linear".`
   function animationStart() {
     clicks.forEach((f) => {
-      f();
+        f();
     });
   }
   return (
     <>
       <DefaultLayout
-        type="easing"
+        type={optionType}
         text={text}
         configs={configs}
         currentTab={currentTab}
