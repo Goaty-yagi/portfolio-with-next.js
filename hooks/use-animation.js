@@ -18,21 +18,22 @@ function useAnimation() {
   const [options, setOptions] = useState({
     type: "",
     delay: "",
-    duration:0,
+    duration: 0,
     easing: "",
     direction: "normal",
     fill: "",
-    iterations: "",
+    iterations: 1,
     refs: useRef(null),
   });
 
-  const { type, delay, easing, duration, direction, fill, iterations, refs } = options;
+  const { type, delay, easing, duration, direction, fill, iterations, refs } =
+    options;
   function optionConfigure(type, key, val) {
     setOptions({ ...options, type: type, [key]: val });
   }
   function animationHandler() {
     const element = refs.current;
-    const baseAnimation = [{ left: 0 }, { left: "85%" }]
+    const baseAnimation = [{ left: 0 }, { left: "85%" }];
     switch (type) {
       case optionTypes.EASING:
         element.animate([{ left: 0 }, { left: "85%" }], {
@@ -58,11 +59,19 @@ function useAnimation() {
           fill: fill,
         });
         break;
-        case optionTypes.DURATION:
+      case optionTypes.DURATION:
         element.animate(baseAnimation, {
           easing: "linear",
           duration: duration,
           fill: "forwards",
+        });
+        break;
+      case optionTypes.ITERATIONS:
+        element.animate(baseAnimation, {
+          easing: "linear",
+          duration: 1000,
+          fill: "forwards",
+          iterations: iterations,
         });
         break;
     }

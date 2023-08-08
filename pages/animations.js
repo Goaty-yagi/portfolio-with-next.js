@@ -2,7 +2,13 @@ import AnimeTab from "../components/customTabs/animeTab";
 import { useState, useMemo } from "react";
 import { Box, Heading, Center } from "@chakra-ui/react";
 import { optionTypes } from "../hooks/use-animation";
-import { Easing, Direction, Fill, Duration } from "../components/animations";
+import {
+  Easing,
+  Direction,
+  Fill,
+  Duration,
+  Iterations,
+} from "../components/animations";
 
 export default function Animatios() {
   const {
@@ -33,6 +39,8 @@ export default function Animatios() {
         return <Fill />;
       case DURATION:
         return <Duration />;
+      case ITERATIONS:
+        return <Iterations />;
     }
   }
   return (

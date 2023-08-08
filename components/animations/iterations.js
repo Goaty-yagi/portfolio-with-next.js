@@ -2,24 +2,25 @@ import { useState, memo } from "react";
 
 import DefaultLayout from "./commons/defaultLayout";
 
-function Duration() {
+function Iterations() {
   const configs = [
     {
-      name: 0,
+      name: 1,
     },
     {
-      name: 1000,
+      name: 2,
     },
     {
-      name: 1500,
+      name: 3,
     },
     {
-      name: 2000,
+      name: Infinity,
     },
   ];
+  const tabs = ["normal(default)", "reverse", "alternate", "alternate-reverse"];
   const [currentTab, setCurrentTab] = useState("General");
   const clicks = [];
-  const text = `The number of milliseconds each iteration of the animation takes to complete. Defaults to 0. Although this is technically optional, keep in mind that your animation will not run if this value is 0.  `
+  const text = `The number of times the animation should repeat. Defaults to 1, and can also take a value of Infinity to make it repeat for as long as the element exists.`
   function animationStart() {
     clicks.forEach((f) => {
       f();
@@ -29,7 +30,7 @@ function Duration() {
   return (
     <>
       <DefaultLayout
-        type="duration"
+        type="iterations"
         text={text}
         configs={configs}
         currentTab={currentTab}
@@ -40,4 +41,4 @@ function Duration() {
     </>
   );
 }
-export default memo(Duration);
+export default memo(Iterations);
