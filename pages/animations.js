@@ -9,6 +9,7 @@ import {
   Duration,
   Iterations,
   Delay,
+  EndDelay
 } from "../components/animations";
 
 export default function Animatios() {
@@ -25,12 +26,13 @@ export default function Animatios() {
     ITERATIONCOMPOSITE,
     PSEUDOELEMENT,
   } = optionTypes;
-  console.log("START", EASING);
   const [currentTab, setCurrentTab] = useState("easing");
-  function setLowerCase(val) {
-    setCurrentTab(val.toLowerCase());
+  function set(val) {
+    
+    setCurrentTab(optionTypes[val]);
   }
   function tabHandler() {
+    console.log("CURRENT", currentTab)
     switch (currentTab) {
       case EASING:
         return <Easing />;
@@ -44,6 +46,8 @@ export default function Animatios() {
         return <Iterations />;
       case DELAY:
         return <Delay />;
+      case ENDDELAY:
+        return <EndDelay />;
     }
   }
   return (
@@ -54,7 +58,7 @@ export default function Animatios() {
             EffectTiming
           </Heading>
         </Center>
-        <AnimeTab set={setLowerCase} />
+        <AnimeTab set={set} />
         {tabHandler()}
       </Box>
     </>

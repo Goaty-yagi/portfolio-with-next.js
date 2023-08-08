@@ -18,6 +18,7 @@ function useAnimation() {
   const [options, setOptions] = useState({
     type: "",
     delay: 0,
+    endDelay:0,
     duration: 0,
     easing: "",
     direction: "normal",
@@ -26,7 +27,7 @@ function useAnimation() {
     refs: useRef(null),
   });
 
-  const { type, delay, easing, duration, direction, fill, iterations, refs } =
+  const { type, delay, easing,endDelay, duration, direction, fill, iterations, refs } =
     options;
   function optionConfigure(type, key, val) {
     setOptions({ ...options, type: type, [key]: val });
@@ -34,16 +35,19 @@ function useAnimation() {
   function animationHandler() {
     const element = refs.current;
     const baseAnimation = [{ left: 0 }, { left: "85%" }];
+
+
     switch (type) {
       case optionTypes.EASING:
-        element.animate([{ left: 0 }, { left: "85%" }], {
+        element.animate(baseAnimation, {
           easing: easing,
           duration: 1000,
           fill: "forwards",
-        });
+        }).onfinish = () => {
+        };
         break;
       case optionTypes.DIRECTION:
-        element.animate([{ left: 0 }, { left: "85%" }], {
+        element.animate(baseAnimation, {
           easing: "linear",
           duration: 1000,
           fill: "forwards",
@@ -52,7 +56,7 @@ function useAnimation() {
         });
         break;
       case optionTypes.FILL:
-        element.animate([{ left: 0 }, { left: "85%" }], {
+        element.animate(baseAnimation, {
           easing: "linear",
           duration: 1000,
           fill: fill,
@@ -77,10 +81,23 @@ function useAnimation() {
         element.animate(baseAnimation, {
           easing: "linear",
           duration: 1000,
-          // fill: "forwards",
           delay:delay
         });
         break;
+        case optionTypes.ENDDELAY:
+          element.animate(baseAnimation, {
+            easing: "linear",
+            duration: 1000,
+            fill: "forwards",
+            endDelay:endDelay
+          }).onfinish = () => {
+            element.animate([{ transform:"rotateY(0deg)" }, { transform:"rotateY(360deg)" }],{
+              easing: "linear",
+              fill: "forwards",
+              duration: 1000,
+            })
+          };
+          break;
     }
     // refs.current.animate(
     //   [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
