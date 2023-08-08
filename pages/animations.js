@@ -11,6 +11,7 @@ import {
   Iterations,
   Delay,
   EndDelay,
+  IterationStart,
 } from "../components/animations";
 
 export const AnimeContext = createContext(null);
@@ -36,7 +37,7 @@ export default function Animatios() {
   function tabHandler() {
     switch (currentOption) {
       case EASING:
-        return <Easing/>;
+        return <Easing />;
       case DIRECTION:
         return <Direction />;
       case FILL:
@@ -49,6 +50,8 @@ export default function Animatios() {
         return <Delay />;
       case ENDDELAY:
         return <EndDelay />;
+      case ITERATIONSTART:
+        return <IterationStart />;
     }
   }
   return (

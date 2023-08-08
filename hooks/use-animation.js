@@ -24,6 +24,7 @@ function useAnimation() {
     direction: "normal",
     fill: "",
     iterations: 1,
+    iterationStart:0.0,
     refs: useRef(null),
   });
 
@@ -36,6 +37,7 @@ function useAnimation() {
     direction,
     fill,
     iterations,
+    iterationStart,
     refs,
   } = options;
   function optionConfigure(type, key, val) {
@@ -112,6 +114,14 @@ function useAnimation() {
             }
           );
         };
+        break;
+        case optionTypes.ITERATIONSTART:
+        element.animate(baseAnimation, {
+          easing: "linear",
+          duration: 1000,
+          fill: "forwards",
+          iterationStart: iterationStart,
+        });
         break;
     }
   }

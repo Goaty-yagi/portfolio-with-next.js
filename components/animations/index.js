@@ -5,3 +5,4 @@ export { default as Duration } from './duration';
 export { default as Iterations } from './iterations';
 export { default as Delay } from './delay';
 export { default as EndDelay } from './endDelay';
+export { default as IterationStart } from './iterationStart';
