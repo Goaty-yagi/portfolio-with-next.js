@@ -2,27 +2,26 @@ import { useState, memo } from "react";
 
 import DefaultLayout from "./commons/defaultLayout";
 
-function Direction() {
+function Duration() {
   const configs = [
     {
-      name: "normal",
+      name: 0,
     },
     {
-      name: "reverse",
+      name: 1000,
     },
     {
-      name: "alternate",
+      name: 1500,
     },
     {
-      name: "alternate-reverse",
+      name: 2000,
     },
   ];
   const tabs = ["normal(default)", "reverse", "alternate", "alternate-reverse"];
   const [currentTab, setCurrentTab] = useState("General");
   const clicks = [];
-  const text = `Whether the animation runs forwards (normal), backwards (reverse), switches direction after each iteration (alternate), or runs backwards and switches direction after each iteration (alternate-reverse). Defaults to "normal".\n This animations iterate 3 times.`
+  const text = `The number of milliseconds each iteration of the animation takes to complete. Defaults to 0. Although this is technically optional, keep in mind that your animation will not run if this value is 0.  `
   function animationStart() {
-    console.log("clicked_DI", clicks)
     clicks.forEach((f) => {
       f();
     });
@@ -31,7 +30,7 @@ function Direction() {
   return (
     <>
       <DefaultLayout
-        type="direction"
+        type="duration"
         text={text}
         configs={configs}
         currentTab={currentTab}
@@ -42,4 +41,4 @@ function Direction() {
     </>
   );
 }
-export default memo(Direction);
+export default memo(Duration);
