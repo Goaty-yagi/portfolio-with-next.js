@@ -8,11 +8,12 @@ import {
   Fill,
   Duration,
   Iterations,
+  Delay,
 } from "../components/animations";
 
 export default function Animatios() {
   const {
-    DEYAL,
+    DELAY,
     DIRECTION,
     DURATION,
     EASING,
@@ -41,6 +42,8 @@ export default function Animatios() {
         return <Duration />;
       case ITERATIONS:
         return <Iterations />;
+      case DELAY:
+        return <Delay />;
     }
   }
   return (

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, forwardRef } from "react";
 
 const optionTypes = {
   EASING: "easing",
-  DEYAL: "delay",
+  DELAY: "delay",
   DIRECTION: "direction",
   DURATION: "duration",
   ENDDELAY: "endDelay",
@@ -17,7 +17,7 @@ const optionTypes = {
 function useAnimation() {
   const [options, setOptions] = useState({
     type: "",
-    delay: "",
+    delay: 0,
     duration: 0,
     easing: "",
     direction: "normal",
@@ -40,7 +40,6 @@ function useAnimation() {
           easing: easing,
           duration: 1000,
           fill: "forwards",
-          // iterations: ''
         });
         break;
       case optionTypes.DIRECTION:
@@ -72,6 +71,14 @@ function useAnimation() {
           duration: 1000,
           fill: "forwards",
           iterations: iterations,
+        });
+        break;
+      case optionTypes.DELAY:
+        element.animate(baseAnimation, {
+          easing: "linear",
+          duration: 1000,
+          // fill: "forwards",
+          delay:delay
         });
         break;
     }
