@@ -25,7 +25,9 @@ function useAnimation() {
     fill: "",
     iterations: 1,
     iterationStart: 0.0,
-    composite:'',
+    composite: "",
+    iterationComposite: "",
+    pseudoElement:"",
     refs: useRef(null),
   });
 
@@ -40,6 +42,8 @@ function useAnimation() {
     iterations,
     iterationStart,
     composite,
+    iterationComposite,
+    pseudoElement,
     refs,
   } = options;
   function optionConfigure(type, key, val) {
@@ -125,16 +129,46 @@ function useAnimation() {
           iterationStart: iterationStart,
         });
         break;
-        case optionTypes.COMPOSITE:
-        element.animate([{ left: 0 }, {transform:'scale(2.5)'},{ left: "85%" }], {
+      case optionTypes.COMPOSITE:
+        element.animate(
+          [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
+          {
+            easing: "linear",
+            duration: 1000,
+          }
+        );
+        element.animate(
+          [
+            { transform: "scale(1)" },
+            { transform: "scale(2)" },
+            { transform: "scale(1)" },
+          ],
+          {
+            easing: "linear",
+            duration: 1000,
+            composite: composite,
+          }
+        );
+        break;
+      case optionTypes.ITERATIONCOMPOSITE:
+        console.log(iterationComposite);
+        element.animate(
+          [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
+          {
+            easing: "linear",
+            duration: 1000,
+            iterations: 2,
+            iterationComposite: iterationComposite,
+          }
+        );
+        break;
+      case optionTypes.PSEUDOELEMENT:
+        element.animate(baseAnimation, {
           easing: "linear",
           duration: 1000,
-        })
-        element.animate([{ transform:'scale(1)'}, {transform:'scale(2)'},{ transform:'scale(1)' }], {
-          easing: "linear",
-          duration: 1000,
-          composite:composite
-        })
+          fill: "forwards",
+          pseudoElement:pseudoElement
+        });
         break;
     }
   }

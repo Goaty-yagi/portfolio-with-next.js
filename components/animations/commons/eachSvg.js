@@ -6,21 +6,10 @@ import AbstractSvg from "../abstractSvg";
 import { useEffect, useState } from "react";
 
 function EachSvg({ type, val, funArray }) {
-  console.log("EACHSVG")
     const { refs, optionConfigure, animationHandler } = useAnimation();
-    const [isMounted, setIsMounted] = useState(false)
     useEffect(() => {
-      console.log("EFFECT", animationHandler)
       optionConfigure(type, type, val);
-      if(type==='composite') {
-        
-        // refs.current.animate([{ transform: "rotate(0deg)", left:'50%' }, { transform: "rotate(180deg)", left:'50%' }], {
-        //   easing: "linear",
-        //   duration: 1000,
-        //   iterations:Infinity,
-        //   direction:'alternate'
-        // });
-      }
+      
     }, []);
     (function push() {
       if(funArray.length) {
@@ -32,19 +21,11 @@ function EachSvg({ type, val, funArray }) {
       }
     }())
 
-    // function customHandler() {
-    //   if(type==='composite'){
-    //     animationHandler()
-    //     animationHandler()
-    //   } else {
-    //     animationHandler()
-    //   }
-    // }
     return (
       <>
         <Box>
           <Button onClick={animationHandler}>{val}</Button>
-          <AbstractSvg refs={refs} color={monthColors[(Math.floor(Math.random() * monthColors.length))]} />
+          <AbstractSvg refs={refs} isDisplay={type==='pseudoElement'} color={monthColors[(Math.floor(Math.random() * monthColors.length))]} />
         </Box>
       </>
     );

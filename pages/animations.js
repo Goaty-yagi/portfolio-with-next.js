@@ -13,6 +13,8 @@ import {
   EndDelay,
   IterationStart,
   Composite,
+  IterationComposite,
+  PseudoElement,
 } from "../components/animations";
 
 export const AnimeContext = createContext(null);
@@ -55,6 +57,10 @@ export default function Animatios() {
         return <IterationStart />;
       case COMPOSITE:
         return <Composite />;
+      case ITERATIONCOMPOSITE:
+        return <IterationComposite />;
+      case PSEUDOELEMENT:
+        return <PseudoElement />;
     }
   }
   return (

@@ -7,3 +7,5 @@ export { default as Delay } from './delay';
 export { default as EndDelay } from './endDelay';
 export { default as IterationStart } from './iterationStart';
 export { default as Composite } from './composite';
+export { default as IterationComposite } from './iterationComposite';
+export { default as PseudoElement } from './pseudoElement';
