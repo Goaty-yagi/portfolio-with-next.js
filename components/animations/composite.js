@@ -25,7 +25,7 @@ function Composite() {
     console.log(clicks)
     clicks.forEach((f) => {
         f.fun();
-        f.fun();
+        // f.fun();
     });
   }
 

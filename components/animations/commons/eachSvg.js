@@ -13,11 +13,13 @@ function EachSvg({ type, val, funArray }) {
       console.log("EFFECT", animationHandler)
       optionConfigure(type, type, val);
       if(type==='composite') {
-        refs.current.animate([{ transform: "rotate(0deg)", left:'50%' }, { transform: "rotate(360deg)", left:'50%' }], {
-          easing: "linear",
-          duration: 1000,
-          iterations:Infinity
-        });
+        
+        // refs.current.animate([{ transform: "rotate(0deg)", left:'50%' }, { transform: "rotate(180deg)", left:'50%' }], {
+        //   easing: "linear",
+        //   duration: 1000,
+        //   iterations:Infinity,
+        //   direction:'alternate'
+        // });
       }
     }, []);
     (function push() {
@@ -30,18 +32,18 @@ function EachSvg({ type, val, funArray }) {
       }
     }())
 
-    function customHandler() {
-      if(type==='composite'){
-        animationHandler()
-        animationHandler()
-      } else {
-        animationHandler()
-      }
-    }
+    // function customHandler() {
+    //   if(type==='composite'){
+    //     animationHandler()
+    //     animationHandler()
+    //   } else {
+    //     animationHandler()
+    //   }
+    // }
     return (
       <>
         <Box>
-          <Button onClick={customHandler}>{val}</Button>
+          <Button onClick={animationHandler}>{val}</Button>
           <AbstractSvg refs={refs} color={monthColors[(Math.floor(Math.random() * monthColors.length))]} />
         </Box>
       </>

@@ -126,11 +126,15 @@ function useAnimation() {
         });
         break;
         case optionTypes.COMPOSITE:
-        element.animate([{ transform: "scale(1)"}, { transform: "scale(2)" },{ transform: "scale(1)", }], {
+        element.animate([{ left: 0 }, {transform:'scale(2.5)'},{ left: "85%" }], {
+          easing: "linear",
+          duration: 1000,
+        })
+        element.animate([{ transform:'scale(1)'}, {transform:'scale(2)'},{ transform:'scale(1)' }], {
           easing: "linear",
           duration: 1000,
           composite:composite
-        });
+        })
         break;
     }
   }
