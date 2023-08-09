@@ -14,7 +14,14 @@ export default function AbstractSvg({ refs, color, isDisplay }) {
   function beforeStyle() {
     if(isDisplay) {
       return  {
-        content: '"🙂"', position: "absolute", fontSize:'1.5rem'
+        content: '"👈"', position: "absolute", fontSize:'1.5rem'
+      }
+    }
+  }
+  function afterStyle() {
+    if(isDisplay) {
+      return  {
+        content: '"👉"', position: "absolute", top:'45px', fontSize:'1.5rem'
       }
     }
   }
@@ -32,6 +39,7 @@ export default function AbstractSvg({ refs, color, isDisplay }) {
             marginTop: "-1rem",
           }}
           _before={beforeStyle()}
+          _after={afterStyle()}
         >
           <svg viewBox="0 0 1024 1024">
             <path

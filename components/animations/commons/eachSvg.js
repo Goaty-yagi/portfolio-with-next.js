@@ -3,7 +3,7 @@ import { monthColors } from "../../../styles/colors";
 import { memo } from "react";
 import { Box, Button } from "@chakra-ui/react";
 import AbstractSvg from "../abstractSvg";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function EachSvg({ type, val, funArray }) {
     const { refs, optionConfigure, animationHandler } = useAnimation();

@@ -12,7 +12,6 @@ export default function DefaultLayout({
   currentTab,
   setCurrentTab,
   funArray,
-  animationStart,
   CustomTab,
 }) {
   const contexts = useContext(AnimeContext);
@@ -25,6 +24,11 @@ export default function DefaultLayout({
     } else {
       return true;
     }
+  }
+  function animationStart() {
+    funArray.forEach((f) => {
+        f.fun();
+    });
   }
   return (
     <>
