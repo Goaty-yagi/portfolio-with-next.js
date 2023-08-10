@@ -104,9 +104,7 @@ export default function AbstractTab({
           duration: 1000,
           fill: "forwards",
         }
-      ).onfinish = () => {
-        console.log("ANIME DONE");
-      };
+      )
     }
   }
   return (

@@ -154,7 +154,6 @@ function useAnimation() {
         );
         break;
       case optionTypes.ITERATIONCOMPOSITE:
-        console.log(iterationComposite);
         element.animate(
           [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
           {
