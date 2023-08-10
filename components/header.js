@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { GiHamburgerMenu, GiVintageRobot } from "react-icons/gi";
+import { BsLayersHalf } from 'react-icons/bs'
 import { ImBlog } from "react-icons/im";
 
 import Link from "next/link";
@@ -45,6 +46,11 @@ export default function Header() {
       name:'PROJECT',
       path:"/projects",
       icon:GiVintageRobot
+    },
+    {
+      name:'ANIMATION',
+      path:"/animations",
+      icon:BsLayersHalf
     }
   ]
   function HamburgerMenu() {
