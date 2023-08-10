@@ -14,14 +14,14 @@ export default function AbstractSvg({ refs, color, isDisplay }) {
   function beforeStyle() {
     if(isDisplay) {
       return  {
-        content: '"👈"', position: "absolute", fontSize:'1.5rem'
+        content: '"👈"', position: "absolute", fontSize:'1.5rem', top:{base:-2, md:0}
       }
     }
   }
   function afterStyle() {
     if(isDisplay) {
       return  {
-        content: '"👉"', position: "absolute", top:'45px', fontSize:'1.5rem'
+        content: '"👉"', position: "absolute", top:{base:'25px', md:'45px'}, fontSize:'1.5rem'
       }
     }
   }

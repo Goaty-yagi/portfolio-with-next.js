@@ -75,6 +75,9 @@ function useAnimation() {
           easing: "linear",
           duration: 1000,
           fill: fill,
+          delay:500,
+          iterationStart:0.5
+
         });
         break;
       case optionTypes.DURATION:

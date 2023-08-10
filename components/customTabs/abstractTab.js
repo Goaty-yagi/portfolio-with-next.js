@@ -2,7 +2,14 @@ import { Box, Flex } from "@chakra-ui/react";
 import { useRef, useState, useEffect } from "react";
 import firstUpperCase from "../../lib/firstUpperCase";
 
-export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) {
+export default function AbstractTab({
+  tabs,
+  set,
+  color,
+  tabStyle,
+  animeStyle,
+  hasKeyEffect,
+}) {
   const wrapperRefs = useRef(null);
   const animeRefs = useRef(null);
   const [transition, setTransition] = useState("");
@@ -12,18 +19,18 @@ export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) 
       ...attributes,
       width: tagRef.current.offsetWidth,
       height: tagRef.current.offsetHeight,
-      relativeTop:ratioCul(tagRef.current).top,
-      relativeLeft:ratioCul(tagRef.current).left
+      relativeTop: ratioCul(tagRef.current).top,
+      relativeLeft: ratioCul(tagRef.current).left,
     });
   }, []);
 
   function ratioCul(e) {
-    const wapperPos = wrapperRefs.current.getBoundingClientRect();
-    const wrapperWidth = wapperPos.width;
-    const wrapperHeight = wapperPos.height;
+    const wrapperPos = wrapperRefs.current.getBoundingClientRect();
+    const wrapperWidth = wrapperPos.width;
+    const wrapperHeight = wrapperPos.height;
     const targetPos = e.getBoundingClientRect();
-    const deffLeft = wapperPos.left - targetPos.left + 8;
-    const deffTop = targetPos.top - wapperPos.top - 8;
+    const deffLeft = wrapperPos.left - targetPos.left + 8;
+    const deffTop = targetPos.top - wrapperPos.top - 8;
     const ratioL = deffLeft / wrapperWidth;
     const ratioT = deffTop / wrapperHeight;
     return { left: ratioL * -1 * 100, top: ratioT * 100 };
@@ -71,7 +78,6 @@ export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) 
       setTransition("all .5s");
     }
     if (currentIndex !== index) {
-      console.log("CLICK",e.innerText)
       set(e.innerText);
       setAttributes(() => {
         return {
@@ -83,12 +89,34 @@ export default function AbstractTab({ tabs, set, color, tabStyle, animeStyle }) 
           currentIndex: index,
         };
       });
+      keyEffects(e.offsetWidth, e.offsetHeight);
     }
   }
-
+  function keyEffects(w, h) {
+    if (hasKeyEffect) {
+      animeRefs.current.animate(
+        [
+          { width: "5px", height: "5px", background: "white", offset: 0.1 },
+          { width: "10px", height: "10px", offset: 0.8 },
+          { width: w + "px", height: h + "px", offset: 1 },
+        ],
+        {
+          duration: 1000,
+          fill: "forwards",
+        }
+      ).onfinish = () => {
+        console.log("ANIME DONE");
+      };
+    }
+  }
   return (
     <>
-      <Flex ref={wrapperRefs} flexWrap={"wrap"} justifyContent={'center'} position={"relative"}>
+      <Flex
+        ref={wrapperRefs}
+        flexWrap={"wrap"}
+        justifyContent={"center"}
+        position={"relative"}
+      >
         {tabs.map((e, index) => (
           <Box
             key={index}

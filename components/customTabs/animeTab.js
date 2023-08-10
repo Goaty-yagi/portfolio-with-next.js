@@ -19,7 +19,7 @@ export default function AnimeTab({ set }) {
   };
   return (
     <>
-      <AbstractTab tabs={options} set={set} animeStyle={animeStyle} tabStyle={tabStyle}/>
+      <AbstractTab tabs={options} set={set} animeStyle={animeStyle} tabStyle={tabStyle} hasKeyEffect={true}/>
     </>
   );
 }
