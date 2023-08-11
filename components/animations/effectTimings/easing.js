@@ -1,6 +1,6 @@
 import { useState ,memo } from "react";
-import EasingTab from "../customTabs/easingTab";
-import DefaultLayout from "./commons/defaultLayout";
+import { EasingTab } from "../../customTabs";
+import DefaultLayout from "../commons/defaultLayout";
 
 function Easing() {
   const optionType= "easing"

@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import DefaultLayout from "./commons/defaultLayout";
+import DefaultLayout from "../commons/defaultLayout";
 
 function Duration() {
   const configs = [

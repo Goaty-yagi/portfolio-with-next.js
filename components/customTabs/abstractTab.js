@@ -9,6 +9,7 @@ export default function AbstractTab({
   tabStyle,
   animeStyle,
   hasKeyEffect,
+  doubleClickable
 }) {
   const wrapperRefs = useRef(null);
   const animeRefs = useRef(null);
@@ -77,7 +78,7 @@ export default function AbstractTab({
     if (!transition) {
       setTransition("all .5s");
     }
-    if (currentIndex !== index) {
+    if (currentIndex !== index||doubleClickable) {
       set(e.innerText);
       setAttributes(() => {
         return {

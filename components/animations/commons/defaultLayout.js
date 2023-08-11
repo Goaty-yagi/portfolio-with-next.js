@@ -2,7 +2,7 @@ import EachSvg from "./eachSvg";
 import SlideAnimatioWrapper from "../../customWrappers/slideAnimationWrapper";
 import { Box, Center, Button } from "@chakra-ui/react";
 import { useContext, useEffect, memo } from "react";
-import { AnimeContext } from "../../../pages/animations";
+import { AnimeContext } from "../effectTimings/effectTiming";
 
 export default function DefaultLayout({
   text,
