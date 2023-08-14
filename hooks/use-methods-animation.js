@@ -14,23 +14,21 @@ const methodTypes = {
 function useMethodsAnimation(ref) {
   useEffect(() => {
     if (refs.current) {
-      const anime = refs.current.animate(baseKeyframes, baseOptions)
-      anime.cancel()
-      setAnimeObj(anime)
+      const anime = refs.current.animate(baseKeyframes, baseOptions);
+      anime.cancel();
+      setAnimeObj(anime);
     }
   }, []);
-  const [currentType, setCurrentType] = useState(methodTypes.CANCEL);
-  const [animeObj,setAnimeObj] = useState({})
+  const [currentMethod, setCurrentMethod] = useState(methodTypes.CANCEL);
+  const [animeObj, setAnimeObj] = useState({});
 
   const refs = ref ? ref : useRef(null);
   const baseKeyframes = [{ left: 0 }, { left: "85%" }];
   const baseOptions = {
-    easing: easing,
     duration: 1000,
     fill: "forwards",
   };
   function animationHandler() {
-
     switch (currentType) {
       case methodTypes.CANCEL:
         animeObj.cancel();
@@ -60,9 +58,9 @@ function useMethodsAnimation(ref) {
   }
 
   return {
-    currentType,
     refs,
-    setCurrentType,
+    currentMethod,
+    setCurrentMethod,
     animationHandler,
   };
 }

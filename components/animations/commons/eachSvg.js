@@ -17,10 +17,8 @@ function EachSvg({ type, val, funArray, currentTab }) {
           return e.val
         })
         if(!vals.includes(val)) {
-          console.log("not include")
           funArray.push({fun:animationHandler,type:type,val:val});
         } else {
-          console.log(vals.indexOf(val))
           const index = vals.indexOf(val)
           funArray.splice(index, 1)
           funArray.push({fun:animationHandler,type:type,val:val});

@@ -1,12 +1,12 @@
 import AbstractTab from "./abstractTab";
 import { methodTypes } from "../animations/methods/method";
 
-export default function MethodTab({set}) {
+export default function OtherMethodTab({set}) {
     const tabs = Object.values(methodTypes).map((e) => {
         return e.name
     })
     const animeStyle = {
-        background: "none",
+        background: "red",
         boxShadow: 'inset 0 0 1px 3px #FFF',
         borderRadius: "10px",
       };
@@ -18,6 +18,6 @@ export default function MethodTab({set}) {
         borderRadius: "10px",
       };
     return (
-        <AbstractTab tabs={tabs.slice(0,5)} set={set} animeStyle={animeStyle} tabStyle={tabStyle} doubleClickable={true}/>
+        <AbstractTab tabs={tabs.slice(5,tabs.length)} set={set} animeStyle={animeStyle} tabStyle={tabStyle} doubleClickable={true}/>
     )
 }

@@ -3,8 +3,11 @@ import { useRef, useEffect, useState } from "react";
 import AbstractSvg from "../abstractSvg";
 import { monthColors } from "../../../styles/colors";
 import { Button, Box, Text, Heading, Flex } from "@chakra-ui/react";
-import { MethodTab } from "../../customTabs";
-import UpdatePlaybackRate from "../../customRadios/updatePlaybackrateRadio";
+import { MethodTab, OtherMethodTab } from "../../customTabs";
+import { Persist, UpdatePlayback, CommitStyles } from "./types";
+import UpdatePlaybackRateRadio from "../../customRadios/updatePlaybackrateRadio";
+import firstLowerCase from "../../../lib/firstLowercase";
+import { FillRadio } from "../../customRadios";
 
 export const methodTypes = {
   CANCEL: {
@@ -47,26 +50,20 @@ export const methodTypes = {
 };
 
 function Method() {
-  //   const methodTypes = {
-  //     CANCEL: "cancel",
-  //     FINISH: "finish",
-  //     PAUSE: "pause",
-  //     PLAY: "play",
-  //     REVERSE: "reverse",
-  //     COMMITSTYLES: "commitStyles",
-  //     PERSISTS: "persist",
-  //     UPDATEPLAYBACKRATE: "updatePlaybackRate",
-  //   };
   useEffect(() => {
+    console.log("EFE")
+    setBaseAnimation()
+  }, []);
+
+  function setBaseAnimation({k, o}={}) {
     if (refs.current) {
-      const anime = refs.current.animate(keyframs, options);
+      const anime = refs.current.animate(k?k:keyframs, o?o:options);
       anime.cancel();
-      anime.id = "init";
       setAnimation(anime);
       setAnimations([...animations, anime]);
-      setAnimationProperties(anime)
+      setAnimationProperties(anime);
     }
-  }, []);
+  }
   const refs = useRef(null);
   const [animation, setAnimation] = useState({});
   const [animations, setAnimations] = useState([]);
@@ -76,11 +73,34 @@ function Method() {
     text: defaultText,
     subText: "",
     tab: "",
+    component: "",
+    fill:'none'
   });
+
+  function setFill(val) {
+    setCurrents({...currents, fill:val})
+    const o={
+      duration:1000,
+      fill:val,
+    }
+    animation.effect.updateTiming(o);
+  }
+  const { text, subText, tab, component, fill } = currents;
+  function setComponent(val) {
+    const upper = val.toUpperCase()
+    setCurrents({
+      ...currents,
+      component: firstLowerCase(val),
+      text: methodTypes[upper].text,
+      subText: methodTypes[upper].subText,
+      tab: methodTypes[upper].name,
+    });
+  }
+
   const [animeObj, setAnimeObj] = useState({
     playbackRate: 0,
     playState: "",
-  }) 
+  });
   const keyframs = [
     { left: 0 },
     { transform: "rotateY(180deg)" },
@@ -88,10 +108,10 @@ function Method() {
   ];
   const [init, setInit] = useState(false);
   const options = {
-    duration: 1000,
-    fill: "forwards",
-    iterations: 3,
-  };
+    duration:1000,
+    fill:'none',
+  } 
+
   function playbackSetter(o) {
     if (!init) {
       click("UpdatePlaybackRate");
@@ -101,25 +121,49 @@ function Method() {
     animation.updatePlaybackRate(o);
   }
 
-
   function setAnimationProperties(obj) {
-    setAnimeObj({ ...currents, playbackRate: obj.playbackRate, playState:obj.playState });
+    setAnimeObj({
+      ...currents,
+      playbackRate: obj.playbackRate,
+      playState: obj.playState,
+    });
   }
-
+  function ShowComponent() {
+    switch (component) {
+      case others.COMMITSTYLES.name:
+        return <CommitStyles />;
+      case others.PERSIST.name:
+        return <Persist />;
+      case others.UPDATEPLAYBACKRATE.name:
+        return <UpdatePlayback />;
+      default:
+        return <>UNKO{component}</>;
+    }
+  }
+  function setCurrentTexts(val) {
+    const upper = val.toUpperCase();
+    setCurrents({
+      ...currents,
+      text: methodTypes[upper].text,
+      subText: methodTypes[upper].subText,
+      tab: methodTypes[upper].name,
+    });
+  }
+  function reset() {
+    animation.playbackRate=1,
+    animation.cancel()
+    setAnimeObj({...animeObj, playbackRate:0})
+    setCurrents({...currents, fill:'none'})
+    animation.effect.updateTiming({ fill: 'none' });
+  }
   function click(val) {
-    const upperVal = val.toUpperCase();
     // if (!init && methodTypes[upperVal].name === methodTypes.PLAY.name) {
     //   console.log("INIT")
     //   setAnimation(refs.current.animate(keyframs, options(1000)));
     //   setInit(true);
     //   animation.id= 'initial'
     // }
-    setCurrents({
-      ...currents,
-      text: methodTypes[upperVal].text,
-      subText: methodTypes[upperVal].subText,
-      tab: methodTypes[upperVal].name,
-    });
+    setCurrentTexts(val);
     animation.onremove = (e) => {
       console.log("removed", animation);
     };
@@ -127,13 +171,13 @@ function Method() {
       console.log("canceled", animation);
     };
     animation.onfinish = (e) => {
-      console.log(e.target)
-      setAnimationProperties(animation)
+      console.log(e.target.effect.getComputedTiming(),console.log(animations), animation,animation.effect.getComputedTiming());
+      setAnimationProperties(animation);
     };
-    switch (methodTypes[upperVal].name) {
+    switch (methodTypes[val.toUpperCase()].name) {
       case methodTypes.PLAY.name:
-        console.log('play',animation.effect.getComputedTiming());
-        console.dir(animation.effect)
+        console.log("play", animation.effect.getComputedTiming());
+        console.dir(animation.effect);
         animation.play();
         break;
       case methodTypes.PAUSE.name:
@@ -151,15 +195,16 @@ function Method() {
       case methodTypes.REVERSE.name:
         animation.reverse();
         // animation.cancel()
-        console.log(animation)
+        console.log(animation);
         break;
       case methodTypes.COMMITSTYLES.name:
         animations.forEach((e) => {
-          console.log("e",e)
-          e.play()
-        })
+          console.log("e", e);
+          e.play();
+        });
         break;
       case methodTypes.PERSIST.name:
+        console.log("PER")
         const persist = refs.current.animate(
           [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
           {
@@ -169,7 +214,7 @@ function Method() {
             // composite:'add'
           }
         );
-        persist.cancel();
+        // persist.cancel();
         persist.id = "persist";
         setAnimation(persist);
         console.log(animation);
@@ -182,7 +227,7 @@ function Method() {
       //     break;
     }
     // setAnimationProperties(animation)
-    console.log(currents.tab)
+    console.log(currents.tab);
   }
   return (
     <>
@@ -191,7 +236,6 @@ function Method() {
           Methods
         </Heading>
         <Box
-          className={"UNKO"}
           border={"solid gray"}
           borderRadius={"10px"}
           fontWeight={"bold"}
@@ -202,27 +246,27 @@ function Method() {
           p={"1rem"}
           resize={"vertical"}
         >
-          {currents.text}
-          <Text color={"red"}> {currents.subText}</Text>
+          {text}
+          <Text color={"red"}> {subText}</Text>
         </Box>
         <AbstractSvg
           refs={refs}
           //   color={monthColors[Math.floor(Math.random() * monthColors.length)]}
         />
+        {/* <ShowComponent/> */}
         <Box>
           <Box textAlign={"center"}>
             <Text>playState : {animation.playState}</Text>
             <Text>playbackRate : {animation.playbackRate}</Text>
+            <Text>fill : {fill}</Text>
+            <Button onClick={reset}>RESET</Button>
           </Box>
+          <FillRadio set={setFill} option={fill}/>
           <MethodTab set={click} />
-          {/* {Object.keys(methodTypes).map((e, index) => (
-            <Button key={index} m={"1rem"} onClick={() => click(e)}>
-              {e}
-            </Button>
-          ))} */}
+          <OtherMethodTab set={setComponent} />
         </Box>
-        {currents.tab === methodTypes.UPDATEPLAYBACKRATE.name && (
-          <UpdatePlaybackRate
+        {component === methodTypes.UPDATEPLAYBACKRATE.name && (
+          <UpdatePlaybackRateRadio
             option={animeObj.playbackRate}
             set={playbackSetter}
           />
