@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, forwardRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const optionTypes = {
+const methodTypes = {
   CANCEL: "cancel",
   FINISH: "finish",
   PAUSE: "pause",
@@ -11,178 +11,60 @@ const optionTypes = {
   UPDATEPLAYBACKRATE: "updatePlaybackRate",
 };
 
-function useAnimation() {
-  const [options, setOptions] = useState({
-    type: "",
-    delay: 0,
-    endDelay: 0,
-    duration: 0,
-    easing: "",
-    direction: "normal",
-    fill: "",
-    iterations: 1,
-    iterationStart: 0.0,
-    composite: "",
-    iterationComposite: "",
-    pseudoElement:"",
-    refs: useRef(null),
-  });
+function useMethodsAnimation(ref) {
+  useEffect(() => {
+    if (refs.current) {
+      const anime = refs.current.animate(baseKeyframes, baseOptions)
+      anime.cancel()
+      setAnimeObj(anime)
+    }
+  }, []);
+  const [currentType, setCurrentType] = useState(methodTypes.CANCEL);
+  const [animeObj,setAnimeObj] = useState({})
 
-  const {
-    type,
-    delay,
-    easing,
-    endDelay,
-    duration,
-    direction,
-    fill,
-    iterations,
-    iterationStart,
-    composite,
-    iterationComposite,
-    pseudoElement,
-    refs,
-  } = options;
-  function optionConfigure(type, key, val) {
-    setOptions({ ...options, type: type, [key]: val });
-  }
+  const refs = ref ? ref : useRef(null);
+  const baseKeyframes = [{ left: 0 }, { left: "85%" }];
+  const baseOptions = {
+    easing: easing,
+    duration: 1000,
+    fill: "forwards",
+  };
   function animationHandler() {
-    const element = refs.current;
-    const baseAnimation = [{ left: 0 }, { left: "85%" }];
 
-    switch (type) {
-      case optionTypes.EASING:
-        element.animate(baseAnimation, {
-          easing: easing,
-          duration: 1000,
-          fill: "forwards",
-        }).onfinish = () => {};
+    switch (currentType) {
+      case methodTypes.CANCEL:
+        animeObj.cancel();
         break;
-      case optionTypes.DIRECTION:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: "forwards",
-          direction: direction,
-          iterations: 3,
-        });
+      case methodTypes.FINISH:
+        animeObj.finish();
         break;
-      case optionTypes.FILL:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: fill,
-          delay:500,
-          iterationStart:0.5
-
-        });
+      case methodTypes.PAUSE:
+        animeObj.pause();
         break;
-      case optionTypes.DURATION:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: duration,
-          fill: "forwards",
-        });
+      case methodTypes.PLAY:
+        animeObj.play();
         break;
-      case optionTypes.ITERATIONS:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: "forwards",
-          iterations: iterations,
-        });
+      case methodTypes.REVERSE:
+        animeObj.reverse();
         break;
-      case optionTypes.DELAY:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          delay: delay,
-        });
+      case methodTypes.COMMITSTYLES:
+        animeObj.commitStyles();
         break;
-      case optionTypes.ENDDELAY:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: "forwards",
-          endDelay: endDelay,
-        }).onfinish = () => {
-          element.animate(
-            [
-              { transform: "rotateY(0deg)", left: "85%", offset: 0 },
-              { transform: "rotateY(180deg)", left: "85%", offset: 0.5 },
-              { transform: "rotateY(180deg)", left: 0, offset: 0.9 },
-              { transform: "rotateY(0deg)", left: 0, offset: 1 },
-            ],
-            {
-              easing: "linear",
-              fill: "forwards",
-              duration: 2000,
-            }
-          );
-        };
+      case methodTypes.PERSISTS:
+        animeObj.persist();
         break;
-      case optionTypes.ITERATIONSTART:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: "forwards",
-          iterationStart: iterationStart,
-        });
-        break;
-      case optionTypes.COMPOSITE:
-        element.animate(
-          [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
-          {
-            easing: "linear",
-            duration: 1000,
-          }
-        );
-        element.animate(
-          [
-            { transform: "scale(1)" },
-            { transform: "scale(2)" },
-            { transform: "scale(1)" },
-          ],
-          {
-            easing: "linear",
-            duration: 1000,
-            composite: composite,
-          }
-        );
-        break;
-      case optionTypes.ITERATIONCOMPOSITE:
-        element.animate(
-          [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
-          {
-            easing: "linear",
-            duration: 1000,
-            iterations: 2,
-            iterationComposite: iterationComposite,
-          }
-        );
-        break;
-      case optionTypes.PSEUDOELEMENT:
-        element.animate(baseAnimation, {
-          easing: "linear",
-          duration: 1000,
-          fill: "forwards",
-          pseudoElement:pseudoElement
-        });
+      case methodTypes.UPDATEPLAYBACKRATE:
+        animeObj.updatePlaybackRate();
         break;
     }
   }
 
   return {
-    type,
-    delay,
-    easing,
-    direction,
-    fill,
-    iterations,
+    currentType,
     refs,
-    optionConfigure,
+    setCurrentType,
     animationHandler,
   };
 }
 
-export { useAnimation, optionTypes };
+export { methodTypes, useMethodsAnimation };

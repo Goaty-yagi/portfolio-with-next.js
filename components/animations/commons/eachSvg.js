@@ -5,7 +5,7 @@ import { Box, Button } from "@chakra-ui/react";
 import AbstractSvg from "../abstractSvg";
 import { useEffect } from "react";
 
-function EachSvg({ type, val, funArray }) {
+function EachSvg({ type, val, funArray, currentTab }) {
     const { refs, optionConfigure, animationHandler } = useAnimation();
     useEffect(() => {
       optionConfigure(type, type, val);
@@ -13,7 +13,16 @@ function EachSvg({ type, val, funArray }) {
     }, []);
     (function push() {
       if(funArray.length) {
-        if(funArray[funArray.length - 1].val!==val) {
+        const vals = funArray.map((e) => {
+          return e.val
+        })
+        if(!vals.includes(val)) {
+          console.log("not include")
+          funArray.push({fun:animationHandler,type:type,val:val});
+        } else {
+          console.log(vals.indexOf(val))
+          const index = vals.indexOf(val)
+          funArray.splice(index, 1)
           funArray.push({fun:animationHandler,type:type,val:val});
         }
       } else {

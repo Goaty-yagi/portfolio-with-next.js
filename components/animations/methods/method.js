@@ -64,6 +64,7 @@ function Method() {
       anime.id = "init";
       setAnimation(anime);
       setAnimations([...animations, anime]);
+      setAnimationProperties(anime)
     }
   }, []);
   const refs = useRef(null);
@@ -75,9 +76,11 @@ function Method() {
     text: defaultText,
     subText: "",
     tab: "",
+  });
+  const [animeObj, setAnimeObj] = useState({
     playbackRate: 0,
     playState: "",
-  });
+  }) 
   const keyframs = [
     { left: 0 },
     { transform: "rotateY(180deg)" },
@@ -94,9 +97,15 @@ function Method() {
       click("UpdatePlaybackRate");
       setInit(true);
     }
-    setCurrents({ ...currents, playbackRate: o });
+    setAnimeObj({ ...currents, playbackRate: o });
     animation.updatePlaybackRate(o);
   }
+
+
+  function setAnimationProperties(obj) {
+    setAnimeObj({ ...currents, playbackRate: obj.playbackRate, playState:obj.playState });
+  }
+
   function click(val) {
     const upperVal = val.toUpperCase();
     // if (!init && methodTypes[upperVal].name === methodTypes.PLAY.name) {
@@ -118,11 +127,13 @@ function Method() {
       console.log("canceled", animation);
     };
     animation.onfinish = (e) => {
-      console.log("finished", animation);
+      console.log(e.target)
+      setAnimationProperties(animation)
     };
     switch (methodTypes[upperVal].name) {
       case methodTypes.PLAY.name:
-        console.log(animation);
+        console.log('play',animation.effect.getComputedTiming());
+        console.dir(animation.effect)
         animation.play();
         break;
       case methodTypes.PAUSE.name:
@@ -139,6 +150,8 @@ function Method() {
         break;
       case methodTypes.REVERSE.name:
         animation.reverse();
+        // animation.cancel()
+        console.log(animation)
         break;
       case methodTypes.COMMITSTYLES.name:
         animations.forEach((e) => {
@@ -168,7 +181,8 @@ function Method() {
       //     animation.updatePlaybackRate(currents.playbackRate);
       //     break;
     }
-    console.log(animation);
+    // setAnimationProperties(animation)
+    console.log(currents.tab)
   }
   return (
     <>
@@ -209,7 +223,7 @@ function Method() {
         </Box>
         {currents.tab === methodTypes.UPDATEPLAYBACKRATE.name && (
           <UpdatePlaybackRate
-            option={currents.playbackRate}
+            option={animeObj.playbackRate}
             set={playbackSetter}
           />
           // {currents.playbackRate}

@@ -2,7 +2,6 @@ import { AnimeTab } from "../../customTabs";
 import { useState } from "react";
 import { Box, Heading, Center } from "@chakra-ui/react";
 import { optionTypes } from "../../../hooks/use-animation";
-import { createContext } from "react";
 import {
   Easing,
   Direction,
@@ -19,7 +18,6 @@ import {
 
 
 
-export const AnimeContext = createContext(null);
 
 export default function EffectTiming() {
   const {
@@ -74,9 +72,7 @@ export default function EffectTiming() {
           </Heading>
         </Center>
         <AnimeTab set={set} />
-        <AnimeContext.Provider value={currentOption}>
           {tabHandler()}
-        </AnimeContext.Provider>
       </Box>
     </>
   );
