@@ -15,6 +15,7 @@ export default function AbstractTab({
   const animeRefs = useRef(null);
   const [transition, setTransition] = useState("");
   const tagRef = useRef(null);
+  
   useEffect(() => {
     setAttributes({
       ...attributes,
@@ -103,7 +104,6 @@ export default function AbstractTab({
         ],
         {
           duration: 1000,
-          fill: "forwards",
         }
       )
     }

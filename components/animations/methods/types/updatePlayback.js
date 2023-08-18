@@ -1,9 +1,14 @@
-import EachSvg from "../eachSvg";
 
-export default function UpdatePlayback() {
+import { UpdatePlaybackRateRadio } from "../../../customRadios";
+
+
+export default function UpdatePlayback({option, set}) {
     return (
-        <>UPDATE
-        <EachSvg/>
+        <>
+          <UpdatePlaybackRateRadio
+            option={option}
+            set={set}
+          />
         </>
-    )
+      );
 }

@@ -2,12 +2,12 @@ import { memo } from "react";
 import { useRef, useEffect, useState } from "react";
 import AbstractSvg from "../abstractSvg";
 import { monthColors } from "../../../styles/colors";
-import { Button, Box, Text, Heading, Flex } from "@chakra-ui/react";
+import { Button, Box, Text, Heading, Flex, Center } from "@chakra-ui/react";
 import { MethodTab, OtherMethodTab } from "../../customTabs";
 import { Persist, UpdatePlayback, CommitStyles } from "./types";
-import UpdatePlaybackRateRadio from "../../customRadios/updatePlaybackrateRadio";
 import firstLowerCase from "../../../lib/firstLowercase";
 import { FillRadio } from "../../customRadios";
+import { ExpandableAnimationWrapper } from "../../customWrappers";
 
 export const methodTypes = {
   CANCEL: {
@@ -51,43 +51,43 @@ export const methodTypes = {
 
 function Method() {
   useEffect(() => {
-    console.log("EFE")
-    setBaseAnimation()
+    console.log("EFE");
+    setBaseAnimation();
   }, []);
 
-  function setBaseAnimation({k, o}={}) {
+  function setBaseAnimation({ k, o } = {}) {
     if (refs.current) {
-      const anime = refs.current.animate(k?k:keyframs, o?o:options);
+      const anime = refs.current.animate(k ? k : keyframs, o ? o : options);
       anime.cancel();
       setAnimation(anime);
-      setAnimations([...animations, anime]);
       setAnimationProperties(anime);
     }
   }
   const refs = useRef(null);
+  const expandWrapperRefs = useRef(null);
   const [animation, setAnimation] = useState({});
-  const [animations, setAnimations] = useState([]);
   const defaultText =
     "The Animation \n object defines the following animation control methods.";
   const [currents, setCurrents] = useState({
-    text: defaultText,
+    text: methodTypes.CANCEL.text,
     subText: "",
     tab: "",
     component: "",
-    fill:'none'
+    fill: "none",
   });
 
   function setFill(val) {
-    setCurrents({...currents, fill:val})
-    const o={
-      duration:1000,
-      fill:val,
-    }
+    setCurrents({ ...currents, fill: val });
+    const o = {
+      duration: 1000,
+      fill: val,
+    };
     animation.effect.updateTiming(o);
   }
   const { text, subText, tab, component, fill } = currents;
+
   function setComponent(val) {
-    const upper = val.toUpperCase()
+    const upper = val.toUpperCase();
     setCurrents({
       ...currents,
       component: firstLowerCase(val),
@@ -101,16 +101,14 @@ function Method() {
     playbackRate: 0,
     playState: "",
   });
-  const keyframs = [
-    { left: 0 },
-    { transform: "rotateY(180deg)" },
-    { left: "85%" },
-  ];
+
+  const keyframs = [{ left: 0 }, { left: "85%" }];
+
   const [init, setInit] = useState(false);
   const options = {
-    duration:1000,
-    fill:'none',
-  } 
+    duration: 1000,
+    fill: "none",
+  };
 
   function playbackSetter(o) {
     if (!init) {
@@ -128,16 +126,16 @@ function Method() {
       playState: obj.playState,
     });
   }
-  function ShowComponent() {
+  function showComponent() {
     switch (component) {
-      case others.COMMITSTYLES.name:
+      case methodTypes.COMMITSTYLES.name:
         return <CommitStyles />;
-      case others.PERSIST.name:
-        return <Persist />;
-      case others.UPDATEPLAYBACKRATE.name:
-        return <UpdatePlayback />;
-      default:
-        return <>UNKO{component}</>;
+      case methodTypes.PERSIST.name:
+        return <Persist refs={refs} animation={animation} />;
+      case methodTypes.UPDATEPLAYBACKRATE.name:
+        return (
+          <UpdatePlayback option={animeObj.playbackRate} set={playbackSetter} />
+        );
     }
   }
   function setCurrentTexts(val) {
@@ -150,84 +148,39 @@ function Method() {
     });
   }
   function reset() {
-    animation.playbackRate=1,
-    animation.cancel()
-    setAnimeObj({...animeObj, playbackRate:0})
-    setCurrents({...currents, fill:'none'})
-    animation.effect.updateTiming({ fill: 'none' });
+    (animation.playbackRate = 1), animation.cancel();
+    setAnimeObj({ ...animeObj, playbackRate: 0 });
+    setCurrents({ ...currents, fill: "none" });
+    animation.effect.updateTiming({ fill: "none" });
   }
   function click(val) {
-    // if (!init && methodTypes[upperVal].name === methodTypes.PLAY.name) {
-    //   console.log("INIT")
-    //   setAnimation(refs.current.animate(keyframs, options(1000)));
-    //   setInit(true);
-    //   animation.id= 'initial'
-    // }
     setCurrentTexts(val);
-    animation.onremove = (e) => {
-      console.log("removed", animation);
-    };
-    animation.oncancel = (e) => {
-      console.log("canceled", animation);
-    };
     animation.onfinish = (e) => {
-      console.log(e.target.effect.getComputedTiming(),console.log(animations), animation,animation.effect.getComputedTiming());
+      console.log(
+        e.target.effect.getComputedTiming(),
+        animation,
+        animation.effect.getComputedTiming()
+      );
       setAnimationProperties(animation);
     };
     switch (methodTypes[val.toUpperCase()].name) {
       case methodTypes.PLAY.name:
-        console.log("play", animation.effect.getComputedTiming());
         console.dir(animation.effect);
         animation.play();
         break;
       case methodTypes.PAUSE.name:
-        console.log("PAYSE");
         animation.pause();
         break;
       case methodTypes.FINISH.name:
-        console.log("FINISH");
         animation.finish();
         break;
       case methodTypes.CANCEL.name:
-        console.log("CANCEL");
         animation.cancel();
         break;
       case methodTypes.REVERSE.name:
         animation.reverse();
-        // animation.cancel()
-        console.log(animation);
         break;
-      case methodTypes.COMMITSTYLES.name:
-        animations.forEach((e) => {
-          console.log("e", e);
-          e.play();
-        });
-        break;
-      case methodTypes.PERSIST.name:
-        console.log("PER")
-        const persist = refs.current.animate(
-          [{ left: 0 }, { transform: "scale(2.5)" }, { left: "85%" }],
-          {
-            duration: 1000,
-            fill: "forwards",
-            iterations: 2,
-            // composite:'add'
-          }
-        );
-        // persist.cancel();
-        persist.id = "persist";
-        setAnimation(persist);
-        console.log(animation);
-        // animation.persist();
-        setAnimations([...animations, persist]);
-        break;
-      // case methodTypes.UPDATEPLAYBACKRATE.name:
-      //     console.log(typeof currents.playbackRate)
-      //     animation.updatePlaybackRate(currents.playbackRate);
-      //     break;
     }
-    // setAnimationProperties(animation)
-    console.log(currents.tab);
   }
   return (
     <>
@@ -235,6 +188,33 @@ function Method() {
         <Heading as="h1" size="2xl">
           Methods
         </Heading>
+        <Text as="h4" p={"0.5rem"}>
+          {defaultText}
+        </Text>
+        <Flex
+          w={"100%"}
+          minH={"90px"}
+          flexWrap={"wrap"}
+          justifyContent={"center"}
+          m={"1rem"}
+          p={"0.5rem"}
+        >
+          {Object.keys(methodTypes).map((e) => (
+            <Flex
+              border={"solid gray"}
+              fontWeight={"bold"}
+              bg={"#c75c6fc4"}
+              borderRadius={"10px"}
+              p={1}
+              m={1}
+              justifyContent={"center"}
+              alignItems={"center"}
+              fontSize={{base:'0.8rem', md:'1rem'}}
+            >
+              {e}
+            </Flex>
+          ))}
+        </Flex>
         <Box
           border={"solid gray"}
           borderRadius={"10px"}
@@ -249,29 +229,41 @@ function Method() {
           {text}
           <Text color={"red"}> {subText}</Text>
         </Box>
-        <AbstractSvg
-          refs={refs}
-          //   color={monthColors[Math.floor(Math.random() * monthColors.length)]}
-        />
-        {/* <ShowComponent/> */}
-        <Box>
-          <Box textAlign={"center"}>
-            <Text>playState : {animation.playState}</Text>
-            <Text>playbackRate : {animation.playbackRate}</Text>
-            <Text>fill : {fill}</Text>
-            <Button onClick={reset}>RESET</Button>
-          </Box>
-          <FillRadio set={setFill} option={fill}/>
-          <MethodTab set={click} />
-          <OtherMethodTab set={setComponent} />
-        </Box>
-        {component === methodTypes.UPDATEPLAYBACKRATE.name && (
-          <UpdatePlaybackRateRadio
-            option={animeObj.playbackRate}
-            set={playbackSetter}
-          />
-          // {currents.playbackRate}
-        )}
+        <Flex w={"100%"} alignItems={"center"}>
+          <Flex w={{ base: "100%", md: "600px" }} justifyContent={"center"}>
+            <ExpandableAnimationWrapper trigger={component === "persist"}>
+              {/* {component !== methodTypes.PERSIST.name && ( */}
+              <Center flexDirection={"column"}>
+                <AbstractSvg
+                  refs={refs}
+                  // color={monthColors[Math.floor(Math.random() * monthColors.length)]}
+                />
+                <Flex
+                  justifyContent={"space-between"}
+                  w={"80%"}
+                  m={"1rem"}
+                  alignItems={"center"}
+                  p={"1rem"}
+                  bg={"#5f4d61c7"}
+                  borderRadius={"10px"}
+                  border={"solid #ca6666"}
+                >
+                  <Box textAlign={"left"}>
+                    <Text>playState : {animation.playState}</Text>
+                    <Text>playbackRate : {animation.playbackRate}</Text>
+                    <Text>fill : {fill}</Text>
+                  </Box>
+                  <Button onClick={reset}>RESET</Button>
+                </Flex>
+                <FillRadio set={setFill} option={fill} />
+                <MethodTab set={click} />
+              </Center>
+              {/* )} */}
+            </ExpandableAnimationWrapper>
+          </Flex>
+        </Flex>
+        <OtherMethodTab set={setComponent} />
+        {showComponent()}
       </Flex>
     </>
   );

@@ -17,9 +17,9 @@ export default function Animatios() {
     }
   }
   return (
-    <>
+    <Box w={'100%'}>
       <AnimationApiTab set={setCurrentOption} />
       {tabHandler()}
-    </>
+    </Box>
   );
 }
