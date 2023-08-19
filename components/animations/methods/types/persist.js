@@ -44,21 +44,23 @@ export default function Persist() {
         flexDirection={"column"}
         w={"100%"}
         alignItems={'center'}
+        mt={'1rem'}
       >
         <AbstractSvg refs={refs} />
-        <ButtonGroup gap={4}>
+        <ButtonGroup gap={4} mt={'1rem'}>
           <Button
             {...buttonFontSize}
             maxW={"100px"}
             alignSelf={"flex-start"}
+            border={`solid ${persistOn?'#7979ea':'#94091E'}`}
             onClick={() => setPersistOn((pre) => !pre)}
           >
             persist{persistOn ? " on" : " off"}
           </Button>
-          <Button {...buttonFontSize} onClick={setAnimation}>
+          <Button {...buttonFontSize} onClick={setAnimation} border={'solid #94091E'}>
             Set Animation
           </Button>
-          <Button {...buttonFontSize} onClick={() => setAnimations([])}>
+          <Button {...buttonFontSize} onClick={() => setAnimations([])} border={'solid #94091E'}>
             Clear Animations
           </Button>
         </ButtonGroup>

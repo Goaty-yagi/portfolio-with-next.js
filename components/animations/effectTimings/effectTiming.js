@@ -14,7 +14,7 @@ import {
   Composite,
   IterationComposite,
   PseudoElement,
-}  from './index' 
+}  from './types' 
 
 
 

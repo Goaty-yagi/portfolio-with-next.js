@@ -8,7 +8,6 @@ export default function Animatios() {
   const [currentOption, setCurrentOption] = useState("effect-timing");
   const tabs = ["properties", "effect-timing", "methods", "steps"];
   function tabHandler() {
-    console.log(currentOption, 'MO')
     switch (currentOption.toLocaleLowerCase()) {
       case "effect-timing":
         return <EffectTiming />;

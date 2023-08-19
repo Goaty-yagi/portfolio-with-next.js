@@ -54,7 +54,7 @@ export default function CommitStyles() {
         <Text fontWeight={"bold"}>Fill</Text>
         <AbstractSvg refs={fillRefs} />
         <Flex w={"100%"}>
-          <Button onClick={() => setAnimation(0)}>Start</Button>
+          <Button onClick={() => setAnimation(0)} border={'solid #94091E'}>Start</Button>
           <Flex ml={"1rem"} flexDir={"column"}>
             <Text>PlayState : {fillAnimation.playState}</Text>
             <Text>Fill : forwards</Text>
@@ -65,7 +65,7 @@ export default function CommitStyles() {
         <Text fontWeight={"bold"}>CommitStyle</Text>
         <AbstractSvg refs={commitRefs} />
         <Flex>
-          <Button onClick={() => setAnimation(1)}>Start</Button>
+          <Button onClick={() => setAnimation(1)} border={'solid #94091E'}>Start</Button>
           <Flex ml={"1rem"} flexDir={"column"}>
             <Text>PlayState :  {commitAnimation.playState}</Text>
             <Text>Fill : forwards</Text>

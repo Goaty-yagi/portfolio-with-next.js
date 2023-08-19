@@ -1,9 +1,10 @@
-import { useAnimation } from "../../../hooks/use-animation";
-import { monthColors } from "../../../styles/colors";
+
 import { memo } from "react";
 import { Box, Button } from "@chakra-ui/react";
-import AbstractSvg from "../abstractSvg";
+import AbstractSvg from "../../abstractSvg";
 import { useEffect } from "react";
+import { useAnimation } from "../../../../hooks/use-animation";
+import { monthColors } from "../../../../styles/colors";
 
 function EachSvg({ type, val, funArray, currentTab }) {
     const { refs, optionConfigure, animationHandler } = useAnimation();

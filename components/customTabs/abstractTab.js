@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useRef, useState, useEffect } from "react";
-import firstUpperCase from "../../lib/firstUpperCase";
+import firstUpperCase from "../../utils/firstUpperCase";
 
 export default function AbstractTab({
   tabs,

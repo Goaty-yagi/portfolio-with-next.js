@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Box, Text, Heading, Flex } from "@chakra-ui/react";
 import { OtherMethodTab } from "../../customTabs";
 import { Persist, CommitStyles } from "./types";
-import firstLowerCase from "../../../lib/firstLowercase";
+import firstLowerCase from "../../../utils/firstLowercase";
 import Default from "./types/default";
 import { SlideAnimatioWrapper } from "../../customWrappers";
 
@@ -108,7 +108,7 @@ function Method() {
         <Heading as="h1" size="2xl">
           Methods
         </Heading>
-        <Text as="h4" p={"0.5rem"}>
+        <Text textAlign={'center'} as="h4" p={"0.5rem"}>
           {defaultText}
         </Text>
         <Flex

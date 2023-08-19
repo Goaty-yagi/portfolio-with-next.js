@@ -1,6 +1,5 @@
 import { optionTypes } from "../../hooks/use-animation";
 import AbstractTab from "./abstractTab";
-import CustomTab from "./customTab";
 
 export default function AnimeTab({ set }) {
   const options = Object.keys(optionTypes);

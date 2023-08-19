@@ -6,7 +6,7 @@ export default function OtherMethodTab({set}) {
         return e.name
     })
     const animeStyle = {
-        background: "red",
+        background: "#940909",
         boxShadow: 'inset 0 0 1px 3px #FFF',
         borderRadius: "10px",
       };

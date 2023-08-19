@@ -1,8 +1,6 @@
 import AbstractRadio from "./abstractRadio";
-import { useState } from "react";
 
-export default function UpdatePlaybackRate({option, set}) {
-  const [currentVal, setCurrentVal] = useState(0);
+export default function UpdatePlaybackRateRadio({option, set}) {
   const name = "";
   const defaltValue = "";
   const radioConfig = [
@@ -16,16 +14,11 @@ export default function UpdatePlaybackRate({option, set}) {
         value:-1,
       },
   ];
-//   function setter(o) {
-//     console.log(o)
-//     set({...option, 'playbackRate':o})
-//   }
   return (
     <>
       <AbstractRadio
         config={radioConfig}
         name={option}
-
         setter={set}
       />
     </>

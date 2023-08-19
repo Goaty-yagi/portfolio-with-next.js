@@ -1,5 +1,5 @@
 import { useState ,memo } from "react";
-import { EasingTab } from "../../customTabs";
+import { EasingTab } from "../../../customTabs";
 import DefaultLayout from "../commons/defaultLayout";
 
 function Easing() {
