@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useState } from "react";
-import { Box, Text, Heading, Flex } from "@chakra-ui/react";
+import { Box, Text, Heading, Flex, Tooltip } from "@chakra-ui/react";
 import { OtherMethodTab } from "../../customTabs";
 import { Persist, CommitStyles } from "./types";
 import firstLowerCase from "../../../utils/firstLowercase";
@@ -135,6 +135,7 @@ function Method() {
             </Flex>
           ))}
         </Flex>
+        <Tooltip label='Resizable' bg='gray.300' color='black' placement='bottom-end'>
         <Box
           border={"solid gray"}
           borderRadius={"10px"}
@@ -147,8 +148,9 @@ function Method() {
           resize={"vertical"}
         >
           {text}
-          <Text color={"red"}> {subText}</Text>
+          <Text mt={'0.5rem'}> {subText}</Text>
         </Box>
+        </Tooltip>
         <OtherMethodTab set={setComponent} />
         <SlideAnimatioWrapper id={component}>
           {showComponent()}
