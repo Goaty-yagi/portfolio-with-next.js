@@ -1,11 +1,12 @@
-import { useAnimation } from "../../../hooks/use-animation";
-import { monthColors } from "../../../styles/colors";
+
 import { memo } from "react";
 import { Box, Button } from "@chakra-ui/react";
-import AbstractSvg from "../abstractSvg";
+import AbstractSvg from "../../abstractSvg";
 import { useEffect } from "react";
+import { useAnimation } from "../../../../hooks/use-animation";
+import { monthColors } from "../../../../styles/colors";
 
-function EachSvg({ type, val, funArray }) {
+function EachSvg({ type, val, funArray, currentTab }) {
     const { refs, optionConfigure, animationHandler } = useAnimation();
     useEffect(() => {
       optionConfigure(type, type, val);
@@ -13,7 +14,14 @@ function EachSvg({ type, val, funArray }) {
     }, []);
     (function push() {
       if(funArray.length) {
-        if(funArray[funArray.length - 1].val!==val) {
+        const vals = funArray.map((e) => {
+          return e.val
+        })
+        if(!vals.includes(val)) {
+          funArray.push({fun:animationHandler,type:type,val:val});
+        } else {
+          const index = vals.indexOf(val)
+          funArray.splice(index, 1)
           funArray.push({fun:animationHandler,type:type,val:val});
         }
       } else {

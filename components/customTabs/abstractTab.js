@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useRef, useState, useEffect } from "react";
-import firstUpperCase from "../../lib/firstUpperCase";
+import firstUpperCase from "../../utils/firstUpperCase";
 
 export default function AbstractTab({
   tabs,
@@ -9,11 +9,13 @@ export default function AbstractTab({
   tabStyle,
   animeStyle,
   hasKeyEffect,
+  doubleClickable
 }) {
   const wrapperRefs = useRef(null);
   const animeRefs = useRef(null);
   const [transition, setTransition] = useState("");
   const tagRef = useRef(null);
+  
   useEffect(() => {
     setAttributes({
       ...attributes,
@@ -77,7 +79,7 @@ export default function AbstractTab({
     if (!transition) {
       setTransition("all .5s");
     }
-    if (currentIndex !== index) {
+    if (currentIndex !== index||doubleClickable) {
       set(e.innerText);
       setAttributes(() => {
         return {
@@ -102,7 +104,6 @@ export default function AbstractTab({
         ],
         {
           duration: 1000,
-          fill: "forwards",
         }
       )
     }

@@ -1,8 +1,7 @@
 import EachSvg from "./eachSvg";
-import SlideAnimatioWrapper from "../../customWrappers/slideAnimationWrapper";
+import { SlideAnimatioWrapper } from "../../../customWrappers";
 import { Box, Center, Button } from "@chakra-ui/react";
-import { useContext, useEffect, memo } from "react";
-import { AnimeContext } from "../../../pages/animations";
+
 
 export default function DefaultLayout({
   text,
@@ -14,10 +13,6 @@ export default function DefaultLayout({
   funArray,
   CustomTab,
 }) {
-  const contexts = useContext(AnimeContext);
-  useEffect(() => {
-    funArray.length = 0;
-  }, [contexts]);
   function checkAttribute(e) {
     if (typeof e.types !== "undefined") {
       return e.types.includes(currentTab);
@@ -27,7 +22,7 @@ export default function DefaultLayout({
   }
   function animationStart() {
     funArray.forEach((f) => {
-        f.fun();
+      f.fun();
     });
   }
   return (
@@ -63,7 +58,12 @@ export default function DefaultLayout({
             {configs.map((e, index) => (
               <Box key={index}>
                 {checkAttribute(e) && (
-                  <EachSvg type={type} val={e.name} funArray={funArray} />
+                  <EachSvg
+                    type={type}
+                    val={e.name}
+                    funArray={funArray}
+                    currentTab={currentTab}
+                  />
                 )}
               </Box>
             ))}

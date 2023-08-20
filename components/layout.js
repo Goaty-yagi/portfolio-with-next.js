@@ -15,27 +15,27 @@ export default function Layout({ children, router, pageProps }) {
   };
   const headInfo = {
     auther: "Nobuhiro Funahashi",
-    baseTitle:"Nobuhiro-Portfolio"
-  }
-  const pageList = ["work", "frontmatter"]
-  const [description, setDescription] = useState("")
+    baseTitle: "Nobuhiro-Portfolio",
+  };
+  const pageList = ["work", "frontmatter"];
+  const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
   const [path, setPath] = useState("");
 
   useEffect(() => {
     if (window !== "undefined") {
       setUrl(document.URL);
-      setPath(router.state.asPath==="/" ? "" : splitPath(router.state.asPath))
-      setDescription(filterDescription())
+      setPath(
+        router.state.asPath === "/" ? "" : splitPath(router.state.asPath)
+      );
+      setDescription(filterDescription());
     }
   }, [router.state]);
 
   const filterDescription = () => {
     // filter pageProps to get data for description for Head
-    const filteredItem = pageList.find(p => 
-      p in pageProps === true
-    )
-    switch(filteredItem) {
+    const filteredItem = pageList.find((p) => p in pageProps === true);
+    switch (filteredItem) {
       case "work":
         return pageProps.work.productDescription;
       case "frontmatter":
@@ -43,20 +43,23 @@ export default function Layout({ children, router, pageProps }) {
       default:
         return "unko";
     }
-  }
+  };
 
   const initialLetterToApperCase = (string) => {
-    return string.replace(/\b[a-z]/g, char => char.toUpperCase());
-  }
-  
+    return string.replace(/\b[a-z]/g, (char) => char.toUpperCase());
+  };
+
   const splitPath = (path) => {
-    const separator = "-"
-    return  path.split("/").map((p, index , array) => {
-      if(index!==0) {
-        return initialLetterToApperCase(p)
-      } 
-    }).join(separator)
-  }
+    const separator = "-";
+    return path
+      .split("/")
+      .map((p, index, array) => {
+        if (index !== 0) {
+          return initialLetterToApperCase(p);
+        }
+      })
+      .join(separator);
+  };
 
   const bg = useColorModeValue(
     "linear-gradient(to bottom, #6cd8e8, #001517)",
@@ -82,18 +85,18 @@ export default function Layout({ children, router, pageProps }) {
         <meta name="twitter:site" content={headInfo.baseTitle} />
         <meta name="author" content={headInfo.auther} />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <meta property="og:site_name" content={headInfo.baseTitle}/>
-        <link rel="apple-touch-icon" href="/favicon.ico" sizes="180x180"/>
+        <meta property="og:site_name" content={headInfo.baseTitle} />
+        <link rel="apple-touch-icon" href="/favicon.ico" sizes="180x180" />
       </Head>
       <Header />
       <Box
-          w={{ base: "100%", md: "600px" }}
-          h={{ base: "200px", md: "300px" }}
-          cursor={'grab'}
-        >
-      <Suspense fallback={<Loader/>}>
-        <Goaty />
-      </Suspense>
+        w={{ base: "100%", md: "600px" }}
+        h={{ base: "200px", md: "300px" }}
+        cursor={"grab"}
+      >
+        <Suspense fallback={<Loader />}>
+          <Goaty />
+        </Suspense>
       </Box>
       <AnimatePresence
         exitBeforeEnter
@@ -114,7 +117,7 @@ export default function Layout({ children, router, pageProps }) {
           transition={{ duration: 0.4, type: "easeInOut" }}
           style={{ position: "relative" }}
         >
-          <Box maxW="600px" minH="50vh">
+          <Box w={{ base: "100%", md: "600px" }} minH="50vh">
             {children}
           </Box>
         </motion.div>

@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Box } from "@chakra-ui/react";
 
 export default function SlideAnimatioWrapper({ children, id }) {
   const variants = {
@@ -7,7 +8,7 @@ export default function SlideAnimatioWrapper({ children, id }) {
     exit: { opacity: 0, x: -20, y: 0 },
   };
   return (
-    <>
+    <Box w={'100%'}>
       <AnimatePresence
         exitBeforeEnter
         mode="wait"
@@ -30,6 +31,6 @@ export default function SlideAnimatioWrapper({ children, id }) {
           {children}
         </motion.div>
       </AnimatePresence>
-    </>
+    </Box>
   );
 }

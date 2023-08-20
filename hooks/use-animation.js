@@ -46,6 +46,18 @@ function useAnimation() {
     pseudoElement,
     refs,
   } = options;
+
+  const onlyEffectOptions = {delay,
+    easing,
+    endDelay,
+    duration,
+    direction,
+    fill,
+    iterations,
+    iterationStart,
+    composite,
+    iterationComposite,
+    pseudoElement,}
   function optionConfigure(type, key, val) {
     setOptions({ ...options, type: type, [key]: val });
   }
@@ -172,6 +184,8 @@ function useAnimation() {
           pseudoElement:pseudoElement
         });
         break;
+      default :
+      element.animate(baseAnimation, onlyEffectOptions);
     }
   }
 
