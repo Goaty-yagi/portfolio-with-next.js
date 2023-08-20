@@ -108,7 +108,7 @@ function Method() {
         <Heading as="h1" size="2xl">
           Methods
         </Heading>
-        <Text textAlign={'center'} as="h4" p={"0.5rem"}>
+        <Text textAlign={"center"} as="h4" p={"0.5rem"}>
           {defaultText}
         </Text>
         <Flex
@@ -119,8 +119,9 @@ function Method() {
           m={"1rem"}
           p={"0.5rem"}
         >
-          {Object.keys(methodTypes).map((e) => (
+          {Object.keys(methodTypes).map((e, index) => (
             <Flex
+              key={index}
               border={"solid gray"}
               fontWeight={"bold"}
               bg={"#c75c6fc4"}
@@ -135,21 +136,26 @@ function Method() {
             </Flex>
           ))}
         </Flex>
-        <Tooltip label='Resizable' bg='gray.300' color='black' placement='bottom-end'>
-        <Box
-          border={"solid gray"}
-          borderRadius={"10px"}
-          fontWeight={"bold"}
-          w={"100%"}
-          h={"100px"}
-          overflow={"auto"}
-          mb={"1rem"}
-          p={"1rem"}
-          resize={"vertical"}
+        <Tooltip
+          label="Resizable"
+          bg="gray.300"
+          color="black"
+          placement="bottom-end"
         >
-          {text}
-          <Text mt={'0.5rem'}> {subText}</Text>
-        </Box>
+          <Box
+            border={"solid gray"}
+            borderRadius={"10px"}
+            fontWeight={"bold"}
+            w={"100%"}
+            h={"100px"}
+            overflow={"auto"}
+            mb={"1rem"}
+            p={"1rem"}
+            resize={"vertical"}
+          >
+            {text}
+            <Text mt={"0.5rem"}> {subText}</Text>
+          </Box>
         </Tooltip>
         <OtherMethodTab set={setComponent} />
         <SlideAnimatioWrapper id={component}>
