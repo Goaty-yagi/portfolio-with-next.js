@@ -2,6 +2,33 @@
   "workdata":[
     {
       "img": [
+        "/images/projects/friendRecord/friend.record1.png",
+        "/images/projects/friendRecord/friend.record2.png",
+        "/images/projects/friendRecord/friend.record3.png",
+        "/images/projects/friendRecord/friend.record4.png"
+      ],
+      "alt": "image",
+      "title": "Friend-Record",
+      "project-type": "webApp",
+      "stack": [
+        "typescript",
+        "django",
+        "next.js",
+        "AWS SES"
+      ],
+      "features": [
+        "Record relationships with your friends with financial implications",
+        "Display an overall summary of all your interactions with a friend.",
+        "Display a monthly summary of incoming and outgoing interactions.",
+        "Smart alert functionalities to give you a nudge when your last interaction with a friend is longer than 4 weeks or close to birthday."
+      ],
+      "description": "This is a friend recording app which offload your chores of managing relationships to this app so you can focus on the quality time of interaction with your friend.",
+      "productDescription": "Document your interaction with your friend and display a smart log of past interactions with financial implications.Offload your chores of managing relationships to this app so you can focus on the quality time of interaction with your friend.",
+      "githubUrl": "https://github.com/Goaty-yagi/friend-records-django",
+      "post-url": "https://friend.nobuhiro.site/"
+    },
+    {
+      "img": [
         "/images/projects/sampleWebsite/sample-web1.png",
         "/images/projects/sampleWebsite/sample-web2.png",
         "/images/projects/sampleWebsite/sample-web3.png",
@@ -37,18 +64,16 @@
         "firebase"
       ],
       "features": [
-        "Evaluate japanese skills.",
-        "Check strength and weakness.",
-        "Study japanese according to levels.",
-        "Contribute and support for Japanese learners.",
-        "Be supported your learning."
+        "Evaluate your japanese skills with smart quizzes.",
+        "Check your strength and weakness from your visual summary chart.",
+        "Learn japanese according to your level.",
+        "Support and interact with your peer learners in the community forum."
       ],
       "description": "This is my first project built with Vue-CLI and Django, might be published as a product.",
       "productDescription": "Neko Japanese is a platform where learn Japanese, test and evaluate japanese knowledge, access viewable weakness and strong point in each component, community to discuss Japanese topics. Currently, this is for portfolio purpose, but might be published as a product.",
       "githubUrl": "https://github.com/Goaty-yagi/quiz_project",
       "post-url": "https://neko-japanese.herokuapp.com/"
     },
-
     {
       "img": [
         "/images/projects/quizRankingDojo/quiz-ranking-dojo.png"
