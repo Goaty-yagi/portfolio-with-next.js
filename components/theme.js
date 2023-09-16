@@ -1,13 +1,19 @@
 import { FiSun, FiMoon } from "react-icons/fi";
 import { Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 
 export default function Theme() {
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue("rgb(255, 235, 197)","purple.500")
+  const [isMounted, setIsMounted] = useState(false)
   const hover = useColorModeValue({bg:"orange", color:"white"}, {bg:"purple"})
-
+  useEffect(() => {
+    if(!isMounted) {
+      return setIsMounted(true)
+    }
+  },[])
   return (
     <Box
       position="absolute"
@@ -22,7 +28,7 @@ export default function Theme() {
       <AnimatePresence exitBeforeEnter initial={false}>
         <motion.div
           key={useColorModeValue('light', 'dark')}
-          initial={{ y: -20, opacity: 0 }}
+          initial={{ y: isMounted?-20:0, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.2 }}
