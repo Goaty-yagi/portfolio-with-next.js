@@ -29,7 +29,6 @@ export default function Logo() {
         <Box
           as="logo"
           flexBasis={"20%"}
-          position={"absolute"}
           left="0"
           fontFamily={"Times New Roman', Times, serif"}
           mr="1rem"

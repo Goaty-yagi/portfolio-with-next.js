@@ -1,0 +1,33 @@
+{
+    "outPut": [
+        {
+            "title": "[Framer-Motion] Staggered and Scroll animation",
+            "date": "October 12 2022",
+            "excerpt": "Detail of implementation of Staggered and Scroll animation",
+            "cover_image": "/images/posts/framer-motion.png",
+            "alt": "image",
+            "tags": [
+                "NextJs",
+                "Framer-Motion"
+            ],
+            "paragraphs":[
+                {
+                    "heading":{
+                        "text":"",
+                        "style":{
+
+                        }
+                    },
+                    "main":{
+                        "type":"tabel",
+                        "content":{},
+                        "rest":{}
+                    },
+                    "supportText":{
+
+                    }
+                }
+            ]
+        }
+    ]
+}

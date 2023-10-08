@@ -16,7 +16,6 @@ export default function Theme() {
   },[])
   return (
     <Box
-      position="absolute"
       right="45px"
       top="0"
       cursor={'pointer'}
