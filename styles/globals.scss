@@ -82,8 +82,9 @@ mdContainer {
   background: rgb(217, 217, 217);
   border-left: 1rem solid var(--l-container-border-c);
   padding: 0.5rem;
+  font-weight: bold;
 }
-mdContainer.blue {
+mdContainer.blue { //set classname = blue; 
   color: #414141;
   border-left: 1rem solid #68d0d8;
   background: #e3fcff;
@@ -93,8 +94,22 @@ mdContainer.red {
   border-left: 1rem solid #ff5959;
   background: #ffe7e7;
 }
-img:hover {
-  border: solid red;
+center {
+  display: flex;
+  justify-content: center;
+}
+index-color {
+  color: #ff5959;
+}
+sub-index-color {
+  color: brown;
+}
+r-container {
+  background: gray;
+  padding: 1rem;
+  border-radius: 5px;
+  border: solid #757575;
+  color: white;
 }
 
 * {
