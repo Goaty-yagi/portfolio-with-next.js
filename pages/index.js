@@ -27,6 +27,8 @@ export default function Home({ posts, projects }) {
   };
   const colorScheme = useColorModeValue("pink", "teal");
   const skills = [
+    "c-language",
+    "shell",
     "next.js",
     "react.js",
     "chakra-ui",

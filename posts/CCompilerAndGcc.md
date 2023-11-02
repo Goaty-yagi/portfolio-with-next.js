@@ -19,7 +19,7 @@ This is a record of experiment that how gcc compile c file.
 ```
 <br>
 
-## What I want to achieve?
+## Contents
 
 - What is compiler?
 - What is gcc?
@@ -31,7 +31,7 @@ This is a record of experiment that how gcc compile c file.
 # :What is compiler?
 
 <mdContainer class='blue'>
-A compiler as a IT terminology is like converter from a source file(c-file in this case.) to other types of file. Once you write source code in a c file, it should be converted for a machine readability file to be executed.
+A compiler as an IT terminology is like a converter from a source file(c-file in this case.) to other types of file. Once you write source code in a c file, it should be converted for a machine readability file to be executed.
 </mdContainer>
 
 <br>
