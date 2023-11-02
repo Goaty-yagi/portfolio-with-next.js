@@ -185,15 +185,12 @@ gcc -E HelloWorld.c > HelloWorld.i
 
 ### <sub-index-color>-</sub-index-color> How the preprocessed file looks like?
 
-<br>
-
 <img src="https://images2.imgbox.com/04/91/REendLog_o.png">
 
 <br>
 
 ### <sub-index-color>-</sub-index-color> Now the directory c-practice looks like this.
 
-<br>
 
 <img src="https://images2.imgbox.com/87/17/UdSrhTd1_o.png">
 
@@ -224,15 +221,11 @@ gcc command with a flag S converts preprocessed file to assembly code and make a
 
 ### <sub-index-color>-</sub-index-color> How the assembly code file looks like?
 
-<br>
-
 <img src="https://images2.imgbox.com/63/70/m7OnYOVH_o.png">
 
 <br>
 
 ### <sub-index-color>-</sub-index-color> Now the directory c-practice looks like this.
-
-<br>
 
 <img src="https://images2.imgbox.com/7e/c3/P9rXvOOp_o.png">
 
@@ -266,15 +259,11 @@ gcc command with a flag c converts assembly code to object code and make a .o fi
 
 ### <sub-index-color>-</sub-index-color> How the object code file looks like?
 
-<br>
-
 <img src="https://images2.imgbox.com/42/25/V0rZ2xTO_o.png">
 
 <br>
 
 ### <sub-index-color>-</sub-index-color> Now the directory c-practice looks like this.
-
-<br>
 
 <img src="https://images2.imgbox.com/fc/f0/SyQp6Rdg_o.png">
 
@@ -308,18 +297,12 @@ gcc HelloWorld.c or HelloWorld.i or HelloWorld.s or HelloWorld.o
 
 ### <sub-index-color>-</sub-index-color> Let's execute a.out file with the command ./!
 
-<br>
-
 ```bash
 ./a.out
 ```
 
 <img src="https://images2.imgbox.com/5c/28/UXmW9xnP_o.png">
 
-<br>
-
 ### <sub-index-color>-</sub-index-color> Now the directory c-practice looks like this.
-
-<br>
 
 <img src="https://images2.imgbox.com/42/92/Op842JeS_o.png">
