@@ -73,7 +73,7 @@ This command compile the HelloWorld.c to be executable, and create a.out.
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1F_zGG674U23iDAQ74jeDZG5Inx9A-VoA">
+<img src="https://images2.imgbox.com/2f/ec/vBxKptwR_o.png">
 
 <br>
 
@@ -84,7 +84,7 @@ This command compile the HelloWorld.c to be executable, and create a.out.
 ```
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1Ijjyj7Sy0dzDOr6s29hA897TpaqTfTUf">
+<img src="https://images2.imgbox.com/5c/28/UXmW9xnP_o.png">
 
 <br>
 
@@ -127,7 +127,7 @@ A compilation consists of 4 steps to be executable
 
 ## <index-color>0</index-color>, Let's start from here. We have a c file named HelloWorld.c in a directory named c-practice.
 
-<img src="https://drive.google.com/uc?export=view&id=1EqDcgEz54D1NsBtdSPs-N2voVWv_G6Pd">
+<img src="https://images2.imgbox.com/59/e3/JQAcGtRf_o.png">
 
 ### <sub-index-color>-</sub-index-color> HelloWorld.c looks like this.
 
@@ -187,7 +187,7 @@ gcc -E HelloWorld.c > HelloWorld.i
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1DnMZdOXGxKh2jzd3m-RA3ia1pa3fKcYU">
+<img src="https://images2.imgbox.com/04/91/REendLog_o.png">
 
 <br>
 
@@ -195,7 +195,7 @@ gcc -E HelloWorld.c > HelloWorld.i
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1vhThGdrLvXr4LryaHCFSYKwTncEpqWGQ">
+<img src="https://images2.imgbox.com/87/17/UdSrhTd1_o.png">
 
 
 ## <index-color>2</index-color>, Compilation
@@ -226,7 +226,7 @@ gcc command with a flag S converts preprocessed file to assembly code and make a
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=10qGCpmjDys-5MWpY_HHszDeJu6nvMMaq">
+<img src="https://images2.imgbox.com/63/70/m7OnYOVH_o.png">
 
 <br>
 
@@ -234,7 +234,7 @@ gcc command with a flag S converts preprocessed file to assembly code and make a
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1wH8yBxs0L4lbKFP5eGUSvdobicEAO7bW">
+<img src="https://images2.imgbox.com/7e/c3/P9rXvOOp_o.png">
 
 <br>
 
@@ -268,7 +268,7 @@ gcc command with a flag c converts assembly code to object code and make a .o fi
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=12tAOeIZ9IULpqItI2QsReqVMuJjuofAQ">
+<img src="https://images2.imgbox.com/42/25/V0rZ2xTO_o.png">
 
 <br>
 
@@ -276,7 +276,7 @@ gcc command with a flag c converts assembly code to object code and make a .o fi
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1RaNItJmHWNT5tx22klKT0FlKs_5W7zET">
+<img src="https://images2.imgbox.com/fc/f0/SyQp6Rdg_o.png">
 
 <br>
 
@@ -314,7 +314,7 @@ gcc HelloWorld.c or HelloWorld.i or HelloWorld.s or HelloWorld.o
 ./a.out
 ```
 
-<img src="https://drive.google.com/uc?export=view&id=1SnH65mkk4PwlLUBLcuaAyYyEA4pEHtDx">
+<img src="https://images2.imgbox.com/5c/28/UXmW9xnP_o.png">
 
 <br>
 
@@ -322,4 +322,4 @@ gcc HelloWorld.c or HelloWorld.i or HelloWorld.s or HelloWorld.o
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1G8F4H3oei60tV56hLHUNKoUY0oEMmSn0">
+<img src="https://images2.imgbox.com/42/92/Op842JeS_o.png">
