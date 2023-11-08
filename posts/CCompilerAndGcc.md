@@ -53,7 +53,7 @@ GCC stands for The GNU Compiler Collection which is an optimizing compiler produ
 
 int main()
 {
-    printf("HelloWorld!\n");
+    printf("Hello World!\n");
     return (0);
 }
 ```
@@ -136,7 +136,7 @@ A compilation consists of 4 steps to be executable
 
 int main()
 {
-    printf("HelloWorld!\n");
+    printf("Hello World!\n");
     return (0);
 }
 ```
