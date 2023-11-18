@@ -217,11 +217,12 @@ export default function Home({ posts, projects }) {
                 borderRadius={"10px"}
                 p={"0.3rem"}
                 transition={"300ms"}
+                cursor={"pointer"} 
                 _hover={{
                   border: "solid #ECE698",
                 }}
               >
-                <PiCertificateDuotone fontSize={"1.5rem"} cursor={"pointer"} />
+                <PiCertificateDuotone fontSize={"1.5rem"}/>
               </Flex>
             </Flex>
           ))}
