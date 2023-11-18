@@ -11,7 +11,7 @@ import {
   Heading,
   Text,
   Tag,
-  useColorModeValue,
+  useColorMode
 } from "@chakra-ui/react";
 import React from "react";
 import CustomImage from "../components/customImage";
@@ -26,6 +26,7 @@ import {
 export const Context = React.createContext();
 
 export default function Home({ posts, projects }) {
+  const { colorMode } = useColorMode()
   const imageProps = {
     src: "/me.jpeg",
     alt: "me",
@@ -136,7 +137,7 @@ export default function Home({ posts, projects }) {
                     key={index}
                     variant="solid"
                     m="0.3rem"
-                    colorScheme={useColorModeValue(category.tagStyle.light,category.tagStyle.dark)}
+                    colorScheme={colorMode==='light'?category.tagStyle.light:category.tagStyle.dark}
                   >
                     {skill.toUpperCase()}
                   </Tag>
