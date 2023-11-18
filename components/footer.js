@@ -7,14 +7,13 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
+export const openWindow = (url) => {
+    
+  window.open(url)
 
+}
 export default function Footer() {
   const copyLight = "© 2022 Nobuhiro. All Rights Reserved."
-  const openWindow = (url) => {
-    
-      window.open(url)
-    
-  }
   const configs = [
     {
       name:'linked_in',

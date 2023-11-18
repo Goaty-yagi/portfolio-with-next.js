@@ -11,10 +11,13 @@ import {
   Heading,
   Text,
   Tag,
-  useColorMode
+  Divider,
+  useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
 import CustomImage from "../components/customImage";
+import { openWindow } from "../components/footer";
+import { PiCertificateDuotone } from "react-icons/pi";
 import {
   FcSelfServiceKiosk,
   FcFilingCabinet,
@@ -26,7 +29,7 @@ import {
 export const Context = React.createContext();
 
 export default function Home({ posts, projects }) {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
   const imageProps = {
     src: "/me.jpeg",
     alt: "me",
@@ -37,7 +40,7 @@ export default function Home({ posts, projects }) {
     {
       category: "Front-End",
       icon: FcSelfServiceKiosk,
-      tagStyle:{dark:"teal", light:"pink"},
+      tagStyle: { dark: "teal", light: "orange" },
       stacks: [
         "next.js",
         "react.js",
@@ -56,21 +59,43 @@ export default function Home({ posts, projects }) {
     {
       category: "Back-End",
       icon: FcFilingCabinet,
-      tagStyle:{dark:"red", light:"blue"},
+      tagStyle: { dark: "pink", light: "blue" },
       stacks: ["python", "c-language", "django", "django rest framework"],
     },
     {
       category: "DevOps",
       icon: FcServices,
-      tagStyle:{dark:"blue", light:"green"},
+      tagStyle: { dark: "blue", light: "green" },
       stacks: ["shell", "aws", "heroku", "vercel", "apache"],
     },
-    { category: "Tools", icon: FcSupport,tagStyle:{dark:"yellow", light:"red"}, stacks: ["git", "postman"] },
+    {
+      category: "Tools",
+      icon: FcSupport,
+      tagStyle: { dark: "orange", light: "pink" },
+      stacks: ["git", "postman"],
+    },
     {
       category: "Others",
       icon: FcPlus,
-      tagStyle:{dark:"green", light:"yellow"},
+      tagStyle: { dark: "green", light: "yellow" },
       stacks: ["JWT-authentication", "seo", "cookies", "pwa"],
+    },
+  ];
+  const certifications = [
+    {
+      icon: "aws-logo.svg",
+      name: "AWS Certified Cloud Practitioner",
+      url: "https://www.credly.com/badges/83a1ce2a-70d5-4498-99c3-9d34a4dfccab/linked_in_profile",
+    },
+    {
+      icon: "python-logo.svg",
+      name: "PCAP – Certified Associate in Python Programming",
+      url: "https://verify.openedg.org/?id=edKm.8BVu.VEaG",
+    },
+    {
+      icon: "javascript-logo.svg",
+      name: "General Assembly JavaScript Development",
+      url: "https://drive.google.com/file/d/1bUWCbzCqu4oOuF8SxpynQVxpMu-8SP-c/view",
     },
   ];
   const introText = "Hi, I'm Nobuhiro based in Melbourne.";
@@ -120,16 +145,19 @@ export default function Home({ posts, projects }) {
           </Text>
         </Center>
       </Box>
+      <Divider/>
       <Flex ml="1rem" flexDirection={"column"}>
-        <Heading as="h3" size="md">
+        <Heading as="h2" size="md">
           Skills
         </Heading>
         <Box textAlign={"center"} spacing={4} display="block">
           {skills.map((category, index) => (
             <Box key={index} textAlign={"left"} m={"0.8rem 0"}>
               <Flex alignItems={"center"}>
-                <category.icon fontSize={"1.5rem"}/>
-                <Box ml={"0.5rem"} fontWeight={"bold"}>{category.category.toUpperCase()}</Box>
+                <category.icon fontSize={"1.5rem"} />
+                <Box ml={"0.5rem"} fontWeight={"bold"}>
+                  {category.category.toUpperCase()}
+                </Box>
               </Flex>
               <Box>
                 {category.stacks.map((skill) => (
@@ -137,7 +165,11 @@ export default function Home({ posts, projects }) {
                     key={index}
                     variant="solid"
                     m="0.3rem"
-                    colorScheme={colorMode==='light'?category.tagStyle.light:category.tagStyle.dark}
+                    colorScheme={
+                      colorMode === "light"
+                        ? category.tagStyle.light
+                        : category.tagStyle.dark
+                    }
                   >
                     {skill.toUpperCase()}
                   </Tag>
@@ -146,6 +178,55 @@ export default function Home({ posts, projects }) {
             </Box>
           ))}
         </Box>
+      </Flex>
+      <Divider />
+      <Flex ml="1rem" flexDirection={"column"}>
+        <Heading as="h2" size="md">
+          Certifications
+        </Heading>
+        <Box spacing={4} display="block">
+          {certifications.map((c, index) => (
+            <Flex
+              key={index}
+              m={"0.8rem 0"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Box minW={"40px"} h={"40px"} position={"relative"}>
+                <CustomImage
+                  props={{
+                    src: `/svgs/${c.icon}`,
+                    alt: c.icon,
+                    layout: "fill",
+                    objectFit: "contain",
+                  }}
+                />
+              </Box>
+              <Box flexGrow={1}>
+                <Text ml={"0.5rem"} fontWeight={"boid"}>
+                  {c.name}
+                </Text>
+              </Box>
+              <Flex
+                onClick={() => {
+                  openWindow(c.url);
+                }}
+                minW={"2.5rem"}
+                alignItems={"center"}
+                border={"solid gray"}
+                borderRadius={"10px"}
+                p={"0.3rem"}
+                transition={"300ms"}
+                _hover={{
+                  border: "solid #ECE698",
+                }}
+              >
+                <PiCertificateDuotone fontSize={"1.5rem"} cursor={"pointer"} />
+              </Flex>
+            </Flex>
+          ))}
+        </Box>
+        <Divider />
       </Flex>
       <Context.Provider value={projects}>
         <Work />
