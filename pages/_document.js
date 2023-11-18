@@ -1,6 +1,5 @@
 import { ColorModeScript } from "@chakra-ui/react";
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { useRouter } from "next/router";
 import theme from "/lib/theme";
 import Script from "next/script";
 
