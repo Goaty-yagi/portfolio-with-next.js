@@ -81,7 +81,7 @@ mdContainer {
   color: var(--l-container-text-c);
   background: rgb(217, 217, 217);
   border-left: 1rem solid var(--l-container-border-c);
-  padding: 0.5rem;
+  padding: 2rem 1rem;
   font-weight: bold;
 }
 mdContainer.blue { //set classname = blue; 
@@ -110,6 +110,14 @@ r-container {
   border-radius: 5px;
   border: solid #757575;
   color: white;
+}
+
+customA {
+  color: #3c40c9;
+  cursor: pointer;
+}
+customA:hover {
+  color: #666ae0;
 }
 
 * {

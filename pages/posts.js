@@ -32,9 +32,24 @@ function filterByTag(tag, posts) {
   });
 }
 
+function getOmittedName(nameList, name) {
+  const on = nameList.filter((e) => e.name === name);
+  return on.length ? on[0].omitted : name;
+}
+
 export default function PostPage({ posts }) {
   const [currentTag, setTag] = useState("Search Tag");
   const [allPosts, setPost] = useState(posts);
+  const omittedNames = [
+    {
+      name: "React-Testing-Library",
+      omitted: "R-T-S",
+    },
+    {
+      name: "TypeScript",
+      omitted: "TS",
+    },
+  ];
   const imageProps = (obj) => {
     return {
       src: obj.cover_image,
@@ -111,7 +126,11 @@ export default function PostPage({ posts }) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.2 }}
           >
-            <Box cursor={'pointer'} w={{ base: "auto", md: "600px" }} m={{ base: "0.5rem" }}>
+            <Box
+              cursor={"pointer"}
+              w={{ base: "auto", md: "600px" }}
+              m={{ base: "0.5rem" }}
+            >
               <Text
                 as="b"
                 fontSize={{ base: "1.2rem", md: "1.5rem" }}
@@ -153,7 +172,7 @@ export default function PostPage({ posts }) {
                       </Flex>
                     </Box>
                     <Box m="0.3rem 0">
-                      <Flex width={"100%"}>
+                      <Box width={"100%"}>
                         {post.frontmatter.tags.map((tag, index) => {
                           return (
                             <Tag
@@ -164,11 +183,11 @@ export default function PostPage({ posts }) {
                               p="0.1rem 0.6rem"
                               key={index}
                             >
-                              {tag}
+                              {getOmittedName(omittedNames, tag)}
                             </Tag>
                           );
                         })}
-                      </Flex>
+                      </Box>
                     </Box>
                     <Box
                       h={{ base: "2rem", md: "50px" }}
