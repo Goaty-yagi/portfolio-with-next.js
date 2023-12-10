@@ -112,7 +112,6 @@ Install 5 dependencies<br>
 
 ## <sub-index-color>2</sub-index-color> Create jest.config.js and jest.setup.js files in the root dir.
 
-<br>
 
 ### <sub-index-color>-</sub-index-color> jest.setup.js looks like this.
 
@@ -239,7 +238,7 @@ it("should have Hello Jest text", () => {
 <br>
 
 <mdContainer class='red'>
-"it" is a function provided by testing frameworks like Jest that defines an individual test case or specification. It's used to describe the expected behavior or outcome of a specific part of your code.
+"it"(or test) is a function provided by testing frameworks like Jest that defines an individual test case or specification. It's used to describe the expected behavior or outcome of a specific part of your code.
 <br>
 - The first argument is the test description.<br>
 - The second argument is a callback function that describes the test content
@@ -254,8 +253,22 @@ it("should have Hello Jest text", () => {
 <br>
 
 <mdContainer class='red'>
-"expect"is an assertion function provided by testing frameworks. It's used to make assertions or expectations about certain conditions in your code. It's often followed by matchers like toBe, toBeInTheDocument, etc., to specify the expected behavior.<br>
-You can search more about the expect <customA><a src="https://jestjs.io/docs/expect">here</a></customA>
+"screen" object is a utility provided to facilitate querying and interacting with elements rendered in your tests.
+<br>
+
+You can search more about the screen <customA><a href="https://testing-library.com/docs/react-testing-library/cheatsheet/#queries">here</a></customA>
+
+</mdContainer>
+
+<br>
+
+<mdContainer class='red'>
+"expect"is an assertion function provided by testing frameworks. It's used to make assertions or expectations about certain conditions in your code. It's often followed by matchers like toBe, toBeInTheDocument, etc., to specify the expected behavior.
+
+<br>
+
+You can search more about the expect <customA><a href="https://jestjs.io/docs/expect">here</a></customA>
+
 </mdContainer>
 
 ### <sub-index-color>-</sub-index-color> Let's test!
