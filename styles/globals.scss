@@ -100,10 +100,10 @@ mdTextContainer {
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
-  border: solid 3px rgb(148 148 148);
+  border: solid 3px #595959;
   background: #f4f4f4;
   color: #282828;
-  font-weight: boid;
+  font-weight: bold;
 }
 mdTextContainer boxTitle {
   position: absolute;
@@ -115,17 +115,17 @@ mdTextContainer boxTitle {
   height: 30px;
   line-height: 25px;
   font-size: 17px;
-  background:rgb(148, 148, 148);
+  background:#595959;
   color: #ffffff;
   font-weight: bold;
   border-radius: 5px 5px 0 0;
 }
 
 mdTextContainer.red {
-  border: solid 3px #ff5959;
+  border: solid 3px #D73C3C;
 }
 boxTitle.red {
-  background: #ff5959;
+  background: #D73C3C;
 }
 
 mdTextContainer.blue {
@@ -176,7 +176,7 @@ r-container {
 }
 
 customA {
-  color: #3c40c9;
+  color: #2c32ff;
   cursor: pointer;
 }
 customA:hover {

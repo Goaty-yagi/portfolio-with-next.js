@@ -309,7 +309,7 @@ Run the command in the terminal.
 
 <br>
 
-<img src="/images/posts/test-result.png">
+<img alt="result" src="/images/posts/test-result.png">
 
 <br>
 
