@@ -4,11 +4,16 @@ date: "December 7 2023"
 excerpt: "How to use test library with Next.js and TS"
 cover_image: "/images/posts/jest.jpg"
 alt: "image"
+git: "https://github.com/Goaty-yagi/jest-and-git-action-practice/tree/blog0"
 tags: ["Jest", "React-Testing-Library", "NextJs", "TypeScript"]
 ---
 
+
+<mdTopBottomContainer>
+
 ## This is a record of how I implemented test environment.
 
+</mdTopBottomContainer>
 <br>
 
 ## Dependency
@@ -35,11 +40,12 @@ tags: ["Jest", "React-Testing-Library", "NextJs", "TypeScript"]
 
 ## Contents
 
-- Why I implemented a test environment?
-- What is Jest?
-- What is React-Testing-Library?
-- How to implement a test environment?
-
+<mdDotContainer>
+- Why I implemented a test environment?<br>
+- What is Jest?<br>
+- What is React-Testing-Library?<br>
+- How to implement a test environment?<br>
+</mdDotContainer>
 <br>
 
 # :Why I implemented a test environment?
@@ -83,11 +89,16 @@ The React Testing Library is a very light-weight solution for testing React comp
 
 # :How to implement a test environment?
 
-<mdContainer>
+<br>
+
+<mdTextContainer>
+<boxTitle>
+POINT
+</boxTitle>
 
 Assumption is that next.js app with Typescript is already built.
 
-</mdContainer>
+</mdTextContainer>
 
 <br>
 
@@ -237,39 +248,52 @@ it("should have Hello Jest text", () => {
 
 <br>
 
-<mdContainer class='red'>
+<mdTextContainer class="red">
+<boxTitle class="red">
+What is it?
+</boxTitle>
 "it"(or test) is a function provided by testing frameworks like Jest that defines an individual test case or specification. It's used to describe the expected behavior or outcome of a specific part of your code.
 <br>
 - The first argument is the test description.<br>
 - The second argument is a callback function that describes the test content
-</mdContainer>
+</mdTextContainer>
 
 <br>
 
-<mdContainer class='red'>
+<mdTextContainer class="red">
+<boxTitle class="red">
+What is render?
+</boxTitle>
 "render" initializes the rendering of the component, making it available for inspection and interaction within the test.
-</mdContainer>
+</mdTextContainer>
 
 <br>
 
-<mdContainer class='red'>
+<mdTextContainer class="red">
+<boxTitle class="red">
+What is screen?
+</boxTitle>
 "screen" object is a utility provided to facilitate querying and interacting with elements rendered in your tests.
 <br>
 
 You can search more about the screen <customA><a href="https://testing-library.com/docs/react-testing-library/cheatsheet/#queries">here</a></customA>
 
-</mdContainer>
+</mdTextContainer>
+
 
 <br>
 
-<mdContainer class='red'>
+<mdTextContainer class="red">
+<boxTitle class="red">
+What is expect?
+</boxTitle>
 "expect"is an assertion function provided by testing frameworks. It's used to make assertions or expectations about certain conditions in your code. It's often followed by matchers like toBe, toBeInTheDocument, etc., to specify the expected behavior.
 
 <br>
 
 You can search more about the expect <customA><a href="https://jestjs.io/docs/expect">here</a></customA>
 
-</mdContainer>
+</mdTextContainer>
 
 ### <sub-index-color>-</sub-index-color> Let's test!
 

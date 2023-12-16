@@ -94,6 +94,69 @@ mdContainer.red {
   border-left: 1rem solid #ff5959;
   background: #ffe7e7;
 }
+
+mdTextContainer {
+  display: block;
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 3px rgb(148 148 148);
+  background: #f4f4f4;
+  color: #282828;
+  font-weight: boid;
+}
+mdTextContainer boxTitle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: -32px;
+  left: -3px;
+  padding: 0 1rem;
+  height: 30px;
+  line-height: 25px;
+  font-size: 17px;
+  background:rgb(148, 148, 148);
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+mdTextContainer.red {
+  border: solid 3px #ff5959;
+}
+boxTitle.red {
+  background: #ff5959;
+}
+
+mdTextContainer.blue {
+  border: solid 3px #62c1ce;
+}
+boxTitle.blue {
+  background: #62c1ce;
+}
+
+mdDotContainer {
+  display: block;
+  font-weight: bold;
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+}
+
+mdTopBottomContainer{
+  display: block;
+  padding: 8px 19px;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #cde4ff;
+  border-top: solid 5px #5989cf;
+  border-bottom: solid 5px #5989cf;
+}
+
 center {
   display: flex;
   justify-content: center;

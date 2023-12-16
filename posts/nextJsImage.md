@@ -96,4 +96,3 @@ The objectPosition attribute handles the stick out. Default value is
 ```
  This means move to the center of the image. Left value indicates x-axis.that 0 is left, 100 is right.
 The right value indicates y-axis that 0 is top to bottom 100.
-
