@@ -79,7 +79,7 @@ export default function PostPage({
           </Flex>
         </Box>
         <Box m="1rem 0">
-          <Flex width={"100%"}>
+          <Box width={"100%"} overflow={"auto"}>
             {tags.map((tag, index) => {
               return (
                 <Tag
@@ -88,13 +88,14 @@ export default function PostPage({
                   bg="navy"
                   color={"white"}
                   p="0.1rem 0.6rem"
+                  m="0.2rem 0"
                   key={index}
                 >
                   {tag}
                 </Tag>
               );
             })}
-          </Flex>
+          </Box>
         </Box>
         {git ? (
           <Flex>

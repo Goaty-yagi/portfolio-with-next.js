@@ -172,7 +172,7 @@ export default function PostPage({ posts }) {
                       </Flex>
                     </Box>
                     <Box m="0.3rem 0">
-                      <Box width={"100%"}>
+                      <Box width={"100%"} overflowX={"scroll"} whiteSpace={"nowrap"}>
                         {post.frontmatter.tags.map((tag, index) => {
                           return (
                             <Tag
