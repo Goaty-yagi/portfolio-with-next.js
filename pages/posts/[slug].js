@@ -24,8 +24,8 @@ export default function PostPage({
   const imageProps = {
     src: cover_image,
     alt: alt,
-    width: "600px",
-    height: "300px",
+    layout: "fill",
+    objectFit: "cover",
   };
 
   useEffect(() => {
@@ -104,18 +104,16 @@ export default function PostPage({
                 openWindow(git);
               }}
               cursor={"pointer"}
-              transition={'500ms'}
-              _hover={
-                {
-                  color:"gray"
-                }
-              }
+              transition={"500ms"}
+              _hover={{
+                color: "gray",
+              }}
             >
-              <TiSocialGithubCircular fontSize={"45px"}/>
+              <TiSocialGithubCircular fontSize={"45px"} />
             </Box>
           </Flex>
         ) : null}
-        <Box m="1.5rem 0" w="100%" h="100%">
+        <Box position={"relative"} m="1.5rem 0" w="600px" h="300px">
           <CustomImage props={imageProps} />
         </Box>
         {isMounted ? (
