@@ -2,17 +2,16 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import Image from "next/image";
 import { openWindow } from "../../components/footer";
 import { TiSocialGithubCircular } from "react-icons/ti";
-
+import { GlobalContext } from "../../components/provider";
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python.min";
 import "prismjs/components/prism-bash.min";
 
 import { Box, Flex, Heading, Tag } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import CustomImage from "../../components/customImage";
 
 export default function PostPage({
@@ -21,6 +20,7 @@ export default function PostPage({
   content,
 }) {
   const [isMounted, setMount] = useState(false);
+  const context = useContext(GlobalContext);
   const imageProps = {
     src: cover_image,
     alt: alt,
@@ -113,7 +113,7 @@ export default function PostPage({
             </Box>
           </Flex>
         ) : null}
-        <Box position={"relative"} m="1.5rem 0" w="600px" h="300px">
+        <Box position={"relative"} m="1.5rem 0" w={{ base: context.currentW - 16, md: "600px" }} h={{ base: context.currentW * 0.6, md: "360px" }}>
           <CustomImage props={imageProps} />
         </Box>
         {isMounted ? (

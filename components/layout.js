@@ -5,6 +5,7 @@ import { Suspense, useEffect, useState } from "react";
 import Footer from "./footer";
 import Header from "./header";
 import Loader from "./threeDComponents/loader";
+import Provider from "./provider";
 import Goaty from "./threeDComponents/threeObj";
 
 export default function Layout({ children, router, pageProps }) {
@@ -117,9 +118,11 @@ export default function Layout({ children, router, pageProps }) {
           transition={{ duration: 0.4, type: "easeInOut" }}
           style={{ position: "relative" }}
         >
-          <Box w={{ base: "100%", md: "600px" }} minH="50vh">
-            {children}
-          </Box>
+          <Provider>
+            <Box w={{ base: "100%", md: "600px" }} minH="50vh">
+              {children}
+            </Box>
+          </Provider>
         </motion.div>
       </AnimatePresence>
       <Footer />
