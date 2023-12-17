@@ -1,6 +1,6 @@
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { Box, Center, Flex, Heading } from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 
 export const openWindow = (url) => {
   console.log("CLICKED");
@@ -46,9 +46,9 @@ export default function Footer() {
             />
           ))}
         </Flex>
-        <Heading as="h4" size="sm" mb="1rem">
+        <Text fontWeight={"bold"} size="sm" mb="1rem">
           {copyLight}
-        </Heading>
+        </Text>
       </Box>
     </Flex>
   );
