@@ -37,7 +37,7 @@ export default function Project({ hideTitle }) {
           <Box
           cursor={'pointer'}
             flexBasis={{ base: "auto", md: "50%" }}
-            minH="450px"
+            minH="480px"
             p="0.4rem"
             m="0.5rem"
             boxShadow={"0px 5px 15px 0px rgba(0, 0, 0, 0.35)"}
@@ -45,7 +45,7 @@ export default function Project({ hideTitle }) {
             transition={".3s"}
             _hover={{ border:"solid teal" }}
           >
-            <Heading as="h3" size={"md"} p="0.5rem 0">
+            <Heading as="h2" size={"md"} p="0.5rem 0">
               <Center>{obj.title}</Center>
             </Heading>
             <Box

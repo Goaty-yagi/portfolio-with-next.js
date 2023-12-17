@@ -6,16 +6,19 @@ import { PiCertificateDuotone } from "react-icons/pi";
 export default function Certifications() {
   const certifications = [
     {
+      category: "aws",
       icon: "aws-logo.svg",
       name: "AWS Certified Cloud Practitioner",
       url: "https://www.credly.com/badges/83a1ce2a-70d5-4498-99c3-9d34a4dfccab/linked_in_profile",
     },
     {
+      category: "python",
       icon: "python-logo.svg",
       name: "PCAP – Certified Associate in Python Programming",
       url: "https://verify.openedg.org/?id=edKm.8BVu.VEaG",
     },
     {
+      category: "js",
       icon: "javascript-logo.svg",
       name: "General Assembly JavaScript Development",
       url: "https://drive.google.com/file/d/1bUWCbzCqu4oOuF8SxpynQVxpMu-8SP-c/view",
@@ -34,7 +37,13 @@ export default function Certifications() {
             alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <Box minW={"40px"} h={"40px"} position={"relative"}>
+            <Box
+              minW={"40px"}
+              h={"40px"}
+              position={"relative"}
+              bg={c.category === "aws" ? "white" : ""}
+              borderRadius={c.category === "aws" ? "5px" : ""}
+            >
               <CustomImage
                 props={{
                   src: `/svgs/${c.icon}`,
