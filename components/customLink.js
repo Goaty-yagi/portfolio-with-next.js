@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useRouter } from 'next/router'
 import { Box } from "@chakra-ui/react";
 
-export default function CustomLink({ href, children }) {
+export default function CustomLink({ href, children, scroll=false }) {
   const router = useRouter()
   const [isLoading, setValue] = useState(false)
   function handlelaoding() {
     if(!isLoading) {
-      router.push(href, undefined, { scroll: false })
+      router.push(href, undefined, { scroll: scroll })
       setValue(true)
     }
   }
     return (
       <>
-        <Box w="100%" onClick={handlelaoding}>
+        <Box onClick={handlelaoding}>
           {children}
         </Box>
       </>

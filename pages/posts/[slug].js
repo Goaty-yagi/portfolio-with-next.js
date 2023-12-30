@@ -4,23 +4,28 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import { openWindow } from "../../components/footer";
 import { TiSocialGithubCircular } from "react-icons/ti";
+import { TbArrowBigLeftLine, TbArrowBigRightLine } from "react-icons/tb";
+
+import { FcLink } from "react-icons/fc";
 import { GlobalContext } from "../../components/provider";
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python.min";
 import "prismjs/components/prism-bash.min";
 
-import { Box, Flex, Heading, Tag } from "@chakra-ui/react";
+import { Box, Flex, Heading, Tag, Text } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
+import CustomLink from "../../components/customLink";
 import CustomImage from "../../components/customImage";
 
 export default function PostPage({
-  frontmatter: { title, tags, date, cover_image, git, alt },
+  frontmatter: { title, tags, date, cover_image, git, alt, previous, next },
   slug,
   content,
 }) {
   const [isMounted, setMount] = useState(false);
   const context = useContext(GlobalContext);
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
   const imageProps = {
     src: cover_image,
     alt: alt,
@@ -114,12 +119,88 @@ export default function PostPage({
             </Box>
           </Flex>
         ) : null}
-        <Box position={"relative"} m="1.5rem 0" w={{ base: context.currentW - 16, md: "600px" }} h={{ base: context.currentW * 0.6, md: "360px" }}>
+        <Box
+          position={"relative"}
+          m="1.5rem 0"
+          w={{ base: context.currentW - 16, md: "600px" }}
+          h={{ base: context.currentW * 0.6, md: "360px" }}
+        >
           <CustomImage props={imageProps} />
         </Box>
-        {isMounted ? (
+        {previous && (
+          <>
+            <Flex
+              w={"100%"}
+              whiteSpace={"pre-wrap"}
+              alignItems={"center"}
+              fontSize={"1.5rem"}
+              fontWeight={"bold"}
+              border={"solid #767717"}
+              borderRadius={"0.5rem"}
+              p={"0.3rem 0.5rem"}
+            >
+              <FcLink />
+              <Text ml={"0.5rem"}>In continuation from</Text>
+              <customA>
+                <CustomLink href={origin + previous} scroll={true}> this article</CustomLink>
+              </customA>
+            </Flex>
+          </>
+        )}
+        {isMounted && (
           <Box w="100%" dangerouslySetInnerHTML={{ __html: marked(content) }} />
-        ) : null}
+        )}
+        <Flex
+          justifyContent={"space-between"}
+          mt={"1rem"}
+          fontWeight={"bold"}
+          fontSize={"1.2rem"}
+        >
+          <Box>
+            {previous ? (
+              <CustomLink href={origin + previous} scroll={true}>
+                <Flex
+                  alignItems={"center"}
+                  cursor={"pointer"}
+                  border={"solid lightgray"}
+                  borderRadius={"0.5rem"}
+                  color={"white"}
+                  bg={"#775a85"}
+                  p={"0.2rem 0.3rem"}
+                  transition={"300ms"}
+                  _hover={{ bg: "white", color: "black", border: "solid gray" }}
+                >
+                  <TbArrowBigLeftLine />
+                  <Text ml={"0.5rem"}>PREVIOUS</Text>
+                </Flex>
+              </CustomLink>
+            ) : (
+              <></>
+            )}
+          </Box>
+          <Box>
+            {next ? (
+              <CustomLink href={origin + next} scroll={true}>
+                <Flex
+                  alignItems={"center"}
+                  cursor={"pointer"}
+                  border={"solid lightgray"}
+                  borderRadius={"0.5rem"}
+                  color={"white"}
+                  bg={"#775a85"}
+                  p={"0.2rem 0.3rem"}
+                  transition={"300ms"}
+                  _hover={{ bg: "white", color: "black", border: "solid gray" }}
+                >
+                  <Text mr={"0.5rem"}>NEXT</Text>
+                  <TbArrowBigRightLine />
+                </Flex>
+              </CustomLink>
+            ) : (
+              <></>
+            )}
+          </Box>
+        </Flex>
       </Flex>
     </>
   );
