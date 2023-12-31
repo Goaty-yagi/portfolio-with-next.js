@@ -95,6 +95,12 @@ mdContainer.red {
   background: #ffe7e7;
 }
 
+mdContainer.yellow {
+  color: #414141;
+  border-left: 1rem solid #c1c027;
+  background: #feffe5;
+}
+
 mdTextContainer {
   display: block;
   position: relative;
@@ -175,12 +181,12 @@ r-container {
   color: white;
 }
 
-customA {
+customA, .customA {
   color: #5257FF;
   transition: 300ms;
   cursor: pointer;
 }
-customA:hover {
+customA, .customA:hover {
   color: #666ae0;
 }
 

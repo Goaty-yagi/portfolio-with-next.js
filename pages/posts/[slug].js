@@ -129,22 +129,29 @@ export default function PostPage({
         </Box>
         {previous && (
           <>
-            <Flex
-              w={"100%"}
-              whiteSpace={"pre-wrap"}
-              alignItems={"center"}
-              fontSize={"1.5rem"}
-              fontWeight={"bold"}
-              border={"solid #767717"}
-              borderRadius={"0.5rem"}
-              p={"0.3rem 0.5rem"}
-            >
-              <FcLink />
-              <Text ml={"0.5rem"}>In continuation from</Text>
-              <customA>
-                <CustomLink href={origin + previous} scroll={true}> this article</CustomLink>
-              </customA>
-            </Flex>
+            <Box textAlign={"center"} fontSize={"1.3rem"} whiteSpace={"pre-wrap"}>
+              <span
+                style={{
+                  border: "1px solid #767717",
+                  borderRadius: "0.5rem",
+                  padding: "0.3rem 0.5rem",
+                  display: "inline-block",
+                }}
+              >
+                <Flex alignItems={"center"}>
+                  <FcLink />
+                  <Text ml={"0.5rem"}>In continuation from </Text>
+                  <Box
+                    className={"customA"}
+                    style={{ display: "inline-block" }}
+                  >
+                    <CustomLink href={origin + previous} scroll={true}>
+                      this article
+                    </CustomLink>
+                  </Box>
+                </Flex>
+              </span>
+            </Box>
           </>
         )}
         {isMounted && (

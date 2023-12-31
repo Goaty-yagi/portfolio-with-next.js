@@ -6,12 +6,14 @@ cover_image: "/images/posts/jest.jpg"
 alt: "image"
 git: "https://github.com/Goaty-yagi/jest-and-git-action-practice/tree/blog0"
 tags: ["Jest", "React-Testing-Library", "NextJs", "TypeScript"]
+previous: ""
+next: "/posts/JestBasicFormTest"
 ---
 
 
 <mdTopBottomContainer>
 
-## This is a record of how I implemented test environment.
+### This is a record of how I implemented test environment.
 
 </mdTopBottomContainer>
 <br>
@@ -93,7 +95,7 @@ The React Testing Library is a very light-weight solution for testing React comp
 
 <mdTextContainer>
 <boxTitle>
-POINT
+INFO
 </boxTitle>
 
 Assumption is that next.js app with Typescript is already built.
