@@ -93,20 +93,22 @@ export default function PostPage({
               Posted on {date}
             </Box>
           </Flex>
-          <Flex mt="1rem" w="100%">
-            <Box
-              fontSize="0.9rem"
-              bg="lightgray"
-              border={"solid yellow"}
-              borderRadius={"0.2rem"}
-              p="0 0.2rem"
-              color={"black"}
-              fontWeight={"bold"}
-              boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
-            >
-              Updated on {last_update}
-            </Box>
-          </Flex>
+          {last_update && (
+            <Flex mt="1rem" w="100%">
+              <Box
+                fontSize="0.9rem"
+                bg="lightgray"
+                border={"solid yellow"}
+                borderRadius={"0.2rem"}
+                p="0 0.2rem"
+                color={"black"}
+                fontWeight={"bold"}
+                boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
+              >
+                Updated on {last_update}
+              </Box>
+            </Flex>
+          )}
         </Box>
         <Box m="1rem 0">
           <Box width={"100%"} overflow={"auto"}>
@@ -194,7 +196,9 @@ export default function PostPage({
             mt={"1rem"}
           >
             <Heading>What is updated?</Heading>
-            <Text>{update_excerpt} on {last_update}</Text>
+            <Text>
+              {update_excerpt} on {last_update}
+            </Text>
           </Flex>
         )}
         {isMounted && (
