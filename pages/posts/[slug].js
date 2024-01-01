@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { TbArrowBigLeftLine, TbArrowBigRightLine } from "react-icons/tb";
 
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
@@ -11,7 +10,6 @@ import "prismjs/components/prism-bash.min";
 
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import CustomLink from "../../components/customLink";
 import {
   Tags,
   Dates,
@@ -19,6 +17,7 @@ import {
   Thumbnail,
   PreviousNotice,
   UpdateExcerpt,
+  PreAndNext,
 } from "../../components/posts";
 
 export default function PostPage({
@@ -38,7 +37,6 @@ export default function PostPage({
   content,
 }) {
   const [isMounted, setMount] = useState(false);
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
 
   useEffect(() => {
     setMount(true);
@@ -90,57 +88,7 @@ export default function PostPage({
         {isMounted && (
           <Box w="100%" dangerouslySetInnerHTML={{ __html: marked(content) }} />
         )}
-        <Flex
-          justifyContent={"space-between"}
-          mt={"1rem"}
-          fontWeight={"bold"}
-          fontSize={"1.2rem"}
-        >
-          <Box>
-            {previous ? (
-              <CustomLink href={origin + previous} scroll={true}>
-                <Flex
-                  alignItems={"center"}
-                  cursor={"pointer"}
-                  border={"solid lightgray"}
-                  borderRadius={"0.5rem"}
-                  color={"white"}
-                  bg={"#775a85"}
-                  p={"0.2rem 0.3rem"}
-                  transition={"300ms"}
-                  _hover={{ bg: "white", color: "black", border: "solid gray" }}
-                >
-                  <TbArrowBigLeftLine />
-                  <Text ml={"0.5rem"}>PREVIOUS</Text>
-                </Flex>
-              </CustomLink>
-            ) : (
-              <></>
-            )}
-          </Box>
-          <Box>
-            {next ? (
-              <CustomLink href={origin + next} scroll={true}>
-                <Flex
-                  alignItems={"center"}
-                  cursor={"pointer"}
-                  border={"solid lightgray"}
-                  borderRadius={"0.5rem"}
-                  color={"white"}
-                  bg={"#775a85"}
-                  p={"0.2rem 0.3rem"}
-                  transition={"300ms"}
-                  _hover={{ bg: "white", color: "black", border: "solid gray" }}
-                >
-                  <Text mr={"0.5rem"}>NEXT</Text>
-                  <TbArrowBigRightLine />
-                </Flex>
-              </CustomLink>
-            ) : (
-              <></>
-            )}
-          </Box>
-        </Flex>
+        <PreAndNext previous={previous} next={next} />
       </Flex>
     </>
   );
