@@ -60,20 +60,20 @@ export default function Post({ posts }) {
               </Box>
               {post.frontmatter.last_update && (
                 <Box m="0.2rem 0.5rem">
-                <Flex p="0 0.4rem" w="100%">
-                  <Box
-                    fontSize="0.9rem"
-                    bg="lightgray"
-                    borderRadius={"0.2rem"}
-                    p="0 0.2rem"
-                    color={"black"}
-                    fontWeight={"boid"}
-                    boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
-                  >
-                    Last_update on {post.frontmatter.last_update}
-                  </Box>
-                </Flex>
-              </Box>
+                  <Flex p="0 0.4rem" w="100%">
+                    <Box
+                      fontSize="0.9rem"
+                      bg="lightgray"
+                      borderRadius={"0.2rem"}
+                      p="0 0.2rem"
+                      color={"black"}
+                      fontWeight={"boid"}
+                      boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
+                    >
+                      Last_update on {post.frontmatter.last_update}
+                    </Box>
+                  </Flex>
+                </Box>
               )}
               <Text
                 overflow={"scroll"}
