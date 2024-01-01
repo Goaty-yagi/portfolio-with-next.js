@@ -5,17 +5,15 @@ import { marked } from "marked";
 import { TbArrowBigLeftLine, TbArrowBigRightLine } from "react-icons/tb";
 
 import { FcLink } from "react-icons/fc";
-import { GlobalContext } from "../../components/provider";
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-python.min";
 import "prismjs/components/prism-bash.min";
 
-import { Box, Flex, Heading, Tag, Text } from "@chakra-ui/react";
-import { useEffect, useState, useContext } from "react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import CustomLink from "../../components/customLink";
-import CustomImage from "../../components/customImage";
-import { Tags, Dates, Git } from "../../components/posts";
+import { Tags, Dates, Git, Thumbnail } from "../../components/posts";
 
 export default function PostPage({
   frontmatter: {
@@ -34,14 +32,7 @@ export default function PostPage({
   content,
 }) {
   const [isMounted, setMount] = useState(false);
-  const context = useContext(GlobalContext);
   const origin = typeof window !== "undefined" ? window.location.origin : "";
-  const imageProps = {
-    src: cover_image,
-    alt: alt,
-    layout: "fill",
-    objectFit: "cover",
-  };
 
   useEffect(() => {
     setMount(true);
@@ -82,14 +73,7 @@ export default function PostPage({
         <Dates date={date} last_update={last_update} />
         <Tags tags={tags} />
         {git && <Git git={git} />}
-        <Box
-          position={"relative"}
-          m="1.5rem 0"
-          w={{ base: context.currentW - 16, md: "600px" }}
-          h={{ base: context.currentW * 0.6, md: "360px" }}
-        >
-          <CustomImage props={imageProps} />
-        </Box>
+        <Thumbnail cover_image={cover_image} alt={alt} />
         {previous && (
           <>
             <Box
