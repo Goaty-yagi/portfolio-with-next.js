@@ -190,6 +190,13 @@ customA, .customA:hover {
   color: #666ae0;
 }
 
+textColor {
+  color: black;
+}
+textColor.red {
+  color: red;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -19,7 +19,18 @@ import CustomLink from "../../components/customLink";
 import CustomImage from "../../components/customImage";
 
 export default function PostPage({
-  frontmatter: { title, tags, date, cover_image, git, alt, previous, next },
+  frontmatter: {
+    title,
+    tags,
+    date,
+    last_update,
+    update_excerpt,
+    cover_image,
+    git,
+    alt,
+    previous,
+    next,
+  },
   slug,
   content,
 }) {
@@ -82,6 +93,20 @@ export default function PostPage({
               Posted on {date}
             </Box>
           </Flex>
+          <Flex mt="1rem" w="100%">
+            <Box
+              fontSize="0.9rem"
+              bg="lightgray"
+              border={"solid yellow"}
+              borderRadius={"0.2rem"}
+              p="0 0.2rem"
+              color={"black"}
+              fontWeight={"bold"}
+              boxShadow="0px 5px 15px 0px rgba(0, 0, 0, 0.35)"
+            >
+              Updated on {last_update}
+            </Box>
+          </Flex>
         </Box>
         <Box m="1rem 0">
           <Box width={"100%"} overflow={"auto"}>
@@ -129,7 +154,11 @@ export default function PostPage({
         </Box>
         {previous && (
           <>
-            <Box textAlign={"center"} fontSize={"1.3rem"} whiteSpace={"pre-wrap"}>
+            <Box
+              textAlign={"center"}
+              fontSize={"1.3rem"}
+              whiteSpace={"pre-wrap"}
+            >
               <span
                 style={{
                   border: "1px solid #767717",
@@ -153,6 +182,20 @@ export default function PostPage({
               </span>
             </Box>
           </>
+        )}
+        {update_excerpt && (
+          <Flex
+            flexDirection={"column"}
+            alignItems={"center"}
+            border={"solid #ff84e0"}
+            bg={"lightcyan"}
+            color={"gray"}
+            p={"0.2rem 0.5rem"}
+            mt={"1rem"}
+          >
+            <Heading>What is updated?</Heading>
+            <Text>{update_excerpt} on {last_update}</Text>
+          </Flex>
         )}
         {isMounted && (
           <Box w="100%" dangerouslySetInnerHTML={{ __html: marked(content) }} />
