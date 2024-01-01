@@ -18,6 +18,7 @@ import {
   Git,
   Thumbnail,
   PreviousNotice,
+  UpdateExcerpt,
 } from "../../components/posts";
 
 export default function PostPage({
@@ -81,20 +82,10 @@ export default function PostPage({
         <Thumbnail cover_image={cover_image} alt={alt} />
         {previous && <PreviousNotice previous={previous} />}
         {update_excerpt && (
-          <Flex
-            flexDirection={"column"}
-            alignItems={"center"}
-            border={"solid #ff84e0"}
-            bg={"lightcyan"}
-            color={"gray"}
-            p={"0.2rem 0.5rem"}
-            mt={"1rem"}
-          >
-            <Heading>What is updated?</Heading>
-            <Text>
-              {update_excerpt} on {last_update}
-            </Text>
-          </Flex>
+          <UpdateExcerpt
+            update_excerpt={update_excerpt}
+            last_update={last_update}
+          />
         )}
         {isMounted && (
           <Box w="100%" dangerouslySetInnerHTML={{ __html: marked(content) }} />
