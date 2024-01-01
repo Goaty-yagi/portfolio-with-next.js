@@ -1,14 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { marked } from "marked";
 
-import prismjs from "prismjs";
-import "prismjs/themes/prism-tomorrow.css";
-import "prismjs/components/prism-python.min";
-import "prismjs/components/prism-bash.min";
-
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import {
   Tags,
@@ -18,6 +12,7 @@ import {
   PreviousNotice,
   UpdateExcerpt,
   PreAndNext,
+  Markdown,
 } from "../../components/posts";
 
 export default function PostPage({
@@ -41,26 +36,6 @@ export default function PostPage({
   useEffect(() => {
     setMount(true);
   }, []);
-  const renderer = new marked.Renderer();
-  renderer.code = function (code, lang, escaped) {
-    code = this.options.highlight(code, lang);
-    if (!lang) {
-      return `<pre><code>${code}</code></pre>`;
-    }
-    const langClass = "language-" + lang;
-    return `<pre class="${langClass}"><code class="${langClass}">${code}</code></pre>`;
-  };
-
-  marked.setOptions({
-    renderer,
-    highlight: function (code, lang) {
-      try {
-        return prismjs.highlight(code, prismjs.languages[lang], lang);
-      } catch {
-        return code;
-      }
-    },
-  });
 
   return (
     <>
@@ -85,9 +60,7 @@ export default function PostPage({
             last_update={last_update}
           />
         )}
-        {isMounted && (
-          <Box w="100%" dangerouslySetInnerHTML={{ __html: marked(content) }} />
-        )}
+        {isMounted && <Markdown content={content} />}
         <PreAndNext previous={previous} next={next} />
       </Flex>
     </>
@@ -96,7 +69,6 @@ export default function PostPage({
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("posts"));
-
   const paths = files.map((filename) => ({
     params: {
       slug: filename.replace(".md", ""),
