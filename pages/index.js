@@ -1,20 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Work from "../components/project";
-import Post from "../components/post";
 import { sortByDate } from "../utils";
-import {
-  Box,
-  Center,
-  Flex,
-  Heading,
-  Text,
-  Divider,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Text, Divider } from "@chakra-ui/react";
 import React from "react";
 import CustomImage from "../components/customImage";
-import { Skills, Certifications } from "../components/home";
+import { Skills, Certifications, Post, Project } from "../components/home";
 
 export const Context = React.createContext();
 
@@ -72,12 +63,12 @@ export default function Home({ posts, projects }) {
           </Text>
         </Center>
       </Box>
-      <Divider/>
-      <Skills/>
       <Divider />
-      <Certifications/>
+      <Skills />
+      <Divider />
+      <Certifications />
       <Context.Provider value={projects}>
-        <Work />
+        <Project />
       </Context.Provider>
       <Post posts={posts.slice(0, 2)} />
     </Box>
