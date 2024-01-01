@@ -21,8 +21,7 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import CustomImage from "../components/customImage";
-import CustomLink from "../components/customLink";
+import { CustomImage, CustomLink } from "../components/commons";
 
 function filterByTag(tag, posts) {
   return posts.filter((post) => {

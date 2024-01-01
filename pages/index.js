@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { sortByDate } from "../utils";
 import { Box, Center, Flex, Heading, Text, Divider } from "@chakra-ui/react";
 import React from "react";
-import CustomImage from "../components/customImage";
+import { CustomImage } from "../components/commons";
 import { Skills, Certifications, Post, Project } from "../components/home";
 
 export const Context = React.createContext();

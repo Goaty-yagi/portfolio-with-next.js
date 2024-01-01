@@ -1,6 +1,6 @@
 import { Flex, Box, Heading, Text, Divider } from "@chakra-ui/react";
-import { openWindow } from "../footer";
-import CustomImage from "../customImage";
+import { openWindow } from "../commons/footer";
+import { CustomImage } from "../commons";
 import { PiCertificateDuotone } from "react-icons/pi";
 
 export default function Certifications() {

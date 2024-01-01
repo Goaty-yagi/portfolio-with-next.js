@@ -2,9 +2,7 @@ import { Box, Center, Text, Flex, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import fs from "fs";
 import path from "path";
-
-import CustomImage from "../components/customImage";
-import CustomLink from "../components/customLink";
+import { CustomImage, CustomLink } from "../components/commons";
 
 export default function Project({ projectsdata }) {
   const imageProps = (obj) => {
@@ -37,7 +35,11 @@ export default function Project({ projectsdata }) {
       ></Flex>
       {data.map((each, index) => {
         return (
-          <CustomLink href={"projects/" + each.title} scroll={false} key={index}>
+          <CustomLink
+            href={"projects/" + each.title}
+            scroll={false}
+            key={index}
+          >
             <Box
               mt="2rem"
               minH="300px"
@@ -46,7 +48,7 @@ export default function Project({ projectsdata }) {
               m="0 0.5rem"
               p={"1rem"}
               transition=".5s"
-              cursor={'pointer'}
+              cursor={"pointer"}
               _hover={{ border: "solid orange" }}
             >
               <Flex

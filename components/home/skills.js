@@ -6,6 +6,7 @@ import {
   FcSupport,
 } from "react-icons/fc";
 import { Flex, Box, Tag, Heading, useColorMode } from "@chakra-ui/react";
+
 export default function Skills() {
   const { colorMode } = useColorMode();
   const skills = [

@@ -2,7 +2,7 @@ import styles from "../styles/globals.scss";
 import { ChakraProvider,CSSReset} from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 // A fancy anchor tag that supports pre-fetching
-import Layout from "../components/layout";
+import Layout from "../components/commons/layout";
 const breakpoints = {
   sm: "480px",
   md: "650px",

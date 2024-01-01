@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import CustomLink from "../customLink";
+import { CustomLink } from "../commons";
 import { FcLink } from "react-icons/fc";
 
 export default function PreviousNotice({ previous }) {

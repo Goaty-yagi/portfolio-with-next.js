@@ -4,8 +4,7 @@ import path from "path";
 import { useRouter } from "next/router";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { UnorderedList, ListItem } from "@chakra-ui/react";
-import BreadcrumbCompo from "../../components/breadcrumb";
-import CustomImage from "../../components/customImage";
+import { CustomImage, Breadcrumb} from "../../components/commons";
 
 export default function ProjectPage({ work }) {
   const router = useRouter();
@@ -32,7 +31,7 @@ export default function ProjectPage({ work }) {
       <Flex p={{ base: "0 0.5rem", lg: "0" }} flexDirection={"column"}>
         {workData && (
           <>
-            <BreadcrumbCompo path={path}></BreadcrumbCompo>
+            <Breadcrumb path={path}></Breadcrumb>
             <Heading>{workData.title}</Heading>
             <Text>{workData.productDescription}</Text>
 

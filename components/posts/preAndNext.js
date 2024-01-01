@@ -1,5 +1,5 @@
 import { Flex, Box, Text } from "@chakra-ui/react";
-import CustomLink from "../customLink";
+import { CustomLink } from "../commons";
 import { TbArrowBigLeftLine, TbArrowBigRightLine } from "react-icons/tb";
 
 export default function PreAndNext({ previous, next }) {

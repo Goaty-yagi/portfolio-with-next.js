@@ -550,7 +550,7 @@ console.log printing the string without value which means empty!
 
 <mdTextContainer class="red">
 <boxTitle class="red">
-POINT
+INFO
 </boxTitle>
 
 You might have an error like below.<br><br>

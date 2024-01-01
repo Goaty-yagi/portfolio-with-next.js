@@ -1,12 +1,12 @@
-import { Box, Flex, Spinner, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, useColorModeValue } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import { Suspense, useEffect, useState } from "react";
 import Footer from "./footer";
 import Header from "./header";
-import Loader from "./threeDComponents/loader";
+import Loader from "../threeDComponents/loader";
 import Provider from "./provider";
-import Goaty from "./threeDComponents/threeObj";
+import Goaty from "../threeDComponents/threeObj";
 
 export default function Layout({ children, router, pageProps }) {
   const variants = {

@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
-import CustomImage from "../customImage";
+import { CustomImage } from "../commons";
 import { useContext } from "react";
-import { GlobalContext } from "../provider";
+import { GlobalContext } from "../commons/provider";
 
 export default function Thumbnail({ cover_image, alt }) {
   const context = useContext(GlobalContext);

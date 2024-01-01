@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { Context } from "../../pages";
-import CustomImage from "../customImage";
+import { CustomImage } from "../commons";
 
 export default function Project({ hideTitle }) {
   const projectContext = useContext(Context);

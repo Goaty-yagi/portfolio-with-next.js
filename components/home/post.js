@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Box, Center, Flex, Heading, Text, Button } from "@chakra-ui/react";
-import CustomImage from "../customImage";
-import CustomLink from "../customLink";
+import { CustomImage, CustomLink } from "../commons";
 
 export default function Post({ posts }) {
   const btnText = "Read More >";

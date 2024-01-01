@@ -1,7 +1,7 @@
 import EffectTiming from "../components/animations/effectTimings/effectTiming";
 import Method from "../components/animations/methods/method";
 import { AnimationApiTab } from "../components/customTabs";
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 
 export default function Animatios() {
@@ -16,7 +16,7 @@ export default function Animatios() {
     }
   }
   return (
-    <Box w={'100%'}>
+    <Box w={"100%"}>
       <AnimationApiTab set={setCurrentOption} />
       {tabHandler()}
     </Box>
