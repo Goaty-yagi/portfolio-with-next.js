@@ -2,8 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { openWindow } from "../../components/footer";
-import { TiSocialGithubCircular } from "react-icons/ti";
 import { TbArrowBigLeftLine, TbArrowBigRightLine } from "react-icons/tb";
 
 import { FcLink } from "react-icons/fc";
@@ -17,7 +15,7 @@ import { Box, Flex, Heading, Tag, Text } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import CustomLink from "../../components/customLink";
 import CustomImage from "../../components/customImage";
-import { Tags, Dates } from "../../components/posts";
+import { Tags, Dates, Git } from "../../components/posts";
 
 export default function PostPage({
   frontmatter: {
@@ -81,25 +79,9 @@ export default function PostPage({
         <Heading size="lg" textAlign={"center"}>
           {title}
         </Heading>
-        <Dates date={date} last_update={last_update}/>
-        <Tags tags={tags}/>
-        {git ? (
-          <Flex>
-            <Box
-              display={"block"}
-              onClick={() => {
-                openWindow(git);
-              }}
-              cursor={"pointer"}
-              transition={"500ms"}
-              _hover={{
-                color: "gray",
-              }}
-            >
-              <TiSocialGithubCircular fontSize={"45px"} />
-            </Box>
-          </Flex>
-        ) : null}
+        <Dates date={date} last_update={last_update} />
+        <Tags tags={tags} />
+        {git && <Git git={git} />}
         <Box
           position={"relative"}
           m="1.5rem 0"
