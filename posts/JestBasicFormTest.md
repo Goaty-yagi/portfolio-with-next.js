@@ -1,7 +1,9 @@
 ---
 title: "[Jest] Basic Unit Testing Forms and Submission Logic"
 date: "December 31 2023"
+last_update: "January 1 2024"
 excerpt: "Basic form unit testing with useState and onClick event"
+update_excerpt: "updated with a scenario of act error."
 cover_image: "/images/posts/jest.jpg"
 alt: "jest-image"
 git: "https://github.com/Goaty-yagi/jest-and-git-action-practice/tree/blog1"
@@ -495,14 +497,14 @@ test("Test onSubmit", async () => {
   // Once the button is clicked, it should be disabled
   expect(submitButton).toBeDisabled();
 
-  return new Promise<void>((resolve) => { //New!
+  // Simulate the setTimeout duration (3 seconds)
+  await new Promise<void>((resolve) => {
     setTimeout(() => {
+      // Assert that the button is no longer disabled after 3 seconds
+      expect(input.getAttribute("value")).toBe("");
+      console.log("value:", input.getAttribute("value"));
       resolve();
-    }, 3000); // Simulate the setTimeout duration (3 seconds)
-  }).then(() => {
-    // Assert that the button is no longer disabled after 3 seconds
-    expect(input.getAttribute("value")).toBe("");
-    console.log("value:",input.getAttribute("value"))
+    }, 3000);
   });
 });
 
@@ -543,6 +545,56 @@ Hooray!! We passed the button test!<br>
 console.log printing the string without value which means empty!
 
 </mdContainer>
+
+<br>
+
+<mdTextContainer class="red">
+<boxTitle class="red">
+POINT
+</boxTitle>
+
+You might have an error like below.<br><br>
+<textColor class="red">"Warning: An update to Home inside a test was not wrapped in act(...).
+When testing, code that causes React state updates should be wrapped into act(...):"<textColor>
+<br><br>
+In this case, import act from "@testing-library/react", and surround the function with the act.
+
+</mdTextContainer>
+
+```javascript
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Home from "@/pages";
+
+test("Test onSubmit", async () => {
+  render(<Home />);
+
+  //~~~~~~~~~~~~~~~~~~~~~~//
+  //~~~~~~~~~~~~~~~~~~~~~~//
+
+  await act(async () => {
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    });
+  });
+  expect(input.getAttribute("value")).toBe(""); // Move expect outside of the act()
+  console.log("value:", input.getAttribute("value"));
+});
+```
+
+<br>
+
+<mdTextContainer class="red">
+<boxTitle class="red">
+What is act?
+</boxTitle>
+
+The purpose of act() is to wrap code that causes side effects, updates to the DOM, or state changes triggered by user interactions or asynchronous operations during tests. It helps ensure that these updates are handled synchronously within the testing environment.<br><br>
+You can search more about the screen <customA><a href="https://testing-library.com/docs/react-testing-library/api/#act">here</a></customA>
+
+</mdTextContainer>
 
 # :Conclusions
 
