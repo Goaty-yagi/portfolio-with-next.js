@@ -17,7 +17,7 @@ import { Box, Flex, Heading, Tag, Text } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import CustomLink from "../../components/customLink";
 import CustomImage from "../../components/customImage";
-import Dates from "../../components/posts/dates";
+import { Tags, Dates } from "../../components/posts";
 
 export default function PostPage({
   frontmatter: {
@@ -82,25 +82,7 @@ export default function PostPage({
           {title}
         </Heading>
         <Dates date={date} last_update={last_update}/>
-        <Box m="1rem 0">
-          <Box width={"100%"} overflow={"auto"}>
-            {tags.map((tag, index) => {
-              return (
-                <Tag
-                  border={"solid orange"}
-                  borderRadius="full"
-                  bg="navy"
-                  color={"white"}
-                  p="0.1rem 0.6rem"
-                  m="0.2rem 0"
-                  key={index}
-                >
-                  {tag}
-                </Tag>
-              );
-            })}
-          </Box>
-        </Box>
+        <Tags tags={tags}/>
         {git ? (
           <Flex>
             <Box
