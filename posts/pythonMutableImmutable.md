@@ -33,8 +33,12 @@ Python: 3.8.5
 <mdDotContainer>
 - Introduction<br>
 - ID and Type<br>
+- Aliases<br>
 - Mutable Objects<br>
 - Immutable Objects<br>
+- What if immutable container have mutable value
+- Interning<br>
+- Preallocated intergers<br>
 - Why does it matter<br>
 - How differently does Python treat mutable and immutable objects<br>
 - How arguments are passed to functions and what does that imply for mutable and immutable objects<br>
@@ -42,13 +46,13 @@ Python: 3.8.5
 </mdDotContainer>
 <br>
 
-# Introduction
+# :Introduction
 
 Python is an object-oriented programming language known for its simplicity and readability. In Python, everything is an object, and understanding the nature of objects is crucial for writing efficient and bug-free code. In this blog post, we'll delve into the fundamentals of Python objects, including their identification, mutability, and the implications of mutable and immutable objects.
 
 <br>
 
-# ID and Type
+# :ID and Type
 
 Every object in Python has a unique identifier (id) and a type. The id represents the memory address of the object, while the type defines the class or data type of the object. This unique combination of id and type is what distinguishes one object from another.
 <br>
@@ -124,61 +128,7 @@ INFO
 
 ### Ok, I can see the pattern now.
 
-## <sub-index-color>2</sub-index-color> Weird Id
-
-### <sub-index-color>-</sub-index-color> Let's see a next example!
-
-```python
-a = "hello"
-b = "hello"
-
-# guess True or False
-print(a == b)
-print(a is b)
-```
-
 <br>
-
-<mdContainer class="blue">
-"a == b" must be True because both have the same value "hello.<br>
-but "x is y" is True... Why??
-</mdContainer>
-
-<br>
-
-<mdTextContainer class="red">
-<boxTitle class="red">
-INFO
-</boxTitle>
-Python optimizes memory usage by reusing the same string object for both a and b when they have the same value.<br><br>
-However, it's important to note that the behavior of string interning may vary across different Python implementations and versions, and it is an implementation detail. For this reason, it's recommended to use == when comparing the values of immutable objects like strings and reserve the use of is for checking object identity in cases where it is explicitly needed.
-</mdTextContainer>
-
-### <sub-index-color>-</sub-index-color> Integer have the similar behaviour
-
-```python
-i = 256
-n = 256
-
-print(i == n) # True
-print(i is n) # True
-
-k = 257
-j = 257
-print(k is j) # False
-
-```
-
-### ??? Why "i is n" == True, but "k is j == False"?
-
-<br>
-
-<mdTextContainer class="red">
-<boxTitle class="red">
-INFO
-</boxTitle>
-In Python, small integers(0 ~ 256) and short strings are subject to a feature called "interning," which means that some commonly used values are stored in memory in a way that promotes reusing the same object for efficiency. However, this behavior is implementation-dependent, and it should not be relied upon for all cases.
-</mdTextContainer>
 
 ## <sub-index-color>3</sub-index-color> Type
 
@@ -204,7 +154,20 @@ print(type(instance) == MyClass) # True
 
 <br>
 
-# mutable objects
+# :Aliases
+
+An alias typically refers to an alternative name assigned to an existing variable, module, function, or class. It allows you to refer to the same entity by different names within the scope of your code.
+
+```python
+list_1 = [1, 2, 3]
+list_2 = list_1 # list_2 becomes an alias for 'list_1'
+print(list_1 is list_2) # True
+
+```
+
+<br>
+
+# :Mutable objects
 
 A mutable object is an object whose state or value can be modified after it is created. This means that you can change the content, add, or remove elements of a mutable object without changing its identity (memory location).
 
@@ -232,7 +195,15 @@ my_set.add(4)  # Adding an element to the set
 
 ```
 
-# immutable objects
+## <sub-index-color>4</sub-index-color> Bytearray
+
+```python
+my_bytearray = bytearray(b'hello')
+my_bytearray[0] = 65  # Mutable: elements can be modified
+
+```
+
+# :Immutable objects
 
 An immutable object is an object whose state or value cannot be modified after it is created. Once an immutable object is created, its content remains fixed throughout its lifetime. Any operation that appears to modify the object actually creates a new object with the modified content.
 
@@ -272,9 +243,176 @@ my_new_tuple = my_tuple + (4, 5)
 
 ```
 
+## <sub-index-color>5</sub-index-color> Frozenset
+
+Frozensets are immutable sets.
+
+```python
+my_frozenset = frozenset({1, 2, 3})
+# Immutable: elements cannot be modified or added
+# my_frozenset.add(4)  # This line would raise an AttributeError
+
+```
+
+## <sub-index-color>6</sub-index-color> Byte
+
+```python
+my_bytes = b'hello'
+# Attempting to modify the content results in an error
+# my_bytes[0] = 65  # TypeError: 'bytes' object does not support item assignment
+
+```
+
+## <sub-index-color>7</sub-index-color> Complex
+
+In mathematics, a complex number is a number that can be expressed in the form a + bi, where a and b are real numbers, and i is the imaginary unit, defined as the square root of -1. The symbol i represents the imaginary unit, and it has the property that i² = -1.
+
+```python
+# Using the complex() constructor
+z1 = complex(3, 2)  # 3 + 2i
+z2 = complex(-4, -7)  # -4 - 7i
+
+# Using the j suffix
+z3 = 1 + 4j  # 1 + 4i
+z4 = -2 - 3j  # -2 - 3i
+
+```
+
 <br>
 
-# Why does it matter?
+# :What if immutable container have mutable value
+
+Tuples and frozensets are immutable objects, meaning that their structure cannot be changed after creation. However, it's important to distinguish between the immutability of the container itself and the immutability of the objects it contains.
+
+## <sub-index-color>1</sub-index-color> Tuples
+
+- Tuples are immutable, but they can contain mutable objects.
+- The tuple itself cannot be modified (elements added or removed), but if a tuple contains references to mutable objects (e.g., lists), the state of those mutable objects can be changed.
+
+```python
+mutable_list = [1, 2, 3]
+my_tuple = (4, 5, mutable_list)
+
+# While the tuple is immutable...
+# You can modify the mutable list inside the tuple
+mutable_list.append(4)
+
+print(my_tuple)  # Output: (4, 5, [1, 2, 3, 4])
+
+```
+
+## <sub-index-color>2</sub-index-color> Frozensets:
+
+- Frozensets, unlike regular sets, are immutable and can be used as keys in dictionaries.
+- They can also contain immutable or hashable objects.
+
+Interning is a memory optimization strategy where a single object is reused for equal values to reduce memory consumption.
+```python
+mutable_set = {1, 2, 3}
+frozen_set = frozenset({4, 5, mutable_set})
+
+# You can't modify the frozenset itself...
+# But you can modify the mutable set inside the frozenset
+mutable_set.add(4)
+
+print(frozen_set)  # Output: frozenset({1, 2, 3, 4, 5, {1, 2, 3, 4}})
+
+```
+
+# :Interning
+
+### <sub-index-color>-</sub-index-color> Let's see the next example!
+
+```python
+a = "hello"
+b = "hello"
+
+# guess True or False
+print(a == b)
+print(a is b)
+```
+
+<br>
+
+<mdContainer class="blue">
+"a == b" must be True because both have the same value "hello.<br>
+but "x is y" is True... Why??
+</mdContainer>
+
+<br>
+
+<mdTextContainer class="red">
+<boxTitle class="red">
+INFO
+</boxTitle>  
+In Python, some immutable literals, such as small integers, some strings automatically interned.<br><br>
+
+The goal of interning is to reduce memory consumption by ensuring that only one copy of a particular value is stored in memory, and multiple references to that value point to the same object.
+
+</mdTextContainer>
+
+### <sub-index-color>-</sub-index-color> Integer have the similar behaviour
+
+```python
+i = 256
+n = 256
+
+print(i == n) # True
+print(i is n) # True
+
+k = 257
+j = 257
+print(k is j) # False
+
+```
+
+### ??? Why "i is n" == True, but "k is j == False"?
+
+## Let's see the next topic
+
+# :Preallocated integers
+
+<br>
+
+<mdTextContainer class="yellow">
+<boxTitle class="yellow">
+Concept
+</boxTitle>
+In CPython, the concept of preallocation is specifically associated with small integers within a certain range. During the initialization of the Python interpreter, a block of memory is reserved to preallocate small integer objects. The range for preallocated small integers is determined by constants such as NSMALLPOSINTS and NSMALLNEGINTS.
+</mdTextContainer>
+
+<br>
+
+<mdTextContainer class="yellow">
+<boxTitle class="yellow">
+Purpose
+</boxTitle>
+The purpose of preallocating is to improve performance by reducing the time and resources needed for memory allocation and deallocation.
+</mdTextContainer>
+
+## Ok, then what are NSMALLPOSINTS and NSMALLNEGINTS?
+
+<mdContainer class="blue">
+The terms NSMALLPOSINTS and NSMALLNEGINTS are related to the implementation details of the CPython interpreter, which is the default implementation of the Python programming language. 
+</mdContainer>
+
+### <sub-index-color>-</sub-index-color> NSMALLPOSINTS
+This constant represents the number of small positive integers that are preallocated and cached by the CPython interpreter.(integers in the range [0, NSMALLPOSINTS])
+
+### <sub-index-color>-</sub-index-color> NSMALLNEGINTS
+Similarly, this constant represents the number of small negative integers that are preallocated and cached.(integers in the range [-NSMALLNEGINTS, -1])
+
+<br>
+
+<mdTextContainer class="red">
+<boxTitle class="red">
+INFO
+</boxTitle>
+NSMALLNEGINTS and NSMALLPOSINTS, can vary between different versions of CPython, and it's always a good idea to refer to the specific documentation or source code of the Python version you are using for the most accurate and up-to-date information.
+</mdTextContainer>
+
+
+# :Why mutable and immutable matter?
 
 ## <sub-index-color>1</sub-index-color> Predictable Behavior
 
@@ -288,7 +426,7 @@ Immutable objects are inherently safer in concurrent or multi-threaded environme
 
 Immutable objects can be hashed, making them suitable for keys in dictionaries and elements in sets.
 
-# How differently does Python treat mutable and immutable objects?
+# :How differently does Python treat mutable and immutable objects?
 
 Python treats mutable and immutable objects differently in terms of memory management and assignment. Mutable objects are modified in-place, while immutable objects involve the creation of new objects.
 
@@ -318,7 +456,7 @@ print(string) # hello
 
 ```
 
-# How arguments are passed to functions and what does that imply for mutable and immutable objects
+# :How arguments are passed to functions and what does that imply for mutable and immutable objects
 
 Understanding how arguments are passed to functions is essential for grasping the impact of mutable and immutable objects.
 
