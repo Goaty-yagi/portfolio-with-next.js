@@ -1,5 +1,5 @@
 ---
-title: "[Pytest] Mutable, Immutable... everything is object!"
+title: "[Python] Mutable, Immutable... everything is object!"
 date: "February 9 2024"
 last_update: ""
 excerpt: "About Python object type."
