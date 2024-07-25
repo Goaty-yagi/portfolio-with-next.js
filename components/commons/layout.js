@@ -42,7 +42,7 @@ export default function Layout({ children, router, pageProps }) {
       case "frontmatter":
         return pageProps.frontmatter.title;
       default:
-        return "unko";
+        return "";
     }
   };
 

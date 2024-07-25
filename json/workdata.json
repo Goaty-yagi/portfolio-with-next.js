@@ -2,6 +2,32 @@
   "workdata":[
     {
       "img": [
+        "/images/projects/relish/relish1.png",
+        "/images/projects/relish/relish2.png",
+        "/images/projects/relish/relish3.png",
+        "/images/projects/relish/relish4.png"
+      ],
+      "alt": "image",
+      "title": "Relish",
+      "project-type": "webApp",
+      "stack": [
+        "react",
+        "django",
+        "GitHub Actions",
+        "AWS EC2"
+      ],
+      "features": [
+        "Interactive Map Integration with Google Maps to help users find nearby restaurants and new dining spots.",
+        "Personalized Recommendations based on past visits.",
+        "Gamification includes achievement badges and rewards to motivate users to try new places."
+      ],
+      "description": "Relish is an innovative application designed to inspire and encourage users to explore new restaurants and culinary experiences.",
+      "productDescription": "Relish is an innovative app designed to inspire users to explore new restaurants. It features Google Maps integration for easy discovery, personalized recommendations, and gamification elements like badges and rewards. Built with ReactJS and Django, and deployed on AWS EC2, Relish combines engaging features from Google Maps and Yelp.",
+      "githubUrl": "https://github.com/Goaty-yagi/relish-frontend",
+      "post-url": "https://relish.quest"
+    },
+    {
+      "img": [
         "/images/projects/friendRecord/friend.record1.png",
         "/images/projects/friendRecord/friend.record2.png",
         "/images/projects/friendRecord/friend.record3.png",
