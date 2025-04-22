@@ -8,6 +8,18 @@ export default function Certifications() {
     {
       category: "aws",
       icon: "aws-logo.svg",
+      name: "AWS Certified Developer – Associate",
+      url: "https://www.credly.com/badges/fa091893-b7f6-45ae-868e-b1261aa62ca5/public_url",
+    },
+    {
+      category: "aws",
+      icon: "aws-logo.svg",
+      name: "AWS Certified Solutions Architect – Associate",
+      url: "https://www.credly.com/badges/9da79322-91c1-4f3d-bfe7-8438cc5dbf8b",
+    },
+    {
+      category: "aws",
+      icon: "aws-logo.svg",
       name: "AWS Certified Cloud Practitioner",
       url: "https://www.credly.com/badges/83a1ce2a-70d5-4498-99c3-9d34a4dfccab/linked_in_profile",
     },
