@@ -8,6 +8,12 @@ export default function Certifications() {
     {
       category: "aws",
       icon: "aws-logo.svg",
+      name: "AWS Certified SysOps Administrator – Associate",
+      url: "https://www.credly.com/badges/9437befe-6b7b-46e6-98ba-3b80dbeecdd8/public_url",
+    },
+    {
+      category: "aws",
+      icon: "aws-logo.svg",
       name: "AWS Certified Developer – Associate",
       url: "https://www.credly.com/badges/fa091893-b7f6-45ae-868e-b1261aa62ca5/public_url",
     },
